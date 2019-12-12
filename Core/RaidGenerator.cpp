@@ -49,8 +49,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
     for (u32 frame = 0; frame < maxResults; frame++, seed += 0x82A2B175229D6A5B)
     {
         XoroShiro rng(seed);
-        Frame result(tsv);
-        result.setFrame(startFrame + frame);
+        Frame result(startFrame + frame, tsv);
 
         u32 ec = static_cast<u32>(rng.nextInt());
         result.setEC(ec);
