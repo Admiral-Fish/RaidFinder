@@ -44,6 +44,7 @@ public:
     u8 getByte();
     u16 getUShort();
     u32 getUInt();
+    u64 getULong();
 
 private:
     bool setup;

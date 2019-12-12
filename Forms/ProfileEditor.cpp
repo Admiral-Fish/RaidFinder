@@ -75,6 +75,8 @@ void ProfileEditor::setupModels()
     ui->comboBoxProfileVersion->setItemData(0, Game::Sword);
     ui->comboBoxProfileVersion->setItemData(1, Game::Shield);
 
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &ProfileEditor::okay);
+
     QSettings setting;
     if (setting.contains("profileEditor/geometry"))
     {
@@ -82,7 +84,7 @@ void ProfileEditor::setupModels()
     }
 }
 
-void ProfileEditor::on_buttonBox_accepted()
+void ProfileEditor::okay()
 {
     QString input = ui->lineEditProfileName->text().trimmed();
     if (input.isEmpty())
@@ -97,9 +99,4 @@ void ProfileEditor::on_buttonBox_accepted()
         static_cast<Game>(ui->comboBoxProfileVersion->currentData().toInt()));
 
     done(QDialog::Accepted);
-}
-
-void ProfileEditor::on_buttonBox_rejected()
-{
-    done(QDialog::Rejected);
 }

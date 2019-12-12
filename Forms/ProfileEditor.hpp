@@ -51,8 +51,7 @@ private:
     void setupModels();
 
 private slots:
-    void on_buttonBox_accepted();
-    void on_buttonBox_rejected();
+    void okay();
 };
 
 #endif // PROFILEEDITOR_HPP

@@ -41,6 +41,7 @@ FORMS += \
 
 HEADERS += \
     Core/Frame.hpp \
+    Core/FrameCompare.hpp \
     Core/Game.hpp \
     Core/Global.hpp \
     Core/Nature.hpp \
@@ -62,6 +63,7 @@ HEADERS += \
 
 SOURCES += \
     Core/Frame.cpp \
+    Core/FrameCompare.cpp \
     Core/Nature.cpp \
     Core/Power.cpp \
     Core/Profile.cpp \

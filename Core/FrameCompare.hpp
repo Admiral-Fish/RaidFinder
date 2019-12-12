@@ -17,24 +17,28 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMEMODEL_HPP
-#define FRAMEMODEL_HPP
+#ifndef FRAMECOMPARE_HPP
+#define FRAMECOMPARE_HPP
 
 #include <Core/Frame.hpp>
-#include <Models/TableModel.hpp>
+#include <QVector>
 
-class FrameModel : public TableModel<Frame>
+class FrameCompare
 {
-    Q_OBJECT
 public:
-    FrameModel(QObject *parent = nullptr);
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    FrameCompare() = default;
+    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
+        const QVector<bool> &natures);
+    bool compareFrame(const Frame &frame) const;
 
 private:
-    QStringList header = { tr("Frame"), tr("HP"), tr("Atk"), tr("Def"), tr("SpA"), tr("SpD"), tr("Spe"), tr("Shiny"),
-        tr("Nature"), tr("Ability"), tr("Gender"), tr("EC"), tr("PID") };
+    QVector<u8> min;
+    QVector<u8> max;
+    u8 gender {};
+    u8 ability {};
+    QVector<bool> natures;
+    bool shiny {};
+    bool skip {};
 };
 
-#endif // FRAMEMODEL_HPP
+#endif // FRAMECOMPARE_HPP

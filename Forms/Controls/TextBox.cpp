@@ -96,6 +96,11 @@ u32 TextBox::getUInt()
     return this->text().toUInt(nullptr, base);
 }
 
+u64 TextBox::getULong()
+{
+    return this->text().toUInt(nullptr, base);
+}
+
 void TextBox::onTextChanged(QString string)
 {
     if (setup)

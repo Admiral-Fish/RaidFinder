@@ -54,6 +54,8 @@ private slots:
     void updateProfiles();
     void profilesIndexChanged(int index);
     void openProfileManager();
+    void updateSeed();
+    void denIndexChanged(int index);
     void generate();
 };
 #endif // MAINWINDOW_HPP

@@ -102,5 +102,22 @@
   <tabstop>textBoxProfileSID</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ProfileEditor</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>140</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -37,7 +37,7 @@ RaidGenerator::RaidGenerator(
     this->ivCount = ivCount;
 }
 
-QVector<Frame> RaidGenerator::generate(u64 seed)
+QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
 {
     QVector<Frame> frames;
 
@@ -114,7 +114,22 @@ QVector<Frame> RaidGenerator::generate(u64 seed)
 
         if (genderType == 0) // Random
         {
-            result.setGender(static_cast<u8>(rng.nextInt(252) + 1) < genderRatio);
+            if (genderRatio == 255) // Locked genderless
+            {
+                result.setGender(2);
+            }
+            else if (genderRatio == 254) // Locked female
+            {
+                result.setGender(1);
+            }
+            else if (genderRatio == 0) // Locked male
+            {
+                result.setGender(0);
+            }
+            else // Random
+            {
+                result.setGender(static_cast<u8>(rng.nextInt(252) + 1) < genderRatio);
+            }
         }
         else if (genderType == 1) // Male
         {
@@ -132,8 +147,10 @@ QVector<Frame> RaidGenerator::generate(u64 seed)
         // TODO: toxtricity (why)
         result.setNature(static_cast<u8>(rng.nextInt(25)));
 
-        // Do a filter eventually
-        frames.push_back(result);
+        if (compare.compareFrame(result))
+        {
+            frames.push_back(result);
+        }
     }
 
     return frames;

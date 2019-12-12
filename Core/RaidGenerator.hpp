@@ -21,13 +21,14 @@
 #define RAIDGENERATOR_HPP
 
 #include <Core/Frame.hpp>
+#include <Core/FrameCompare.hpp>
 #include <QVector>
 
 class RaidGenerator
 {
 public:
     RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tsv, u8 genderType, u8 genderRatio, u8 ivCount);
-    QVector<Frame> generate(u64 seed);
+    QVector<Frame> generate(const FrameCompare &compare, u64 seed);
 
 private:
     u32 startFrame;

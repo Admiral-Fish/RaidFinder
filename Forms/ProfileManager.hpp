@@ -45,10 +45,9 @@ private:
     void setupModels();
 
 private slots:
-    void on_pushButtonNew_clicked();
-    void on_pushButtonEdit_clicked();
-    void on_pushButtonDelete_clicked();
-    void on_pushButtonDone_clicked();
+    void create();
+    void edit();
+    void remove();
 };
 
 #endif // PROFILEMANAGER_HPP

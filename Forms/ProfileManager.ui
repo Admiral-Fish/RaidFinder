@@ -58,5 +58,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonDone</sender>
+   <signal>clicked()</signal>
+   <receiver>ProfileManager</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

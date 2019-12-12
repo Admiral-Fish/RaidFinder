@@ -25,6 +25,7 @@
 
 class ProfileModel : public TableModel<Profile>
 {
+    Q_OBJECT
 public:
     ProfileModel(QObject *parent = nullptr);
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
