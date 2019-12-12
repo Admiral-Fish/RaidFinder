@@ -19,8 +19,9 @@
 
 #include "Frame.hpp"
 
-Frame::Frame(u16 tsv)
+Frame::Frame(u32 frame, u16 tsv)
 {
+    this->frame = frame;
     this->tsv = tsv;
 
     for (u8 &iv : ivs)
@@ -32,11 +33,6 @@ Frame::Frame(u16 tsv)
 u32 Frame::getFrame() const
 {
     return frame;
-}
-
-void Frame::setFrame(u32 frame)
-{
-    this->frame = frame;
 }
 
 u32 Frame::getEC() const

@@ -91,6 +91,7 @@ QString Profile::getVersionString() const
     case Game::Shield:
         return "Shield";
     }
+    return "-";
 }
 
 QVector<Profile> Profile::loadProfileList()
