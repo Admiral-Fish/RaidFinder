@@ -25,6 +25,7 @@
 class Raid
 {
 public:
+    Raid() = default;
     Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species);
     u8 getAbility() const;
     u8 getAltForm() const;
