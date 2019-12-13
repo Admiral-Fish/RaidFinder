@@ -131,6 +131,7 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
     QPair<u64, u64> hashes = tableHashes.at(index);
 
     QFile f(":/encounters/nests.json");
+    u8 count = 0;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QJsonObject data(QJsonDocument::fromJson(f.readAll()).object());
@@ -162,6 +163,10 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
                 }
 
                 dens.append(Den(raids, gameVersion, hash));
+                if (++count == 2) // Only 2 dens per index (normal/rare)
+                {
+                    break;
+                }
             }
         }
     }
