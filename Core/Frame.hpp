@@ -25,8 +25,10 @@
 class Frame
 {
 public:
+    Frame() = default;
     Frame(u32 frame, u16 tsv);
     u32 getFrame() const;
+    void setFrame(u32 frame);
     u32 getEC() const;
     void setEC(u32 ec);
     u32 getPID() const;

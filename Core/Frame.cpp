@@ -35,6 +35,11 @@ u32 Frame::getFrame() const
     return frame;
 }
 
+void Frame::setFrame(u32 frame)
+{
+    this->frame = frame;
+}
+
 u32 Frame::getEC() const
 {
     return ec;
