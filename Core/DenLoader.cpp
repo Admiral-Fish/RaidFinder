@@ -136,9 +136,9 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
         QJsonObject data(QJsonDocument::fromJson(f.readAll()).object());
 
         QJsonArray tables = data["Tables"].toArray();
-        for (auto i = 0; i < tables.size(); i++)
+        for (auto &&i : tables)
         {
-            QJsonObject table = tables[i].toObject();
+            QJsonObject table = i.toObject();
 
             u64 hash = table["TableID"].toString().toULongLong();
             Game gameVersion = table["GameVersion"].toInt() == 1 ? Game::Sword : Game::Shield;
@@ -146,9 +146,9 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
             {
                 QVector<Raid> raids;
                 QJsonArray entries = table["Entries"].toArray();
-                for (auto j = 0; j < entries.size(); j++)
+                for (auto &&j : entries)
                 {
-                    QJsonObject entry = entries[j].toObject();
+                    QJsonObject entry = j.toObject();
 
                     u8 ability = static_cast<u8>(entry["Ability"].toInt());
                     u8 altform = static_cast<u8>(entry["AltForm"].toInt());

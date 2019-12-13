@@ -131,7 +131,7 @@ void Profile::deleteProfile()
     QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
     QJsonArray gen8 = profiles["gen8"].toArray();
 
-    for (u8 i = 0; i < gen8.size(); i++)
+    for (auto i = 0; i < gen8.size(); i++)
     {
         Profile profile(gen8[i].toObject());
 

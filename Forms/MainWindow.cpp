@@ -95,7 +95,7 @@ void MainWindow::setupModels()
     connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
     currentLanguage = setting.value("settings/locale", "en").toString();
     QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh_Hans_CN" };
-    for (u8 i = 0; i < locales.size(); i++)
+    for (auto i = 0; i < locales.size(); i++)
     {
         const QString &lang = locales.at(i);
 
@@ -115,7 +115,7 @@ void MainWindow::setupModels()
     connect(styleGroup, &QActionGroup::triggered, this, &MainWindow::slotStyleChanged);
     currentStyle = setting.value("settings/style", "dark").toString();
     QStringList styles = { "dark", "light" };
-    for (u8 i = 0; i < styles.size(); i++)
+    for (auto i = 0; i < styles.size(); i++)
     {
         const QString &style = styles.at(i);
 
@@ -249,10 +249,11 @@ void MainWindow::denIndexChanged(int index)
         }
 
         ui->comboBoxSpecies->clear();
-        dens = DenLoader::getDens(index, profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
+        dens = DenLoader::getDens(
+            static_cast<u8>(index), profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
 
         QVector<QPair<u16, u8>> raids;
-        for (auto den : dens)
+        for (const auto &den : dens)
         {
             raids.append(den.getRaids());
         }
