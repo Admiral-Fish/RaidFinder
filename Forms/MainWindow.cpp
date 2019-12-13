@@ -247,7 +247,6 @@ void MainWindow::generate()
     model->clearModel();
 
     auto &profile = profiles.at(ui->comboBoxProfiles->currentIndex());
-    u64 seed = ui->textBoxSeed->getULong();
     u32 initialFrame = ui->textBoxInitialFrame->getUInt();
     u32 maxResults = ui->textBoxMaxResults->getUInt();
     u8 abilityType = static_cast<u8>(ui->comboBoxAbilityType->currentData().toInt());
@@ -265,6 +264,8 @@ void MainWindow::generate()
 
     RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTSV(), genderType, genderRatio, ivCount);
     FrameCompare compare(gender, ability, shiny, skip, min, max, natures);
+
+    u64 seed = ui->textBoxSeed->getULong();
     QVector<Frame> frames = generator.generate(compare, seed);
 
     model->addItems(frames);
