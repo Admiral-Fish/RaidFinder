@@ -26,11 +26,9 @@
 
 namespace Nature
 {
+    void init();
     QStringList getNatures();
     QString getNature(u8 nature);
-    QStringList getFrameNatures();
-    u8 getAdjustedNature(u8 nature);
-    u8 getReversedNature(u8 nature);
 }
 
 #endif // NATURE_HPP

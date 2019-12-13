@@ -8,7 +8,7 @@
         <location filename="../Forms/Controls/CheckList.cpp" line="112"/>
         <location filename="../Forms/Controls/CheckList.cpp" line="129"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>Any</translation>
     </message>
 </context>
 <context>
@@ -16,77 +16,77 @@
     <message>
         <location filename="../Models/FrameModel.cpp" line="56"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Yes</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.cpp" line="56"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>No</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Frame</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>HP</source>
-        <translation type="unfinished"></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Atk</source>
-        <translation type="unfinished"></translation>
+        <translation>Atk</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Def</source>
-        <translation type="unfinished"></translation>
+        <translation>Def</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>SpA</source>
-        <translation type="unfinished"></translation>
+        <translation>SpA</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>SpD</source>
-        <translation type="unfinished"></translation>
+        <translation>SpD</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Spe</source>
-        <translation type="unfinished"></translation>
+        <translation>Spe</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Shiny</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Nature</source>
-        <translation type="unfinished"></translation>
+        <translation>Nature</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Ability</source>
-        <translation type="unfinished"></translation>
+        <translation>Ability</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Gender</source>
-        <translation type="unfinished"></translation>
+        <translation>Gender</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>EC</source>
-        <translation type="unfinished"></translation>
+        <translation>EC</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>PID</source>
-        <translation type="unfinished"></translation>
+        <translation>PID</translation>
     </message>
 </context>
 <context>
@@ -94,326 +94,271 @@
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>HP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/Controls/IVFilter.ui"/>
-        <source>~</source>
-        <translation type="unfinished"></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Atk</source>
-        <translation type="unfinished"></translation>
+        <translation>Atk</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Def</source>
-        <translation type="unfinished"></translation>
+        <translation>Def</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>SpA</source>
-        <translation type="unfinished"></translation>
+        <translation>SpA</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>SpD</source>
-        <translation type="unfinished"></translation>
+        <translation>SpD</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Spe</source>
-        <translation type="unfinished"></translation>
+        <translation>Spe</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click to clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Click to Clear</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding ctrl to set 31</source>
-        <translation type="unfinished"></translation>
+        <translation>Click holding ctrl to set 31</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding alt to set 30-31</source>
-        <translation type="unfinished"></translation>
+        <translation>Click holding alt to set 30-31</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="30"/>
         <source>Click holding ctrl+alt to set 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Click holding ctrl+alt to set 0</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <source>MainWindow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
         <source>Profiles</source>
-        <translation type="unfinished"></translation>
+        <translation>Profiles</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Game</source>
-        <translation type="unfinished"></translation>
+        <translation>Game</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Manager</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>RNG Info</source>
-        <translation type="unfinished"></translation>
+        <translation>RNG Info</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Results</source>
-        <translation type="unfinished"></translation>
+        <translation>Max Results</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Initial Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Initial Frame</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>Generate</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed</source>
-        <translation type="unfinished"></translation>
+        <translation>Seed</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den</source>
-        <translation type="unfinished"></translation>
+        <translation>Den</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>IV Count</source>
-        <translation type="unfinished"></translation>
+        <translation>IV Count</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Random</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>♂</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>♀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation>Random</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Ability</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>0/1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>0/1/H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ability</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Species</source>
-        <translation type="unfinished"></translation>
+        <translation>Species</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Gender</source>
-        <translation type="unfinished"></translation>
+        <translation>Gender</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Gender Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Gender Ratio</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Genderless</source>
-        <translation type="unfinished"></translation>
+        <translation>Genderless</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Only ♂</source>
-        <translation type="unfinished"></translation>
+        <translation>Only ♂</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Only ♀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>12.5% ♀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>25% ♀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>50% ♀</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>75% ♀</source>
-        <translation type="unfinished"></translation>
+        <translation>Only ♀</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Filters</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>Any</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Nature</source>
-        <translation type="unfinished"></translation>
+        <translation>Nature</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>Shiny</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Disable Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable Filters</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Style</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Language</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dark</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Light</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>German</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>English</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanish</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>French</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Italian</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Japanese</source>
-        <translation type="unfinished"></translation>
+        <translation>Japanese</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Korean</source>
-        <translation type="unfinished"></translation>
+        <translation>Korean</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="152"/>
+        <location filename="../Forms/MainWindow.cpp" line="158"/>
         <source>Language update</source>
-        <translation type="unfinished"></translation>
+        <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="153"/>
-        <location filename="../Forms/MainWindow.cpp" line="173"/>
+        <location filename="../Forms/MainWindow.cpp" line="159"/>
+        <location filename="../Forms/MainWindow.cpp" line="179"/>
         <source>Restart for changes to take effect. Restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="172"/>
+        <location filename="../Forms/MainWindow.cpp" line="178"/>
         <source>Style change</source>
-        <translation type="unfinished"></translation>
+        <translation>Style change</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Sword</source>
+        <translation>Sword</translation>
     </message>
 </context>
 <context>
@@ -421,42 +366,42 @@
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Profile Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile Editor</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Sword</source>
-        <translation type="unfinished"></translation>
+        <translation>Sword</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Shield</source>
-        <translation type="unfinished"></translation>
+        <translation>Shield</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile Name</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.cpp" line="93"/>
         <source>Enter a Profile Name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter a Profile Name.</translation>
     </message>
 </context>
 <context>
@@ -464,43 +409,43 @@
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Profile Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile Manager</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>New</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Done</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.cpp" line="82"/>
         <location filename="../Forms/ProfileManager.cpp" line="104"/>
         <source>Please select a profile.</source>
-        <translation type="unfinished"></translation>
+        <translation>Please select a profile.</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.cpp" line="109"/>
         <source>Delete profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete profile</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.cpp" line="110"/>
         <source>Are you sure you wish to delete this profile?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure you wish to delete this profile?</translation>
     </message>
 </context>
 <context>
@@ -508,255 +453,22 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>Profile Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile Name</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../Core/Nature.cpp" line="25"/>
-        <location filename="../Core/Nature.cpp" line="42"/>
-        <source>Adamant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="25"/>
-        <location filename="../Core/Nature.cpp" line="42"/>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="25"/>
-        <location filename="../Core/Nature.cpp" line="41"/>
-        <source>Brave</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="26"/>
-        <location filename="../Core/Nature.cpp" line="45"/>
-        <source>Calm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="26"/>
-        <location filename="../Core/Nature.cpp" line="46"/>
-        <source>Careful</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="26"/>
-        <location filename="../Core/Nature.cpp" line="43"/>
-        <source>Hasty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="26"/>
-        <location filename="../Core/Nature.cpp" line="43"/>
-        <source>Impish</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="26"/>
-        <location filename="../Core/Nature.cpp" line="44"/>
-        <source>Jolly</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="27"/>
-        <location filename="../Core/Nature.cpp" line="41"/>
-        <source>Lonely</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="27"/>
-        <location filename="../Core/Nature.cpp" line="44"/>
-        <source>Mild</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="27"/>
-        <location filename="../Core/Nature.cpp" line="44"/>
-        <source>Modest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="27"/>
-        <location filename="../Core/Nature.cpp" line="44"/>
-        <source>Naive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="27"/>
-        <location filename="../Core/Nature.cpp" line="42"/>
-        <source>Naughty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="28"/>
-        <location filename="../Core/Nature.cpp" line="45"/>
-        <source>Quiet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="28"/>
-        <location filename="../Core/Nature.cpp" line="45"/>
-        <source>Rash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="28"/>
-        <location filename="../Core/Nature.cpp" line="43"/>
-        <source>Relaxed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="28"/>
-        <location filename="../Core/Nature.cpp" line="46"/>
-        <source>Sassy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="28"/>
-        <location filename="../Core/Nature.cpp" line="43"/>
-        <source>Timid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="29"/>
-        <location filename="../Core/Nature.cpp" line="45"/>
-        <source>Gentle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="29"/>
-        <location filename="../Core/Nature.cpp" line="43"/>
-        <source>Lax</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="29"/>
-        <location filename="../Core/Nature.cpp" line="45"/>
-        <source>Bashful</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="29"/>
-        <location filename="../Core/Nature.cpp" line="42"/>
-        <source>Docile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="29"/>
-        <location filename="../Core/Nature.cpp" line="41"/>
-        <source>Hardy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="30"/>
-        <location filename="../Core/Nature.cpp" line="46"/>
-        <source>Quirky</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Nature.cpp" line="30"/>
-        <location filename="../Core/Nature.cpp" line="44"/>
-        <source>Serious</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="25"/>
-        <source>Fighting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="25"/>
-        <source>Flying</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="25"/>
-        <source>Poison</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="25"/>
-        <source>Ground</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="26"/>
-        <source>Rock</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="26"/>
-        <source>Bug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="26"/>
-        <source>Ghost</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="26"/>
-        <source>Steel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="26"/>
-        <source>Fire</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="27"/>
-        <source>Water</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="27"/>
-        <source>Grass</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="27"/>
-        <source>Electric</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="27"/>
-        <source>Psychic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="27"/>
-        <source>Ice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="28"/>
-        <source>Dragon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Core/Power.cpp" line="28"/>
-        <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
 </context>
 </TS>

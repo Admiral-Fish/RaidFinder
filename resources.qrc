@@ -11,5 +11,13 @@
         <file alias="species_ja.txt">Resources/species_ja.txt</file>
         <file alias="species_ko.txt">Resources/species_ko.txt</file>
         <file alias="species_zh.txt">Resources/species_zh.txt</file>
+        <file alias="natures_de.txt">Resources/natures_de.txt</file>
+        <file alias="natures_en.txt">Resources/natures_en.txt</file>
+        <file alias="natures_es.txt">Resources/natures_es.txt</file>
+        <file alias="natures_fr.txt">Resources/natures_fr.txt</file>
+        <file alias="natures_it.txt">Resources/natures_it.txt</file>
+        <file alias="natures_ja.txt">Resources/natures_ja.txt</file>
+        <file alias="natures_ko.txt">Resources/natures_ko.txt</file>
+        <file alias="natures_zh.txt">Resources/natures_zh.txt</file>
     </qresource>
 </RCC>

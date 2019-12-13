@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
+    Nature::init();
     updateProfiles();
     setupModels();
 }

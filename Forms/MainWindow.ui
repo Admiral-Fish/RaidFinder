@@ -16,9 +16,6 @@
     <height>600</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0" colspan="3">
@@ -49,7 +46,7 @@
        <item row="0" column="6">
         <widget class="QLabel" name="labelProfileGameValue">
          <property name="text">
-          <string>X</string>
+          <string>Sword</string>
          </property>
         </widget>
        </item>
@@ -216,17 +213,17 @@
          </item>
          <item>
           <property name="text">
-           <string>♂</string>
+           <string notr="true">♂</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>♀</string>
+           <string notr="true">♀</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>-</string>
+           <string>Genderless</string>
           </property>
          </item>
         </widget>
@@ -252,12 +249,12 @@
         <widget class="QComboBox" name="comboBoxAbilityType">
          <item>
           <property name="text">
-           <string>0/1</string>
+           <string notr="true">0/1</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>0/1/H</string>
+           <string notr="true">0/1/H</string>
           </property>
          </item>
         </widget>
@@ -305,22 +302,22 @@
          </item>
          <item>
           <property name="text">
-           <string>12.5% ♀</string>
+           <string notr="true">12.5% ♀</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>25% ♀</string>
+           <string notr="true">25% ♀</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>50% ♀</string>
+           <string notr="true">50% ♀</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>75% ♀</string>
+           <string notr="true">75% ♀</string>
           </property>
          </item>
         </widget>
