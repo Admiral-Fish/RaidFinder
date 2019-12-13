@@ -15,8 +15,8 @@ VERSION = 1.0.0
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
 
-#RC_ICONS += Images/raidfinder.ico
-#ICON += Images/raidfinder.icns
+RC_ICONS += Images/raidfinder.ico
+ICON += Images/raidfinder.icns
 
 DEFINES += QT_DEPRECATED_WARNINGS
 

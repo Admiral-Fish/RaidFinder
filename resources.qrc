@@ -2,6 +2,9 @@
     <qresource prefix="/encounters">
         <file alias="nests.json">Resources/nests.json</file>
     </qresource>
+    <qresource prefix="/images">
+        <file alias="raidfinder.ico">Images/raidfinder.ico</file>
+    </qresource>
     <qresource prefix="/text">
         <file alias="species_de.txt">Resources/species_de.txt</file>
         <file alias="species_en.txt">Resources/species_en.txt</file>
