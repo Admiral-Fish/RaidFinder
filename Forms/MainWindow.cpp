@@ -297,7 +297,9 @@ void MainWindow::generate()
     u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
     u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
     u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
-    RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTSV(), genderType, genderRatio, ivCount);
+    Raid raid = dens[ui->comboBoxSpecies->currentIndex() > 11].getRaid(ui->comboBoxSpecies->currentIndex() % 12);
+    RaidGenerator generator(
+        initialFrame, maxResults, abilityType, profile.getTSV(), genderType, genderRatio, ivCount, raid.getSpecies());
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());

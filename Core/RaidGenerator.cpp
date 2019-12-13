@@ -20,13 +20,15 @@
 #include "RaidGenerator.hpp"
 #include <Core/RNG/XoroShiro.hpp>
 
+constexpr u8 toxtricityAmpedNatures[13] = { 3, 4, 2, 8, 9, 19, 22, 11, 13, 14, 0, 6, 24 };
+
 static inline u16 getSv(u32 val)
 {
     return ((val >> 16) ^ (val & 0xFFFF)) >> 4;
 }
 
 RaidGenerator::RaidGenerator(
-    u32 startFrame, u32 maxResults, u8 abilityType, u16 tsv, u8 genderType, u8 genderRatio, u8 ivCount)
+    u32 startFrame, u32 maxResults, u8 abilityType, u16 tsv, u8 genderType, u8 genderRatio, u8 ivCount, u16 species)
 {
     this->startFrame = startFrame;
     this->maxResults = maxResults;
@@ -35,6 +37,7 @@ RaidGenerator::RaidGenerator(
     this->genderType = genderType;
     this->genderRatio = genderRatio;
     this->ivCount = ivCount;
+    this->species = species;
 }
 
 QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
@@ -143,8 +146,14 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
             result.setGender(2);
         }
 
-        // TODO: toxtricity (why)
-        result.setNature(static_cast<u8>(rng.nextInt(25)));
+        if (species != 849)
+        {
+            result.setNature(static_cast<u8>(rng.nextInt(25)));
+        }
+        else
+        {
+            result.setNature(toxtricityAmpedNatures[rng.nextInt(13)]);
+        }
 
         if (compare.compareFrame(result))
         {
