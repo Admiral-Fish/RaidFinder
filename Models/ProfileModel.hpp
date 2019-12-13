@@ -20,7 +20,7 @@
 #ifndef PROFILEMODEL_HPP
 #define PROFILEMODEL_HPP
 
-#include <Core/Profile.hpp>
+#include <Core/Results/Profile.hpp>
 #include <Models/TableModel.hpp>
 
 class ProfileModel : public TableModel<Profile>

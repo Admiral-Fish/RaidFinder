@@ -17,16 +17,31 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef POWER_HPP
-#define POWER_HPP
+#ifndef RAID_HPP
+#define RAID_HPP
 
 #include <Core/Global.hpp>
-#include <QStringList>
 
-namespace Power
+class Raid
 {
-    QStringList getPowers();
-    QString getPower(u8 power);
-}
+public:
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species);
+    u8 getAbility() const;
+    u8 getAltForm() const;
+    u8 getIVCount() const;
+    u8 getGender() const;
+    u8 getGenderRatio() const;
+    bool getGigantamax() const;
+    u16 getSpecies() const;
 
-#endif // POWER_HPP
+private:
+    u8 ability;
+    u8 altform;
+    u8 ivCount;
+    u8 gender;
+    u8 genderRatio;
+    bool gigantamax;
+    u16 species;
+};
+
+#endif // RAID_HPP

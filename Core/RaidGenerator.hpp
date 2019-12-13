@@ -20,8 +20,8 @@
 #ifndef RAIDGENERATOR_HPP
 #define RAIDGENERATOR_HPP
 
-#include <Core/Frame.hpp>
 #include <Core/FrameCompare.hpp>
+#include <Core/Results/Frame.hpp>
 #include <QVector>
 
 class RaidGenerator

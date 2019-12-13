@@ -17,28 +17,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMECOMPARE_HPP
-#define FRAMECOMPARE_HPP
+#ifndef DENLOADER_HPP
+#define DENLOADER_HPP
 
-#include <Core/Results/Frame.hpp>
-#include <QVector>
+#include <Core/Results/Den.hpp>
 
-class FrameCompare
+namespace DenLoader
 {
-public:
-    FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
-        const QVector<bool> &natures);
-    bool compareFrame(const Frame &frame) const;
+    QVector<Den> getDens(u8 index, Game version);
+}
 
-private:
-    QVector<u8> min;
-    QVector<u8> max;
-    u8 gender {};
-    u8 ability {};
-    QVector<bool> natures;
-    bool shiny {};
-    bool skip {};
-};
-
-#endif // FRAMECOMPARE_HPP
+#endif // DENLOADER_HPP

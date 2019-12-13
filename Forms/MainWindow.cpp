@@ -19,9 +19,10 @@
 
 #include "MainWindow.hpp"
 #include "ui_MainWindow.h"
-#include <Core/Nature.hpp>
-#include <Core/Power.hpp>
+#include <Core/DenLoader.hpp>
 #include <Core/RaidGenerator.hpp>
+#include <Core/Util/Nature.hpp>
+#include <Core/Util/Translator.hpp>
 #include <Forms/ProfileManager.hpp>
 #include <QApplication>
 #include <QMessageBox>
@@ -44,6 +45,8 @@ MainWindow::~MainWindow()
     QSettings setting;
     setting.setValue("mainWindow/profile", ui->comboBoxProfiles->currentIndex());
     setting.setValue("mainWindow/geometry", this->saveGeometry());
+    setting.setValue("settings/locale", currentLanguage);
+    setting.setValue("settings/style", currentStyle);
 
     delete ui;
 }
@@ -133,6 +136,8 @@ void MainWindow::setupModels()
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->textBoxSeed, &TextBox::editingFinished, this, &MainWindow::updateSeed);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
+    connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+        &MainWindow::speciesIndexChanged);
 
     if (setting.contains("mainWindow/geometry"))
     {
@@ -212,6 +217,8 @@ void MainWindow::profilesIndexChanged(int index)
         ui->labelProfileTIDValue->setText(QString::number(profile.getTID()));
         ui->labelProfileSIDValue->setText(QString::number(profile.getSID()));
         ui->labelProfileGameValue->setText(profile.getVersionString());
+
+        denIndexChanged(ui->comboBoxDen->currentIndex());
     }
 }
 
@@ -231,14 +238,50 @@ void MainWindow::updateSeed()
 
 void MainWindow::denIndexChanged(int index)
 {
-    (void)index;
-
-    QString text = ui->comboBoxDen->currentText();
-    QSettings setting;
-    if (setting.contains(QString("denSeed%1").arg(text)))
+    if (index >= 0)
     {
-        QString seed = setting.value(QString("denSeed%1").arg(text)).toString();
-        ui->textBoxSeed->setText(seed);
+        QString text = ui->comboBoxDen->currentText();
+        QSettings setting;
+        if (setting.contains(QString("denSeed%1").arg(text)))
+        {
+            QString seed = setting.value(QString("denSeed%1").arg(text)).toString();
+            ui->textBoxSeed->setText(seed);
+        }
+
+        ui->comboBoxSpecies->clear();
+        dens = DenLoader::getDens(index, profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
+
+        QVector<QPair<u16, u8>> raids;
+        for (auto den : dens)
+        {
+            raids.append(den.getRaids());
+        }
+
+        QVector<u16> species;
+        for (const auto &raid : raids)
+        {
+            species.append(raid.first);
+        }
+
+        QStringList specieNames = Translator::getSpecies(species);
+        for (auto i = 0; i < specieNames.size(); i++)
+        {
+            ui->comboBoxSpecies->addItem(QString("%1: %2★").arg(specieNames.at(i)).arg(raids.at(i).second + 1));
+        }
+    }
+}
+
+void MainWindow::speciesIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        int denIndex = index > 11;
+        Raid raid = dens[denIndex].getRaid(index % 12);
+
+        ui->spinBoxIVCount->setValue(raid.getIVCount());
+        ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
+        ui->comboBoxGenderType->setCurrentIndex(raid.getGender());
+        ui->comboBoxGenderRatio->setCurrentIndex(ui->comboBoxGenderRatio->findData(raid.getGenderRatio()));
     }
 }
 
@@ -253,6 +296,7 @@ void MainWindow::generate()
     u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
     u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
     u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
+    RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTSV(), genderType, genderRatio, ivCount);
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
@@ -261,8 +305,6 @@ void MainWindow::generate()
     QVector<u8> min = ui->ivFilter->getLower();
     QVector<u8> max = ui->ivFilter->getUpper();
     QVector<bool> natures = ui->comboBoxNature->getChecked();
-
-    RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTSV(), genderType, genderRatio, ivCount);
     FrameCompare compare(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();

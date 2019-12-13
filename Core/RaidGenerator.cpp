@@ -18,7 +18,7 @@
  */
 
 #include "RaidGenerator.hpp"
-#include <Core/XoroShiro.hpp>
+#include <Core/RNG/XoroShiro.hpp>
 
 static inline u16 getSv(u32 val)
 {

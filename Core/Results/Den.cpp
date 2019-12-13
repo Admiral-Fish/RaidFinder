@@ -17,28 +17,36 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMECOMPARE_HPP
-#define FRAMECOMPARE_HPP
+#include "Den.hpp"
 
-#include <Core/Results/Frame.hpp>
-#include <QVector>
-
-class FrameCompare
+Den::Den(const QVector<Raid> &raids, Game version, u64 hash)
 {
-public:
-    FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
-        const QVector<bool> &natures);
-    bool compareFrame(const Frame &frame) const;
+    this->raids = raids;
+    this->version = version;
+    this->hash = hash;
+}
 
-private:
-    QVector<u8> min;
-    QVector<u8> max;
-    u8 gender {};
-    u8 ability {};
-    QVector<bool> natures;
-    bool shiny {};
-    bool skip {};
-};
+Raid Den::getRaid(u8 index) const
+{
+    return raids.at(index);
+}
 
-#endif // FRAMECOMPARE_HPP
+QVector<QPair<u16, u8>> Den::getRaids() const
+{
+    QVector<QPair<u16, u8>> r;
+    for (const Raid &raid : raids)
+    {
+        r.append(qMakePair(raid.getSpecies(), raid.getIVCount()));
+    }
+    return r;
+}
+
+Game Den::getVersion() const
+{
+    return version;
+}
+
+u64 Den::getHash() const
+{
+    return hash;
+}

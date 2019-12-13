@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DEFINES += QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
+    resources.qrc \
     QDarkStyleSheet/qdarkstyle/style.qrc
 
 TRANSLATIONS += \
@@ -40,15 +41,18 @@ FORMS += \
     Forms/ProfileManager.ui
 
 HEADERS += \
-    Core/Frame.hpp \
+    Core/DenLoader.hpp \
     Core/FrameCompare.hpp \
     Core/Game.hpp \
     Core/Global.hpp \
-    Core/Nature.hpp \
-    Core/Power.hpp \
-    Core/Profile.hpp \
+    Core/RNG/XoroShiro.hpp \
     Core/RaidGenerator.hpp \
-    Core/XoroShiro.hpp \
+    Core/Results/Den.hpp \
+    Core/Results/Frame.hpp \
+    Core/Results/Profile.hpp \
+    Core/Results/Raid.hpp \
+    Core/Util/Nature.hpp \
+    Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
     Forms/Controls/Label.hpp \
@@ -62,13 +66,16 @@ HEADERS += \
     Models/TableModel.hpp
 
 SOURCES += \
-    Core/Frame.cpp \
+    Core/DenLoader.cpp \
     Core/FrameCompare.cpp \
-    Core/Nature.cpp \
-    Core/Power.cpp \
-    Core/Profile.cpp \
+    Core/RNG/XoroShiro.cpp \
     Core/RaidGenerator.cpp \
-    Core/XoroShiro.cpp \
+    Core/Results/Den.cpp \
+    Core/Results/Frame.cpp \
+    Core/Results/Profile.cpp \
+    Core/Results/Raid.cpp \
+    Core/Util/Nature.cpp \
+    Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \
     Forms/Controls/Label.cpp \
@@ -80,5 +87,3 @@ SOURCES += \
     Models/FrameModel.cpp \
     Models/ProfileModel.cpp \
     main.cpp
-
-

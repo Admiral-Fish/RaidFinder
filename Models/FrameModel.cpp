@@ -18,7 +18,7 @@
  */
 
 #include "FrameModel.hpp"
-#include <Core/Nature.hpp>
+#include <Core/Util/Nature.hpp>
 
 FrameModel::FrameModel(QObject *parent)
     : TableModel<Frame>(parent)

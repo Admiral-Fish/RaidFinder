@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/encounters">
+        <file alias="nests.json">Resources/nests.json</file>
+    </qresource>
+    <qresource prefix="/text">
+        <file alias="species_de.txt">Resources/species_de.txt</file>
+        <file alias="species_en.txt">Resources/species_en.txt</file>
+        <file alias="species_es.txt">Resources/species_es.txt</file>
+        <file alias="species_fr.txt">Resources/species_fr.txt</file>
+        <file alias="species_it.txt">Resources/species_it.txt</file>
+        <file alias="species_ja.txt">Resources/species_ja.txt</file>
+        <file alias="species_ko.txt">Resources/species_ko.txt</file>
+        <file alias="species_zh.txt">Resources/species_zh.txt</file>
+    </qresource>
+</RCC>

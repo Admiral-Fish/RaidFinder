@@ -20,7 +20,8 @@
 #ifndef MAINWINDOW_HPP
 #define MAINWINDOW_HPP
 
-#include <Core/Profile.hpp>
+#include <Core/Results/Den.hpp>
+#include <Core/Results/Profile.hpp>
 #include <Models/FrameModel.hpp>
 #include <QActionGroup>
 #include <QMainWindow>
@@ -44,6 +45,7 @@ private:
     QString currentLanguage;
     QString currentStyle;
     QVector<Profile> profiles;
+    QVector<Den> dens;
     FrameModel *model;
 
     void setupModels();
@@ -56,6 +58,7 @@ private slots:
     void openProfileManager();
     void updateSeed();
     void denIndexChanged(int index);
+    void speciesIndexChanged(int index);
     void generate();
 };
 #endif // MAINWINDOW_HPP

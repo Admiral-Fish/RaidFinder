@@ -20,7 +20,7 @@
 #ifndef FRAMEMODEL_HPP
 #define FRAMEMODEL_HPP
 
-#include <Core/Frame.hpp>
+#include <Core/Results/Frame.hpp>
 #include <Models/TableModel.hpp>
 
 class FrameModel : public TableModel<Frame>

@@ -20,7 +20,7 @@
 #ifndef PROFILEEDITOR_HPP
 #define PROFILEEDITOR_HPP
 
-#include <Core/Profile.hpp>
+#include <Core/Results/Profile.hpp>
 #include <QDialog>
 
 namespace Ui

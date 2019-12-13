@@ -17,19 +17,35 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Power.hpp"
-#include <QTranslator>
+#include "Translator.hpp"
+#include <QFile>
+#include <QSettings>
+#include <QTextStream>
 
-QStringList Power::getPowers()
+QStringList Translator::getSpecies(const QVector<u16> &nums)
 {
-    QStringList powers = { QObject::tr("Fighting"), QObject::tr("Flying"), QObject::tr("Poison"), QObject::tr("Ground"),
-        QObject::tr("Rock"), QObject::tr("Bug"), QObject::tr("Ghost"), QObject::tr("Steel"), QObject::tr("Fire"),
-        QObject::tr("Water"), QObject::tr("Grass"), QObject::tr("Electric"), QObject::tr("Psychic"), QObject::tr("Ice"),
-        QObject::tr("Dragon"), QObject::tr("Dark") };
-    return powers;
-}
+    QStringList species;
 
-QString Power::getPower(u8 power)
-{
-    return getPowers().at(power);
+    QSettings setting;
+    QFile file(QString(":/text/species_%1.txt").arg(setting.value("settings/locale", "en").toString()));
+
+    if (file.open(QIODevice::ReadOnly))
+    {
+        QTextStream ts(&file);
+        ts.setCodec("UTF-8");
+
+        QStringList input;
+        while (!ts.atEnd())
+        {
+            input << ts.readLine();
+        }
+        file.close();
+
+        for (const u16 &x : nums)
+        {
+            species.append(input.at(x - 1));
+        }
+    }
+
+    return species;
 }

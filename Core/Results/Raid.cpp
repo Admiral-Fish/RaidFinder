@@ -17,28 +17,50 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMECOMPARE_HPP
-#define FRAMECOMPARE_HPP
+#include "Raid.hpp"
 
-#include <Core/Results/Frame.hpp>
-#include <QVector>
-
-class FrameCompare
+Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species)
 {
-public:
-    FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
-        const QVector<bool> &natures);
-    bool compareFrame(const Frame &frame) const;
+    this->ability = ability;
+    this->altform = altform;
+    this->ivCount = ivCount;
+    this->gender = gender;
+    this->genderRatio = genderRatio;
+    this->gigantamax = gigantamax;
+    this->species = species;
+}
 
-private:
-    QVector<u8> min;
-    QVector<u8> max;
-    u8 gender {};
-    u8 ability {};
-    QVector<bool> natures;
-    bool shiny {};
-    bool skip {};
-};
+u8 Raid::getAbility() const
+{
+    return ability;
+}
 
-#endif // FRAMECOMPARE_HPP
+u8 Raid::getAltForm() const
+{
+    return altform;
+}
+
+u8 Raid::getIVCount() const
+{
+    return ivCount;
+}
+
+u8 Raid::getGender() const
+{
+    return gender;
+}
+
+u8 Raid::getGenderRatio() const
+{
+    return genderRatio;
+}
+
+bool Raid::getGigantamax() const
+{
+    return gigantamax;
+}
+
+u16 Raid::getSpecies() const
+{
+    return species;
+}

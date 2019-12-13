@@ -17,28 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMECOMPARE_HPP
-#define FRAMECOMPARE_HPP
+#ifndef TRANSLATOR_HPP
+#define TRANSLATOR_HPP
 
-#include <Core/Results/Frame.hpp>
+#include <Core/Global.hpp>
 #include <QVector>
 
-class FrameCompare
+namespace Translator
 {
-public:
-    FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
-        const QVector<bool> &natures);
-    bool compareFrame(const Frame &frame) const;
+    QStringList getSpecies(const QVector<u16> &nums);
+}
 
-private:
-    QVector<u8> min;
-    QVector<u8> max;
-    u8 gender {};
-    u8 ability {};
-    QVector<bool> natures;
-    bool shiny {};
-    bool skip {};
-};
-
-#endif // FRAMECOMPARE_HPP
+#endif // TRANSLATOR_HPP
