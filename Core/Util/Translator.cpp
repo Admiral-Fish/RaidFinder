@@ -65,7 +65,7 @@ QStringList Translator::getSpecies()
 
 QString Translator::getSpecie(u16 specie)
 {
-    return species.at(specie);
+    return species.at(specie - 1);
 }
 
 QStringList Translator::getNatures()
