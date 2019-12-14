@@ -70,7 +70,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
             result.setShiny(true);
             if (psv != tsv)
             {
-                pid ^= tsv << 16;
+                pid ^= tsv << 20;
             }
         }
         else // Force non shiny
