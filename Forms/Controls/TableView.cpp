@@ -55,13 +55,9 @@ void TableView::keyPressEvent(QKeyEvent *event)
 {
     QTableView::keyPressEvent(event);
 
-    if (event)
+    if (event && (event->key() == Qt::Key_C) && (event->modifiers() == Qt::ControlModifier))
     {
-
-        if ((event->key() == Qt::Key_C) && (event->modifiers() == Qt::ControlModifier))
-        {
-            setSelectionToClipBoard();
-        }
+        setSelectionToClipBoard();
     }
 }
 

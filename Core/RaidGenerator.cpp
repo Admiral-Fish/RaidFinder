@@ -130,7 +130,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
             }
             else // Random
             {
-                result.setGender(static_cast<u8>(rng.nextInt(252) + 1) < genderRatio);
+                result.setGender(static_cast<u8>(rng.nextInt(253) + 1) < genderRatio);
             }
         }
         else if (genderType == 1) // Male
