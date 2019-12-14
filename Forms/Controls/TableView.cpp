@@ -45,14 +45,9 @@ void TableView::resizeEvent(QResizeEvent *event)
 
 void TableView::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    if (event->type() == QMouseEvent::MouseButtonDblClick)
+    if (event && event->type() == QMouseEvent::MouseButtonDblClick)
     {
-        QModelIndex index = this->currentIndex();
-        if (index.isValid())
-        {
-            QString str = this->model()->data(index).toString();
-            QApplication::clipboard()->setText(str);
-        }
+        setSelectionToClipBoard();
     }
 }
 
@@ -62,14 +57,42 @@ void TableView::keyPressEvent(QKeyEvent *event)
 
     if (event)
     {
+
         if ((event->key() == Qt::Key_C) && (event->modifiers() == Qt::ControlModifier))
         {
-            QModelIndex index = this->currentIndex();
-            if (index.isValid())
-            {
-                QString str = this->model()->data(index).toString();
-                QApplication::clipboard()->setText(str);
-            }
+            setSelectionToClipBoard();
         }
+    }
+}
+
+void TableView::setSelectionToClipBoard()
+{
+    QModelIndexList indexes = this->selectionModel()->selectedIndexes();
+    if (!indexes.isEmpty())
+    {
+        QString selectedText;
+
+        for (auto i = 0; i < indexes.size(); i++)
+        {
+            QModelIndex current = indexes[i];
+            QString text = current.data().toString();
+
+            if (i + 1 < selectedIndexes().count())
+            {
+                QModelIndex next = indexes[i + 1];
+
+                if (next.row() != current.row())
+                {
+                    text += "\n";
+                }
+                else
+                {
+                    text += "\t";
+                }
+            }
+            selectedText += text;
+        }
+
+        QApplication::clipboard()->setText(selectedText);
     }
 }

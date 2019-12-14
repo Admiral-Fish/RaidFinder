@@ -29,6 +29,9 @@ public:
     void resizeEvent(QResizeEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
+
+private:
+    void setSelectionToClipBoard();
 };
 
 #endif // TABLEVIEW_HPP
