@@ -22,30 +22,58 @@
 #include <QSettings>
 #include <QTextStream>
 
-QStringList Translator::getSpecies(const QVector<u16> &nums)
+static QStringList natures;
+static QStringList frameNatures;
+static QStringList species;
+
+QStringList readFile(QString name)
 {
-    QStringList species;
+    QFile file(name);
 
-    QSettings setting;
-    QFile file(QString(":/text/species_%1.txt").arg(setting.value("settings/locale", "en").toString()));
-
-    if (file.open(QIODevice::ReadOnly))
+    QStringList input;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QTextStream ts(&file);
         ts.setCodec("UTF-8");
 
-        QStringList input;
         while (!ts.atEnd())
         {
             input << ts.readLine();
         }
         file.close();
+    }
+    return input;
+}
 
-        for (const u16 &x : nums)
-        {
-            species.append(input.at(x - 1));
-        }
+void Translator::init()
+{
+    QSettings setting;
+
+    frameNatures = readFile(QString(":/text/natures_%1.txt").arg(setting.value("settings/locale", "en").toString()));
+    for (int i : { 3, 5, 2, 20, 23, 11, 8, 13, 1, 16, 15, 14, 4, 17, 19, 7, 22, 10, 21, 9, 18, 6, 0, 24, 12 })
+    {
+        natures.append(frameNatures.at(i));
     }
 
+    species = readFile(QString(":/text/species_%1.txt").arg(setting.value("settings/locale", "en").toString()));
+}
+
+QStringList Translator::getSpecies()
+{
     return species;
+}
+
+QString Translator::getSpecie(u16 specie)
+{
+    return species.at(specie);
+}
+
+QStringList Translator::getNatures()
+{
+    return natures;
+}
+
+QString Translator::getNature(u8 nature)
+{
+    return frameNatures.at(nature);
 }

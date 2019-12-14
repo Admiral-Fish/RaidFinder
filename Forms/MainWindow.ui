@@ -249,12 +249,12 @@
         <widget class="QComboBox" name="comboBoxAbilityType">
          <item>
           <property name="text">
-           <string notr="true">0/1</string>
+           <string notr="true">1/2</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string notr="true">0/1/H</string>
+           <string notr="true">1/2/H</string>
           </property>
          </item>
         </widget>

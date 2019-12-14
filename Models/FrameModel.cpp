@@ -18,7 +18,7 @@
  */
 
 #include "FrameModel.hpp"
-#include <Core/Util/Nature.hpp>
+#include <Core/Util/Translator.hpp>
 
 FrameModel::FrameModel(QObject *parent)
     : TableModel<Frame>(parent)
@@ -55,9 +55,12 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         case 7:
             return frame.getShiny() ? tr("Yes") : tr("No");
         case 8:
-            return Nature::getNature(frame.getNature());
+            return Translator::getNature(frame.getNature());
         case 9:
-            return frame.getAbility(); // TODO: show string for hidden ???
+        {
+            u8 ability = frame.getAbility();
+            return ability == 0 ? "1" : ability == 1 ? "2" : "H";
+        }
         case 10:
         {
             u8 gender = frame.getGender();

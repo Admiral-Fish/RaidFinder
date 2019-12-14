@@ -21,7 +21,6 @@
 #include "ui_MainWindow.h"
 #include <Core/DenLoader.hpp>
 #include <Core/RaidGenerator.hpp>
-#include <Core/Util/Nature.hpp>
 #include <Core/Util/Translator.hpp>
 #include <Forms/ProfileManager.hpp>
 #include <QApplication>
@@ -36,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
-    Nature::init();
+    Translator::init();
     updateProfiles();
     setupModels();
 }
@@ -54,10 +53,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupModels()
 {
-    model = new FrameModel();
+    model = new FrameModel(ui->tableView);
     ui->tableView->setModel(model);
 
-    ui->comboBoxNature->setup(Nature::getNatures());
+    ui->comboBoxNature->setup(Translator::getNatures());
 
     ui->comboBoxAbilityType->setItemData(0, 3);
     ui->comboBoxAbilityType->setItemData(1, 4);
@@ -259,16 +258,10 @@ void MainWindow::denIndexChanged(int index)
             raids.append(den.getRaids());
         }
 
-        QVector<u16> species;
         for (const auto &raid : raids)
         {
-            species.append(raid.first);
-        }
-
-        QStringList specieNames = Translator::getSpecies(species);
-        for (auto i = 0; i < specieNames.size(); i++)
-        {
-            ui->comboBoxSpecies->addItem(QString("%1: %2★").arg(specieNames.at(i)).arg(raids.at(i).second + 1));
+            ui->comboBoxSpecies->addItem(
+                QString("%1: %2★").arg(Translator::getSpecie(raid.first)).arg(raid.second + 1));
         }
     }
 }

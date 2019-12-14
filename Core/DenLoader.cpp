@@ -23,7 +23,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-static const QVector<QPair<u64, u64>> tableHashes = {
+constexpr QPair<u64, u64> tableHashes[99] = {
     { 0x173f0456dc5dfc52, 0xba83e1671012ebcd }, // 16 52
     { 0x17458556dc634333, 0xba8745671015cb90 }, // 37 64
     { 0x17458b56dc634d65, 0x450421d99cf882c1 }, // 31 90
@@ -128,7 +128,7 @@ static const QVector<QPair<u64, u64>> tableHashes = {
 QVector<Den> DenLoader::getDens(u8 index, Game version)
 {
     QVector<Den> dens;
-    QPair<u64, u64> hashes = tableHashes.at(index);
+    QPair<u64, u64> hashes = tableHashes[index];
 
     QFile f(":/encounters/nests.json");
     u8 count = 0;

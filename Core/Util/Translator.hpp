@@ -21,11 +21,15 @@
 #define TRANSLATOR_HPP
 
 #include <Core/Global.hpp>
-#include <QVector>
+#include <QStringList>
 
 namespace Translator
 {
-    QStringList getSpecies(const QVector<u16> &nums);
+    void init();
+    QStringList getNatures();
+    QString getNature(u8 nature);
+    QStringList getSpecies();
+    QString getSpecie(u16 specie);
 }
 
 #endif // TRANSLATOR_HPP

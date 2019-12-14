@@ -51,7 +51,6 @@ HEADERS += \
     Core/Results/Frame.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
-    Core/Util/Nature.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
@@ -74,7 +73,6 @@ SOURCES += \
     Core/Results/Frame.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
-    Core/Util/Nature.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \
