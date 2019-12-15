@@ -252,16 +252,15 @@ void MainWindow::denIndexChanged(int index)
         dens = DenLoader::getDens(
             static_cast<u8>(index), profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
 
-        QVector<QPair<u16, u8>> raids;
+        QVector<u16> species;
         for (const auto &den : dens)
         {
-            raids.append(den.getRaids());
+            species.append(den.getSpecies());
         }
 
-        for (const auto &raid : raids)
+        for (const auto &specie : species)
         {
-            ui->comboBoxSpecies->addItem(
-                QString("%1: %2★").arg(Translator::getSpecie(raid.first)).arg(raid.second + 1));
+            ui->comboBoxSpecies->addItem(QString("%1").arg(Translator::getSpecie(specie)));
         }
     }
 }

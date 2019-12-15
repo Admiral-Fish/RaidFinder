@@ -31,14 +31,14 @@ Raid Den::getRaid(u8 index) const
     return raids.at(index);
 }
 
-QVector<QPair<u16, u8>> Den::getRaids() const
+QVector<u16> Den::getSpecies() const
 {
-    QVector<QPair<u16, u8>> r;
+    QVector<u16> species;
     for (const Raid &raid : raids)
     {
-        r.append(qMakePair(raid.getSpecies(), raid.getIVCount()));
+        species.append(raid.getSpecies());
     }
-    return r;
+    return species;
 }
 
 Game Den::getVersion() const
