@@ -482,6 +482,9 @@
         <verstretch>3</verstretch>
        </sizepolicy>
       </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>60</number>
       </attribute>

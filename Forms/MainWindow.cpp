@@ -56,6 +56,8 @@ void MainWindow::setupModels()
     model = new FrameModel(ui->tableView);
     ui->tableView->setModel(model);
 
+    menu = new QMenu(ui->tableView);
+
     ui->comboBoxNature->setup(Translator::getNatures());
 
     ui->comboBoxAbilityType->setItemData(0, 3);
@@ -134,6 +136,11 @@ void MainWindow::setupModels()
         styleGroup->addAction(action);
     }
 
+    QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
+    QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
+    connect(outputTXT, &QAction::triggered, this, [=]() { ui->tableView->outputModelTXT(); });
+    connect(outputCSV, &QAction::triggered, this, [=]() { ui->tableView->outputModelCSV(); });
+
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
         &MainWindow::profilesIndexChanged);
@@ -143,6 +150,7 @@ void MainWindow::setupModels()
         ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
         &MainWindow::speciesIndexChanged);
+    connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
     if (setting.contains("mainWindow/geometry"))
     {
@@ -267,6 +275,16 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxGenderType->setCurrentIndex(raid.getGender());
         ui->comboBoxGenderRatio->setCurrentIndex(ui->comboBoxGenderRatio->findData(raid.getGenderRatio()));
     }
+}
+
+void MainWindow::tableViewContextMenu(QPoint pos)
+{
+    if (model->rowCount() == 0)
+    {
+        return;
+    }
+
+    menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
 void MainWindow::generate()

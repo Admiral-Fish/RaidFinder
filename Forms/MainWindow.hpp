@@ -25,6 +25,7 @@
 #include <Models/FrameModel.hpp>
 #include <QActionGroup>
 #include <QMainWindow>
+#include <QMenu>
 
 namespace Ui
 {
@@ -47,6 +48,7 @@ private:
     QVector<Profile> profiles;
     Den den;
     FrameModel *model;
+    QMenu *menu;
 
     void setupModels();
 
@@ -59,6 +61,7 @@ private slots:
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
+    void tableViewContextMenu(QPoint pos);
     void generate();
 };
 #endif // MAINWINDOW_HPP
