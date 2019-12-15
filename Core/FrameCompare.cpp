@@ -19,7 +19,7 @@
 
 #include "FrameCompare.hpp"
 
-FrameCompare::FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
+FrameCompare::FrameCompare(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
     const QVector<bool> &natures)
 {
     this->gender = gender;
@@ -48,7 +48,7 @@ bool FrameCompare::compareFrame(const Frame &frame) const
         return false;
     }
 
-    if (shiny && !frame.getShiny())
+    if (shiny != 255 && shiny != frame.getShiny())
     {
         return false;
     }

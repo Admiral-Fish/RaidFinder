@@ -41,8 +41,8 @@ public:
     void setAbility(u8 ability);
     u8 getGender() const;
     void setGender(u8 gender);
-    bool getShiny() const;
-    void setShiny(bool shiny);
+    u8 getShiny() const;
+    void setShiny(u8 shiny);
     u8 getIV(u8 index) const;
     void setIV(u8 index, u8 iv);
 
@@ -54,7 +54,7 @@ private:
     u8 nature;
     u8 ability;
     u8 gender;
-    bool shiny;
+    u8 shiny;
     u8 ivs[6];
 };
 

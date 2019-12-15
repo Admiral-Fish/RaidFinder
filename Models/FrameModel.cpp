@@ -53,7 +53,10 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         case 6:
             return frame.getIV(5);
         case 7:
-            return frame.getShiny() ? tr("Yes") : tr("No");
+        {
+            u8 shiny = frame.getShiny();
+            return shiny == 2 ? tr("Square") : shiny == 1 ? tr("Star") : tr("No");
+        }
         case 8:
             return Translator::getNature(frame.getNature());
         case 9:

@@ -438,17 +438,36 @@
        <item row="0" column="0" rowspan="4">
         <widget class="IVFilter" name="ivFilter" native="true"/>
        </item>
-       <item row="3" column="1">
-        <widget class="QCheckBox" name="checkBoxShiny">
+       <item row="3" column="3">
+        <widget class="QCheckBox" name="checkBoxDisableFilters">
          <property name="text">
-          <string>Shiny</string>
+          <string>Disable Filters</string>
          </property>
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QCheckBox" name="checkBoxDisableFilters">
+        <widget class="QComboBox" name="comboBoxShiny">
+         <item>
+          <property name="text">
+           <string>Any</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Star</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Square</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="labelShiny">
          <property name="text">
-          <string>Disable Filters</string>
+          <string>Shiny</string>
          </property>
         </widget>
        </item>
@@ -636,7 +655,7 @@
   <tabstop>pushButtonAnyNature</tabstop>
   <tabstop>comboBoxAbility</tabstop>
   <tabstop>comboBoxGender</tabstop>
-  <tabstop>checkBoxShiny</tabstop>
+  <tabstop>comboBoxShiny</tabstop>
   <tabstop>checkBoxDisableFilters</tabstop>
   <tabstop>tableView</tabstop>
  </tabstops>

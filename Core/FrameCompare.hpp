@@ -27,7 +27,7 @@ class FrameCompare
 {
 public:
     FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, bool shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
+    FrameCompare(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
         const QVector<bool> &natures);
     bool compareFrame(const Frame &frame) const;
 
@@ -37,7 +37,7 @@ private:
     u8 gender {};
     u8 ability {};
     QVector<bool> natures;
-    bool shiny {};
+    u8 shiny {};
     bool skip {};
 };
 

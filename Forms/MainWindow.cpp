@@ -82,6 +82,10 @@ void MainWindow::setupModels()
     ui->comboBoxGenderRatio->setItemData(5, 127);
     ui->comboBoxGenderRatio->setItemData(6, 191);
 
+    ui->comboBoxShiny->setItemData(0, 255);
+    ui->comboBoxShiny->setItemData(1, 1);
+    ui->comboBoxShiny->setItemData(2, 2);
+
     for (u8 i = 1; i < 100; i++)
     {
         ui->comboBoxDen->addItem(QString::number(i));
@@ -282,7 +286,7 @@ void MainWindow::generate()
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
-    bool shiny = ui->checkBoxShiny->isChecked();
+    u8 shiny = static_cast<u8>(ui->comboBoxShiny->currentData().toInt());
     bool skip = ui->checkBoxDisableFilters->isChecked();
     QVector<u8> min = ui->ivFilter->getLower();
     QVector<u8> max = ui->ivFilter->getUpper();

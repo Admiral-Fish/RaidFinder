@@ -100,12 +100,12 @@ void Frame::setGender(u8 gender)
     this->gender = gender;
 }
 
-bool Frame::getShiny() const
+u8 Frame::getShiny() const
 {
     return shiny;
 }
 
-void Frame::setShiny(bool shiny)
+void Frame::setShiny(u8 shiny)
 {
     this->shiny = shiny;
 }
