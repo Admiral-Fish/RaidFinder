@@ -48,14 +48,15 @@ QStringList readFile(QString name)
 void Translator::init()
 {
     QSettings setting;
+    QString locale = setting.value("settings/locale", "en").toString().left(2);
 
-    frameNatures = readFile(QString(":/text/natures_%1.txt").arg(setting.value("settings/locale", "en").toString()));
+    frameNatures = readFile(QString(":/text/natures_%1.txt").arg(locale));
     for (int i : { 3, 5, 2, 20, 23, 11, 8, 13, 1, 16, 15, 14, 4, 17, 19, 7, 22, 10, 21, 9, 18, 6, 0, 24, 12 })
     {
         natures.append(frameNatures.at(i));
     }
 
-    species = readFile(QString(":/text/species_%1.txt").arg(setting.value("settings/locale", "en").toString()));
+    species = readFile(QString(":/text/species_%1.txt").arg(locale));
 }
 
 QStringList Translator::getSpecies()
