@@ -340,18 +340,18 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="157"/>
+        <location filename="../Forms/MainWindow.cpp" line="158"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="158"/>
-        <location filename="../Forms/MainWindow.cpp" line="178"/>
+        <location filename="../Forms/MainWindow.cpp" line="159"/>
+        <location filename="../Forms/MainWindow.cpp" line="179"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="177"/>
+        <location filename="../Forms/MainWindow.cpp" line="178"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
@@ -359,6 +359,21 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Sword</source>
         <translation>Sword</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Rarity</source>
+        <translation>Rarity</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Rare</source>
+        <translation>Rare</translation>
     </message>
 </context>
 <context>
