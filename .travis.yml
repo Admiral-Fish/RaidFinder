@@ -15,13 +15,14 @@ script:
 
 before_deploy:
   - /usr/local/Cellar/qt/5.13.2/bin/macdeployqt RaidFinder.app -dmg -verbose=2
-  - zip -r RaidFinder-macOS.zip RaidFinder.dmg
+  - zip RaidFinder-macOS.zip RaidFinder.dmg raid_solver.py
+  - shasum -a 256 RaidFinder-macOS.zip > RaidFinder-macOS.zip.sha256
 
 deploy:
   provider: releases
   api_key:
     secure: Oo78vSi53hgIYpdsj6vVbUewIHWFVJztMn1y/y5rdvGiyYwEo6u4mlomOIOvZ5OoXZv/y+BguR0ypQXzv7NcEZsHOa+G+k63KOgrQROP+3O0Ktjrr59vm02kCT8YVL+kmOCKXX7atidm7X7zuYOCb0TlSf9JT9aVvGWF/rwLdBLTF8CXnUvHrg1+9hU3Odlu2hn5LOwOqbfb62i9ZJR2GVeomTWk7WOAr/rDnZOwOjZysau+LLYzW25iBIWTZz5OE2XzSFxgsmSjcuoUrXaaFVFJKy00MGgLgEzjmUlViuHW6eqRSkleSa7mruOOfx1Da/+9MtyutAE/oLRtUkvTUdrX3kqAE4kXEcQKCIksjQfry99pnXoyYCR6BpD18pqAWWNVE/SlLK9ntbIt57Zw46GcCHCiV5wNEORDlTJHuG+xCwYeMb+YsK+ZjqAvrus5jW1gfz7d5ZH6kxLwbO91dIkiklJteqSSzd2oUJMrbZHEZS6J++OVbe0sWxuIRbF1+TJWJuesCzT82h2vNZLk19itqqHvQ70ScJTLCUN7liskKDS/SvvQ5776dRuMRwhyJQxPmZlImcIsaWHhP1qXjvIuoMrjDh5fSe8L9uroqhcDBjMvXJ1cWJSDaFJxYEIDg0nCGsW7QVlCVgx/ycbfrLL0aX4Eugru6Vsb7Hjlq+g=
-  file: "RaidFinder-macOS.zip"
+  file: { "RaidFinder-macOS.zip", "RaidFinder-macOS.zip.sha256" }
   skip_cleanup: true
   on:
     repo: Admiral-Fish/RaidFinder

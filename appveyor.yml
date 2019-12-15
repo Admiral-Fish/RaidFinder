@@ -35,6 +35,7 @@ after_build:
     # Windows
     - cmd: md RaidFinder-windows
     - cmd: move release\RaidFinder.exe RaidFinder-windows\RaidFinder.exe 
+    - cmd: move raid_solver.py RaidFinder-windows\raid_solver.py
     - cmd: windeployqt --release --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
     - cmd: del RaidFinder-windows\vc_redist*.exe
     - cmd: xcopy /I %QTPATH%\plugins\platforms\qwindows.dll RaidFinder-windows\platforms\
@@ -42,7 +43,7 @@ after_build:
     - cmd: 7z a RaidFinder-%OS%.zip RaidFinder-windows\
     - cmd: sha256sum RaidFinder-%OS%.zip > RaidFinder-%OS%.zip.sha256
     # Linux
-    - sh: zip -r RaidFinder-linux.zip RaidFinder
+    - sh: zip RaidFinder-linux.zip RaidFinder raid_solver.py
     - sh: sha256sum RaidFinder-linux.zip > RaidFinder-linux.zip.sha256
     
 artifacts:
