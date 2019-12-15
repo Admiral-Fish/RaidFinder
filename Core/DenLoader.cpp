@@ -23,7 +23,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-constexpr QPair<u64, u64> tableHashes[99] = {
+constexpr u64 tableHashes[99][2] = {
     { 0x173f0456dc5dfc52, 0xba83e1671012ebcd }, // 16 52
     { 0x17458556dc634333, 0xba8745671015cb90 }, // 37 64
     { 0x17458b56dc634d65, 0x450421d99cf882c1 }, // 31 90
@@ -125,13 +125,12 @@ constexpr QPair<u64, u64> tableHashes[99] = {
     { 0x17458656dc6344e6, 0xba8a4f6710181265 } // 34 74
 };
 
-QVector<Den> DenLoader::getDens(u8 index, Game version)
+Den DenLoader::getDens(u8 index, u8 rarity, Game version)
 {
-    QVector<Den> dens;
-    QPair<u64, u64> hashes = tableHashes[index];
+    Den den;
+    u64 tableHash = tableHashes[index][rarity];
 
     QFile f(":/encounters/nests.json");
-    u8 count = 0;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QJsonObject data(QJsonDocument::fromJson(f.readAll()).object());
@@ -143,7 +142,7 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
 
             u64 hash = table["TableID"].toString().toULongLong();
             Game gameVersion = table["GameVersion"].toInt() == 1 ? Game::Sword : Game::Shield;
-            if ((hash == hashes.first || hash == hashes.second) && version == gameVersion)
+            if (tableHash == hash && version == gameVersion)
             {
                 QVector<Raid> raids;
                 QJsonArray entries = table["Entries"].toArray();
@@ -162,14 +161,11 @@ QVector<Den> DenLoader::getDens(u8 index, Game version)
                     raids.append(Raid(ability, altform, ivCount, gender, genderRatio, gigantamax, species));
                 }
 
-                dens.append(Den(raids, gameVersion, hash));
-                if (++count == 2) // Only 2 dens per index (normal/rare)
-                {
-                    break;
-                }
+                den = Den(raids, gameVersion, hash);
+                break;
             }
         }
     }
 
-    return dens;
+    return den;
 }

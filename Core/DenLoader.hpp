@@ -24,7 +24,7 @@
 
 namespace DenLoader
 {
-    QVector<Den> getDens(u8 index, Game version);
+    Den getDens(u8 index, u8 rarity, Game version);
 }
 
 #endif // DENLOADER_HPP

@@ -197,13 +197,6 @@
        <string>Settings</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelIVCount">
-         <property name="text">
-          <string>IV Count</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="3">
         <widget class="QComboBox" name="comboBoxGenderType">
          <item>
@@ -228,16 +221,6 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QSpinBox" name="spinBoxIVCount">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>5</number>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="2">
         <widget class="QLabel" name="labelAbilityType">
          <property name="text">
@@ -258,16 +241,6 @@
           </property>
          </item>
         </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelSpecies">
-         <property name="text">
-          <string>Species</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="comboBoxSpecies"/>
        </item>
        <item row="1" column="2">
         <widget class="QLabel" name="labelGenderType">
@@ -318,6 +291,54 @@
          <item>
           <property name="text">
            <string notr="true">75% ♀</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinBoxIVCount">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelIVCount">
+         <property name="text">
+          <string>IV Count</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelSpecies">
+         <property name="text">
+          <string>Species</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBoxSpecies"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelRarity">
+         <property name="text">
+          <string>Rarity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBoxRarity">
+         <item>
+          <property name="text">
+           <string>Normal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rare</string>
           </property>
          </item>
         </widget>
@@ -605,10 +626,11 @@
   <tabstop>textBoxInitialFrame</tabstop>
   <tabstop>textBoxMaxResults</tabstop>
   <tabstop>pushButtonGenerate</tabstop>
-  <tabstop>comboBoxSpecies</tabstop>
-  <tabstop>spinBoxIVCount</tabstop>
+  <tabstop>comboBoxRarity</tabstop>
   <tabstop>comboBoxAbilityType</tabstop>
+  <tabstop>comboBoxSpecies</tabstop>
   <tabstop>comboBoxGenderType</tabstop>
+  <tabstop>spinBoxIVCount</tabstop>
   <tabstop>comboBoxGenderRatio</tabstop>
   <tabstop>comboBoxNature</tabstop>
   <tabstop>pushButtonAnyNature</tabstop>

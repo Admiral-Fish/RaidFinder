@@ -45,7 +45,7 @@ private:
     QString currentLanguage;
     QString currentStyle;
     QVector<Profile> profiles;
-    QVector<Den> dens;
+    Den den;
     FrameModel *model;
 
     void setupModels();
@@ -58,6 +58,7 @@ private slots:
     void openProfileManager();
     void updateSeed();
     void denIndexChanged(int index);
+    void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
     void generate();
 };

@@ -136,6 +136,8 @@ void MainWindow::setupModels()
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->textBoxSeed, &TextBox::editingFinished, this, &MainWindow::updateSeed);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
+    connect(
+        ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
         &MainWindow::speciesIndexChanged);
 
@@ -248,29 +250,29 @@ void MainWindow::denIndexChanged(int index)
             ui->textBoxSeed->setText(seed);
         }
 
+        int rarity = ui->comboBoxRarity->currentIndex();
         ui->comboBoxSpecies->clear();
-        dens = DenLoader::getDens(
-            static_cast<u8>(index), profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
+        den = DenLoader::getDens(static_cast<u8>(index), static_cast<u8>(rarity),
+            profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
 
-        QVector<u16> species;
-        for (const auto &den : dens)
-        {
-            species.append(den.getSpecies());
-        }
-
-        for (const auto &specie : species)
+        for (const auto &specie : den.getSpecies())
         {
             ui->comboBoxSpecies->addItem(QString("%1").arg(Translator::getSpecie(specie)));
         }
     }
 }
 
+void MainWindow::rarityIndexChange(int index)
+{
+    (void)index;
+    denIndexChanged(ui->comboBoxDen->currentIndex());
+}
+
 void MainWindow::speciesIndexChanged(int index)
 {
     if (index >= 0)
     {
-        int denIndex = index > 11;
-        Raid raid = dens[denIndex].getRaid(index % 12);
+        Raid raid = den.getRaid(static_cast<u8>(index));
 
         ui->spinBoxIVCount->setValue(raid.getIVCount());
         ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
@@ -290,7 +292,7 @@ void MainWindow::generate()
     u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
     u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
     u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
-    Raid raid = dens[ui->comboBoxSpecies->currentIndex() > 11].getRaid(ui->comboBoxSpecies->currentIndex() % 12);
+    Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()));
     RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTID(), profile.getSID(), genderType,
         genderRatio, ivCount, raid.getSpecies());
 
