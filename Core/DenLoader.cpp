@@ -23,7 +23,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-constexpr u64 tableHashes[99][2] = {
+constexpr u64 tableHashes[100][2] = {
     { 0x173f0456dc5dfc52, 0xba83e1671012ebcd }, // 16 52
     { 0x17458556dc634333, 0xba8745671015cb90 }, // 37 64
     { 0x17458b56dc634d65, 0x450421d99cf882c1 }, // 31 90
@@ -122,7 +122,8 @@ constexpr u64 tableHashes[99][2] = {
     { 0x17491356dc666a54, 0x17491356dc666a54 }, // 25 56
     { 0x173f0656dc5dffb8, 0xba83e0671012ea1a }, // 18 77
     { 0x17428c56dc611941, 0xba805d67100fd5aa }, // 8 44
-    { 0x17458656dc6344e6, 0xba8a4f6710181265 } // 34 74
+    { 0x17458656dc6344e6, 0xba8a4f6710181265 }, // 34 74
+    { 0x17E59BBD874FD95C, 0x17E59BBD874FD95C } // Event
 };
 
 Den DenLoader::getDens(u8 index, u8 rarity, Game version)
@@ -130,7 +131,7 @@ Den DenLoader::getDens(u8 index, u8 rarity, Game version)
     Den den;
     u64 tableHash = tableHashes[index][rarity];
 
-    QFile f(":/encounters/nests.json");
+    QFile f(index == 99 ? ":/encounters/nests_event.json" : ":/encounters/nests.json");
     if (f.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QJsonObject data(QJsonDocument::fromJson(f.readAll()).object());

@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <Core/Util/Translator.hpp>
 #include <Forms/MainWindow.hpp>
 #include <QApplication>
 #include <QFile>
@@ -49,6 +50,7 @@ int main(int argc, char *argv[])
     {
         app.installTranslator(&translator);
     }
+    Translator::init();
 
     MainWindow w;
     w.show();

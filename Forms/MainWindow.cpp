@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
-    Translator::init();
     updateProfiles();
     setupModels();
 }
@@ -92,6 +91,7 @@ void MainWindow::setupModels()
     {
         ui->comboBoxDen->addItem(QString::number(i));
     }
+    ui->comboBoxDen->addItem(tr("Event"));
     denIndexChanged(0);
 
     QSettings setting;

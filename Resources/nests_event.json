@@ -1,0 +1,556 @@
+{
+	"Tables": [
+		{
+			"Entries": [
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 843
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 833
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 446
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 446
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 843
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 834
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 844
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 844
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 844
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 834
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				}
+			],
+			"GameVersion": 1,
+			"TableID": 1721953670860364124
+		},
+		{
+			"Entries": [
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 821
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 850
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 446
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 1,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 446
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 822
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 851
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 2,
+					"AltForm": 0,
+					"FlawlessIVs": 2,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 823
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 3,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 823
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 4,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 12
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 823
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": false,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 127,
+					"IsGigantamax": true,
+					"Species": 851
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": false,
+					"Species": 143
+				},
+				{
+					"Ability": 4,
+					"AltForm": 0,
+					"FlawlessIVs": 5,
+					"Gender": 0,
+					"GenderRatio": 31,
+					"IsGigantamax": true,
+					"Species": 143
+				}
+			],
+			"GameVersion": 2,
+			"TableID": 1721953670860364124
+		}
+	]
+}
