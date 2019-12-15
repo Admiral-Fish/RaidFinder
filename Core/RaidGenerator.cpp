@@ -27,13 +27,27 @@ static inline u16 getSv(u32 val)
     return ((val >> 16) ^ (val & 0xFFFF)) >> 4;
 }
 
-RaidGenerator::RaidGenerator(
-    u32 startFrame, u32 maxResults, u8 abilityType, u16 tsv, u8 genderType, u8 genderRatio, u8 ivCount, u16 species)
+static inline u8 getShinyType(u32 tidsid, u32 pid)
+{
+    u16 val = (tidsid ^ pid) >> 16;
+    if ((val ^ (tidsid & 0xffff)) == (pid & 0xffff))
+    {
+        return 2; // Square shiny
+    }
+    else
+    {
+        return 1; // Star shiny
+    }
+}
+
+RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType,
+    u8 genderRatio, u8 ivCount, u16 species)
 {
     this->startFrame = startFrame;
     this->maxResults = maxResults;
     this->abilityType = abilityType;
-    this->tsv = tsv;
+    this->tid = tid;
+    this->sid = sid;
     this->genderType = genderType;
     this->genderRatio = genderRatio;
     this->ivCount = ivCount;
@@ -43,6 +57,7 @@ RaidGenerator::RaidGenerator(
 QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
 {
     QVector<Frame> frames;
+    u16 tsv = (tid ^ sid) >> 4;
 
     for (u32 i = 1; i < startFrame; i++)
     {
@@ -68,9 +83,11 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         if (otsv == psv) // Force shiny
         {
             result.setShiny(true);
+            u8 shinyType = getShinyType(otsv, pid);
             if (psv != tsv)
             {
-                pid ^= tsv << 20;
+                u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (shinyType == 1);
+                pid = (high << 16) | (pid & 0xFFFF);
             }
         }
         else // Force non shiny

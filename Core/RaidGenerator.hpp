@@ -27,15 +27,16 @@
 class RaidGenerator
 {
 public:
-    RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tsv, u8 genderType, u8 genderRatio, u8 ivCount,
-        u16 species);
+    RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType, u8 genderRatio,
+        u8 ivCount, u16 species);
     QVector<Frame> generate(const FrameCompare &compare, u64 seed);
 
 private:
     u32 startFrame;
     u32 maxResults;
     u8 abilityType;
-    u16 tsv;
+    u16 tid;
+    u16 sid;
     u8 ivCount;
     u8 genderType;
     u8 genderRatio;
