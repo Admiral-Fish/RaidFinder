@@ -134,7 +134,6 @@ void MainWindow::setupModels()
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
         &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
-    connect(ui->textBoxSeed, &TextBox::editingFinished, this, &MainWindow::updateSeed);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(
         ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
@@ -231,25 +230,10 @@ void MainWindow::openProfileManager()
     manager->show();
 }
 
-void MainWindow::updateSeed()
-{
-    QString text = ui->comboBoxDen->currentText();
-    QSettings setting;
-    setting.setValue(QString("denSeed%1").arg(text), ui->textBoxSeed->text());
-}
-
 void MainWindow::denIndexChanged(int index)
 {
     if (index >= 0)
     {
-        QString text = ui->comboBoxDen->currentText();
-        QSettings setting;
-        if (setting.contains(QString("denSeed%1").arg(text)))
-        {
-            QString seed = setting.value(QString("denSeed%1").arg(text)).toString();
-            ui->textBoxSeed->setText(seed);
-        }
-
         int rarity = ui->comboBoxRarity->currentIndex();
         ui->comboBoxSpecies->clear();
         den = DenLoader::getDens(static_cast<u8>(index), static_cast<u8>(rarity),

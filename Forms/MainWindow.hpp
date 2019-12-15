@@ -56,7 +56,6 @@ private slots:
     void updateProfiles();
     void profilesIndexChanged(int index);
     void openProfileManager();
-    void updateSeed();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
