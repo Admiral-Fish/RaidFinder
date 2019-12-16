@@ -6,12 +6,8 @@ CONFIG += c++1z lrelease embed_translations
 
 TARGET = RaidFinder
 TEMPLATE = app
-VERSION = 1.0.0
-#GIT_VERSION = $$system(git rev-parse HEAD)
-#GIT_BRANCH = $$system(git rev-parse --abbrev-ref HEAD)
+VERSION = 1.1.0
 
-#DEFINES += GIT_VERSION=\\\"$$GIT_VERSION\\\"
-#DEFINES += GIT_BRANCH=\\\"$$GIT_BRANCH\\\"
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
 
