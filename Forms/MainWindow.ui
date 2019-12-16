@@ -108,7 +108,7 @@
     <item row="1" column="0">
      <widget class="QGroupBox" name="groupBoxStationaryRNGInfo">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
         <horstretch>1</horstretch>
         <verstretch>2</verstretch>
        </sizepolicy>
@@ -375,7 +375,7 @@
     <item row="1" column="2">
      <widget class="QGroupBox" name="groupBoxStationaryFilter">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
         <horstretch>3</horstretch>
         <verstretch>2</verstretch>
        </sizepolicy>
@@ -505,7 +505,7 @@
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
-        <verstretch>3</verstretch>
+        <verstretch>5</verstretch>
        </sizepolicy>
       </property>
       <property name="contextMenuPolicy">
