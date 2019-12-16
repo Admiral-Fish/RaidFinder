@@ -274,6 +274,7 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
         ui->comboBoxGenderType->setCurrentIndex(raid.getGender());
         ui->comboBoxGenderRatio->setCurrentIndex(ui->comboBoxGenderRatio->findData(raid.getGenderRatio()));
+        ui->labelGigantamaxValue->setText(raid.getGigantamax() ? tr("Yes") : tr("No"));
     }
 }
 
