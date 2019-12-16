@@ -24,6 +24,7 @@
 
 class TableView : public QTableView
 {
+    Q_OBJECT
 public:
     explicit TableView(QWidget *parent = nullptr);
     void resizeEvent(QResizeEvent *event) override;
