@@ -14,13 +14,18 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="56"/>
-        <source>Yes</source>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="56"/>
-        <source>No</source>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <source>Star</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -340,19 +345,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="158"/>
+        <location filename="../Forms/MainWindow.cpp" line="94"/>
+        <source>Event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="139"/>
+        <source>Output Results to TXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="140"/>
+        <source>Output Results to CSV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="170"/>
         <source>Language update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="159"/>
-        <location filename="../Forms/MainWindow.cpp" line="179"/>
+        <location filename="../Forms/MainWindow.cpp" line="171"/>
+        <location filename="../Forms/MainWindow.cpp" line="191"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="178"/>
+        <location filename="../Forms/MainWindow.cpp" line="190"/>
         <source>Style change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -373,6 +398,27 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Rare</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Gigantamax</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Square</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -483,6 +529,29 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
+        <source>Save Output to TXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
+        <source>Text File (*.txt);;All Files (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
+        <source>Save Output to CSV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
+        <source>CSV File (*.csv);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

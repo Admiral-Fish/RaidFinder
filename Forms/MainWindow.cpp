@@ -100,7 +100,7 @@ void MainWindow::setupModels()
     languageGroup->setExclusive(true);
     connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
     currentLanguage = setting.value("settings/locale", "en").toString();
-    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh_Hans_CN" };
+    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh" };
     for (auto i = 0; i < locales.size(); i++)
     {
         const QString &lang = locales.at(i);

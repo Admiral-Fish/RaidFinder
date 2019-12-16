@@ -14,14 +14,19 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="56"/>
-        <source>Yes</source>
-        <translation>Yes</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="56"/>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
         <source>No</source>
         <translation>No</translation>
+    </message>
+    <message>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <source>Square</source>
+        <translation>Square</translation>
+    </message>
+    <message>
+        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <source>Star</source>
+        <translation>Star</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
@@ -340,20 +345,40 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="158"/>
+        <location filename="../Forms/MainWindow.cpp" line="94"/>
+        <source>Event</source>
+        <translation>Event</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="139"/>
+        <source>Output Results to TXT</source>
+        <translation>Output Results to TXT</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="140"/>
+        <source>Output Results to CSV</source>
+        <translation>Output Results to CSV</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="170"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="159"/>
-        <location filename="../Forms/MainWindow.cpp" line="179"/>
+        <location filename="../Forms/MainWindow.cpp" line="171"/>
+        <location filename="../Forms/MainWindow.cpp" line="191"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="178"/>
+        <location filename="../Forms/MainWindow.cpp" line="190"/>
         <source>Style change</source>
         <translation>Style change</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <source>Yes</source>
+        <translation>Yes</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -374,6 +399,27 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Rare</source>
         <translation>Rare</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Gigantamax</source>
+        <translation>Gigantamax</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <source>No</source>
+        <translation>No</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Star</source>
+        <translation>Star</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Square</source>
+        <translation>Square</translation>
     </message>
 </context>
 <context>
@@ -484,6 +530,29 @@
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
         <translation>SID</translation>
+    </message>
+</context>
+<context>
+    <name>TableView</name>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
+        <source>Save Output to TXT</source>
+        <translation>Save Output to TXT</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
+        <source>Text File (*.txt);;All Files (*)</source>
+        <translation>Text File (*.txt);;All Files (*)</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
+        <source>Save Output to CSV</source>
+        <translation>Save Output to CSV</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
+        <source>CSV File (*.csv);;All Files (*)</source>
+        <translation>CSV File (*.csv);;All Files (*)</translation>
     </message>
 </context>
 </TS>
