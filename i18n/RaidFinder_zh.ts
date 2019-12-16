@@ -345,38 +345,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="94"/>
+        <location filename="../Forms/MainWindow.cpp" line="95"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="139"/>
+        <location filename="../Forms/MainWindow.cpp" line="140"/>
         <source>Output Results to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="140"/>
+        <location filename="../Forms/MainWindow.cpp" line="141"/>
         <source>Output Results to CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="170"/>
+        <location filename="../Forms/MainWindow.cpp" line="171"/>
         <source>Language update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="171"/>
-        <location filename="../Forms/MainWindow.cpp" line="191"/>
+        <location filename="../Forms/MainWindow.cpp" line="172"/>
+        <location filename="../Forms/MainWindow.cpp" line="192"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="190"/>
+        <location filename="../Forms/MainWindow.cpp" line="191"/>
         <source>Style change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <location filename="../Forms/MainWindow.cpp" line="278"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="277"/>
+        <location filename="../Forms/MainWindow.cpp" line="278"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
@@ -419,6 +419,11 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Star/Square</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -533,9 +538,9 @@
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>TableView</name>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
         <source>Save Output to TXT</source>
         <translation type="unfinished"></translation>
     </message>
@@ -545,7 +550,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
         <source>Save Output to CSV</source>
         <translation type="unfinished"></translation>
     </message>

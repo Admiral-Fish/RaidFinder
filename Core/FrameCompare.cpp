@@ -48,7 +48,7 @@ bool FrameCompare::compareFrame(const Frame &frame) const
         return false;
     }
 
-    if (shiny != 255 && shiny != frame.getShiny())
+    if (((shiny == 1 || shiny == 2) && shiny != frame.getShiny()) || (shiny == 3 && !frame.getShiny()))
     {
         return false;
     }

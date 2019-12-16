@@ -86,6 +86,7 @@ void MainWindow::setupModels()
     ui->comboBoxShiny->setItemData(0, 255);
     ui->comboBoxShiny->setItemData(1, 1);
     ui->comboBoxShiny->setItemData(2, 2);
+    ui->comboBoxShiny->setItemData(3, 3);
 
     for (u8 i = 1; i < 100; i++)
     {
