@@ -9,7 +9,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -18,7 +25,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -27,7 +41,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 843
+					"Species": 843,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -36,7 +57,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 833
+					"Species": 833,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -45,7 +73,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 446
+					"Species": 446,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -54,7 +89,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 446
+					"Species": 446,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -63,7 +105,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -72,7 +121,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 843
+					"Species": 843,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -81,7 +137,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -90,7 +153,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -99,7 +169,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -108,7 +185,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -117,7 +201,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -126,7 +217,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 844
+					"Species": 844,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -135,7 +233,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -144,7 +249,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -153,7 +265,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -162,7 +281,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -171,7 +297,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -180,7 +313,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 844
+					"Species": 844,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -189,7 +329,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -198,7 +345,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -207,7 +361,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -216,7 +377,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -225,7 +393,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -234,7 +409,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 844
+					"Species": 844,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -243,7 +425,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -252,7 +441,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 834
+					"Species": 834,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -261,7 +457,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -270,11 +473,18 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				}
 			],
 			"GameVersion": 1,
-			"TableID": "1721953670860364124"
+			"TableID": 1721953670860364124
 		},
 		{
 			"Entries": [
@@ -285,7 +495,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -294,7 +511,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -303,7 +527,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 821
+					"Species": 821,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -312,7 +543,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 850
+					"Species": 850,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -321,7 +559,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 446
+					"Species": 446,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -330,7 +575,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 446
+					"Species": 446,
+					"Stars": [
+						true,
+						false,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -339,7 +591,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -348,7 +607,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 822
+					"Species": 822,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -357,7 +623,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -366,7 +639,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -375,7 +655,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 2,
@@ -384,7 +671,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						true,
+						false,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -393,7 +687,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -402,7 +703,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 823
+					"Species": 823,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -411,7 +719,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -420,7 +735,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -429,7 +751,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -438,7 +767,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						true,
+						false,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -447,7 +783,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -456,7 +799,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 823
+					"Species": 823,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -465,7 +815,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -474,7 +831,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -483,7 +847,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -492,7 +863,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						true,
+						false
+					]
 				},
 				{
 					"Ability": 4,
@@ -501,7 +879,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 12
+					"Species": 12,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -510,7 +895,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 823
+					"Species": 823,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -519,7 +911,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": false,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -528,7 +927,14 @@
 					"Gender": 0,
 					"GenderRatio": 127,
 					"IsGigantamax": true,
-					"Species": 851
+					"Species": 851,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -537,7 +943,14 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": false,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				},
 				{
 					"Ability": 4,
@@ -546,11 +959,18 @@
 					"Gender": 0,
 					"GenderRatio": 31,
 					"IsGigantamax": true,
-					"Species": 143
+					"Species": 143,
+					"Stars": [
+						false,
+						false,
+						false,
+						false,
+						true
+					]
 				}
 			],
 			"GameVersion": 2,
-			"TableID": "1721953670860364124"
+			"TableID": 1721953670860364124
 		}
 	]
 }

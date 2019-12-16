@@ -254,7 +254,7 @@ void MainWindow::denIndexChanged(int index)
 
         for (const auto &specie : den.getSpecies())
         {
-            ui->comboBoxSpecies->addItem(QString("%1").arg(Translator::getSpecie(specie)));
+            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(specie.first)).arg(specie.second));
         }
     }
 }

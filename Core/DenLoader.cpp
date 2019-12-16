@@ -159,7 +159,13 @@ Den DenLoader::getDens(u8 index, u8 rarity, Game version)
                     bool gigantamax = entry["IsGigantamax"].toBool();
                     u16 species = static_cast<u16>(entry["Species"].toInt());
 
-                    raids.append(Raid(ability, altform, ivCount, gender, genderRatio, gigantamax, species));
+                    bool star[5];
+                    for (u8 k = 0; k < 5; k++)
+                    {
+                        star[k] = entry["Stars"].toArray()[k].toBool();
+                    }
+
+                    raids.append(Raid(ability, altform, ivCount, gender, genderRatio, gigantamax, species, star));
                 }
 
                 den = Den(raids, gameVersion, hash);

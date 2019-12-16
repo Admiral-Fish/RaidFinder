@@ -26,7 +26,7 @@ class Raid
 {
 public:
     Raid() = default;
-    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species);
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species, bool star[5]);
     u8 getAbility() const;
     u8 getAltForm() const;
     u8 getIVCount() const;
@@ -34,6 +34,7 @@ public:
     u8 getGenderRatio() const;
     bool getGigantamax() const;
     u16 getSpecies() const;
+    bool getStar(u8 index) const;
 
 private:
     u8 ability;
@@ -43,6 +44,7 @@ private:
     u8 genderRatio;
     bool gigantamax;
     u16 species;
+    bool star[5];
 };
 
 #endif // RAID_HPP

@@ -31,12 +31,41 @@ Raid Den::getRaid(u8 index) const
     return raids.at(index);
 }
 
-QVector<u16> Den::getSpecies() const
+QVector<QPair<u16, QString>> Den::getSpecies() const
 {
-    QVector<u16> species;
+    QVector<QPair<u16, QString>> species;
     for (const Raid &raid : raids)
     {
-        species.append(raid.getSpecies());
+        u16 specie = raid.getSpecies();
+
+        u8 low = 4;
+        u8 high = 0;
+        for (u8 i = 0; i < 5; i++)
+        {
+            if (raid.getStar(i))
+            {
+                if (i < low)
+                {
+                    low = i;
+                }
+                if (i > high)
+                {
+                    high = i;
+                }
+            }
+        }
+
+        QString star;
+        if (low == high)
+        {
+            star = QString("%1★").arg(low + 1);
+        }
+        else
+        {
+            star = QString("%1-%2★").arg(low + 1).arg(high + 1);
+        }
+
+        species.append(qMakePair(specie, star));
     }
     return species;
 }

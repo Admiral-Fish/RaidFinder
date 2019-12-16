@@ -31,7 +31,7 @@ public:
     Den() = default;
     Den(const QVector<Raid> &raids, Game version, u64 hash);
     Raid getRaid(u8 index) const;
-    QVector<u16> getSpecies() const;
+    QVector<QPair<u16, QString>> getSpecies() const;
     Game getVersion() const;
     u64 getHash() const;
 

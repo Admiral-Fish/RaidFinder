@@ -19,7 +19,7 @@
 
 #include "Raid.hpp"
 
-Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species)
+Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species, bool star[5])
 {
     this->ability = ability;
     this->altform = altform;
@@ -28,6 +28,10 @@ Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool g
     this->genderRatio = genderRatio;
     this->gigantamax = gigantamax;
     this->species = species;
+    for (u8 i = 0; i < 5; i++)
+    {
+        this->star[i] = star[i];
+    }
 }
 
 u8 Raid::getAbility() const
@@ -63,4 +67,9 @@ bool Raid::getGigantamax() const
 u16 Raid::getSpecies() const
 {
     return species;
+}
+
+bool Raid::getStar(u8 index) const
+{
+    return star[index];
 }
