@@ -51,6 +51,10 @@ void Translator::init()
     QSettings setting;
     QString locale = setting.value("settings/locale", "en").toString();
 
+    QStringList localelist = {"de","en","es","fr","it","ja","ko","zh"};
+    if (!localelist.contains(locale))
+        locale = "en";
+
     locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
 
     frameNatures = readFile(QString(":/text/natures_%1.txt").arg(locale));
