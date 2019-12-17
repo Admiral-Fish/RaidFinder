@@ -54,7 +54,7 @@ QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
         u8 high = 0;
         for (u8 j = 0; j < 5; j++)
         {
-            if (raids[j].getStar(j))
+            if (raids[i].getStar(j))
             {
                 if (j < low)
                 {
