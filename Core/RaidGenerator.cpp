@@ -82,7 +82,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         // PID is later modified using the actual TID/SID of trainer if necessary
         if (otsv == psv) // Force shiny
         {
-            u8 shinyType = getShinyType(otsv, pid);
+            u8 shinyType = getShinyType(otid, pid);
             result.setShiny(shinyType);
             if (psv != tsv)
             {
