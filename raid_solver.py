@@ -1,4 +1,37 @@
+import struct
+import sys
 import z3
+
+class PK8:
+    def __init__(self, data):
+        self.data = data
+
+    def getEC(self):
+        return struct.unpack("<I", self.data[0x0:0x4])[0]
+
+    def getPID(self):
+        return struct.unpack("<I", self.data[0x1C:0x20])[0]
+
+    def getIV(self):
+        return struct.unpack("<I", self.data[0x8C:0x90])[0]
+
+    def getHP(self):
+        return self.getIV() & 0x1F
+
+    def getAtk(self):
+        return (self.getIV() >> 5) & 0x1F
+
+    def getDef(self):
+        return (self.getIV() >> 10) & 0x1F
+
+    def getSpA(self):
+        return (self.getIV() >> 20) & 0x1F
+
+    def getSpD(self):
+        return (self.getIV() >> 25) & 0x1F
+
+    def getSpe(self):
+        return (self.getIV() >> 15) & 0x1F
 
 class XoroShiro:
     def __init__(self, seed):
@@ -109,13 +142,8 @@ def find_seed(seeds, ivs, iv_count):
 
     return None
 
-def main():
-    ec = int(input("Enter EC: 0x"), 16)
-    pid = int(input("Enter PID: 0x"), 16)
-    iv_count = int(input("Enter number of guaranteed 31 IVs: "))
-    ivs = [ int(iv) for iv in input("Enter IVs(x.x.x.x.x.x): ").split(".") ]
+def search(ec, pid, iv_count, ivs):
     print("")
-
     seeds = find_seeds(ec, pid)    
     if len(seeds) > 0:
         seed = find_seed(seeds, ivs, iv_count)
@@ -131,6 +159,33 @@ def main():
             return True
 
     return False
+
+def searchPKM():
+    file_name = sys.argv[1]
+    with open(file_name, "rb") as f:
+        data = f.read()
+    pkm = PK8(data)
+
+    ec = pkm.getEC()
+    pid = pkm.getPID()
+    ivs = [ pkm.getHP(), pkm.getAtk(), pkm.getDef(), pkm.getSpA(), pkm.getSpD(), pkm.getSpe() ]
+    iv_count = int(input("Enter number of guaranteed 31 IVs: "))
+
+    return search(ec, pid, iv_count, ivs)
+
+def searchInput():
+    ec = int(input("Enter EC: 0x"), 16)
+    pid = int(input("Enter PID: 0x"), 16)
+    iv_count = int(input("Enter number of guaranteed 31 IVs: "))
+    ivs = [ int(iv) for iv in input("Enter IVs(x.x.x.x.x.x): ").split(".") ]
+
+    return search(ec, pid, iv_count, ivs)
+
+def main():
+    if len(sys.argv) == 1:
+        searchInput()
+    else:
+        searchPKM()
 
 if __name__ == "__main__":
    if main() == False:
