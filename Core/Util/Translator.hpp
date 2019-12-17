@@ -26,6 +26,8 @@
 namespace Translator
 {
     void init();
+    QStringList getLocations();
+    QString getLocation(u8 location);
     QStringList getNatures();
     QString getNature(u8 nature);
     QStringList getSpecies();

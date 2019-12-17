@@ -35,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
+    Translator::init();
+    DenLoader::init();
     updateProfiles();
     setupModels();
 }
@@ -88,9 +90,9 @@ void MainWindow::setupModels()
     ui->comboBoxShiny->setItemData(2, 2);
     ui->comboBoxShiny->setItemData(3, 3);
 
-    for (u8 i = 1; i < 100; i++)
+    for (u8 i = 0; i < 99; i++)
     {
-        ui->comboBoxDen->addItem(QString::number(i));
+        ui->comboBoxDen->addItem(DenLoader::getDen(i, 0).getLocation());
     }
     ui->comboBoxDen->addItem(tr("Event"));
     denIndexChanged(0);
@@ -226,11 +228,11 @@ void MainWindow::profilesIndexChanged(int index)
 {
     if (index >= 0)
     {
-        auto &profile = profiles.at(index);
+        currentProfile = profiles.at(index);
 
-        ui->labelProfileTIDValue->setText(QString::number(profile.getTID()));
-        ui->labelProfileSIDValue->setText(QString::number(profile.getSID()));
-        ui->labelProfileGameValue->setText(profile.getVersionString());
+        ui->labelProfileTIDValue->setText(QString::number(currentProfile.getTID()));
+        ui->labelProfileSIDValue->setText(QString::number(currentProfile.getSID()));
+        ui->labelProfileGameValue->setText(currentProfile.getVersionString());
 
         denIndexChanged(ui->comboBoxDen->currentIndex());
     }
@@ -249,10 +251,10 @@ void MainWindow::denIndexChanged(int index)
     {
         int rarity = ui->comboBoxRarity->currentIndex();
         ui->comboBoxSpecies->clear();
-        den = DenLoader::getDens(static_cast<u8>(index), static_cast<u8>(rarity),
-            profiles.at(ui->comboBoxProfiles->currentIndex()).getVersion());
+        den = DenLoader::getDen(static_cast<u8>(index), static_cast<u8>(rarity));
 
-        for (const auto &specie : den.getSpecies())
+        const auto species = den.getSpecies(currentProfile.getVersion());
+        for (const auto &specie : species)
         {
             ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(specie.first)).arg(specie.second));
         }
@@ -269,7 +271,7 @@ void MainWindow::speciesIndexChanged(int index)
 {
     if (index >= 0)
     {
-        Raid raid = den.getRaid(static_cast<u8>(index));
+        Raid raid = den.getRaid(static_cast<u8>(index), currentProfile.getVersion());
 
         ui->spinBoxIVCount->setValue(raid.getIVCount());
         ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
@@ -293,16 +295,15 @@ void MainWindow::generate()
 {
     model->clearModel();
 
-    auto &profile = profiles.at(ui->comboBoxProfiles->currentIndex());
     u32 initialFrame = ui->textBoxInitialFrame->getUInt();
     u32 maxResults = ui->textBoxMaxResults->getUInt();
     u8 abilityType = static_cast<u8>(ui->comboBoxAbilityType->currentData().toInt());
     u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
     u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
     u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
-    Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()));
-    RaidGenerator generator(initialFrame, maxResults, abilityType, profile.getTID(), profile.getSID(), genderType,
-        genderRatio, ivCount, raid.getSpecies());
+    Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
+    RaidGenerator generator(initialFrame, maxResults, abilityType, currentProfile.getTID(), currentProfile.getSID(),
+        genderType, genderRatio, ivCount, raid.getSpecies());
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());

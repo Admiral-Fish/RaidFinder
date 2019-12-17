@@ -18,39 +18,51 @@
  */
 
 #include "Den.hpp"
+#include <Core/Util/Translator.hpp>
+#include <string>
 
-Den::Den(const QVector<Raid> &raids, Game version, u64 hash)
+Den::Den(u64 hash, u8 location, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
 {
-    this->raids = raids;
-    this->version = version;
     this->hash = hash;
+    this->location = location;
+    this->swordRaids = swordRaids;
+    this->shieldRaids = shieldRaids;
 }
 
-Raid Den::getRaid(u8 index) const
+Raid Den::getRaid(u8 index, Game version) const
 {
-    return raids.at(index);
-}
-
-QVector<QPair<u16, QString>> Den::getSpecies() const
-{
-    QVector<QPair<u16, QString>> species;
-    for (const Raid &raid : raids)
+    if (version == Game::Sword)
     {
-        u16 specie = raid.getSpecies();
+        return swordRaids[index];
+    }
+    else
+    {
+        return shieldRaids[index];
+    }
+}
+
+QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
+{
+    auto raids = version == Game::Sword ? swordRaids : shieldRaids;
+
+    QVector<QPair<u16, QString>> species;
+    for (u8 i = 0; i < 12; i++)
+    {
+        u16 specie = raids[i].getSpecies();
 
         u8 low = 4;
         u8 high = 0;
-        for (u8 i = 0; i < 5; i++)
+        for (u8 j = 0; j < 5; j++)
         {
-            if (raid.getStar(i))
+            if (raids[j].getStar(j))
             {
-                if (i < low)
+                if (j < low)
                 {
-                    low = i;
+                    low = j;
                 }
-                if (i > high)
+                if (j > high)
                 {
-                    high = i;
+                    high = j;
                 }
             }
         }
@@ -70,12 +82,12 @@ QVector<QPair<u16, QString>> Den::getSpecies() const
     return species;
 }
 
-Game Den::getVersion() const
-{
-    return version;
-}
-
 u64 Den::getHash() const
 {
     return hash;
+}
+
+QString Den::getLocation() const
+{
+    return Translator::getLocation(location);
 }

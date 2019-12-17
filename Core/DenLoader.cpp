@@ -23,7 +23,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-constexpr u64 tableHashes[100][2] = {
+/*constexpr u64 tableHashes[100][2] = {
     { 0x173f0456dc5dfc52, 0xba83e1671012ebcd }, // 16 52
     { 0x17458556dc634333, 0xba8745671015cb90 }, // 37 64
     { 0x17458b56dc634d65, 0x450421d99cf882c1 }, // 31 90
@@ -124,55 +124,145 @@ constexpr u64 tableHashes[100][2] = {
     { 0x17428c56dc611941, 0xba805d67100fd5aa }, // 8 44
     { 0x17458656dc6344e6, 0xba8a4f6710181265 }, // 34 74
     { 0x17E59BBD874FD95C, 0x17E59BBD874FD95C } // Event
-};
+};*/
 
-Den DenLoader::getDens(u8 index, u8 rarity, Game version)
+static Den dens[100][2];
+
+void DenLoader::init()
 {
-    Den den;
-    u64 tableHash = tableHashes[index][rarity];
-
-    QFile f(index == 99 ? ":/encounters/nests_event.json" : ":/encounters/nests.json");
-    if (f.open(QIODevice::ReadOnly | QIODevice::Text))
+    // Normal and rare dens
+    QFile f(":/encounters/nests.bin");
+    if (f.open(QIODevice::ReadOnly))
     {
-        QJsonObject data(QJsonDocument::fromJson(f.readAll()).object());
+        QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
+        f.close();
 
+        int a = 0;
+        int b = 0;
         QJsonArray tables = data["Tables"].toArray();
         for (auto &&i : tables)
         {
             QJsonObject table = i.toObject();
 
-            u64 hash = table["TableID"].toString().toULongLong();
-            Game gameVersion = table["GameVersion"].toInt() == 1 ? Game::Sword : Game::Shield;
-            if (tableHash == hash && version == gameVersion)
+            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
+            u8 location = static_cast<u8>(table["Location"].toInt());
+
+            QVector<Raid> swordRaids;
+            QVector<Raid> shieldRaids;
+            QJsonArray swordEntries = table["SwordEntries"].toArray();
+            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
+            for (u8 j = 0; j < 12; j++)
             {
-                QVector<Raid> raids;
-                QJsonArray entries = table["Entries"].toArray();
-                for (auto &&j : entries)
+                QJsonObject swordEntry = swordEntries[j].toObject();
+                QJsonObject shieldEntry = shieldEntries[j].toObject();
+
+                u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
+                u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
+                u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
+                u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
+                u8 swordGenderRatio = static_cast<u8>(swordEntry["GenderRatio"].toInt());
+                bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
+                u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
+
+                bool swordStar[5];
+                for (u8 k = 0; k < 5; k++)
                 {
-                    QJsonObject entry = j.toObject();
-
-                    u8 ability = static_cast<u8>(entry["Ability"].toInt());
-                    u8 altform = static_cast<u8>(entry["AltForm"].toInt());
-                    u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
-                    u8 gender = static_cast<u8>(entry["Gender"].toInt());
-                    u8 genderRatio = static_cast<u8>(entry["GenderRatio"].toInt());
-                    bool gigantamax = entry["IsGigantamax"].toBool();
-                    u16 species = static_cast<u16>(entry["Species"].toInt());
-
-                    bool star[5];
-                    for (u8 k = 0; k < 5; k++)
-                    {
-                        star[k] = entry["Stars"].toArray()[k].toBool();
-                    }
-
-                    raids.append(Raid(ability, altform, ivCount, gender, genderRatio, gigantamax, species, star));
+                    swordStar[k] = swordEntry["Stars"].toArray()[k].toBool();
                 }
 
-                den = Den(raids, gameVersion, hash);
-                break;
+                u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
+                u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
+                u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
+                u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
+                u8 shieldGenderRatio = static_cast<u8>(shieldEntry["GenderRatio"].toInt());
+                bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
+                u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+
+                bool shieldStar[5];
+                for (u8 k = 0; k < 5; k++)
+                {
+                    shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
+                }
+
+                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
+                    swordGigantamax, swordSpecies, swordStar));
+                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
+                    shieldGigantamax, shieldSpecies, shieldStar));
+            }
+            dens[a][b] = Den(hash, location, swordRaids, shieldRaids);
+
+            if (++b == 2)
+            {
+                a++;
+                b = 0;
             }
         }
     }
 
-    return den;
+    // Event Dens
+    f.setFileName(":/encounters/nests_event.bin");
+    if (f.open(QIODevice::ReadOnly))
+    {
+        QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
+        f.close();
+
+        int a = 99;
+        int b = 0;
+        QJsonArray tables = data["Tables"].toArray();
+        for (auto &&i : tables)
+        {
+            QJsonObject table = i.toObject();
+
+            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
+
+            QVector<Raid> swordRaids;
+            QVector<Raid> shieldRaids;
+            QJsonArray swordEntries = table["SwordEntries"].toArray();
+            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
+            for (u8 j = 0; j < 12; j++)
+            {
+                QJsonObject swordEntry = swordEntries[j].toObject();
+                QJsonObject shieldEntry = shieldEntries[j].toObject();
+
+                u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
+                u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
+                u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
+                u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
+                u8 swordGenderRatio = static_cast<u8>(swordEntry["GenderRatio"].toInt());
+                bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
+                u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
+
+                bool swordStar[5];
+                for (u8 k = 0; k < 5; k++)
+                {
+                    swordStar[k] = swordEntry["Stars"].toArray()[k].toBool();
+                }
+
+                u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
+                u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
+                u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
+                u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
+                u8 shieldGenderRatio = static_cast<u8>(shieldEntry["GenderRatio"].toInt());
+                bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
+                u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+
+                bool shieldStar[5];
+                for (u8 k = 0; k < 5; k++)
+                {
+                    shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
+                }
+
+                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
+                    swordGigantamax, swordSpecies, swordStar));
+                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
+                    shieldGigantamax, shieldSpecies, shieldStar));
+            }
+            dens[a][b++] = Den(hash, 255, swordRaids, shieldRaids);
+        }
+    }
+}
+
+Den DenLoader::getDen(u8 index, u8 rarity)
+{
+    return dens[index][rarity];
 }

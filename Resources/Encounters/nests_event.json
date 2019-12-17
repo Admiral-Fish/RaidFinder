@@ -1,0 +1,1938 @@
+{
+    "Tables": [
+        {
+            "ShieldEntries": [
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 821,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 850,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 822,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                }
+            ],
+            "SwordEntries": [
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 843,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 833,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 843,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                }
+            ],
+            "TableID": "17e59bbd874fd95c"
+        },
+        {
+            "ShieldEntries": [
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 821,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 850,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 822,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 823,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 851,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                }
+            ],
+            "SwordEntries": [
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 843,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 833,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 1,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 446,
+                    "Stars": [
+                        true,
+                        false,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 843,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 2,
+                    "AltForm": 0,
+                    "FlawlessIVs": 2,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        true,
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 3,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        true,
+                        false,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 4,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 12,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 844,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": false,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 127,
+                    "IsGigantamax": true,
+                    "Species": 834,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": false,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                },
+                {
+                    "Ability": 4,
+                    "AltForm": 0,
+                    "FlawlessIVs": 5,
+                    "Gender": 0,
+                    "GenderRatio": 31,
+                    "IsGigantamax": true,
+                    "Species": 143,
+                    "Stars": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        true
+                    ]
+                }
+            ],
+            "TableID": "17e59bbd874fd95c"
+        }
+    ]
+}

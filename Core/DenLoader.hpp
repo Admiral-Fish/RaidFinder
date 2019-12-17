@@ -24,7 +24,8 @@
 
 namespace DenLoader
 {
-    Den getDens(u8 index, u8 rarity, Game version);
+    void init();
+    Den getDen(u8 index, u8 rarity);
 }
 
 #endif // DENLOADER_HPP

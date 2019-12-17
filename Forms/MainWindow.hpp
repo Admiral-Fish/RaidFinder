@@ -46,6 +46,7 @@ private:
     QString currentLanguage;
     QString currentStyle;
     QVector<Profile> profiles;
+    Profile currentProfile;
     Den den;
     FrameModel *model;
     QMenu *menu;
