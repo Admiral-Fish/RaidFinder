@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     }
 
     QTranslator translator;
-    if (translator.load(QString(":/i18n/RaidFinder%1.qm").arg(setting.value("settings/locale", "en").toString())))
+    if (translator.load(QString(":/i18n/RaidFinder_%1.qm").arg(setting.value("settings/locale", "en").toString())))
     {
         app.installTranslator(&translator);
     }

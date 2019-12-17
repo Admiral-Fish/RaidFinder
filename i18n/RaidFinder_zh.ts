@@ -8,7 +8,7 @@
         <location filename="../Forms/Controls/CheckList.cpp" line="112"/>
         <location filename="../Forms/Controls/CheckList.cpp" line="129"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>任意</translation>
     </message>
 </context>
 <context>
@@ -16,82 +16,82 @@
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>方块</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
         <source>Star</source>
-        <translation type="unfinished"></translation>
+        <translation>星星</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>帧</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>HP</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Atk</source>
-        <translation type="unfinished"></translation>
+        <translation>攻击</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Def</source>
-        <translation type="unfinished"></translation>
+        <translation>防御</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>SpA</source>
-        <translation type="unfinished"></translation>
+        <translation>特攻</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>SpD</source>
-        <translation type="unfinished"></translation>
+        <translation>特防</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Spe</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="36"/>
         <source>Shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>异色</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Nature</source>
-        <translation type="unfinished"></translation>
+        <translation>性格</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Ability</source>
-        <translation type="unfinished"></translation>
+        <translation>特性</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Gender</source>
-        <translation type="unfinished"></translation>
+        <translation>性别</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>EC</source>
-        <translation type="unfinished"></translation>
+        <translation>加密常数</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>PID</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -99,52 +99,52 @@
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>HP</source>
-        <translation type="unfinished"></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Atk</source>
-        <translation type="unfinished"></translation>
+        <translation>攻击</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Def</source>
-        <translation type="unfinished"></translation>
+        <translation>防御</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>SpA</source>
-        <translation type="unfinished"></translation>
+        <translation>特攻</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>SpD</source>
-        <translation type="unfinished"></translation>
+        <translation>特防</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
         <source>Spe</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click to clear</source>
-        <translation type="unfinished"></translation>
+        <translation>点击清空</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding ctrl to set 31</source>
-        <translation type="unfinished"></translation>
+        <translation>按住ctrl点击设为31</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding alt to set 30-31</source>
-        <translation type="unfinished"></translation>
+        <translation>按住alt点击设为30-31</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="30"/>
         <source>Click holding ctrl+alt to set 0</source>
-        <translation type="unfinished"></translation>
+        <translation>按住ctrl+alt设为0</translation>
     </message>
 </context>
 <context>
@@ -162,147 +162,147 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Game</source>
-        <translation type="unfinished"></translation>
+        <translation>游戏版本</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>管理器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>RNG Info</source>
-        <translation type="unfinished"></translation>
+        <translation>乱数信息</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Results</source>
-        <translation type="unfinished"></translation>
+        <translation>最大结果数</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Initial Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>初始帧</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>生成</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed</source>
-        <translation type="unfinished"></translation>
+        <translation>Seed</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den</source>
-        <translation type="unfinished"></translation>
+        <translation>坑</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>IV Count</source>
-        <translation type="unfinished"></translation>
+        <translation>V数</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Random</source>
-        <translation type="unfinished"></translation>
+        <translation>随机</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Ability</source>
-        <translation type="unfinished"></translation>
+        <translation>特性</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Species</source>
-        <translation type="unfinished"></translation>
+        <translation>种类</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Gender</source>
-        <translation type="unfinished"></translation>
+        <translation>性别</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Gender Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>性别比</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Genderless</source>
-        <translation type="unfinished"></translation>
+        <translation>无性别</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Only ♂</source>
-        <translation type="unfinished"></translation>
+        <translation>只有公</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Only ♀</source>
-        <translation type="unfinished"></translation>
+        <translation>只有母</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>过滤器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Any</source>
-        <translation type="unfinished"></translation>
+        <translation>任意</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Nature</source>
-        <translation type="unfinished"></translation>
+        <translation>性格</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>异色</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Disable Filters</source>
-        <translation type="unfinished"></translation>
+        <translation>不用过滤器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>风格</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>黑暗</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>明亮</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -347,84 +347,84 @@
     <message>
         <location filename="../Forms/MainWindow.cpp" line="97"/>
         <source>Event</source>
-        <translation type="unfinished"></translation>
+        <translation>活动</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="142"/>
         <source>Output Results to TXT</source>
-        <translation type="unfinished"></translation>
+        <translation>保存结果到TXT</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="143"/>
         <source>Output Results to CSV</source>
-        <translation type="unfinished"></translation>
+        <translation>保存结果到CSV</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="173"/>
         <source>Language update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新语言</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="174"/>
         <location filename="../Forms/MainWindow.cpp" line="194"/>
         <source>Restart for changes to take effect. Restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="193"/>
         <source>Style change</source>
-        <translation type="unfinished"></translation>
+        <translation>改变风格</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="280"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Sword</source>
-        <translation type="unfinished"></translation>
+        <translation>剑</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Rarity</source>
-        <translation type="unfinished"></translation>
+        <translation>稀有度</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>普通(红)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Rare</source>
-        <translation type="unfinished"></translation>
+        <translation>稀有(紫)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Gigantamax</source>
-        <translation type="unfinished"></translation>
+        <translation>极巨化</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <location filename="../Forms/MainWindow.cpp" line="280"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Star</source>
-        <translation type="unfinished"></translation>
+        <translation>星星</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>方块</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Star/Square</source>
-        <translation type="unfinished"></translation>
+        <translation>星/方块</translation>
     </message>
 </context>
 <context>
@@ -437,32 +437,32 @@
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>游戏版本</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Sword</source>
-        <translation type="unfinished"></translation>
+        <translation>剑</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Shield</source>
-        <translation type="unfinished"></translation>
+        <translation>盾</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.ui"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileEditor.cpp" line="93"/>
@@ -480,22 +480,22 @@
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>新建</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.ui"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../Forms/ProfileManager.cpp" line="82"/>
@@ -524,17 +524,17 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>游戏版本</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>TID</source>
-        <translation type="unfinished"></translation>
+        <translation>TID</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
-        <translation type="unfinished"></translation>
+        <translation>SID</translation>
     </message>
 </context>
 <context>
@@ -542,22 +542,22 @@
     <message>
         <location filename="../Forms/Controls/TableView.cpp" line="69"/>
         <source>Save Output to TXT</source>
-        <translation type="unfinished"></translation>
+        <translation>保存结果到TXT</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/TableView.cpp" line="69"/>
         <source>Text File (*.txt);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>文本文件(*.txt);;所有文件(*)</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/TableView.cpp" line="123"/>
         <source>Save Output to CSV</source>
-        <translation type="unfinished"></translation>
+        <translation>保存结果到CSV</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/TableView.cpp" line="123"/>
         <source>CSV File (*.csv);;All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>CSV文件(*.csv);;所有文件(*)</translation>
     </message>
 </context>
 </TS>
