@@ -345,38 +345,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="95"/>
+        <location filename="../Forms/MainWindow.cpp" line="97"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="140"/>
+        <location filename="../Forms/MainWindow.cpp" line="142"/>
         <source>Output Results to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="141"/>
+        <location filename="../Forms/MainWindow.cpp" line="143"/>
         <source>Output Results to CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="171"/>
+        <location filename="../Forms/MainWindow.cpp" line="173"/>
         <source>Language update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="172"/>
-        <location filename="../Forms/MainWindow.cpp" line="192"/>
+        <location filename="../Forms/MainWindow.cpp" line="174"/>
+        <location filename="../Forms/MainWindow.cpp" line="194"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="191"/>
+        <location filename="../Forms/MainWindow.cpp" line="193"/>
         <source>Style change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="278"/>
+        <location filename="../Forms/MainWindow.cpp" line="280"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="278"/>
+        <location filename="../Forms/MainWindow.cpp" line="280"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
