@@ -183,14 +183,16 @@ def searchInput():
 
 def main():
     if len(sys.argv) == 1:
-        searchInput()
+        return searchInput()
     else:
-        searchPKM()
+        return searchPKM()
 
 if __name__ == "__main__":
-   if main() == False:
-       print("No raid seed")
-       print("This means one of three things")
-       print("1. You entered something wrong")
-       print("2. This script does not check for forced shiny since that takes a long time to compute. Try again with a non-shiny raid")
-       print("3. You encountered an extremely rare edge case (odds are you fall under case 1 though)")     
+    if main() == False:
+        print("No raid seed")
+        print("This means one of three things")
+        print("1. You entered something wrong")
+        print("2. This script does not check for forced shiny since that takes a long time to compute. Try again with a non-shiny raid")
+        print("3. You encountered an extremely rare edge case (odds are you fall under case 1 though)")
+    
+    input("Press ENTER to exit")
