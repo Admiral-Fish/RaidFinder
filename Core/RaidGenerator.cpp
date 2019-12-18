@@ -174,7 +174,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
 
         if (compare.compareFrame(result))
         {
-            frames.push_back(result);
+            frames.append(result);
         }
     }
 
