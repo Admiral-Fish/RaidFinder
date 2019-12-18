@@ -4,9 +4,9 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="109"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="112"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="129"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="120"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="123"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="140"/>
         <source>Any</source>
         <translation>Any</translation>
     </message>
@@ -345,38 +345,38 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="97"/>
+        <location filename="../Forms/MainWindow.cpp" line="98"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="142"/>
+        <location filename="../Forms/MainWindow.cpp" line="143"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="143"/>
+        <location filename="../Forms/MainWindow.cpp" line="144"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="173"/>
+        <location filename="../Forms/MainWindow.cpp" line="174"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="174"/>
-        <location filename="../Forms/MainWindow.cpp" line="194"/>
+        <location filename="../Forms/MainWindow.cpp" line="175"/>
+        <location filename="../Forms/MainWindow.cpp" line="195"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="193"/>
+        <location filename="../Forms/MainWindow.cpp" line="194"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="280"/>
+        <location filename="../Forms/MainWindow.cpp" line="281"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="280"/>
+        <location filename="../Forms/MainWindow.cpp" line="281"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -498,18 +498,18 @@
         <translation>Done</translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="82"/>
-        <location filename="../Forms/ProfileManager.cpp" line="104"/>
+        <location filename="../Forms/ProfileManager.cpp" line="83"/>
+        <location filename="../Forms/ProfileManager.cpp" line="105"/>
         <source>Please select a profile.</source>
         <translation>Please select a profile.</translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="109"/>
+        <location filename="../Forms/ProfileManager.cpp" line="110"/>
         <source>Delete profile</source>
         <translation>Delete profile</translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="110"/>
+        <location filename="../Forms/ProfileManager.cpp" line="111"/>
         <source>Are you sure you wish to delete this profile?</source>
         <translation>Are you sure you wish to delete this profile?</translation>
     </message>
