@@ -38,6 +38,11 @@ bool FrameCompare::compareFrame(const Frame &frame) const
         return true;
     }
 
+    if (!natures.at(frame.getNature()))
+    {
+        return false;
+    }
+
     if (gender != 255 && gender != frame.getGender())
     {
         return false;
