@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
-    Translator::init();
     DenLoader::init();
     updateProfiles();
     setupModels();

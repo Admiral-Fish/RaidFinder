@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <Core/Util/Translator.hpp>
 #include <Forms/MainWindow.hpp>
 #include <QApplication>
 #include <QFile>
@@ -44,8 +45,17 @@ int main(int argc, char *argv[])
         }
     }
 
+    QString locale = setting.value("settings/locale", "en").toString();
+    QStringList localelist = { "de", "en", "es", "fr", "it", "ja", "ko", "zh" };
+    if (!localelist.contains(locale))
+    {
+        locale = "en";
+        setting.setValue("settings/locale", "en");
+    }
+
+    Translator::init(locale);
     QTranslator translator;
-    if (translator.load(QString(":/i18n/RaidFinder_%1.qm").arg(setting.value("settings/locale", "en").toString())))
+    if (translator.load(QString(":/i18n/RaidFinder_%1.qm").arg(locale)))
     {
         app.installTranslator(&translator);
     }

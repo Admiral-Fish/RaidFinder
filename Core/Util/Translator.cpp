@@ -19,12 +19,10 @@
 
 #include "Translator.hpp"
 #include <QFile>
-#include <QSettings>
 #include <QTextStream>
 
 static QStringList locations;
 static QStringList natures;
-static QStringList frameNatures;
 static QStringList species;
 
 QStringList readFile(QString name)
@@ -46,23 +44,10 @@ QStringList readFile(QString name)
     return input;
 }
 
-void Translator::init()
+void Translator::init(QString locale)
 {
-    QSettings setting;
-    QString locale = setting.value("settings/locale", "en").toString();
-
-    QStringList localelist = {"de","en","es","fr","it","ja","ko","zh"};
-    if (!localelist.contains(locale))
-        locale = "en";
-
     locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
-
-    frameNatures = readFile(QString(":/text/natures_%1.txt").arg(locale));
-    for (int i : { 3, 5, 2, 20, 23, 11, 8, 13, 1, 16, 15, 14, 4, 17, 19, 7, 22, 10, 21, 9, 18, 6, 0, 24, 12 })
-    {
-        natures.append(frameNatures.at(i));
-    }
-
+    natures = readFile(QString(":/text/natures_%1.txt").arg(locale));
     species = readFile(QString(":/text/species_%1.txt").arg(locale));
 }
 
@@ -93,5 +78,5 @@ QStringList Translator::getNatures()
 
 QString Translator::getNature(u8 nature)
 {
-    return frameNatures.at(nature);
+    return natures.at(nature);
 }
