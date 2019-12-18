@@ -22,10 +22,11 @@
 
 #include <Core/Results/Den.hpp>
 #include <Core/Results/Profile.hpp>
-#include <Models/FrameModel.hpp>
 #include <QActionGroup>
 #include <QMainWindow>
 #include <QMenu>
+
+class FrameModel;
 
 namespace Ui
 {

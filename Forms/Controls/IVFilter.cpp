@@ -71,16 +71,6 @@ void IVFilter::clearValues()
     changeSpe(0, 31);
 }
 
-void IVFilter::setValues(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe)
-{
-    changeHP(hp, hp);
-    changeAtk(atk, atk);
-    changeDef(def, def);
-    changeSpA(spa, spa);
-    changeSpD(spd, spd);
-    changeSpe(spe, spe);
-}
-
 void IVFilter::changeHP(int min, int max)
 {
     ui->spinBoxHPMin->setValue(min);

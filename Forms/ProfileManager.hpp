@@ -20,8 +20,9 @@
 #ifndef PROFILEMANAGER_HPP
 #define PROFILEMANAGER_HPP
 
-#include <Models/ProfileModel.hpp>
 #include <QWidget>
+
+class ProfileModel;
 
 namespace Ui
 {

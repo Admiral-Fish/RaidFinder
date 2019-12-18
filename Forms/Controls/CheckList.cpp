@@ -34,7 +34,7 @@ CheckList::CheckList(QWidget *parent)
 
     connect(lineEdit(), &QLineEdit::selectionChanged, lineEdit(), &QLineEdit::deselect);
     connect(dynamic_cast<QListView *>(view()), &QAbstractItemView::pressed, this, &CheckList::itemPressed);
-    connect(model, &QAbstractItemModel::dataChanged, this, &CheckList::modelDataChanged);
+    connect(model, &QAbstractItemModel::dataChanged, this, &CheckList::updateText);
 }
 
 void CheckList::setup(const QStringList &items)
@@ -72,14 +72,6 @@ QVector<bool> CheckList::getChecked()
     return result;
 }
 
-void CheckList::setChecks(const QVector<bool> &flags)
-{
-    for (auto i = 0; i < model->rowCount(); i++)
-    {
-        model->item(i)->setCheckState(flags.at(i) ? Qt::Checked : Qt::Unchecked);
-    }
-}
-
 void CheckList::resetChecks()
 {
     for (auto i = 0; i < model->rowCount(); i++)
@@ -97,6 +89,25 @@ bool CheckList::eventFilter(QObject *object, QEvent *event)
     }
 
     return false;
+}
+
+int CheckList::checkState()
+{
+    int total = model->rowCount(), checked = 0, unchecked = 0;
+
+    for (int i = 0; i < total; i++)
+    {
+        if (model->item(i)->checkState() == Qt::Checked)
+        {
+            checked++;
+        }
+        else if (model->item(i)->checkState() == Qt::Unchecked)
+        {
+            unchecked++;
+        }
+    }
+
+    return checked == total ? Qt::Checked : unchecked == total ? Qt::Unchecked : Qt::PartiallyChecked;
 }
 
 void CheckList::updateText()
@@ -130,30 +141,6 @@ void CheckList::updateText()
     }
 
     lineEdit()->setText(text);
-}
-
-int CheckList::checkState()
-{
-    int total = model->rowCount(), checked = 0, unchecked = 0;
-
-    for (int i = 0; i < total; i++)
-    {
-        if (model->item(i)->checkState() == Qt::Checked)
-        {
-            checked++;
-        }
-        else if (model->item(i)->checkState() == Qt::Unchecked)
-        {
-            unchecked++;
-        }
-    }
-
-    return checked == total ? Qt::Checked : unchecked == total ? Qt::Unchecked : Qt::PartiallyChecked;
-}
-
-void CheckList::modelDataChanged()
-{
-    updateText();
 }
 
 void CheckList::itemPressed(const QModelIndex &index)

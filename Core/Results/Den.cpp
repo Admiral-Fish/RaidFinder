@@ -19,7 +19,6 @@
 
 #include "Den.hpp"
 #include <Core/Util/Translator.hpp>
-#include <string>
 
 Den::Den(u64 hash, u8 location, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
 {

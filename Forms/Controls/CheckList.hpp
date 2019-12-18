@@ -30,7 +30,6 @@ public:
     explicit CheckList(QWidget *parent = nullptr);
     void setup(const QStringList &items = QStringList());
     QVector<bool> getChecked();
-    void setChecks(const QVector<bool> &flags);
 
 public slots:
     void resetChecks();
@@ -41,11 +40,10 @@ protected:
 private:
     QStandardItemModel *model;
 
-    void updateText();
     int checkState();
 
 private slots:
-    void modelDataChanged();
+    void updateText();
     void itemPressed(const QModelIndex &index);
 };
 

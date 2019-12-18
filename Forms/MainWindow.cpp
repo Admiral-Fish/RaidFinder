@@ -23,6 +23,7 @@
 #include <Core/RaidGenerator.hpp>
 #include <Core/Util/Translator.hpp>
 #include <Forms/ProfileManager.hpp>
+#include <Models/FrameModel.hpp>
 #include <QApplication>
 #include <QMessageBox>
 #include <QProcess>
