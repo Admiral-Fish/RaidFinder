@@ -4,22 +4,38 @@ This is an RNG tool for Pokemon Sword/Shield. Due to the nature of the games onl
 
 # Getting the Raid Seed
 
-There are currently two ways to get the raid seed.
+There are currently two ways to get the raid seed if you have access to CFW or a RCM vulnerable switch.
 
-Option 1 (dumping the savefile):
+Option 1: Viewing game RAM (CFW only)
 
-1. This step requires a switch that either has CFW or is vulnerable to RCM. I will not cover how to dump a save from the switch as there are other resources for that.
+1. Setup [CaptureSight](https://github.com/zaksabeast/CaptureSight)
 
-2. You must install and setup [PKHeX](https://github.com/kwsch/PKHeX) and the [Raid Plugin for PKHeX](https://github.com/Leanny/PKHeX_Raid_Plugin).
+2. Use CaptureSight to view the raid seed.
+
+Option 2: Dumping the savefile (CFW or RCM)
+
+1. Dump the save file. I will not cover how to do this since there are other resources that cover this.
+
+2. Install and setup [PKHeX](https://github.com/kwsch/PKHeX) and the [Raid Plugin for PKHeX](https://github.com/Leanny/PKHeX_Raid_Plugin).
 
 3. Open the save file you dumped in PKHeX and open the Raid Plugin. It will tell you all the relevant information of each den in your save file.
 
-Option 2 (dumping the pkm):
+There are currently two ways to get the raid seed if you don't have access to CFW. These both require finding someone with CFW. Option 1 is the better of the two since it saves time on the person checking the raid seed for you.
 
-1. This step does not require a switch that either has CFW or is vulnerable to RCM. It does however require finding someone else that does have those capabilities.
+Option 1: Trading the raid
 
-2. Have this person join your raid and catch the pokemon. Afterwards they should either send you the .pk8 file or tell you the EC/PID/IVs of the pokemon.
+1. Capture the raid pokemon and don't save the game.
+
+2. Initiate a trade with this person and have them view the raid pokemon using [CaptureSight](https://github.com/zaksabeast/CaptureSight). They will be able to tell you the EC, PID, and IVs of the pokmon.
 
 3. Install [z3](https://pypi.org/project/z3-solver/) which raid_solver.py uses. `pip install z3-solver`
 
 4. Use the [raid_solver.py](https://github.com/Admiral-Fish/RaidFinder/blob/master/raid_solver.py) script that comes with RaidFinder and input the information it asks for. It will calculate your raid seed and output it to you.
+
+Option 2: Joining the raid
+
+1. Have this person join your raid and catch the pokemon. Afterwards they should either send you the .pk8 file or tell you the EC/PID/IVs of the pokemon.
+
+2. Install [z3](https://pypi.org/project/z3-solver/) which raid_solver.py uses. `pip install z3-solver`
+
+3. Use the [raid_solver.py](https://github.com/Admiral-Fish/RaidFinder/blob/master/raid_solver.py) script that comes with RaidFinder and input the information it asks for. It will calculate your raid seed and output it to you.
