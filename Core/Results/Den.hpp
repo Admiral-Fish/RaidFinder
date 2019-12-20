@@ -29,17 +29,15 @@ class Den
 {
 public:
     Den() = default;
-    Den(u64 hash, u8 location, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids);
+    Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids);
     Raid getRaid(u8 index, Game version) const;
     QVector<QPair<u16, QString>> getSpecies(Game version) const;
     u64 getHash() const;
-    QString getLocation() const;
 
 private:
     QVector<Raid> swordRaids;
     QVector<Raid> shieldRaids;
     u64 hash;
-    u8 location;
 };
 
 #endif // DEN_HPP

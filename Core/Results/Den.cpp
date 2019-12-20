@@ -20,10 +20,9 @@
 #include "Den.hpp"
 #include <Core/Util/Translator.hpp>
 
-Den::Den(u64 hash, u8 location, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
+Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
 {
     this->hash = hash;
-    this->location = location;
     this->swordRaids = swordRaids;
     this->shieldRaids = shieldRaids;
 }
@@ -84,9 +83,4 @@ QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
 u64 Den::getHash() const
 {
     return hash;
-}
-
-QString Den::getLocation() const
-{
-    return Translator::getLocation(location);
 }

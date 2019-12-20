@@ -92,8 +92,8 @@ void MainWindow::setupModels()
 
     for (u8 i = 0; i < 99; i++)
     {
-        QString location = QString("%1: %2").arg(i + 1).arg(DenLoader::getDen(i, 0).getLocation());
-        ui->comboBoxDen->addItem(location);
+        QString location = Translator::getLocation(DenLoader::getLocation(i));
+        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
     }
     ui->comboBoxDen->addItem(tr("Event"));
     denIndexChanged(0);

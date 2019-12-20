@@ -26,6 +26,7 @@ namespace DenLoader
 {
     void init();
     Den getDen(u8 index, u8 rarity);
+    u8 getLocation(u8 index);
 }
 
 #endif // DENLOADER_HPP
