@@ -616,7 +616,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -646,7 +646,14 @@
     <addaction name="menuLanguage"/>
     <addaction name="menuStyle"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionDen_Map"/>
+   </widget>
    <addaction name="menuSettings"/>
+   <addaction name="menuTools"/>
   </widget>
   <action name="actionDark">
    <property name="checkable">
@@ -726,6 +733,11 @@
    </property>
    <property name="text">
     <string>Chinese</string>
+   </property>
+  </action>
+  <action name="actionDen_Map">
+   <property name="text">
+    <string>Den Map</string>
    </property>
   </action>
  </widget>

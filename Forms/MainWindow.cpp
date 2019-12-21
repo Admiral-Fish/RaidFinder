@@ -22,6 +22,7 @@
 #include <Core/DenLoader.hpp>
 #include <Core/RaidGenerator.hpp>
 #include <Core/Util/Translator.hpp>
+#include <Forms/DenMap.hpp>
 #include <Forms/ProfileManager.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
@@ -146,6 +147,7 @@ void MainWindow::setupModels()
     connect(outputCSV, &QAction::triggered, this, [=]() { ui->tableView->outputModelCSV(); });
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
+    connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
         &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -244,6 +246,12 @@ void MainWindow::openProfileManager()
     auto *manager = new ProfileManager();
     connect(manager, &ProfileManager::updateProfiles, this, &MainWindow::updateProfiles);
     manager->show();
+}
+
+void MainWindow::openDenMap()
+{
+    auto *map = new DenMap();
+    map->show();
 }
 
 void MainWindow::denIndexChanged(int index)

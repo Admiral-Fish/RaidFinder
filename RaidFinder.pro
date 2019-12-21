@@ -11,8 +11,8 @@ VERSION = 1.1.1
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
 
-RC_ICONS += Images/raidfinder.ico
-ICON += Images/raidfinder.icns
+RC_ICONS += Resources/Images/raidfinder.ico
+ICON += Resources/Images/raidfinder.icns
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
@@ -32,6 +32,7 @@ TRANSLATIONS += \
 
 FORMS += \
     Forms/Controls/IVFilter.ui \
+    Forms/DenMap.ui \
     Forms/MainWindow.ui \
     Forms/ProfileEditor.ui \
     Forms/ProfileManager.ui
@@ -53,6 +54,7 @@ HEADERS += \
     Forms/Controls/Label.hpp \
     Forms/Controls/TableView.hpp \
     Forms/Controls/TextBox.hpp \
+    Forms/DenMap.hpp \
     Forms/MainWindow.hpp \
     Forms/ProfileEditor.hpp \
     Forms/ProfileManager.hpp \
@@ -75,6 +77,7 @@ SOURCES += \
     Forms/Controls/Label.cpp \
     Forms/Controls/TableView.cpp \
     Forms/Controls/TextBox.cpp \
+    Forms/DenMap.cpp \
     Forms/MainWindow.cpp \
     Forms/ProfileEditor.cpp \
     Forms/ProfileManager.cpp \
