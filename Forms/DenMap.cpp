@@ -53,13 +53,13 @@ void DenMap::setupModels()
 
 void DenMap::denIndexChanged(int index)
 {
-    QVector<u8> coordinates = DenLoader::getCoordinates(static_cast<u8>(index));
+    QVector<u16> coordinates = DenLoader::getCoordinates(static_cast<u8>(index));
 
     QPixmap image(":/images/map.png");
 
     QPainter paint(&image);
     paint.setPen(QPen(QBrush(Qt::red), 20));
-    paint.drawEllipse(coordinates[0], 1180 - coordinates[1], 10, 10);
+    paint.drawEllipse(QPoint(coordinates[0], coordinates[1]), 5, 5);
 
     ui->labelMap->setPixmap(image);
 }

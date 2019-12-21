@@ -264,7 +264,7 @@ u8 DenLoader::getLocation(u8 index)
     return static_cast<u8>(denInfo[index][2]);
 }
 
-QVector<u8> DenLoader::getCoordinates(u8 index)
+QVector<u16> DenLoader::getCoordinates(u8 index)
 {
-    return { static_cast<u8>(denInfo[index][3]), static_cast<u8>(denInfo[index][4]) };
+    return { static_cast<u16>(denInfo[index][3]), static_cast<u16>(denInfo[index][4]) };
 }
