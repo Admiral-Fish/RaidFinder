@@ -5,7 +5,7 @@
     </qresource>
     <qresource prefix="/images">
         <file alias="raidfinder.ico">Resources/Images/raidfinder.ico</file>
-		<file alias="map.png">Resources/Images/map.png</file>
+        <file alias="map.png">Resources/Images/map.png</file>
     </qresource>
     <qresource prefix="/text">
         <file alias="locations_de.txt">Resources/Text/Locations/locations_de.txt</file>
