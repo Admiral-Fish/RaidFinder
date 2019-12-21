@@ -210,7 +210,7 @@ void DenLoader::init()
             QVector<Raid> shieldRaids;
             QJsonArray swordEntries = table["SwordEntries"].toArray();
             QJsonArray shieldEntries = table["ShieldEntries"].toArray();
-            for (u8 j = 0; j < 12; j++)
+            for (u8 j = 0; j < 30; j++)
             {
                 QJsonObject swordEntry = swordEntries[j].toObject();
                 QJsonObject shieldEntry = shieldEntries[j].toObject();

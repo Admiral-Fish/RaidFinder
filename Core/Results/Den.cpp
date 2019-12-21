@@ -44,7 +44,7 @@ QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
     auto raids = version == Game::Sword ? swordRaids : shieldRaids;
 
     QVector<QPair<u16, QString>> species;
-    for (u8 i = 0; i < 12; i++)
+    for (u8 i = 0; i < raids.size(); i++)
     {
         u16 specie = raids[i].getSpecies();
 
