@@ -20,7 +20,6 @@
 #ifndef DENMAP_HPP
 #define DENMAP_HPP
 
-#include <QGraphicsScene>
 #include <QWidget>
 
 namespace Ui
@@ -37,7 +36,6 @@ public:
 
 private:
     Ui::DenMap *ui;
-    QGraphicsScene *scene;
 
     void setupModels();
 

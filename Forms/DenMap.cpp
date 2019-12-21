@@ -21,7 +21,7 @@
 #include "ui_DenMap.h"
 #include <Core/DenLoader.hpp>
 #include <Core/Util/Translator.hpp>
-#include <QGraphicsPixmapItem>
+#include <QPainter>
 
 DenMap::DenMap(QWidget *parent)
     : QWidget(parent)
@@ -47,9 +47,6 @@ void DenMap::setupModels()
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
     }
 
-    scene = new QGraphicsScene(ui->graphicsViewMap);
-    ui->graphicsViewMap->setScene(scene);
-
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::denIndexChanged);
     denIndexChanged(0);
 }
@@ -58,7 +55,11 @@ void DenMap::denIndexChanged(int index)
 {
     QVector<u8> coordinates = DenLoader::getCoordinates(static_cast<u8>(index));
 
-    scene->clear();
-    scene->addItem(new QGraphicsPixmapItem(QPixmap(":/images/map.png")));
-    scene->addEllipse(coordinates[0], coordinates[1], 20, 20, QPen(), QBrush(Qt::SolidPattern));
+    QPixmap image(":/images/map.png");
+
+    QPainter paint(&image);
+    paint.setPen(QPen(QBrush(Qt::red), 20));
+    paint.drawEllipse(coordinates[0], 1180 - coordinates[1], 10, 10);
+
+    ui->labelMap->setPixmap(image);
 }
