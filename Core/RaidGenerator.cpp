@@ -69,11 +69,11 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         XoroShiro rng(seed);
         Frame result(startFrame + frame, tsv);
 
-        u32 ec = static_cast<u32>(rng.nextInt());
+        u32 ec = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
         result.setEC(ec);
 
-        u32 otid = static_cast<u32>(rng.nextInt());
-        u32 pid = static_cast<u32>(rng.nextInt());
+        u32 otid = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
+        u32 pid = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
 
         u16 otsv = getSv(otid);
         u16 psv = getSv(pid);

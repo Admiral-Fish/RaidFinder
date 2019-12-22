@@ -24,20 +24,40 @@ static inline u64 rotl(u64 x, u8 k)
     return (x << k) | (x >> (64 - k));
 }
 
+static inline u32 nextPower(u32 num)
+{
+    switch (num)
+    {
+    case 2:
+        return 1;
+    case 3:
+        return 3;
+    case 6:
+        return 7;
+    case 32:
+        return 31;
+    case 253:
+        return 255;
+    case 0xffffffff:
+        return 0xffffffff;
+    }
+    return 0;
+}
+
 XoroShiro::XoroShiro(u64 seed)
 {
     state[0] = seed;
     state[1] = 0x82A2B175229D6A5B;
 }
 
-u64 XoroShiro::nextInt(u64 num)
+u64 XoroShiro::nextInt(u32 num)
 {
-    u64 num2 = nextPower(num);
+    u64 mask = nextPower(num);
 
     u64 result;
     do
     {
-        result = next() & num2;
+        result = next() & mask;
     } while (result >= num);
     return result;
 }
@@ -53,14 +73,4 @@ u64 XoroShiro::next()
     state[1] = rotl(s1, 37);
 
     return result;
-}
-
-u64 XoroShiro::nextPower(u64 num)
-{
-    num--;
-    for (u8 i = 0; i < 6; i++)
-    {
-        num |= num >> (1 << i);
-    }
-    return num;
 }
