@@ -52,7 +52,7 @@ XoroShiro::XoroShiro(u64 seed)
 
 u64 XoroShiro::nextInt(u32 num)
 {
-    u64 mask = nextPower(num);
+    u32 mask = nextPower(num);
 
     u64 result;
     do
