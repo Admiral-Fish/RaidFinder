@@ -26,15 +26,12 @@ class Frame
 {
 public:
     Frame() = default;
-    Frame(u32 frame, u16 tsv);
+    explicit Frame(u32 frame);
     u32 getFrame() const;
-    void setFrame(u32 frame);
     u32 getEC() const;
     void setEC(u32 ec);
     u32 getPID() const;
     void setPID(u32 pid);
-    u16 getTSV() const;
-    void setTSV(u16 tsv);
     u8 getNature() const;
     void setNature(u8 nature);
     u8 getAbility() const;
@@ -50,7 +47,6 @@ private:
     u32 frame;
     u32 ec;
     u32 pid;
-    u16 tsv;
     u8 nature;
     u8 ability;
     u8 gender;

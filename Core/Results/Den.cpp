@@ -21,10 +21,10 @@
 #include <Core/Util/Translator.hpp>
 
 Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
+    : swordRaids(swordRaids)
+    , shieldRaids(shieldRaids)
+    , hash(hash)
 {
-    this->hash = hash;
-    this->swordRaids = swordRaids;
-    this->shieldRaids = shieldRaids;
 }
 
 Raid Den::getRaid(u8 index, Game version) const

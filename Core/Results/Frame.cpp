@@ -19,25 +19,15 @@
 
 #include "Frame.hpp"
 
-Frame::Frame(u32 frame, u16 tsv)
+Frame::Frame(u32 frame)
+    : frame(frame)
+    , ivs { 255, 255, 255, 255, 255, 255 }
 {
-    this->frame = frame;
-    this->tsv = tsv;
-
-    for (u8 &iv : ivs)
-    {
-        iv = 255;
-    }
 }
 
 u32 Frame::getFrame() const
 {
     return frame;
-}
-
-void Frame::setFrame(u32 frame)
-{
-    this->frame = frame;
 }
 
 u32 Frame::getEC() const
@@ -58,16 +48,6 @@ u32 Frame::getPID() const
 void Frame::setPID(u32 pid)
 {
     this->pid = pid;
-}
-
-u16 Frame::getTSV() const
-{
-    return tsv;
-}
-
-void Frame::setTSV(u16 tsv)
-{
-    this->tsv = tsv;
 }
 
 u8 Frame::getNature() const

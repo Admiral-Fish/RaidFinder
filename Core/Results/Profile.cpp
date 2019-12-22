@@ -24,27 +24,27 @@
 #include <QVector>
 
 Profile::Profile()
+    : name("None")
+    , tid(12345)
+    , sid(54321)
+    , version(Game::Sword)
 {
-    name = "None";
-    tid = 12345;
-    sid = 54321;
-    version = Game::Sword;
 }
 
 Profile::Profile(const QString &name, u16 tid, u16 sid, Game version)
+    : name(name)
+    , tid(tid)
+    , sid(sid)
+    , version(version)
 {
-    this->name = name;
-    this->tid = tid;
-    this->sid = sid;
-    this->version = version;
 }
 
 Profile::Profile(QJsonObject data)
+    : name(data["name"].toString())
+    , tid(static_cast<u16>(data["tid"].toInt()))
+    , sid(static_cast<u16>(data["sid"].toInt()))
+    , version(static_cast<Game>(data["version"].toInt()))
 {
-    name = data["name"].toString();
-    tid = data["tid"].toInt();
-    sid = data["sid"].toInt();
-    version = static_cast<Game>(data["version"].toInt());
 }
 
 QJsonObject Profile::getJson()
@@ -102,9 +102,9 @@ QVector<Profile> Profile::loadProfileList()
     QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
     QJsonArray gen8 = profiles["gen8"].toArray();
 
-    for (const auto &&i : gen8)
+    for (auto i = 0; i < gen8.size(); i++)
     {
-        auto data = i.toObject();
+        auto data = gen8[i].toObject();
         profileList.append(Profile(data));
     }
 
@@ -153,13 +153,13 @@ void Profile::updateProfile(const Profile &original)
     QJsonObject profiles = QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object();
     QJsonArray gen8 = profiles["gen8"].toArray();
 
-    for (auto &&i : gen8)
+    for (auto i = 0; i < gen8.size(); i++)
     {
-        Profile profile(i.toObject());
+        Profile profile(gen8[i].toObject());
 
         if (original == profile && original != *this)
         {
-            i = getJson();
+            gen8[i] = getJson();
             profiles["gen8"] = gen8;
 
             setting.setValue("profiles", QJsonDocument(profiles).toJson());

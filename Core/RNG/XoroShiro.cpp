@@ -45,9 +45,8 @@ static inline u32 nextPower(u32 num)
 }
 
 XoroShiro::XoroShiro(u64 seed)
+    : state { seed, 0x82A2B175229D6A5B }
 {
-    state[0] = seed;
-    state[1] = 0x82A2B175229D6A5B;
 }
 
 u64 XoroShiro::nextInt(u32 num)

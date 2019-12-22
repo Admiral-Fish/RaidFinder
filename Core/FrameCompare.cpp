@@ -21,14 +21,14 @@
 
 FrameCompare::FrameCompare(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
     const QVector<bool> &natures)
+    : min(min)
+    , max(max)
+    , gender(gender)
+    , ability(ability)
+    , natures(natures)
+    , shiny(shiny)
+    , skip(skip)
 {
-    this->gender = gender;
-    this->ability = ability;
-    this->shiny = shiny;
-    this->skip = skip;
-    this->min = min;
-    this->max = max;
-    this->natures = natures;
 }
 
 bool FrameCompare::compareFrame(const Frame &frame) const
