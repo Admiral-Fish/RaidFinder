@@ -28,11 +28,7 @@
     </widget>
    </item>
    <item row="1" column="3">
-    <widget class="TextBox" name="textBoxProfileSID">
-     <property name="maxLength">
-      <number>5</number>
-     </property>
-    </widget>
+    <widget class="TextBox" name="textBoxProfileSID"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="labelProfileVersion">
@@ -63,11 +59,7 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="TextBox" name="textBoxProfileTID">
-     <property name="maxLength">
-      <number>5</number>
-     </property>
-    </widget>
+    <widget class="TextBox" name="textBoxProfileTID"/>
    </item>
    <item row="2" column="2" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">

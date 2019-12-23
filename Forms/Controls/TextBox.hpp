@@ -40,7 +40,7 @@ class TextBox : public QLineEdit
 public:
     explicit TextBox(QWidget *parent = nullptr);
     void setValues(InputType type);
-    void setValues(u64 minValue, u64 maxValue, int base = 10);
+    void setValues(u64 minValue, u64 maxValue, int length, int base = 10);
     u8 getByte();
     u16 getUShort();
     u32 getUInt();
@@ -48,13 +48,12 @@ public:
 
 private:
     bool setup;
-    u64 maxValue = 0;
-    u64 minValue;
-    int base;
+    u64 maxValue, minValue;
+    int base, length;
     QRegExp filter;
 
 private slots:
-    void onTextChanged(QString string);
+    void onTextEdited(QString string);
     void onEditFinished();
 };
 

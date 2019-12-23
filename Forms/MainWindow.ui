@@ -118,11 +118,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="1">
-        <widget class="TextBox" name="textBoxSeed">
-         <property name="maxLength">
-          <number>16</number>
-         </property>
-        </widget>
+        <widget class="TextBox" name="textBoxSeed"/>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="labelMaxResults">
@@ -155,9 +151,6 @@
          <property name="text">
           <string notr="true">1</string>
          </property>
-         <property name="maxLength">
-          <number>10</number>
-         </property>
         </widget>
        </item>
        <item row="5" column="0" colspan="2">
@@ -171,9 +164,6 @@
         <widget class="TextBox" name="textBoxMaxResults">
          <property name="text">
           <string notr="true">100</string>
-         </property>
-         <property name="maxLength">
-          <number>10</number>
          </property>
         </widget>
        </item>
