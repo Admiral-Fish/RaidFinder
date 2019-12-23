@@ -41,16 +41,8 @@ static inline u8 getShinyType(u32 tidsid, u32 pid)
 }
 
 RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType,
-    u8 genderRatio, u8 ivCount, u16 species)
-    : startFrame(startFrame)
-    , maxResults(maxResults)
-    , abilityType(abilityType)
-    , tid(tid)
-    , sid(sid)
-    , ivCount(ivCount)
-    , genderType(genderType)
-    , genderRatio(genderRatio)
-    , species(species)
+                             u8 genderRatio, u8 ivCount, u16 species) :
+    startFrame(startFrame), maxResults(maxResults), abilityType(abilityType), tid(tid), sid(sid), ivCount(ivCount), genderType(genderType), genderRatio(genderRatio), species(species)
 {
 }
 
@@ -69,11 +61,11 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         XoroShiro rng(seed);
         Frame result(startFrame + frame);
 
-        u32 ec = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
+        u32 ec = rng.nextInt(0xFFFFFFFF);
         result.setEC(ec);
 
-        u32 otid = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
-        u32 pid = static_cast<u32>(rng.nextInt(0xFFFFFFFF));
+        u32 otid = rng.nextInt(0xFFFFFFFF);
+        u32 pid = rng.nextInt(0xFFFFFFFF);
 
         u16 otsv = getSv(otid);
         u16 psv = getSv(pid);

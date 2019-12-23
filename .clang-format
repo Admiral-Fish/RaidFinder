@@ -1,10 +1,11 @@
 ---
 BasedOnStyle: WebKit
 
-AllowShortFunctionsOnASingleLine: Inline
+AlignAfterOpenBracket: Align
+AllowShortFunctionsOnASingleLine: None
 AlwaysBreakTemplateDeclarations: Yes
 BreakBeforeBraces: Allman
-ColumnLimit: 120
-IndentWidth: 4
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
 NamespaceIndentation: All
 PointerAlignment: Right

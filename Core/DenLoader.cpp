@@ -184,9 +184,9 @@ void DenLoader::init()
                 }
 
                 swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
-                    swordGigantamax, swordSpecies, swordStar));
+                                       swordGigantamax, swordSpecies, swordStar));
                 shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
-                    shieldGigantamax, shieldSpecies, shieldStar));
+                                        shieldGigantamax, shieldSpecies, shieldStar));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }
@@ -244,9 +244,9 @@ void DenLoader::init()
                 }
 
                 swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
-                    swordGigantamax, swordSpecies, swordStar));
+                                       swordGigantamax, swordSpecies, swordStar));
                 shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
-                    shieldGigantamax, shieldSpecies, shieldStar));
+                                        shieldGigantamax, shieldSpecies, shieldStar));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }

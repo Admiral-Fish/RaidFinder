@@ -19,9 +19,8 @@
 
 #include "Frame.hpp"
 
-Frame::Frame(u32 frame)
-    : frame(frame)
-    , ivs { 255, 255, 255, 255, 255, 255 }
+Frame::Frame(u32 frame) :
+    frame(frame), ivs { 255, 255, 255, 255, 255, 255 }
 {
 }
 

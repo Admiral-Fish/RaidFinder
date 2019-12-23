@@ -19,8 +19,8 @@
 
 #include "TextBox.hpp"
 
-TextBox::TextBox(QWidget *parent)
-    : QLineEdit(parent)
+TextBox::TextBox(QWidget *parent) :
+    QLineEdit(parent)
 {
     connect(this, &TextBox::textChanged, this, &TextBox::onTextChanged);
     connect(this, &TextBox::editingFinished, this, &TextBox::onEditFinished);

@@ -22,9 +22,8 @@
 #include <QMessageBox>
 #include <QSettings>
 
-ProfileEditor::ProfileEditor(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::ProfileEditor)
+ProfileEditor::ProfileEditor(QWidget *parent) :
+    QDialog(parent), ui(new Ui::ProfileEditor)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
@@ -32,9 +31,8 @@ ProfileEditor::ProfileEditor(QWidget *parent)
     setupModels();
 }
 
-ProfileEditor::ProfileEditor(const Profile &profile, QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::ProfileEditor)
+ProfileEditor::ProfileEditor(const Profile &profile, QWidget *parent) :
+    QDialog(parent), ui(new Ui::ProfileEditor)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
@@ -96,7 +94,7 @@ void ProfileEditor::okay()
     }
 
     fresh = Profile(input, ui->textBoxProfileTID->getUShort(), ui->textBoxProfileSID->getUShort(),
-        static_cast<Game>(ui->comboBoxProfileVersion->currentData().toInt()));
+                    static_cast<Game>(ui->comboBoxProfileVersion->currentData().toInt()));
 
     done(QDialog::Accepted);
 }

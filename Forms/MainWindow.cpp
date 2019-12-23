@@ -30,9 +30,8 @@
 #include <QProcess>
 #include <QSettings>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
@@ -149,13 +148,13 @@ void MainWindow::setupModels()
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-        &MainWindow::profilesIndexChanged);
+            &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(
         ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-        &MainWindow::speciesIndexChanged);
+            &MainWindow::speciesIndexChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
     if (setting.contains("mainWindow/geometry"))
@@ -174,7 +173,7 @@ void MainWindow::slotLanguageChanged(QAction *action)
             currentLanguage = language;
 
             QMessageBox message(QMessageBox::Question, tr("Language update"),
-                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
+                                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
                 QProcess::startDetached(QApplication::applicationFilePath());
@@ -194,7 +193,7 @@ void MainWindow::slotStyleChanged(QAction *action)
             currentStyle = style;
 
             QMessageBox message(QMessageBox::Question, tr("Style change"),
-                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
+                                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
                 QProcess::startDetached(QApplication::applicationFilePath());
@@ -207,7 +206,7 @@ void MainWindow::slotStyleChanged(QAction *action)
 void MainWindow::updateProfiles()
 {
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-        &MainWindow::profilesIndexChanged);
+            &MainWindow::profilesIndexChanged);
 
     profiles = Profile::loadProfileList();
     profiles.insert(profiles.begin(), Profile());
@@ -312,7 +311,7 @@ void MainWindow::generate()
     u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
     Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
     RaidGenerator generator(initialFrame, maxResults, abilityType, currentProfile.getTID(), currentProfile.getSID(),
-        genderType, genderRatio, ivCount, raid.getSpecies());
+                            genderType, genderRatio, ivCount, raid.getSpecies());
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());

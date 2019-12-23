@@ -26,8 +26,8 @@ template <typename T>
 class TableModel : public QAbstractTableModel
 {
 public:
-    TableModel(QObject *parent = nullptr)
-        : QAbstractTableModel(parent)
+    TableModel(QObject *parent = nullptr) :
+        QAbstractTableModel(parent)
     {
     }
 
@@ -64,9 +64,15 @@ public:
         emit endRemoveRows();
     }
 
-    T getItem(int row) const { return model.at(row); }
+    T getItem(int row) const
+    {
+        return model.at(row);
+    }
 
-    QVector<T> getModel() const { return model; }
+    QVector<T> getModel() const
+    {
+        return model;
+    }
 
     void clearModel()
     {

@@ -20,8 +20,8 @@
 #include "FrameModel.hpp"
 #include <Core/Util/Translator.hpp>
 
-FrameModel::FrameModel(QObject *parent)
-    : TableModel<Frame>(parent)
+FrameModel::FrameModel(QObject *parent) :
+    TableModel<Frame>(parent)
 {
 }
 

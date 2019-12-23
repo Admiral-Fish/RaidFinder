@@ -23,27 +23,18 @@
 #include <QSettings>
 #include <QVector>
 
-Profile::Profile()
-    : name("None")
-    , tid(12345)
-    , sid(54321)
-    , version(Game::Sword)
+Profile::Profile() :
+    name("None"), tid(12345), sid(54321), version(Game::Sword)
 {
 }
 
-Profile::Profile(const QString &name, u16 tid, u16 sid, Game version)
-    : name(name)
-    , tid(tid)
-    , sid(sid)
-    , version(version)
+Profile::Profile(const QString &name, u16 tid, u16 sid, Game version) :
+    name(name), tid(tid), sid(sid), version(version)
 {
 }
 
-Profile::Profile(QJsonObject data)
-    : name(data["name"].toString())
-    , tid(static_cast<u16>(data["tid"].toInt()))
-    , sid(static_cast<u16>(data["sid"].toInt()))
-    , version(static_cast<Game>(data["version"].toInt()))
+Profile::Profile(QJsonObject data) :
+    name(data["name"].toString()), tid(static_cast<u16>(data["tid"].toInt())), sid(static_cast<u16>(data["sid"].toInt())), version(static_cast<Game>(data["version"].toInt()))
 {
 }
 

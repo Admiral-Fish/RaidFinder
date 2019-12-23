@@ -44,16 +44,16 @@ static inline u32 nextPower(u32 num)
     return 0;
 }
 
-XoroShiro::XoroShiro(u64 seed)
-    : state { seed, 0x82A2B175229D6A5B }
+XoroShiro::XoroShiro(u64 seed) :
+    state { seed, 0x82A2B175229D6A5B }
 {
 }
 
-u64 XoroShiro::nextInt(u32 num)
+u32 XoroShiro::nextInt(u32 num)
 {
     u32 mask = nextPower(num);
 
-    u64 result;
+    u32 result;
     do
     {
         result = next() & mask;
@@ -61,11 +61,11 @@ u64 XoroShiro::nextInt(u32 num)
     return result;
 }
 
-u64 XoroShiro::next()
+u32 XoroShiro::next()
 {
     const u64 s0 = state[0];
     u64 s1 = state[1];
-    const u64 result = s0 + s1;
+    const u32 result = static_cast<u32>(s0 + s1);
 
     s1 ^= s0;
     state[0] = rotl(s0, 24) ^ s1 ^ (s1 << 16);

@@ -26,12 +26,12 @@ class XoroShiro
 {
 public:
     explicit XoroShiro(u64 seed);
-    u64 nextInt(u32 num);
+    u32 nextInt(u32 num);
 
 private:
     u64 state[2];
 
-    u64 next();
+    u32 next();
 };
 
 #endif // XOROSHIRO_HPP

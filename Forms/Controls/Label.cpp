@@ -20,8 +20,8 @@
 #include "Label.hpp"
 #include <QMouseEvent>
 
-Label::Label(QWidget *parent)
-    : QLabel(parent)
+Label::Label(QWidget *parent) :
+    QLabel(parent)
 {
 }
 

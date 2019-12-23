@@ -19,14 +19,8 @@
 
 #include "Raid.hpp"
 
-Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species, bool star[5])
-    : ability(ability)
-    , altform(altform)
-    , ivCount(ivCount)
-    , gender(gender)
-    , genderRatio(genderRatio)
-    , gigantamax(gigantamax)
-    , species(species)
+Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species, bool star[5]) :
+    ability(ability), altform(altform), ivCount(ivCount), gender(gender), genderRatio(genderRatio), gigantamax(gigantamax), species(species)
 {
     for (u8 i = 0; i < 5; i++)
     {

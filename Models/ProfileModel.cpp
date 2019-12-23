@@ -19,8 +19,8 @@
 
 #include "ProfileModel.hpp"
 
-ProfileModel::ProfileModel(QObject *parent)
-    : TableModel<Profile>(parent)
+ProfileModel::ProfileModel(QObject *parent) :
+    TableModel<Profile>(parent)
 {
 }
 

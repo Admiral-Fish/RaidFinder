@@ -20,10 +20,8 @@
 #include "Den.hpp"
 #include <Core/Util/Translator.hpp>
 
-Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids)
-    : swordRaids(swordRaids)
-    , shieldRaids(shieldRaids)
-    , hash(hash)
+Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) :
+    swordRaids(swordRaids), shieldRaids(shieldRaids), hash(hash)
 {
 }
 

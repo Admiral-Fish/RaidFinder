@@ -25,8 +25,8 @@
 #include <QMouseEvent>
 #include <QTextStream>
 
-TableView::TableView(QWidget *parent)
-    : QTableView(parent)
+TableView::TableView(QWidget *parent) :
+    QTableView(parent)
 {
 }
 
