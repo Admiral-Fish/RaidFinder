@@ -28,19 +28,20 @@ static inline u32 nextPower(u32 num)
 {
     switch (num)
     {
-    case 2:
+    case 2: // Ability
         return 1;
-    case 3:
+    case 3: // Ability
         return 3;
-    case 6:
+    case 6: // IV index
         return 7;
-    case 25:
+    case 13: // Toxtricity nature
+        return 15;
+    case 25: // Nature
+    case 32: // IV
         return 31;
-    case 32:
-        return 31;
-    case 253:
+    case 253: // Gender
         return 255;
-    case 0xffffffff:
+    case 0xffffffff: // EC/SIDTID/PID
         return 0xffffffff;
     }
     return 0;
