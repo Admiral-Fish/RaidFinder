@@ -128,7 +128,10 @@ constexpr u64 denInfo[100][5] = {
     { 0x17E59BBD874FD95C, 0x17E59BBD874FD95C, 0, 0, 0 } // Event
 };
 
-static QHash<u64, Den> dens;
+namespace
+{
+    QHash<u64, Den> dens;
+}
 
 void DenLoader::init()
 {

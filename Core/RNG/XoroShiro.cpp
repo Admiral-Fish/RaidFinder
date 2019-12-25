@@ -34,6 +34,8 @@ static inline u32 nextPower(u32 num)
         return 3;
     case 6:
         return 7;
+    case 25:
+        return 31;
     case 32:
         return 31;
     case 253:
