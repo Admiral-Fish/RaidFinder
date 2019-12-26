@@ -61,11 +61,11 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         XoroShiro rng(seed);
         Frame result(startFrame + frame);
 
-        u32 ec = rng.nextInt(0);
+        u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
         result.setEC(ec);
 
-        u32 otid = rng.nextInt(0);
-        u32 pid = rng.nextInt(0);
+        u32 otid = rng.nextInt(0xffffffff, 0xffffffff);
+        u32 pid = rng.nextInt(0xffffffff, 0xffffffff);
 
         u16 otsv = getSv(otid);
         u16 psv = getSv(pid);
@@ -95,7 +95,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         // Set IVs that will be 31s
         for (u8 i = 0; i < ivCount;)
         {
-            u8 index = static_cast<u8>(rng.nextInt(1));
+            u8 index = static_cast<u8>(rng.nextInt(6, 7));
             if (result.getIV(index) == 255)
             {
                 result.setIV(index, 31);
@@ -108,17 +108,17 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         {
             if (result.getIV(i) == 255)
             {
-                result.setIV(i, static_cast<u8>(rng.nextInt(2)));
+                result.setIV(i, static_cast<u8>(rng.nextInt(32, 31)));
             }
         }
 
         if (abilityType == 4) // Allow hidden ability
         {
-            result.setAbility(static_cast<u8>(rng.nextInt(3)));
+            result.setAbility(static_cast<u8>(rng.nextInt(3, 3)));
         }
         else if (abilityType == 3) // No hidden ability
         {
-            result.setAbility(static_cast<u8>(rng.nextInt(4)));
+            result.setAbility(static_cast<u8>(rng.nextInt(2, 1)));
         }
 
         // Altform, doesn't seem to have a rand call for raids
@@ -139,7 +139,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
             }
             else // Random
             {
-                result.setGender(static_cast<u8>(rng.nextInt(5) + 1) < genderRatio);
+                result.setGender(static_cast<u8>(rng.nextInt(253, 255) + 1) < genderRatio);
             }
         }
         else if (genderType == 1) // Male
@@ -157,16 +157,16 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
 
         if (species != 849)
         {
-            result.setNature(static_cast<u8>(rng.nextInt(6)));
+            result.setNature(static_cast<u8>(rng.nextInt(25, 31)));
         }
         else
         {
-            result.setNature(toxtricityAmpedNatures[rng.nextInt(7)]);
+            result.setNature(toxtricityAmpedNatures[rng.nextInt(13, 15)]);
         }
 
         if (compare.compareFrame(result))
         {
-            //frames.append(result);
+            frames.append(result);
         }
     }
 

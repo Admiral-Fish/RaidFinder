@@ -19,10 +19,6 @@
 
 #include "XoroShiro.hpp"
 
-// EC/SID/TID, IV index, IV, Ability(Hidden), Ability, Gender, Nature, Toxtricity nature
-constexpr u32 maxValues[8] = { 0xffffffff, 6, 32, 3, 2, 253, 25, 13 };
-constexpr u32 masks[8] = { 0xffffffff, 7, 31, 3, 1, 255, 31, 15 };
-
 static inline u64 rotl(u64 x, u8 k)
 {
     return (x << k) | (x >> (64 - k));
@@ -33,10 +29,8 @@ XoroShiro::XoroShiro(u64 seed) :
 {
 }
 
-u32 XoroShiro::nextInt(u8 index)
+u32 XoroShiro::nextInt(u32 max, u32 mask)
 {
-    u32 max = maxValues[index];
-    u32 mask = masks[index];
 
     u32 result;
     do

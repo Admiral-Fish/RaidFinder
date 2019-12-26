@@ -26,7 +26,7 @@ class XoroShiro
 {
 public:
     explicit XoroShiro(u64 seed);
-    u32 nextInt(u8 index);
+    u32 nextInt(u32 max, u32 mask);
 
 private:
     u64 state[2];
