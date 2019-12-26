@@ -19,32 +19,13 @@
 
 #include "XoroShiro.hpp"
 
+// EC/SID/TID, IV index, IV, Ability(Hidden), Ability, Gender, Nature, Toxtricity nature
+constexpr u32 maxValues[8] = { 0xffffffff, 6, 32, 3, 2, 253, 25, 13 };
+constexpr u32 masks[8] = { 0xffffffff, 7, 31, 3, 1, 255, 31, 15 };
+
 static inline u64 rotl(u64 x, u8 k)
 {
     return (x << k) | (x >> (64 - k));
-}
-
-static inline u32 nextPower(u32 num)
-{
-    switch (num)
-    {
-    case 2: // Ability
-        return 1;
-    case 3: // Ability
-        return 3;
-    case 6: // IV index
-        return 7;
-    case 13: // Toxtricity nature
-        return 15;
-    case 25: // Nature
-    case 32: // IV
-        return 31;
-    case 253: // Gender
-        return 255;
-    case 0xffffffff: // EC/SIDTID/PID
-        return 0xffffffff;
-    }
-    return 0;
 }
 
 XoroShiro::XoroShiro(u64 seed) :
@@ -52,15 +33,16 @@ XoroShiro::XoroShiro(u64 seed) :
 {
 }
 
-u32 XoroShiro::nextInt(u32 num)
+u32 XoroShiro::nextInt(u8 index)
 {
-    u32 mask = nextPower(num);
+    u32 max = maxValues[index];
+    u32 mask = masks[index];
 
     u32 result;
     do
     {
         result = next() & mask;
-    } while (result >= num);
+    } while (result >= max);
     return result;
 }
 
