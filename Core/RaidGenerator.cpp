@@ -27,10 +27,10 @@ static inline u16 getSv(u32 val)
     return ((val >> 16) ^ (val & 0xFFFF)) >> 4;
 }
 
-static inline u8 getShinyType(u32 tidsid, u32 pid)
+static inline u8 getShinyType(u32 sidtid, u32 pid)
 {
-    u16 val = (tidsid ^ pid) >> 16;
-    if ((val ^ (tidsid & 0xffff)) == (pid & 0xffff))
+    u16 val = (sidtid ^ pid) >> 16;
+    if ((val ^ (sidtid & 0xffff)) == (pid & 0xffff))
     {
         return 2; // Square shiny
     }
@@ -64,17 +64,17 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
         u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
         result.setEC(ec);
 
-        u32 otid = rng.nextInt(0xffffffff, 0xffffffff);
+        u32 sidtid = rng.nextInt(0xffffffff, 0xffffffff);
         u32 pid = rng.nextInt(0xffffffff, 0xffffffff);
 
-        u16 otsv = getSv(otid);
+        u16 ftsv = getSv(sidtid);
         u16 psv = getSv(pid);
 
         // Game uses a fake TID/SID to determine shiny or not
         // PID is later modified using the actual TID/SID of trainer if necessary
-        if (otsv == psv) // Force shiny
+        if (ftsv == psv) // Force shiny
         {
-            u8 shinyType = getShinyType(otid, pid);
+            u8 shinyType = getShinyType(sidtid, pid);
             result.setShiny(shinyType);
             if (psv != tsv)
             {
