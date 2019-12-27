@@ -19,6 +19,7 @@
 
 #include "ProfileManager.hpp"
 #include "ui_ProfileManager.h"
+#include <Core/Loader/ProfileLoader.hpp>
 #include <Forms/ProfileEditor.hpp>
 #include <Models/ProfileModel.hpp>
 #include <QMessageBox>
@@ -45,7 +46,7 @@ ProfileManager::~ProfileManager()
 void ProfileManager::setupModels()
 {
     model = new ProfileModel(ui->tableView);
-    model->addItems(Profile::loadProfileList());
+    model->addItems(ProfileLoader::getProfiles());
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -66,7 +67,7 @@ void ProfileManager::create()
     if (dialog->exec() == QDialog::Accepted)
     {
         Profile profile = dialog->getNewProfile();
-        profile.saveProfile();
+        ProfileLoader::addProfile(profile);
         model->addItem(profile);
         emit updateProfiles();
     }
@@ -88,7 +89,7 @@ void ProfileManager::edit()
     if (dialog->exec() == QDialog::Accepted)
     {
         Profile profile = dialog->getNewProfile();
-        profile.updateProfile(dialog->getOriginal());
+        ProfileLoader::updateProfile(profile, dialog->getOriginal());
         model->updateItem(profile, r);
         emit updateProfiles();
     }
@@ -111,7 +112,7 @@ void ProfileManager::remove()
     if (message.exec() == QMessageBox::Yes)
     {
         Profile profile = model->getItem(r);
-        profile.deleteProfile();
+        ProfileLoader::removeProfile(profile);
         model->removeItem(r);
         emit updateProfiles();
     }

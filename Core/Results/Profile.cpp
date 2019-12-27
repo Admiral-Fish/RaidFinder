@@ -18,9 +18,6 @@
  */
 
 #include "Profile.hpp"
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QSettings>
 #include <QVector>
 
 Profile::Profile() :
@@ -31,21 +28,6 @@ Profile::Profile() :
 Profile::Profile(const QString &name, u16 tid, u16 sid, Game version) :
     name(name), tid(tid), sid(sid), version(version)
 {
-}
-
-Profile::Profile(QJsonObject data) :
-    name(data["name"].toString()), tid(static_cast<u16>(data["tid"].toInt())), sid(static_cast<u16>(data["sid"].toInt())), version(static_cast<Game>(data["version"].toInt()))
-{
-}
-
-QJsonObject Profile::getJson()
-{
-    QJsonObject data;
-    data["name"] = name;
-    data["tid"] = tid;
-    data["sid"] = sid;
-    data["version"] = version;
-    return data;
 }
 
 QString Profile::getName() const
@@ -85,83 +67,9 @@ QString Profile::getVersionString() const
     return "-";
 }
 
-QVector<Profile> Profile::loadProfileList()
-{
-    QVector<Profile> profileList;
-    QSettings setting;
-
-    QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
-    QJsonArray gen8 = profiles["gen8"].toArray();
-
-    for (auto i = 0; i < gen8.size(); i++)
-    {
-        auto data = gen8[i].toObject();
-        profileList.append(Profile(data));
-    }
-
-    return profileList;
-}
-
-void Profile::saveProfile()
-{
-    QSettings setting;
-
-    QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
-    QJsonArray gen8 = profiles["gen8"].toArray();
-
-    gen8.append(getJson());
-    profiles["gen8"] = gen8;
-
-    setting.setValue("profiles", QJsonDocument(profiles).toJson());
-}
-
-void Profile::deleteProfile()
-{
-    QSettings setting;
-
-    QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
-    QJsonArray gen8 = profiles["gen8"].toArray();
-
-    for (auto i = 0; i < gen8.size(); i++)
-    {
-        Profile profile(gen8[i].toObject());
-
-        if (profile == *this)
-        {
-            gen8.removeAt(i);
-            profiles["gen8"] = gen8;
-
-            setting.setValue("profiles", QJsonDocument(profiles).toJson());
-            break;
-        }
-    }
-}
-
-void Profile::updateProfile(const Profile &original)
-{
-    QSettings setting;
-
-    QJsonObject profiles = QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object();
-    QJsonArray gen8 = profiles["gen8"].toArray();
-
-    for (auto i = 0; i < gen8.size(); i++)
-    {
-        Profile profile(gen8[i].toObject());
-
-        if (original == profile && original != *this)
-        {
-            gen8[i] = getJson();
-            profiles["gen8"] = gen8;
-
-            setting.setValue("profiles", QJsonDocument(profiles).toJson());
-            break;
-        }
-    }
-}
-
 bool operator==(const Profile &left, const Profile &right)
 {
-    return left.name == right.name && left.tid == right.tid && left.sid == right.sid && left.version == right.version;
+    return left.getName() == right.getName() && left.getTID() == right.getTID() && left.getSID() == right.getSID() && left.getVersion() == right.getVersion();
 }
 
 bool operator!=(const Profile &left, const Profile &right)

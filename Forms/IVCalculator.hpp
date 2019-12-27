@@ -17,33 +17,38 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PROFILE_HPP
-#define PROFILE_HPP
+#ifndef IVCALCULATOR_HPP
+#define IVCALCULATOR_HPP
 
-#include <Core/Game.hpp>
 #include <Core/Global.hpp>
-#include <QString>
+#include <Core/Util/Personal.hpp>
+#include <QLabel>
 
-class Profile
+namespace Ui
 {
+    class IVCalculator;
+}
+
+class IVCalculator : public QWidget
+{
+    Q_OBJECT
+
 public:
-    Profile();
-    Profile(const QString &name, u16 tid, u16 sid, Game version);
-    QString getName() const;
-    u16 getTID() const;
-    u16 getSID() const;
-    u16 getTSV() const;
-    Game getVersion() const;
-    QString getVersionString() const;
+    explicit IVCalculator(QWidget *parent = nullptr);
+    ~IVCalculator() override;
 
 private:
-    QString name;
-    u16 tid;
-    u16 sid;
-    Game version;
+    Ui::IVCalculator *ui;
+    QVector<Personal> personalInfo;
+
+    void setupModels();
+    void displayIVs(QLabel *label, const QVector<u8> &ivs);
+    Personal getPersonal(Personal base);
+
+private slots:
+    void findIVs();
+    void pokemonIndexChanged(int index);
+    void altformIndexChanged(int index);
 };
 
-bool operator==(const Profile &left, const Profile &right);
-bool operator!=(const Profile &left, const Profile &right);
-
-#endif // PROFILE_HPP
+#endif // IVCALCULATOR_HPP

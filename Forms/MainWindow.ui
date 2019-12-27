@@ -641,6 +641,7 @@
      <string>Tools</string>
     </property>
     <addaction name="actionDen_Map"/>
+    <addaction name="actionIV_Calculator"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -728,6 +729,11 @@
   <action name="actionDen_Map">
    <property name="text">
     <string>Den Map</string>
+   </property>
+  </action>
+  <action name="actionIV_Calculator">
+   <property name="text">
+    <string>IV Calculator</string>
    </property>
   </action>
  </widget>

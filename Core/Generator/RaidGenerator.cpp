@@ -46,7 +46,7 @@ RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16
 {
 }
 
-QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed)
+QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) const
 {
     QVector<Frame> frames;
     u16 tsv = (tid ^ sid) >> 4;

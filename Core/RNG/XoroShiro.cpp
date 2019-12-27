@@ -31,7 +31,6 @@ XoroShiro::XoroShiro(u64 seed) :
 
 u32 XoroShiro::nextInt(u32 max, u32 mask)
 {
-
     u32 result;
     do
     {

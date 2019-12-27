@@ -17,33 +17,30 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PROFILE_HPP
-#define PROFILE_HPP
+#ifndef RAIDGENERATOR_HPP
+#define RAIDGENERATOR_HPP
 
-#include <Core/Game.hpp>
-#include <Core/Global.hpp>
-#include <QString>
+#include <Core/FrameCompare.hpp>
+#include <Core/Results/Frame.hpp>
+#include <QVector>
 
-class Profile
+class RaidGenerator
 {
 public:
-    Profile();
-    Profile(const QString &name, u16 tid, u16 sid, Game version);
-    QString getName() const;
-    u16 getTID() const;
-    u16 getSID() const;
-    u16 getTSV() const;
-    Game getVersion() const;
-    QString getVersionString() const;
+    RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType, u8 genderRatio,
+                  u8 ivCount, u16 species);
+    QVector<Frame> generate(const FrameCompare &compare, u64 seed) const;
 
 private:
-    QString name;
+    u32 startFrame;
+    u32 maxResults;
+    u8 abilityType;
     u16 tid;
     u16 sid;
-    Game version;
+    u8 ivCount;
+    u8 genderType;
+    u8 genderRatio;
+    u16 species;
 };
 
-bool operator==(const Profile &left, const Profile &right);
-bool operator!=(const Profile &left, const Profile &right);
-
-#endif // PROFILE_HPP
+#endif // RAIDGENERATOR_HPP

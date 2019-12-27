@@ -17,33 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PROFILE_HPP
-#define PROFILE_HPP
+#ifndef PROFILELOADER_HPP
+#define PROFILELOADER_HPP
 
-#include <Core/Game.hpp>
-#include <Core/Global.hpp>
-#include <QString>
+#include <Core/Results/Profile.hpp>
+#include <QVector>
 
-class Profile
+namespace ProfileLoader
 {
-public:
-    Profile();
-    Profile(const QString &name, u16 tid, u16 sid, Game version);
-    QString getName() const;
-    u16 getTID() const;
-    u16 getSID() const;
-    u16 getTSV() const;
-    Game getVersion() const;
-    QString getVersionString() const;
+    QVector<Profile> getProfiles();
+    void addProfile(const Profile &profile);
+    void removeProfile(const Profile &remove);
+    void updateProfile(const Profile &update, const Profile &original);
+}
 
-private:
-    QString name;
-    u16 tid;
-    u16 sid;
-    Game version;
-};
-
-bool operator==(const Profile &left, const Profile &right);
-bool operator!=(const Profile &left, const Profile &right);
-
-#endif // PROFILE_HPP
+#endif // PROFILELOADER_HPP

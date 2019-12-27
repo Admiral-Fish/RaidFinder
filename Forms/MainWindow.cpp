@@ -19,10 +19,12 @@
 
 #include "MainWindow.hpp"
 #include "ui_MainWindow.h"
-#include <Core/DenLoader.hpp>
-#include <Core/RaidGenerator.hpp>
+#include <Core/Generator/RaidGenerator.hpp>
+#include <Core/Loader/DenLoader.hpp>
+#include <Core/Loader/ProfileLoader.hpp>
 #include <Core/Util/Translator.hpp>
 #include <Forms/DenMap.hpp>
+#include <Forms/IVCalculator.hpp>
 #include <Forms/ProfileManager.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
@@ -147,6 +149,7 @@ void MainWindow::setupModels()
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
+    connect(ui->actionIV_Calculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
             &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -208,7 +211,7 @@ void MainWindow::updateProfiles()
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
             &MainWindow::profilesIndexChanged);
 
-    profiles = Profile::loadProfileList();
+    profiles = ProfileLoader::getProfiles();
     profiles.insert(profiles.begin(), Profile());
 
     ui->comboBoxProfiles->clear();
@@ -251,6 +254,12 @@ void MainWindow::openDenMap()
 {
     auto *map = new DenMap();
     map->show();
+}
+
+void MainWindow::openIVCalculator()
+{
+    auto *calculator = new IVCalculator();
+    calculator->show();
 }
 
 void MainWindow::denIndexChanged(int index)

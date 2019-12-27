@@ -61,6 +61,7 @@ private slots:
     void profilesIndexChanged(int index);
     void openProfileManager();
     void openDenMap();
+    void openIVCalculator();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);

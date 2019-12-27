@@ -33,21 +33,25 @@ TRANSLATIONS += \
 FORMS += \
     Forms/Controls/IVFilter.ui \
     Forms/DenMap.ui \
+    Forms/IVCalculator.ui \
     Forms/MainWindow.ui \
     Forms/ProfileEditor.ui \
     Forms/ProfileManager.ui
 
 HEADERS += \
-    Core/DenLoader.hpp \
     Core/FrameCompare.hpp \
     Core/Game.hpp \
+    Core/Generator/RaidGenerator.hpp \
     Core/Global.hpp \
+    Core/Loader/DenLoader.hpp \
+    Core/Loader/ProfileLoader.hpp \
     Core/RNG/XoroShiro.hpp \
-    Core/RaidGenerator.hpp \
     Core/Results/Den.hpp \
     Core/Results/Frame.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
+    Core/Util/IVChecker.hpp \
+    Core/Util/Personal.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
@@ -55,6 +59,7 @@ HEADERS += \
     Forms/Controls/TableView.hpp \
     Forms/Controls/TextBox.hpp \
     Forms/DenMap.hpp \
+    Forms/IVCalculator.hpp \
     Forms/MainWindow.hpp \
     Forms/ProfileEditor.hpp \
     Forms/ProfileManager.hpp \
@@ -63,14 +68,17 @@ HEADERS += \
     Models/TableModel.hpp
 
 SOURCES += \
-    Core/DenLoader.cpp \
     Core/FrameCompare.cpp \
+    Core/Generator/RaidGenerator.cpp \
+    Core/Loader/DenLoader.cpp \
+    Core/Loader/ProfileLoader.cpp \
     Core/RNG/XoroShiro.cpp \
-    Core/RaidGenerator.cpp \
     Core/Results/Den.cpp \
     Core/Results/Frame.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
+    Core/Util/IVChecker.cpp \
+    Core/Util/Personal.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \
@@ -78,6 +86,7 @@ SOURCES += \
     Forms/Controls/TableView.cpp \
     Forms/Controls/TextBox.cpp \
     Forms/DenMap.cpp \
+    Forms/IVCalculator.cpp \
     Forms/MainWindow.cpp \
     Forms/ProfileEditor.cpp \
     Forms/ProfileManager.cpp \

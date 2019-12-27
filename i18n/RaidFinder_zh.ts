@@ -12,6 +12,14 @@
     </message>
 </context>
 <context>
+    <name>DenMap</name>
+    <message>
+        <location filename="../Forms/DenMap.ui"/>
+        <source>Den Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FrameModel</name>
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
@@ -95,6 +103,129 @@
     </message>
 </context>
 <context>
+    <name>IVCalculator</name>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>IV Calculator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Nature</source>
+        <translation>性格</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Altform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Find IVs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>HP</source>
+        <translation>HP</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Atk</source>
+        <translation>攻击</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Def</source>
+        <translation>防御</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>SpA</source>
+        <translation>特攻</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>SpD</source>
+        <translation>特防</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Spe</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Enter each level entry on a new line with a space between each number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Pokémon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base HP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Atk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Def</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base SpA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base SpD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Spe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.cpp" line="77"/>
+        <source>Invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.cpp" line="177"/>
+        <source>Invalid input</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>IVFilter</name>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
@@ -127,22 +258,22 @@
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click to clear</source>
         <translation>点击清空</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click holding ctrl to set 31</source>
         <translation>按住ctrl点击设为31</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click holding alt to set 30-31</source>
         <translation>按住alt点击设为30-31</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="30"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding ctrl+alt to set 0</source>
         <translation>按住ctrl+alt设为0</translation>
     </message>
@@ -345,38 +476,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="98"/>
+        <location filename="../Forms/MainWindow.cpp" line="100"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="143"/>
+        <location filename="../Forms/MainWindow.cpp" line="145"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="144"/>
+        <location filename="../Forms/MainWindow.cpp" line="146"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="174"/>
+        <location filename="../Forms/MainWindow.cpp" line="178"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="175"/>
-        <location filename="../Forms/MainWindow.cpp" line="195"/>
+        <location filename="../Forms/MainWindow.cpp" line="179"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="194"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="281"/>
+        <location filename="../Forms/MainWindow.cpp" line="297"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -407,7 +538,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="281"/>
+        <location filename="../Forms/MainWindow.cpp" line="297"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -425,6 +556,21 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Star/Square</source>
         <translation>星/方块</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Den Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>IV Calculator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -465,7 +611,7 @@
         <translation>TID</translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileEditor.cpp" line="93"/>
+        <location filename="../Forms/ProfileEditor.cpp" line="91"/>
         <source>Enter a Profile Name.</source>
         <translation type="unfinished"></translation>
     </message>

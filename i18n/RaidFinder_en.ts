@@ -12,6 +12,14 @@
     </message>
 </context>
 <context>
+    <name>DenMap</name>
+    <message>
+        <location filename="../Forms/DenMap.ui"/>
+        <source>Den Map</source>
+        <translation>Den Map</translation>
+    </message>
+</context>
+<context>
     <name>FrameModel</name>
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
@@ -95,6 +103,129 @@
     </message>
 </context>
 <context>
+    <name>IVCalculator</name>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>IV Calculator</source>
+        <translation>IV Calculator</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Settings</source>
+        <translation>Settings</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Nature</source>
+        <translation>Nature</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Altform</source>
+        <translation>Altform</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Find IVs</source>
+        <translation>Find IVs</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Level</source>
+        <translation>Level</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>HP</source>
+        <translation>HP</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Atk</source>
+        <translation>Atk</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Def</source>
+        <translation>Def</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>SpA</source>
+        <translation>SpA</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>SpD</source>
+        <translation>SpD</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Spe</source>
+        <translation>Spe</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Enter each level entry on a new line with a space between each number</source>
+        <translation>Enter each level entry on a new line with a space between each number</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Pokémon</source>
+        <translation>Pokémon</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Information</source>
+        <translation>Information</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base HP</source>
+        <translation>Base HP</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Atk</source>
+        <translation>Base Atk</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Def</source>
+        <translation>Base Def</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base SpA</source>
+        <translation>Base SpA</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base SpD</source>
+        <translation>Base SpD</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Base Spe</source>
+        <translation>Base Spe</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Results</source>
+        <translation>Results</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.cpp" line="77"/>
+        <source>Invalid</source>
+        <translation>Invalid</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.cpp" line="177"/>
+        <source>Invalid input</source>
+        <translation>Invalid input</translation>
+    </message>
+</context>
+<context>
     <name>IVFilter</name>
     <message>
         <location filename="../Forms/Controls/IVFilter.ui"/>
@@ -127,22 +258,22 @@
         <translation>Spe</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click to clear</source>
         <translation>Click to Clear</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click holding ctrl to set 31</source>
         <translation>Click holding ctrl to set 31</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click holding alt to set 30-31</source>
         <translation>Click holding alt to set 30-31</translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="30"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
         <source>Click holding ctrl+alt to set 0</source>
         <translation>Click holding ctrl+alt to set 0</translation>
     </message>
@@ -345,38 +476,38 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="98"/>
+        <location filename="../Forms/MainWindow.cpp" line="100"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="143"/>
+        <location filename="../Forms/MainWindow.cpp" line="145"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="144"/>
+        <location filename="../Forms/MainWindow.cpp" line="146"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="174"/>
+        <location filename="../Forms/MainWindow.cpp" line="178"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="175"/>
-        <location filename="../Forms/MainWindow.cpp" line="195"/>
+        <location filename="../Forms/MainWindow.cpp" line="179"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="194"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="281"/>
+        <location filename="../Forms/MainWindow.cpp" line="297"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -407,7 +538,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="281"/>
+        <location filename="../Forms/MainWindow.cpp" line="297"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -425,6 +556,21 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Star/Square</source>
         <translation>Star/Square</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Tools</source>
+        <translation>Tools</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Den Map</source>
+        <translation>Den Map</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>IV Calculator</source>
+        <translation>IV Calculator</translation>
     </message>
 </context>
 <context>
@@ -465,7 +611,7 @@
         <translation>TID</translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileEditor.cpp" line="93"/>
+        <location filename="../Forms/ProfileEditor.cpp" line="91"/>
         <source>Enter a Profile Name.</source>
         <translation>Enter a Profile Name.</translation>
     </message>

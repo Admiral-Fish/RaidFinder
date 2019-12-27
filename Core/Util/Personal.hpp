@@ -17,33 +17,27 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PROFILE_HPP
-#define PROFILE_HPP
+#ifndef PERSONAL_HPP
+#define PERSONAL_HPP
 
-#include <Core/Game.hpp>
 #include <Core/Global.hpp>
-#include <QString>
+#include <QVector>
 
-class Profile
+class Personal
 {
 public:
-    Profile();
-    Profile(const QString &name, u16 tid, u16 sid, Game version);
-    QString getName() const;
-    u16 getTID() const;
-    u16 getSID() const;
-    u16 getTSV() const;
-    Game getVersion() const;
-    QString getVersionString() const;
+    Personal(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 formCount, u16 formStatIndex, bool included);
+    QVector<u8> getBaseStats() const;
+    u8 getFormCount() const;
+    u16 getFormStatIndex() const;
+    bool getIncluded() const;
+    static QVector<Personal> loadPersonal();
 
 private:
-    QString name;
-    u16 tid;
-    u16 sid;
-    Game version;
+    u8 hp, atk, def, spa, spd, spe;
+    u8 formCount;
+    u16 formStatIndex;
+    bool included;
 };
 
-bool operator==(const Profile &left, const Profile &right);
-bool operator!=(const Profile &left, const Profile &right);
-
-#endif // PROFILE_HPP
+#endif // PERSONAL_HPP

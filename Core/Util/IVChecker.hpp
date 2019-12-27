@@ -17,30 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef RAIDGENERATOR_HPP
-#define RAIDGENERATOR_HPP
+#ifndef IVCHECKER_HPP
+#define IVCHECKER_HPP
 
-#include <Core/FrameCompare.hpp>
-#include <Core/Results/Frame.hpp>
+#include <Core/Util/Personal.hpp>
 #include <QVector>
 
-class RaidGenerator
+namespace IVChecker
 {
-public:
-    RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType, u8 genderRatio,
-                  u8 ivCount, u16 species);
-    QVector<Frame> generate(const FrameCompare &compare, u64 seed);
+    QVector<QVector<u8>> calculateIVRange(Personal info, const QVector<QVector<u16>> &stats, const QVector<u8> &level, u8 nature);
+}
 
-private:
-    u32 startFrame;
-    u32 maxResults;
-    u8 abilityType;
-    u16 tid;
-    u16 sid;
-    u8 ivCount;
-    u8 genderType;
-    u8 genderRatio;
-    u16 species;
-};
-
-#endif // RAIDGENERATOR_HPP
+#endif // IVCHECKER_HPP

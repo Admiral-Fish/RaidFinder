@@ -7,6 +7,9 @@
         <file alias="raidfinder.ico">Resources/Images/raidfinder.ico</file>
         <file alias="map.png">Resources/Images/map.png</file>
     </qresource>
+    <qresource prefix="/personal">
+        <file alias="personal_swsh">Resources/Personal/personal_swsh</file>
+    </qresource>
     <qresource prefix="/text">
         <file alias="locations_de.txt">Resources/Text/Locations/locations_de.txt</file>
         <file alias="locations_en.txt">Resources/Text/Locations/locations_en.txt</file>

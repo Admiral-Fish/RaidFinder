@@ -19,7 +19,7 @@
 
 #include "DenMap.hpp"
 #include "ui_DenMap.h"
-#include <Core/DenLoader.hpp>
+#include <Core/Loader/DenLoader.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QPainter>
 
