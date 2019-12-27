@@ -53,9 +53,7 @@ namespace
 {
     QVector<QSet<u8>> calculateIVs(Personal info, const QVector<u16> &stats, u8 level, u8 nature)
     {
-        //QVector<bool> valid(6, false);
-        QVector<u8> minIVs(6, 31);
-        QVector<u8> maxIVs(6, 0);
+        QVector<QSet<u8>> ivs(6);
         QVector<u8> baseStats = info.getBaseStats();
 
         for (u8 i = 0; i < 6; i++)
@@ -74,26 +72,11 @@ namespace
 
                 if (static_cast<u16>(stat) == stats.at(i))
                 {
-                    if (iv > maxIVs.at(i))
-                    {
-                        maxIVs[i] = iv;
-                    }
-                    if (iv < minIVs.at(i))
-                    {
-                        minIVs[i] = iv;
-                    }
+                    ivs[i].insert(iv);
                 }
             }
         }
 
-        QVector<QSet<u8>> ivs(6);
-        for (u8 i = 0; i < 6; i++)
-        {
-            for (u8 iv = minIVs.at(i); iv <= maxIVs.at(i); iv++)
-            {
-                ivs[i].insert(iv);
-            }
-        }
         return ivs;
     }
 }
