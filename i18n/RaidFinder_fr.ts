@@ -215,12 +215,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/IVCalculator.cpp" line="77"/>
+        <location filename="../Forms/IVCalculator.cpp" line="78"/>
         <source>Invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/IVCalculator.cpp" line="177"/>
+        <location filename="../Forms/IVCalculator.cpp" line="178"/>
         <source>Invalid input</source>
         <translation type="unfinished"></translation>
     </message>
