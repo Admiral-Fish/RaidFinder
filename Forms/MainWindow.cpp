@@ -273,7 +273,7 @@ void MainWindow::denIndexChanged(int index)
         const auto species = den.getSpecies(currentProfile.getVersion());
         for (const auto &specie : species)
         {
-            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(specie.first)).arg(specie.second));
+            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(specie.first), specie.second));
         }
     }
 }

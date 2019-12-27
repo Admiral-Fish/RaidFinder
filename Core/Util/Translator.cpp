@@ -25,7 +25,7 @@ static QStringList locations;
 static QStringList natures;
 static QStringList species;
 
-QStringList readFile(QString name)
+QStringList readFile(const QString &name)
 {
     QFile file(name);
 
@@ -44,7 +44,7 @@ QStringList readFile(QString name)
     return input;
 }
 
-void Translator::init(QString locale)
+void Translator::init(const QString &locale)
 {
     locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
     natures = readFile(QString(":/text/natures_%1.txt").arg(locale));

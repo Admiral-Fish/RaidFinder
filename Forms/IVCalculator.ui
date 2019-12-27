@@ -25,7 +25,37 @@
      <property name="title">
       <string>Settings</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelSpecies">
+        <property name="text">
+         <string>Pokémon</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="labelNature">
+        <property name="text">
+         <string>Nature</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="labelAltForm">
+        <property name="text">
+         <string>Altform</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="comboBoxPokemon"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBoxNature"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QComboBox" name="comboBoxAltForm"/>
+      </item>
       <item row="2" column="0" colspan="2">
        <spacer name="horizontalSpacer">
         <property name="orientation">
@@ -38,26 +68,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="labelNature">
-        <property name="text">
-         <string>Nature</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="comboBoxNature"/>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="labelAltForm">
-        <property name="text">
-         <string>Altform</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QComboBox" name="comboBoxPokemon"/>
       </item>
       <item row="2" column="2">
        <widget class="QPushButton" name="pushButtonFindIVs">
@@ -73,74 +83,14 @@
        </widget>
       </item>
       <item row="3" column="0" colspan="3">
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="labelLevel">
-          <property name="text">
-           <string>Level</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="labelHP">
-          <property name="text">
-           <string>HP</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="labelAtk">
-          <property name="text">
-           <string>Atk</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QLabel" name="labelDef">
-          <property name="text">
-           <string>Def</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QLabel" name="labelSpA">
-          <property name="text">
-           <string>SpA</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="5">
-         <widget class="QLabel" name="labelSpD">
-          <property name="text">
-           <string>SpD</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="6">
-         <widget class="QLabel" name="labelSpe">
-          <property name="text">
-           <string>Spe</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="7">
-         <widget class="QTextEdit" name="textEdit">
-          <property name="placeholderText">
-           <string>Enter each level entry on a new line with a space between each number</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="labelSpecies">
-        <property name="text">
-         <string>Pokémon</string>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="toolTip">
+         <string>Enter each entry on a new line with a space between each number</string>
+        </property>
+        <property name="placeholderText">
+         <string>Level HP Atk Def SpA SpD Spe</string>
         </property>
        </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QComboBox" name="comboBoxAltForm"/>
       </item>
      </layout>
     </widget>
@@ -333,6 +283,13 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>comboBoxPokemon</tabstop>
+  <tabstop>comboBoxNature</tabstop>
+  <tabstop>comboBoxAltForm</tabstop>
+  <tabstop>pushButtonFindIVs</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
