@@ -54,6 +54,7 @@ void IVCalculator::setupModels()
         }
     }
     pokemonIndexChanged(0);
+    altformIndexChanged(0);
 
     ui->comboBoxNature->addItems(Translator::getNatures());
 
@@ -198,7 +199,7 @@ void IVCalculator::pokemonIndexChanged(int index)
     {
         u16 specie = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
 
-        Personal base = personalInfo.at(specie + 1);
+        Personal base = personalInfo.at(specie);
         u8 formCount = base.getFormCount();
 
         ui->labelAltForm->setVisible(formCount > 1);
@@ -209,7 +210,16 @@ void IVCalculator::pokemonIndexChanged(int index)
         {
             ui->comboBoxAltForm->addItem(QString::number(i));
         }
+    }
+}
 
+void IVCalculator::altformIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        u16 specie = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
+
+        Personal base = personalInfo.at(specie);
         Personal info = getPersonal(base);
 
         QVector<u8> stats = info.getBaseStats();
@@ -219,13 +229,5 @@ void IVCalculator::pokemonIndexChanged(int index)
         ui->labelBaseSpAValue->setText(QString::number(stats[3]));
         ui->labelBaseSpDValue->setText(QString::number(stats[4]));
         ui->labelBaseSpeValue->setText(QString::number(stats[5]));
-    }
-}
-
-void IVCalculator::altformIndexChanged(int index)
-{
-    if (index >= 0)
-    {
-        pokemonIndexChanged(ui->comboBoxPokemon->currentIndex());
     }
 }
