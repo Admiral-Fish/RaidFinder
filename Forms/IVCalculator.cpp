@@ -181,7 +181,7 @@ void IVCalculator::findIVs()
     }
 
     u8 nature = static_cast<u8>(ui->comboBoxNature->currentIndex());
-    Personal info = getPersonal(personalInfo.at(ui->comboBoxPokemon->currentIndex() + 1));
+    Personal info = getPersonal(personalInfo.at(static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt())));
 
     auto possible = IVChecker::calculateIVRange(info, stats, levels, nature);
 
