@@ -26,6 +26,7 @@
 class Personal
 {
 public:
+    Personal() = default;
     Personal(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 formCount, u16 formStatIndex, bool included);
     QVector<u8> getBaseStats() const;
     u8 getFormCount() const;
