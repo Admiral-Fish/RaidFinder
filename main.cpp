@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     }
 
     bool debug = false;
-    if (argc > 1 && std::strcmp(argv[1], "debug") == 0)
+    if (argc > 1 && QString(argv[1]) == "debug")
     {
         debug = true;
     }
