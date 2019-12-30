@@ -19,9 +19,14 @@
 
 #include "Frame.hpp"
 
-Frame::Frame(u32 frame) :
-    frame(frame), ivs { 255, 255, 255, 255, 255, 255 }
+Frame::Frame(u64 seed, u32 frame) :
+    seed(seed), frame(frame), ivs { 255, 255, 255, 255, 255, 255 }
 {
+}
+
+u64 Frame::getSeed() const
+{
+    return seed;
 }
 
 u32 Frame::getFrame() const

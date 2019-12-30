@@ -26,7 +26,8 @@ class Frame
 {
 public:
     Frame() = default;
-    explicit Frame(u32 frame);
+    explicit Frame(u64 seed, u32 frame);
+    u64 getSeed() const;
     u32 getFrame() const;
     u32 getEC() const;
     void setEC(u32 ec);
@@ -44,6 +45,7 @@ public:
     void setIV(u8 index, u8 iv);
 
 private:
+    u64 seed;
     u32 frame;
     u32 ec;
     u32 pid;

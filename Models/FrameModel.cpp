@@ -28,7 +28,7 @@ FrameModel::FrameModel(QObject *parent) :
 int FrameModel::columnCount(const QModelIndex &parent) const
 {
     (void)parent;
-    return 13;
+    return 14;
 }
 
 QVariant FrameModel::data(const QModelIndex &index, int role) const
@@ -70,8 +70,10 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
             return gender == 0 ? "♂" : gender == 1 ? "♀" : "-";
         }
         case 11:
-            return QString::number(frame.getEC(), 16).toUpper();
+            return QString::number(frame.getSeed(), 16).toUpper();
         case 12:
+            return QString::number(frame.getEC(), 16).toUpper();
+        case 13:
             return QString::number(frame.getPID(), 16).toUpper();
         }
     }
