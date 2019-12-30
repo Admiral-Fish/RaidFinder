@@ -101,6 +101,11 @@
         <source>PID</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../Models/FrameModel.hpp" line="37"/>
+        <source>Seed</source>
+        <translation type="unfinished">Seed</translation>
+    </message>
 </context>
 <context>
     <name>IVCalculator</name>
@@ -127,11 +132,6 @@
     <message>
         <location filename="../Forms/IVCalculator.ui"/>
         <source>Find IVs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/IVCalculator.ui"/>
-        <source>Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -163,11 +163,6 @@
         <location filename="../Forms/IVCalculator.ui"/>
         <source>Spe</source>
         <translation>速度</translation>
-    </message>
-    <message>
-        <location filename="../Forms/IVCalculator.ui"/>
-        <source>Enter each level entry on a new line with a space between each number</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Forms/IVCalculator.ui"/>
@@ -222,6 +217,16 @@
     <message>
         <location filename="../Forms/IVCalculator.cpp" line="178"/>
         <source>Invalid input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Enter each entry on a new line with a space between each number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Level HP Atk Def SpA SpD Spe</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -476,38 +481,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="100"/>
+        <location filename="../Forms/MainWindow.cpp" line="105"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="145"/>
+        <location filename="../Forms/MainWindow.cpp" line="150"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="146"/>
+        <location filename="../Forms/MainWindow.cpp" line="151"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="178"/>
+        <location filename="../Forms/MainWindow.cpp" line="183"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="179"/>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="184"/>
+        <location filename="../Forms/MainWindow.cpp" line="204"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="203"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="297"/>
+        <location filename="../Forms/MainWindow.cpp" line="302"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -538,7 +543,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="297"/>
+        <location filename="../Forms/MainWindow.cpp" line="302"/>
         <source>No</source>
         <translation>否</translation>
     </message>

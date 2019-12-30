@@ -101,6 +101,11 @@
         <source>PID</source>
         <translation>PID</translation>
     </message>
+    <message>
+        <location filename="../Models/FrameModel.hpp" line="37"/>
+        <source>Seed</source>
+        <translation>Seed</translation>
+    </message>
 </context>
 <context>
     <name>IVCalculator</name>
@@ -131,11 +136,6 @@
     </message>
     <message>
         <location filename="../Forms/IVCalculator.ui"/>
-        <source>Level</source>
-        <translation>Level</translation>
-    </message>
-    <message>
-        <location filename="../Forms/IVCalculator.ui"/>
         <source>HP</source>
         <translation>HP</translation>
     </message>
@@ -163,11 +163,6 @@
         <location filename="../Forms/IVCalculator.ui"/>
         <source>Spe</source>
         <translation>Spe</translation>
-    </message>
-    <message>
-        <location filename="../Forms/IVCalculator.ui"/>
-        <source>Enter each level entry on a new line with a space between each number</source>
-        <translation>Enter each level entry on a new line with a space between each number</translation>
     </message>
     <message>
         <location filename="../Forms/IVCalculator.ui"/>
@@ -223,6 +218,16 @@
         <location filename="../Forms/IVCalculator.cpp" line="178"/>
         <source>Invalid input</source>
         <translation>Invalid input</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Enter each entry on a new line with a space between each number</source>
+        <translation>Enter each entry on a new line with a space between each number</translation>
+    </message>
+    <message>
+        <location filename="../Forms/IVCalculator.ui"/>
+        <source>Level HP Atk Def SpA SpD Spe</source>
+        <translation>Level HP Atk Def SpA SpD Spe</translation>
     </message>
 </context>
 <context>
@@ -476,38 +481,38 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="100"/>
+        <location filename="../Forms/MainWindow.cpp" line="105"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="145"/>
+        <location filename="../Forms/MainWindow.cpp" line="150"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="146"/>
+        <location filename="../Forms/MainWindow.cpp" line="151"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="178"/>
+        <location filename="../Forms/MainWindow.cpp" line="183"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="179"/>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="184"/>
+        <location filename="../Forms/MainWindow.cpp" line="204"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="203"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="297"/>
+        <location filename="../Forms/MainWindow.cpp" line="302"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -538,7 +543,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="297"/>
+        <location filename="../Forms/MainWindow.cpp" line="302"/>
         <source>No</source>
         <translation>No</translation>
     </message>
