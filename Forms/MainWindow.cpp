@@ -32,7 +32,7 @@
 #include <QProcess>
 #include <QSettings>
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(bool debug, QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     DenLoader::init();
     updateProfiles();
-    setupModels();
+    setupModels(debug);
 }
 
 MainWindow::~MainWindow()
@@ -54,7 +54,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setupModels()
+void MainWindow::setupModels(bool debug)
 {
     model = new FrameModel(ui->tableView);
     ui->tableView->setModel(model);
@@ -91,6 +91,11 @@ void MainWindow::setupModels()
     ui->comboBoxShiny->setItemData(1, 1);
     ui->comboBoxShiny->setItemData(2, 2);
     ui->comboBoxShiny->setItemData(3, 3);
+
+    ui->spinBoxIVCount->setEnabled(debug);
+    ui->comboBoxAbilityType->setEnabled(debug);
+    ui->comboBoxGenderType->setEnabled(debug);
+    ui->comboBoxGenderRatio->setEnabled(debug);
 
     for (u8 i = 0; i < 99; i++)
     {

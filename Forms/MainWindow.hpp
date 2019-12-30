@@ -37,7 +37,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(bool debug = false, QWidget *parent = nullptr);
     ~MainWindow() override;
 
 private:
@@ -52,7 +52,7 @@ private:
     FrameModel *model;
     QMenu *menu;
 
-    void setupModels();
+    void setupModels(bool debug);
 
 private slots:
     void slotLanguageChanged(QAction *action);

@@ -60,7 +60,13 @@ int main(int argc, char *argv[])
         app.installTranslator(&translator);
     }
 
-    MainWindow w;
+    bool debug = false;
+    if (argc > 1 && std::strcmp(argv[1], "debug") == 0)
+    {
+        debug = true;
+    }
+
+    MainWindow w(debug);
     w.show();
     w.raise();
 
