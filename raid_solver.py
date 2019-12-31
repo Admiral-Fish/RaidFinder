@@ -35,51 +35,40 @@ class PK8:
 
 class XoroShiro:
     def __init__(self, seed):
-        self.seed = [seed, 0x82A2B175229D6A5B]
+        self.s0 = seed
+        self.s1 = 0x82A2B175229D6A5B
 
     @staticmethod
     def rotl(x, k):
         return ((x << k) | (x >> (64 - k))) & 0xFFFFFFFFFFFFFFFF
 
-    @staticmethod
-    def nextP2(x):
-        x -= 1
-        for i in range(6):
-            x |= x >> (1<<i)
-        return x
-
     def next(self):
-        s0, s1 = self.seed
-        result = (s0 + s1) & 0xFFFFFFFFFFFFFFFF
+        result = (self.s0 + self.s1) & 0xFFFFFFFFFFFFFFFF
 
-        s1 ^= s0
-        self.seed[0] = self.rotl(s0, 24) ^ s1 ^ ((s1 << 16) & 0xFFFFFFFFFFFFFFFF)
-        self.seed[1] = self.rotl(s1, 37)
+        self.s1 ^= self.s0
+        self.s0 = self.rotl(self.s0, 24) ^ self.s1 ^ ((self.s1 << 16) & 0xFFFFFFFFFFFFFFFF)
+        self.s1 = self.rotl(self.s1, 37)
 
         return result
         
-    def nextInt(self, num = 0xFFFFFFFF):
-        num2 = self.nextP2(num)
-        s = self.next() & num2
-        while s >= num:
-            s = self.next() & num2
-        return s
+    def nextInt(self, value, mask):
+        result = self.next() & mask
+        while result >= value:
+            result = self.next() & mask
+        return result
 
 def sym_xoroshiro128plus(sym_s0, sym_s1, result):
-    sym_r = (sym_s0 + sym_s1) & 0xFFFFFFFFFFFFFFFF	
-    condition = (sym_r & 0xFFFFFFFF) == result
+    sym_r = (sym_s0 + sym_s1) & 0xFFFFFFFF	
+    condition = sym_r == result
 
     sym_s0, sym_s1 = sym_xoroshiro128plusadvance(sym_s0, sym_s1)
 
     return sym_s0, sym_s1, condition
 
-def sym_xoroshiro128plusadvance(sym_s0, sym_s1):
-    s0 = sym_s0
-    s1 = sym_s1
-    
-    s1 ^= s0
-    sym_s0 = z3.RotateLeft(s0, 24) ^ s1 ^ ((s1 << 16) & 0xFFFFFFFFFFFFFFFF)
-    sym_s1 = z3.RotateLeft(s1, 37)
+def sym_xoroshiro128plusadvance(sym_s0, sym_s1):    
+    sym_s1 ^= sym_s0
+    sym_s0 = z3.RotateLeft(sym_s0, 24) ^ sym_s1 ^ ((sym_s1 << 16) & 0xFFFFFFFFFFFFFFFF)
+    sym_s1 = z3.RotateLeft(sym_s1, 37)
 
     return sym_s0, sym_s1
 
@@ -117,45 +106,46 @@ def find_seeds(ec, pid):
     models = get_models(solver)
     return [ model[start_s0].as_long() for model in models ]
 
-def find_seed(seeds, ivs, iv_count):
+def find_seed(seeds, ivs):
     for seed in seeds:
-        rng = XoroShiro(seed)
+        for iv_count in range(1, 6):
+            rng = XoroShiro(seed)
 
-        # ec, tid/sid, pid
-        for i in range(3):
-            rng.nextInt()
+            # ec, tid/sid, pid
+            for i in range(3):
+                rng.nextInt(0xffffffff, 0xffffffff)
 
-        check_ivs = [None]*6
-        count = 0
-        while count < iv_count:
-            stat = rng.nextInt(6)
-            if check_ivs[stat] is None:
-                check_ivs[stat] = 31
-                count += 1
+            check_ivs = [None]*6
+            count = 0
+            while count < iv_count:
+                stat = rng.nextInt(6, 7)
+                if check_ivs[stat] is None:
+                    check_ivs[stat] = 31
+                    count += 1
 
-        for i in range(6):
-            if check_ivs[i] is None:
-                check_ivs[i] = rng.nextInt(32)
+            for i in range(6):
+                if check_ivs[i] is None:
+                    check_ivs[i] = rng.nextInt(32, 31)
 
-        if ivs == check_ivs:
-            return seed
+            if ivs == check_ivs:
+                return seed, iv_count
 
-    return None
+    return None, None
 
-def search(ec, pid, iv_count, ivs):
+def search(ec, pid, ivs):
     print("")
     seeds = find_seeds(ec, pid)    
     if len(seeds) > 0:
-        seed = find_seed(seeds, ivs, iv_count)
+        seed, iv_count = find_seed(seeds, ivs)
         if seed != None:
-            print(f"Raid seed: {hex(seed)}")
+            print(f"Raid seed: {hex(seed)} with IV count of {iv_count}")
             return True
 
     seedsXor = find_seeds(ec, pid ^ 0x10000000) # Check for shiny lock
     if len(seedsXor) > 0:
-        seed = find_seed(seedsXor, ivs, iv_count)
+        seed, iv_count = find_seed(seedsXor, ivs)
         if seed != None:
-            print(f"Raid seed (shiny locked): {hex(seed)}")
+            print(f"Raid seed (shiny locked): {hex(seed)} with IV count of {iv_count}")
             return True
 
     return False
@@ -169,17 +159,15 @@ def searchPKM():
     ec = pkm.getEC()
     pid = pkm.getPID()
     ivs = [ pkm.getHP(), pkm.getAtk(), pkm.getDef(), pkm.getSpA(), pkm.getSpD(), pkm.getSpe() ]
-    iv_count = int(input("Enter number of guaranteed 31 IVs: "))
 
-    return search(ec, pid, iv_count, ivs)
+    return search(ec, pid, ivs)
 
 def searchInput():
     ec = int(input("Enter EC: 0x"), 16)
     pid = int(input("Enter PID: 0x"), 16)
-    iv_count = int(input("Enter number of guaranteed 31 IVs: "))
     ivs = [ int(iv) for iv in input("Enter IVs(x.x.x.x.x.x): ").split(".") ]
 
-    return search(ec, pid, iv_count, ivs)
+    return search(ec, pid, ivs)
 
 def main():
     if len(sys.argv) == 1:
