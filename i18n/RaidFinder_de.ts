@@ -4,9 +4,9 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="120"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="123"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="140"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="121"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="124"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="141"/>
         <source>Any</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22,17 +22,17 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="57"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="57"/>
         <source>Square</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="57"/>
         <source>Star</source>
         <translation type="unfinished"></translation>
     </message>
@@ -72,7 +72,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="36"/>
+        <location filename="../Models/FrameModel.hpp" line="37"/>
         <source>Shiny</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,12 +210,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/IVCalculator.cpp" line="78"/>
+        <location filename="../Forms/IVCalculator.cpp" line="76"/>
         <source>Invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/IVCalculator.cpp" line="178"/>
+        <location filename="../Forms/IVCalculator.cpp" line="179"/>
         <source>Invalid input</source>
         <translation type="unfinished"></translation>
     </message>
@@ -263,22 +263,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="27"/>
         <source>Click to clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="27"/>
         <source>Click holding ctrl to set 31</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="27"/>
         <source>Click holding alt to set 30-31</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/IVFilter.cpp" line="29"/>
+        <location filename="../Forms/Controls/IVFilter.cpp" line="28"/>
         <source>Click holding ctrl+alt to set 0</source>
         <translation type="unfinished"></translation>
     </message>
@@ -481,17 +481,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="105"/>
+        <location filename="../Forms/MainWindow.cpp" line="108"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="150"/>
+        <location filename="../Forms/MainWindow.cpp" line="153"/>
         <source>Output Results to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="151"/>
+        <location filename="../Forms/MainWindow.cpp" line="154"/>
         <source>Output Results to CSV</source>
         <translation type="unfinished"></translation>
     </message>
@@ -501,8 +501,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="184"/>
-        <location filename="../Forms/MainWindow.cpp" line="204"/>
+        <location filename="../Forms/MainWindow.cpp" line="183"/>
+        <location filename="../Forms/MainWindow.cpp" line="203"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -577,6 +577,16 @@
         <source>IV Calculator</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Shiny Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Force shiny</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProfileEditor</name>
@@ -616,7 +626,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileEditor.cpp" line="91"/>
+        <location filename="../Forms/ProfileEditor.cpp" line="89"/>
         <source>Enter a Profile Name.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -649,18 +659,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="83"/>
-        <location filename="../Forms/ProfileManager.cpp" line="105"/>
+        <location filename="../Forms/ProfileManager.cpp" line="82"/>
+        <location filename="../Forms/ProfileManager.cpp" line="104"/>
         <source>Please select a profile.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="110"/>
+        <location filename="../Forms/ProfileManager.cpp" line="109"/>
         <source>Delete profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/ProfileManager.cpp" line="111"/>
+        <location filename="../Forms/ProfileManager.cpp" line="109"/>
         <source>Are you sure you wish to delete this profile?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -691,22 +701,22 @@
 <context>
     <name>TableView</name>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
         <source>Save Output to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="69"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
         <source>Text File (*.txt);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
         <source>Save Output to CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="123"/>
+        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
         <source>CSV File (*.csv);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>

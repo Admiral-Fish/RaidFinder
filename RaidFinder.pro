@@ -6,7 +6,7 @@ CONFIG += c++1z lrelease embed_translations
 
 TARGET = RaidFinder
 TEMPLATE = app
-VERSION = 1.3.2
+VERSION = 1.3.3
 
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
