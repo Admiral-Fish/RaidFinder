@@ -22,8 +22,7 @@
 #include <QLineEdit>
 #include <QListView>
 
-CheckList::CheckList(QWidget *parent) :
-    QComboBox(parent)
+CheckList::CheckList(QWidget *parent) : QComboBox(parent)
 {
     model = new QStandardItemModel(this);
     setModel(model);
@@ -93,7 +92,9 @@ bool CheckList::eventFilter(QObject *object, QEvent *event)
 
 int CheckList::checkState()
 {
-    int total = model->rowCount(), checked = 0, unchecked = 0;
+    int total = model->rowCount();
+    int checked = 0;
+    int unchecked = 0;
 
     for (int i = 0; i < total; i++)
     {

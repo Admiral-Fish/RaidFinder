@@ -25,8 +25,7 @@
 #include <QMouseEvent>
 #include <QTextStream>
 
-TableView::TableView(QWidget *parent) :
-    QTableView(parent)
+TableView::TableView(QWidget *parent) : QTableView(parent)
 {
 }
 
@@ -65,8 +64,8 @@ void TableView::keyPressEvent(QKeyEvent *event)
 
 void TableView::outputModelTXT()
 {
-    QString fileName = QFileDialog::getSaveFileName(
-        nullptr, tr("Save Output to TXT"), QDir::currentPath(), tr("Text File (*.txt);;All Files (*)"));
+    QString fileName
+        = QFileDialog::getSaveFileName(nullptr, tr("Save Output to TXT"), QDir::currentPath(), tr("Text File (*.txt);;All Files (*)"));
 
     if (fileName.isEmpty())
     {
@@ -119,8 +118,8 @@ void TableView::outputModelTXT()
 
 void TableView::outputModelCSV()
 {
-    QString fileName = QFileDialog::getSaveFileName(
-        nullptr, tr("Save Output to CSV"), QDir::currentPath(), tr("CSV File (*.csv);;All Files (*)"));
+    QString fileName
+        = QFileDialog::getSaveFileName(nullptr, tr("Save Output to CSV"), QDir::currentPath(), tr("CSV File (*.csv);;All Files (*)"));
 
     if (fileName.isEmpty())
     {

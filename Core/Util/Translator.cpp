@@ -21,62 +21,68 @@
 #include <QFile>
 #include <QTextStream>
 
-static QStringList locations;
-static QStringList natures;
-static QStringList species;
-
-QStringList readFile(const QString &name)
+namespace
 {
-    QFile file(name);
+    QStringList locations;
+    QStringList natures;
+    QStringList species;
 
-    QStringList input;
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    QStringList readFile(const QString &name)
     {
-        QTextStream ts(&file);
-        ts.setCodec("UTF-8");
+        QFile file(name);
 
-        while (!ts.atEnd())
+        QStringList input;
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            input << ts.readLine();
+            QTextStream ts(&file);
+            ts.setCodec("UTF-8");
+
+            while (!ts.atEnd())
+            {
+                input << ts.readLine();
+            }
+            file.close();
         }
-        file.close();
+        return input;
     }
-    return input;
 }
 
-void Translator::init(const QString &locale)
+namespace Translator
 {
-    locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
-    natures = readFile(QString(":/text/natures_%1.txt").arg(locale));
-    species = readFile(QString(":/text/species_%1.txt").arg(locale));
-}
+    void init(const QString &locale)
+    {
+        locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
+        natures = readFile(QString(":/text/natures_%1.txt").arg(locale));
+        species = readFile(QString(":/text/species_%1.txt").arg(locale));
+    }
 
-QStringList Translator::getLocations()
-{
-    return locations;
-}
+    QStringList getLocations()
+    {
+        return locations;
+    }
 
-QString Translator::getLocation(u8 location)
-{
-    return locations.at(location);
-}
+    QString getLocation(u8 location)
+    {
+        return locations.at(location);
+    }
 
-QStringList Translator::getSpecies()
-{
-    return species;
-}
+    QStringList getSpecies()
+    {
+        return species;
+    }
 
-QString Translator::getSpecie(u16 specie)
-{
-    return species.at(specie - 1);
-}
+    QString getSpecie(u16 specie)
+    {
+        return species.at(specie - 1);
+    }
 
-QStringList Translator::getNatures()
-{
-    return natures;
-}
+    QStringList getNatures()
+    {
+        return natures;
+    }
 
-QString Translator::getNature(u8 nature)
-{
-    return natures.at(nature);
+    QString getNature(u8 nature)
+    {
+        return natures.at(nature);
+    }
 }

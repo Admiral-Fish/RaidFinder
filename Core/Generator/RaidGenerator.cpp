@@ -34,15 +34,36 @@ static inline u8 getShinyType(u32 sidtid, u32 pid)
     {
         return 2; // Square shiny
     }
-    else
-    {
-        return 1; // Star shiny
-    }
+
+    return 1; // Star shiny
 }
 
-RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u8 abilityType, u16 tid, u16 sid, u8 genderType,
-                             u8 genderRatio, u8 ivCount, u16 species) :
-    startFrame(startFrame), maxResults(maxResults), abilityType(abilityType), tid(tid), sid(sid), ivCount(ivCount), genderType(genderType), genderRatio(genderRatio), species(species)
+RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, u16 species, u8 abilityType, u8 shinyType, u8 ivCount,
+                             u8 genderType, u8 genderRatio) :
+    startFrame(startFrame),
+    maxResults(maxResults),
+    tid(tid),
+    sid(sid),
+    species(species),
+    abilityType(abilityType),
+    shinyType(shinyType),
+    ivCount(ivCount),
+    genderType(genderType),
+    genderRatio(genderRatio)
+{
+}
+
+RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, const Raid &raid) :
+    startFrame(startFrame),
+    maxResults(maxResults),
+    tid(tid),
+    sid(sid),
+    species(raid.getSpecies()),
+    abilityType(raid.getAbility()),
+    shinyType(raid.getShiny()),
+    ivCount(raid.getIVCount()),
+    genderType(raid.getGender()),
+    genderRatio(raid.getGenderRatio())
 {
 }
 
@@ -67,27 +88,39 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) co
         u32 sidtid = rng.nextInt(0xffffffff, 0xffffffff);
         u32 pid = rng.nextInt(0xffffffff, 0xffffffff);
 
-        u16 ftsv = getSv(sidtid);
         u16 psv = getSv(pid);
 
-        // Game uses a fake TID/SID to determine shiny or not
-        // PID is later modified using the actual TID/SID of trainer if necessary
-        if (ftsv == psv) // Force shiny
+        if (shinyType == 0) // Random shiny chance
         {
-            u8 shinyType = getShinyType(sidtid, pid);
-            result.setShiny(shinyType);
-            if (psv != tsv)
+            // Game uses a fake TID/SID to determine shiny or not
+            // PID is later modified using the actual TID/SID of trainer if necessary
+            u16 ftsv = getSv(sidtid);
+            if (ftsv == psv) // Force shiny
             {
-                u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (shinyType == 1);
-                pid = (high << 16) | (pid & 0xFFFF);
+                u8 type = getShinyType(sidtid, pid);
+                result.setShiny(shinyType);
+                if (psv != tsv)
+                {
+                    u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (2 - type);
+                    pid = (high << 16) | (pid & 0xFFFF);
+                }
+            }
+            else // Force non shiny
+            {
+                result.setShiny(0);
+                if (psv == tsv)
+                {
+                    pid ^= 0x10000000;
+                }
             }
         }
-        else // Force non shiny
+        else // Force shiny
         {
-            result.setShiny(0);
-            if (psv == tsv)
+            result.setShiny(2);
+            if (((pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid) != 0) // Check if PID is not normally square shiny
             {
-                pid ^= 0x10000000;
+                u16 high = (pid & 0xffff) ^ tid ^ sid;
+                pid = (high << 16) | (pid & 0xffff);
             }
         }
         result.setPID(pid);

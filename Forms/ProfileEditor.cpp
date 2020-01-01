@@ -22,8 +22,7 @@
 #include <QMessageBox>
 #include <QSettings>
 
-ProfileEditor::ProfileEditor(QWidget *parent) :
-    QDialog(parent), ui(new Ui::ProfileEditor)
+ProfileEditor::ProfileEditor(QWidget *parent) : QDialog(parent), ui(new Ui::ProfileEditor)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
@@ -31,8 +30,7 @@ ProfileEditor::ProfileEditor(QWidget *parent) :
     setupModels();
 }
 
-ProfileEditor::ProfileEditor(const Profile &profile, QWidget *parent) :
-    QDialog(parent), ui(new Ui::ProfileEditor)
+ProfileEditor::ProfileEditor(const Profile &profile, QWidget *parent) : QDialog(parent), ui(new Ui::ProfileEditor)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);

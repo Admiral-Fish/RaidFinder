@@ -23,8 +23,7 @@
 #include <Core/Util/Translator.hpp>
 #include <QPainter>
 
-DenMap::DenMap(QWidget *parent) :
-    QWidget(parent), ui(new Ui::DenMap)
+DenMap::DenMap(QWidget *parent) : QWidget(parent), ui(new Ui::DenMap)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);

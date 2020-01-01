@@ -186,10 +186,10 @@ void DenLoader::init()
                     shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
                 }
 
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
-                                       swordGigantamax, swordSpecies, swordStar));
-                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
-                                        shieldGigantamax, shieldSpecies, shieldStar));
+                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio, swordGigantamax,
+                                       swordSpecies, swordStar, 0));
+                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio, shieldGigantamax,
+                                        shieldSpecies, shieldStar, 0));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }
@@ -225,6 +225,7 @@ void DenLoader::init()
                 u8 swordGenderRatio = static_cast<u8>(swordEntry["GenderRatio"].toInt());
                 bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
                 u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
+                u8 swordShiny = static_cast<u8>(swordEntry["ShinyType"].toInt());
 
                 bool swordStar[5];
                 for (u8 k = 0; k < 5; k++)
@@ -239,6 +240,7 @@ void DenLoader::init()
                 u8 shieldGenderRatio = static_cast<u8>(shieldEntry["GenderRatio"].toInt());
                 bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
                 u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+                u8 shieldShiny = static_cast<u8>(swordEntry["ShinyType"].toInt());
 
                 bool shieldStar[5];
                 for (u8 k = 0; k < 5; k++)
@@ -246,10 +248,10 @@ void DenLoader::init()
                     shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
                 }
 
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio,
-                                       swordGigantamax, swordSpecies, swordStar));
-                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio,
-                                        shieldGigantamax, shieldSpecies, shieldStar));
+                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio, swordGigantamax,
+                                       swordSpecies, swordStar, swordShiny));
+                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio, shieldGigantamax,
+                                        shieldSpecies, shieldStar, shieldShiny));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }

@@ -26,8 +26,7 @@ template <typename T>
 class TableModel : public QAbstractTableModel
 {
 public:
-    TableModel(QObject *parent = nullptr) :
-        QAbstractTableModel(parent)
+    TableModel(QObject *parent = nullptr) : QAbstractTableModel(parent)
     {
     }
 

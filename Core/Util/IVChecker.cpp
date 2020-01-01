@@ -51,7 +51,7 @@ constexpr double modifiers[25][6] = {
 
 namespace
 {
-    QVector<QSet<u8>> calculateIVs(Personal info, const QVector<u16> &stats, u8 level, u8 nature)
+    QVector<QSet<u8>> calculateIVs(const Personal &info, const QVector<u16> &stats, u8 level, u8 nature)
     {
         QVector<QSet<u8>> ivs(6);
         QVector<u8> baseStats = info.getBaseStats();
@@ -81,7 +81,8 @@ namespace
     }
 }
 
-QVector<QVector<u8>> IVChecker::calculateIVRange(Personal info, const QVector<QVector<u16>> &stats, const QVector<u8> &level, u8 nature)
+QVector<QVector<u8>> IVChecker::calculateIVRange(const Personal &info, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
+                                                 u8 nature)
 {
     QVector<QSet<u8>> first = calculateIVs(info, stats.at(0), level.at(0), nature);
 

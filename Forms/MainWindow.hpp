@@ -51,8 +51,9 @@ private:
     Den den;
     FrameModel *model;
     QMenu *menu;
+    bool debug;
 
-    void setupModels(bool debug);
+    void setupModels();
 
 private slots:
     void slotLanguageChanged(QAction *action);

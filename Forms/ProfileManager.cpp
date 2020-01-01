@@ -25,8 +25,7 @@
 #include <QMessageBox>
 #include <QSettings>
 
-ProfileManager::ProfileManager(QWidget *parent) :
-    QWidget(parent), ui(new Ui::ProfileManager)
+ProfileManager::ProfileManager(QWidget *parent) : QWidget(parent), ui(new Ui::ProfileManager)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
@@ -107,8 +106,8 @@ void ProfileManager::remove()
         return;
     }
 
-    QMessageBox message(QMessageBox::Question, tr("Delete profile"),
-                        tr("Are you sure you wish to delete this profile?"), QMessageBox::Yes | QMessageBox::No);
+    QMessageBox message(QMessageBox::Question, tr("Delete profile"), tr("Are you sure you wish to delete this profile?"),
+                        QMessageBox::Yes | QMessageBox::No);
     if (message.exec() == QMessageBox::Yes)
     {
         Profile profile = model->getItem(r);

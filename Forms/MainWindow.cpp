@@ -32,15 +32,14 @@
 #include <QProcess>
 #include <QSettings>
 
-MainWindow::MainWindow(bool debug, QWidget *parent) :
-    QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(bool debug, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), debug(debug)
 {
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
     DenLoader::init();
     updateProfiles();
-    setupModels(debug);
+    setupModels();
 }
 
 MainWindow::~MainWindow()
@@ -54,7 +53,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setupModels(bool debug)
+void MainWindow::setupModels()
 {
     model = new FrameModel(ui->tableView);
     ui->tableView->setModel(model);
@@ -92,10 +91,14 @@ void MainWindow::setupModels(bool debug)
     ui->comboBoxShiny->setItemData(2, 2);
     ui->comboBoxShiny->setItemData(3, 3);
 
+    ui->comboBoxShinyType->setItemData(0, 0);
+    ui->comboBoxShinyType->setItemData(1, 2);
+
     ui->spinBoxIVCount->setEnabled(debug);
     ui->comboBoxAbilityType->setEnabled(debug);
     ui->comboBoxGenderType->setEnabled(debug);
     ui->comboBoxGenderRatio->setEnabled(debug);
+    ui->comboBoxShinyType->setEnabled(debug);
 
     for (u8 i = 0; i < 99; i++)
     {
@@ -155,14 +158,11 @@ void MainWindow::setupModels(bool debug)
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionIV_Calculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
-    connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-            &MainWindow::profilesIndexChanged);
+    connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
-    connect(
-        ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
-    connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-            &MainWindow::speciesIndexChanged);
+    connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
+    connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
     if (setting.contains("mainWindow/geometry"))
@@ -180,8 +180,8 @@ void MainWindow::slotLanguageChanged(QAction *action)
         {
             currentLanguage = language;
 
-            QMessageBox message(QMessageBox::Question, tr("Language update"),
-                                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
+            QMessageBox message(QMessageBox::Question, tr("Language update"), tr("Restart for changes to take effect. Restart now?"),
+                                QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
                 QProcess::startDetached(QApplication::applicationFilePath());
@@ -200,8 +200,8 @@ void MainWindow::slotStyleChanged(QAction *action)
         {
             currentStyle = style;
 
-            QMessageBox message(QMessageBox::Question, tr("Style change"),
-                                tr("Restart for changes to take effect. Restart now?"), QMessageBox::Yes | QMessageBox::No);
+            QMessageBox message(QMessageBox::Question, tr("Style change"), tr("Restart for changes to take effect. Restart now?"),
+                                QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
                 QProcess::startDetached(QApplication::applicationFilePath());
@@ -213,8 +213,7 @@ void MainWindow::slotStyleChanged(QAction *action)
 
 void MainWindow::updateProfiles()
 {
-    connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
-            &MainWindow::profilesIndexChanged);
+    connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
 
     profiles = ProfileLoader::getProfiles();
     profiles.insert(profiles.begin(), Profile());
@@ -299,6 +298,7 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
         ui->comboBoxGenderType->setCurrentIndex(raid.getGender());
         ui->comboBoxGenderRatio->setCurrentIndex(ui->comboBoxGenderRatio->findData(raid.getGenderRatio()));
+        ui->comboBoxShinyType->setCurrentIndex(ui->comboBoxShinyType->findData(raid.getShiny()));
         ui->labelGigantamaxValue->setText(raid.getGigantamax() ? tr("Yes") : tr("No"));
     }
 }
@@ -319,13 +319,26 @@ void MainWindow::generate()
 
     u32 initialFrame = ui->textBoxInitialFrame->getUInt();
     u32 maxResults = ui->textBoxMaxResults->getUInt();
-    u8 abilityType = static_cast<u8>(ui->comboBoxAbilityType->currentData().toInt());
-    u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
-    u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
-    u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
+    u16 tid = currentProfile.getTID();
+    u16 sid = currentProfile.getSID();
     Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
-    RaidGenerator generator(initialFrame, maxResults, abilityType, currentProfile.getTID(), currentProfile.getSID(),
-                            genderType, genderRatio, ivCount, raid.getSpecies());
+
+    RaidGenerator *generator;
+    if (debug)
+    {
+        u8 abilityType = static_cast<u8>(ui->comboBoxAbilityType->currentData().toInt());
+        u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
+        u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
+        u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
+        u8 shinyType = static_cast<u8>(ui->comboBoxShinyType->currentData().toInt());
+
+        generator = new RaidGenerator(initialFrame, maxResults, tid, sid, raid.getSpecies(), abilityType, shinyType, ivCount, genderType,
+                                      genderRatio);
+    }
+    else
+    {
+        generator = new RaidGenerator(initialFrame, maxResults, tid, sid, raid);
+    }
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
@@ -337,7 +350,9 @@ void MainWindow::generate()
     FrameCompare compare(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();
-    QVector<Frame> frames = generator.generate(compare, seed);
 
+    QVector<Frame> frames = generator->generate(compare, seed);
     model->addItems(frames);
+
+    delete generator;
 }

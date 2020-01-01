@@ -18,15 +18,12 @@
  */
 
 #include "Profile.hpp"
-#include <QVector>
 
-Profile::Profile() :
-    name("None"), tid(12345), sid(54321), version(Game::Sword)
+Profile::Profile() : name("None"), tid(12345), sid(54321), version(Game::Sword)
 {
 }
 
-Profile::Profile(const QString &name, u16 tid, u16 sid, Game version) :
-    name(name), tid(tid), sid(sid), version(version)
+Profile::Profile(const QString &name, u16 tid, u16 sid, Game version) : name(name), tid(tid), sid(sid), version(version)
 {
 }
 
@@ -69,7 +66,8 @@ QString Profile::getVersionString() const
 
 bool operator==(const Profile &left, const Profile &right)
 {
-    return left.getName() == right.getName() && left.getTID() == right.getTID() && left.getSID() == right.getSID() && left.getVersion() == right.getVersion();
+    return left.getName() == right.getName() && left.getTID() == right.getTID() && left.getSID() == right.getSID()
+        && left.getVersion() == right.getVersion();
 }
 
 bool operator!=(const Profile &left, const Profile &right)

@@ -18,7 +18,6 @@
  */
 
 #include "Den.hpp"
-#include <Core/Util/Translator.hpp>
 
 Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) :
     swordRaids(swordRaids), shieldRaids(shieldRaids), hash(hash)
@@ -31,10 +30,8 @@ Raid Den::getRaid(u8 index, Game version) const
     {
         return swordRaids[index];
     }
-    else
-    {
-        return shieldRaids[index];
-    }
+
+    return shieldRaids[index];
 }
 
 QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
@@ -42,23 +39,23 @@ QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
     auto raids = version == Game::Sword ? swordRaids : shieldRaids;
 
     QVector<QPair<u16, QString>> species;
-    for (u8 i = 0; i < raids.size(); i++)
+    for (const Raid &raid : raids)
     {
-        u16 specie = raids[i].getSpecies();
+        u16 specie = raid.getSpecies();
 
         u8 low = 4;
         u8 high = 0;
-        for (u8 j = 0; j < 5; j++)
+        for (u8 i = 0; i < 5; i++)
         {
-            if (raids[i].getStar(j))
+            if (raid.getStar(i))
             {
-                if (j < low)
+                if (i < low)
                 {
-                    low = j;
+                    low = i;
                 }
-                if (j > high)
+                if (i > high)
                 {
-                    high = j;
+                    high = i;
                 }
             }
         }

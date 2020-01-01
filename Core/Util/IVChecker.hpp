@@ -25,7 +25,7 @@
 
 namespace IVChecker
 {
-    QVector<QVector<u8>> calculateIVRange(Personal info, const QVector<QVector<u16>> &stats, const QVector<u8> &level, u8 nature);
+    QVector<QVector<u8>> calculateIVRange(const Personal &info, const QVector<QVector<u16>> &stats, const QVector<u8> &level, u8 nature);
 }
 
 #endif // IVCHECKER_HPP

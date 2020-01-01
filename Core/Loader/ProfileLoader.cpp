@@ -27,7 +27,8 @@ namespace
 {
     Profile getProfile(const QJsonObject &object)
     {
-        Profile profile(object["name"].toString(), static_cast<u16>(object["tid"].toInt()), static_cast<u16>(object["sid"].toInt()), static_cast<Game>(object["version"].toInt()));
+        Profile profile(object["name"].toString(), static_cast<u16>(object["tid"].toInt()), static_cast<u16>(object["sid"].toInt()),
+                        static_cast<Game>(object["version"].toInt()));
         return profile;
     }
 
@@ -50,10 +51,9 @@ QVector<Profile> ProfileLoader::getProfiles()
     QJsonObject profiles(QJsonDocument::fromJson(setting.value("profiles").toByteArray()).object());
     QJsonArray gen8 = profiles["gen8"].toArray();
 
-    for (auto i = 0; i < gen8.size(); i++)
+    for (auto i : gen8)
     {
-        auto data = gen8[i].toObject();
-        profileList.append(getProfile(data));
+        profileList.append(getProfile(i.toObject()));
     }
 
     return profileList;
