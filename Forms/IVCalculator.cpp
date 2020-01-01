@@ -24,9 +24,7 @@
 #include <QMessageBox>
 #include <QSettings>
 
-IVCalculator::IVCalculator(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::IVCalculator)
+IVCalculator::IVCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::IVCalculator)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
@@ -127,10 +125,8 @@ Personal IVCalculator::getPersonal(Personal base)
     {
         return base;
     }
-    else
-    {
-        return personalInfo.at(formIndex + form - 1);
-    }
+
+    return personalInfo.at(formIndex + form - 1);
 }
 
 void IVCalculator::findIVs()
@@ -139,10 +135,15 @@ void IVCalculator::findIVs()
     QVector<u8> levels;
 
     QStringList entries = ui->textEdit->toPlainText().split("\n");
-    bool flag = true;
+    entries.removeAll(QString());
+
+    bool flag = !entries.isEmpty();
+
     for (const QString &entry : entries)
     {
         QStringList values = entry.split(" ");
+        values.removeAll(QString());
+
         if (values.size() != 7)
         {
             flag = false;
