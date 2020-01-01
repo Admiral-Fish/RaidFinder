@@ -98,7 +98,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) co
             if (ftsv == psv) // Force shiny
             {
                 u8 type = getShinyType(sidtid, pid);
-                result.setShiny(shinyType);
+                result.setShiny(type);
                 if (psv != tsv)
                 {
                     u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (2 - type);
