@@ -17,27 +17,32 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMEMODEL_HPP
-#define FRAMEMODEL_HPP
+#ifndef PERSONALINFO_HPP
+#define PERSONALINFO_HPP
 
-#include <Core/Results/Frame.hpp>
-#include <Core/Results/PersonalInfo.hpp>
-#include <Models/TableModel.hpp>
+#include <Core/Global.hpp>
+#include <QVector>
 
-class FrameModel : public TableModel<Frame>
+class PersonalInfo
 {
-    Q_OBJECT
 public:
-    FrameModel(QObject *parent = nullptr);
-    void setInfo(const PersonalInfo &info);
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    PersonalInfo() = default;
+    PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u16 ability1, u16 ability2, u16 abilityH, u8 formCount, u16 formStatIndex,
+                 bool included);
+    QVector<u8> getBaseStats() const;
+    u16 getAbility1() const;
+    u16 getAbility2() const;
+    u16 getAbilityH() const;
+    u8 getFormCount() const;
+    u16 getFormStatIndex() const;
+    bool getIncluded() const;
 
 private:
-    PersonalInfo info;
-    QStringList header = { tr("Frame"), tr("HP"),     tr("Atk"),     tr("Def"),    tr("SpA"),  tr("SpD"), tr("Spe"),
-                           tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Seed"), tr("EC"),  tr("PID") };
+    u8 hp, atk, def, spa, spd, spe;
+    u16 ability1, ability2, abilityH;
+    u8 formCount;
+    u16 formStatIndex;
+    bool included;
 };
 
-#endif // FRAMEMODEL_HPP
+#endif // PERSONALINFO_HPP

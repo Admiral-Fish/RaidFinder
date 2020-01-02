@@ -67,7 +67,7 @@ RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, c
 {
 }
 
-QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) const
+QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) const
 {
     QVector<Frame> frames;
     u16 tsv = (tid ^ sid) >> 4;
@@ -88,13 +88,13 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) co
         u32 sidtid = rng.nextInt(0xffffffff, 0xffffffff);
         u32 pid = rng.nextInt(0xffffffff, 0xffffffff);
 
-        u16 psv = getSv(pid);
-
         if (shinyType == 0) // Random shiny chance
         {
             // Game uses a fake TID/SID to determine shiny or not
             // PID is later modified using the actual TID/SID of trainer if necessary
             u16 ftsv = getSv(sidtid);
+            u16 psv = getSv(pid);
+
             if (ftsv == psv) // Force shiny
             {
                 u8 type = getShinyType(sidtid, pid);
@@ -197,7 +197,7 @@ QVector<Frame> RaidGenerator::generate(const FrameCompare &compare, u64 seed) co
             result.setNature(toxtricityAmpedNatures[rng.nextInt(13, 15)]);
         }
 
-        if (compare.compareFrame(result))
+        if (filter.compareFrame(result))
         {
             frames.append(result);
         }

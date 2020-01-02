@@ -19,6 +19,7 @@
 
 #include "IVCalculator.hpp"
 #include "ui_IVCalculator.h"
+#include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Util/IVChecker.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
@@ -43,10 +44,9 @@ IVCalculator::~IVCalculator()
 
 void IVCalculator::setupModels()
 {
-    personalInfo = Personal::loadPersonal();
     for (u16 i = 1; i <= 890; i++)
     {
-        if (personalInfo.at(i).getIncluded())
+        if (PersonalLoader::getInfo(i).getIncluded())
         {
             ui->comboBoxPokemon->addItem(Translator::getSpecie(i), i);
         }
@@ -116,19 +116,6 @@ void IVCalculator::displayIVs(QLabel *label, const QVector<u8> &ivs)
     label->setText(result);
 }
 
-Personal IVCalculator::getPersonal(Personal base)
-{
-    u8 form = static_cast<u8>(ui->comboBoxAltForm->currentIndex());
-    u16 formIndex = base.getFormStatIndex();
-
-    if (form == 0 || formIndex == 0)
-    {
-        return base;
-    }
-
-    return personalInfo.at(formIndex + form - 1);
-}
-
 void IVCalculator::findIVs()
 {
     QVector<QVector<u16>> stats;
@@ -182,7 +169,10 @@ void IVCalculator::findIVs()
     }
 
     u8 nature = static_cast<u8>(ui->comboBoxNature->currentIndex());
-    Personal info = getPersonal(personalInfo.at(static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt())));
+
+    u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
+    u8 form = static_cast<u8>(ui->comboBoxAltForm->currentIndex());
+    PersonalInfo info = PersonalLoader::getInfo(species, form);
 
     auto possible = IVChecker::calculateIVRange(info, stats, levels, nature);
 
@@ -196,11 +186,11 @@ void IVCalculator::findIVs()
 
 void IVCalculator::pokemonIndexChanged(int index)
 {
-    if (index >= 0 && !personalInfo.isEmpty())
+    if (index >= 0)
     {
         u16 specie = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
 
-        Personal base = personalInfo.at(specie);
+        PersonalInfo base = PersonalLoader::getInfo(specie);
         u8 formCount = base.getFormCount();
 
         ui->labelAltForm->setVisible(formCount > 1);
@@ -220,8 +210,7 @@ void IVCalculator::altformIndexChanged(int index)
     {
         u16 specie = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
 
-        Personal base = personalInfo.at(specie);
-        Personal info = getPersonal(base);
+        PersonalInfo info = PersonalLoader::getInfo(specie, static_cast<u8>(index));
 
         QVector<u8> stats = info.getBaseStats();
         ui->labelBaseHPValue->setText(QString::number(stats[0]));

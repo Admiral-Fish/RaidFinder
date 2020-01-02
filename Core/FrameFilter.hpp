@@ -17,17 +17,17 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMECOMPARE_HPP
-#define FRAMECOMPARE_HPP
+#ifndef FRAMEFILTER_HPP
+#define FRAMEFILTER_HPP
 
 #include <Core/Results/Frame.hpp>
 #include <QVector>
 
-class FrameCompare
+class FrameFilter
 {
 public:
-    FrameCompare() = default;
-    FrameCompare(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
+    FrameFilter() = default;
+    FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
     bool compareFrame(const Frame &frame) const;
 
 private:
@@ -40,4 +40,4 @@ private:
     bool skip {};
 };
 
-#endif // FRAMECOMPARE_HPP
+#endif // FRAMEFILTER_HPP

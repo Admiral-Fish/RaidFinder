@@ -21,7 +21,6 @@
 #define IVCALCULATOR_HPP
 
 #include <Core/Global.hpp>
-#include <Core/Util/Personal.hpp>
 #include <QLabel>
 
 namespace Ui
@@ -32,18 +31,15 @@ namespace Ui
 class IVCalculator : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit IVCalculator(QWidget *parent = nullptr);
     ~IVCalculator() override;
 
 private:
     Ui::IVCalculator *ui;
-    QVector<Personal> personalInfo;
 
     void setupModels();
     void displayIVs(QLabel *label, const QVector<u8> &ivs);
-    Personal getPersonal(Personal base);
 
 private slots:
     void findIVs();

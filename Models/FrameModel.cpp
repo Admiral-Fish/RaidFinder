@@ -24,6 +24,11 @@ FrameModel::FrameModel(QObject *parent) : TableModel<Frame>(parent)
 {
 }
 
+void FrameModel::setInfo(const PersonalInfo &info)
+{
+    this->info = info;
+}
+
 int FrameModel::columnCount(const QModelIndex &parent) const
 {
     (void)parent;
@@ -61,7 +66,18 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         case 9:
         {
             u8 ability = frame.getAbility();
-            return ability == 0 ? "1" : ability == 1 ? "2" : "H";
+            if (ability == 0)
+            {
+                return "1: " + Translator::getAbility(info.getAbility1());
+            }
+            else if (ability == 1)
+            {
+                return "2: " + Translator::getAbility(info.getAbility2());
+            }
+            else
+            {
+                return "H: " + Translator::getAbility(info.getAbilityH());
+            }
         }
         case 10:
         {

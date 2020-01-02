@@ -20,7 +20,7 @@
 #ifndef RAIDGENERATOR_HPP
 #define RAIDGENERATOR_HPP
 
-#include <Core/FrameCompare.hpp>
+#include <Core/FrameFilter.hpp>
 #include <Core/Results/Frame.hpp>
 #include <Core/Results/Raid.hpp>
 #include <QVector>
@@ -31,7 +31,7 @@ public:
     RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, u16 species, u8 abilityType, u8 shinyType, u8 ivCount, u8 genderType,
                   u8 genderRatio);
     RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, const Raid &raid);
-    QVector<Frame> generate(const FrameCompare &compare, u64 seed) const;
+    QVector<Frame> generate(const FrameFilter &filter, u64 seed) const;
 
 private:
     u32 startFrame;

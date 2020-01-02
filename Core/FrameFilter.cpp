@@ -17,15 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "FrameCompare.hpp"
+#include "FrameFilter.hpp"
 
-FrameCompare::FrameCompare(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
+FrameFilter::FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
                            const QVector<bool> &natures) :
     min(min), max(max), gender(gender), ability(ability), natures(natures), shiny(shiny), skip(skip)
 {
 }
 
-bool FrameCompare::compareFrame(const Frame &frame) const
+bool FrameFilter::compareFrame(const Frame &frame) const
 {
     if (skip)
     {

@@ -23,6 +23,7 @@
 
 namespace
 {
+    QStringList abilities;
     QStringList locations;
     QStringList natures;
     QStringList species;
@@ -51,24 +52,20 @@ namespace Translator
 {
     void init(const QString &locale)
     {
+        abilities = readFile(QString(":/text/abilities_%1.txt").arg(locale));
         locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
         natures = readFile(QString(":/text/natures_%1.txt").arg(locale));
         species = readFile(QString(":/text/species_%1.txt").arg(locale));
     }
 
-    QStringList getLocations()
+    QString getAbility(u16 ability)
     {
-        return locations;
+        return abilities.at(ability);
     }
 
     QString getLocation(u8 location)
     {
         return locations.at(location);
-    }
-
-    QStringList getSpecies()
-    {
-        return species;
     }
 
     QString getSpecie(u16 specie)

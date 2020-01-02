@@ -17,28 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PERSONAL_HPP
-#define PERSONAL_HPP
+#ifndef PERSONALLOADER_HPP
+#define PERSONALLOADER_HPP
 
-#include <Core/Global.hpp>
-#include <QVector>
+#include <Core/Results/PersonalInfo.hpp>
 
-class Personal
+namespace PersonalLoader
 {
-public:
-    Personal() = default;
-    Personal(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 formCount, u16 formStatIndex, bool included);
-    QVector<u8> getBaseStats() const;
-    u8 getFormCount() const;
-    u16 getFormStatIndex() const;
-    bool getIncluded() const;
-    static QVector<Personal> loadPersonal();
+    void init();
+    PersonalInfo getInfo(u16 species, u8 form = 0);
+}
 
-private:
-    u8 hp, atk, def, spa, spd, spe;
-    u8 formCount;
-    u16 formStatIndex;
-    bool included;
-};
-
-#endif // PERSONAL_HPP
+#endif // PERSONALLOADER_HPP

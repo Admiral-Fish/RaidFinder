@@ -26,11 +26,10 @@
 namespace Translator
 {
     void init(const QString &locale);
-    QStringList getLocations();
+    QString getAbility(u16 ability);
     QString getLocation(u8 location);
     QStringList getNatures();
     QString getNature(u8 nature);
-    QStringList getSpecies();
     QString getSpecie(u16 specie);
 }
 

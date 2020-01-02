@@ -21,6 +21,7 @@
 #include "ui_MainWindow.h"
 #include <Core/Generator/RaidGenerator.hpp>
 #include <Core/Loader/DenLoader.hpp>
+#include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Loader/ProfileLoader.hpp>
 #include <Core/Util/Translator.hpp>
 #include <Forms/DenMap.hpp>
@@ -37,7 +38,9 @@ MainWindow::MainWindow(bool debug, QWidget *parent) : QMainWindow(parent), ui(ne
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
+    PersonalLoader::init();
     DenLoader::init();
+
     updateProfiles();
     setupModels();
 }
@@ -107,6 +110,7 @@ void MainWindow::setupModels()
     }
     ui->comboBoxDen->addItem(tr("Event"));
     denIndexChanged(0);
+    speciesIndexChanged(0);
 
     QSettings setting;
 
@@ -293,6 +297,7 @@ void MainWindow::speciesIndexChanged(int index)
     if (index >= 0)
     {
         Raid raid = den.getRaid(static_cast<u8>(index), currentProfile.getVersion());
+        PersonalInfo info = PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm());
 
         ui->spinBoxIVCount->setValue(raid.getIVCount());
         ui->comboBoxAbilityType->setCurrentIndex(ui->comboBoxAbilityType->findData(raid.getAbility()));
@@ -300,6 +305,10 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxGenderRatio->setCurrentIndex(ui->comboBoxGenderRatio->findData(raid.getGenderRatio()));
         ui->comboBoxShinyType->setCurrentIndex(ui->comboBoxShinyType->findData(raid.getShiny()));
         ui->labelGigantamaxValue->setText(raid.getGigantamax() ? tr("Yes") : tr("No"));
+
+        ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
+        ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
+        ui->comboBoxAbility->setItemText(3, "H: " + Translator::getAbility(info.getAbilityH()));
     }
 }
 
@@ -315,13 +324,14 @@ void MainWindow::tableViewContextMenu(QPoint pos)
 
 void MainWindow::generate()
 {
+    Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
     model->clearModel();
+    model->setInfo(PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm()));
 
     u32 initialFrame = ui->textBoxInitialFrame->getUInt();
     u32 maxResults = ui->textBoxMaxResults->getUInt();
     u16 tid = currentProfile.getTID();
     u16 sid = currentProfile.getSID();
-    Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
 
     RaidGenerator *generator;
     if (debug)
@@ -347,11 +357,11 @@ void MainWindow::generate()
     QVector<u8> min = ui->ivFilter->getLower();
     QVector<u8> max = ui->ivFilter->getUpper();
     QVector<bool> natures = ui->comboBoxNature->getChecked();
-    FrameCompare compare(gender, ability, shiny, skip, min, max, natures);
+    FrameFilter filter(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();
 
-    QVector<Frame> frames = generator->generate(compare, seed);
+    QVector<Frame> frames = generator->generate(filter, seed);
     model->addItems(frames);
 
     delete generator;

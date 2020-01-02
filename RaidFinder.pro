@@ -39,19 +39,20 @@ FORMS += \
     Forms/ProfileManager.ui
 
 HEADERS += \
-    Core/FrameCompare.hpp \
+    Core/FrameFilter.hpp \
     Core/Game.hpp \
     Core/Generator/RaidGenerator.hpp \
     Core/Global.hpp \
     Core/Loader/DenLoader.hpp \
+    Core/Loader/PersonalLoader.hpp \
     Core/Loader/ProfileLoader.hpp \
     Core/RNG/XoroShiro.hpp \
     Core/Results/Den.hpp \
     Core/Results/Frame.hpp \
+    Core/Results/PersonalInfo.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
     Core/Util/IVChecker.hpp \
-    Core/Util/Personal.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
@@ -68,17 +69,18 @@ HEADERS += \
     Models/TableModel.hpp
 
 SOURCES += \
-    Core/FrameCompare.cpp \
+    Core/FrameFilter.cpp \
     Core/Generator/RaidGenerator.cpp \
     Core/Loader/DenLoader.cpp \
+    Core/Loader/PersonalLoader.cpp \
     Core/Loader/ProfileLoader.cpp \
     Core/RNG/XoroShiro.cpp \
     Core/Results/Den.cpp \
     Core/Results/Frame.cpp \
+    Core/Results/PersonalInfo.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
     Core/Util/IVChecker.cpp \
-    Core/Util/Personal.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \
