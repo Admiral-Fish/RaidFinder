@@ -103,8 +103,13 @@ void MainWindow::setupModels()
     ui->comboBoxGenderRatio->setEnabled(debug);
     ui->comboBoxShinyType->setEnabled(debug);
 
-    for (u8 i = 0; i < 99; i++)
+    for (u8 i = 0; i < 100; i++)
     {
+        if (i == 16)
+        {
+            continue;
+        }
+
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
     }

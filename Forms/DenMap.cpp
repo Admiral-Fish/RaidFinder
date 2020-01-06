@@ -39,7 +39,7 @@ DenMap::~DenMap()
 
 void DenMap::setupModels()
 {
-    for (u8 i = 0; i < 99; i++)
+    for (u8 i = 0; i < 100; i++)
     {
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
