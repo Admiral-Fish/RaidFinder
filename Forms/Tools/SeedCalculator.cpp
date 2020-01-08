@@ -411,7 +411,7 @@ void SeedCalculator::search()
 
     QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
-    connect(watcher, &QFutureWatcher<void>::finished, this, [=] {
+    connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(false);
 
         QVector<u64> seeds = searcher->getResults();
