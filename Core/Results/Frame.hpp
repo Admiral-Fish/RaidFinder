@@ -20,7 +20,7 @@
 #ifndef FRAME_HPP
 #define FRAME_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 
 class Frame
 {

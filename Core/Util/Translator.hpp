@@ -20,7 +20,7 @@
 #ifndef TRANSLATOR_HPP
 #define TRANSLATOR_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 #include <QStringList>
 
 namespace Translator

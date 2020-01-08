@@ -20,7 +20,7 @@
 #ifndef XOROSHIRO_HPP
 #define XOROSHIRO_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 
 class XoroShiro
 {

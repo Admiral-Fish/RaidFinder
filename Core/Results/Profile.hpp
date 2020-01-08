@@ -20,8 +20,8 @@
 #ifndef PROFILE_HPP
 #define PROFILE_HPP
 
-#include <Core/Game.hpp>
-#include <Core/Global.hpp>
+#include <Core/Util/Game.hpp>
+#include <Core/Util/Global.hpp>
 #include <QString>
 
 class Profile

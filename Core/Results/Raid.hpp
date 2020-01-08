@@ -20,7 +20,7 @@
 #ifndef RAID_HPP
 #define RAID_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 
 class Raid
 {

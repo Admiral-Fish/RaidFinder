@@ -24,10 +24,10 @@
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Loader/ProfileLoader.hpp>
 #include <Core/Util/Translator.hpp>
-#include <Forms/DenMap.hpp>
-#include <Forms/IVCalculator.hpp>
-#include <Forms/ProfileManager.hpp>
-#include <Forms/SeedCalculator.hpp>
+#include <Forms/Profile/ProfileManager.hpp>
+#include <Forms/Tools/DenMap.hpp>
+#include <Forms/Tools/IVCalculator.hpp>
+#include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
 #include <QMessageBox>

@@ -19,11 +19,11 @@
 
 #include "SeedCalculator.hpp"
 #include "ui_SeedCalculator.h"
-#include <Core/Game.hpp>
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Results/Pokemon.hpp>
 #include <Core/Searcher/SeedSearcher.hpp>
+#include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
 #include <QSettings>

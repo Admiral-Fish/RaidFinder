@@ -32,18 +32,16 @@ TRANSLATIONS += \
 
 FORMS += \
     Forms/Controls/IVFilter.ui \
-    Forms/DenMap.ui \
-    Forms/IVCalculator.ui \
     Forms/MainWindow.ui \
-    Forms/ProfileEditor.ui \
-    Forms/ProfileManager.ui \
-    Forms/SeedCalculator.ui
+    Forms/Profile/ProfileEditor.ui \
+    Forms/Profile/ProfileManager.ui \
+    Forms/Tools/DenMap.ui \
+    Forms/Tools/IVCalculator.ui \
+    Forms/Tools/SeedCalculator.ui
 
 HEADERS += \
     Core/FrameFilter.hpp \
-    Core/Game.hpp \
     Core/Generator/RaidGenerator.hpp \
-    Core/Global.hpp \
     Core/Loader/DenLoader.hpp \
     Core/Loader/PersonalLoader.hpp \
     Core/Loader/ProfileLoader.hpp \
@@ -55,6 +53,8 @@ HEADERS += \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
     Core/Searcher/SeedSearcher.hpp \
+    Core/Util/Game.hpp \
+    Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
@@ -62,12 +62,12 @@ HEADERS += \
     Forms/Controls/Label.hpp \
     Forms/Controls/TableView.hpp \
     Forms/Controls/TextBox.hpp \
-    Forms/DenMap.hpp \
-    Forms/IVCalculator.hpp \
     Forms/MainWindow.hpp \
-    Forms/ProfileEditor.hpp \
-    Forms/ProfileManager.hpp \
-    Forms/SeedCalculator.hpp \
+    Forms/Profile/ProfileEditor.hpp \
+    Forms/Profile/ProfileManager.hpp \
+    Forms/Tools/DenMap.hpp \
+    Forms/Tools/IVCalculator.hpp \
+    Forms/Tools/SeedCalculator.hpp \
     Models/FrameModel.hpp \
     Models/ProfileModel.hpp \
     Models/TableModel.hpp
@@ -93,12 +93,12 @@ SOURCES += \
     Forms/Controls/Label.cpp \
     Forms/Controls/TableView.cpp \
     Forms/Controls/TextBox.cpp \
-    Forms/DenMap.cpp \
-    Forms/IVCalculator.cpp \
     Forms/MainWindow.cpp \
-    Forms/ProfileEditor.cpp \
-    Forms/ProfileManager.cpp \
-    Forms/SeedCalculator.cpp \
+    Forms/Profile/ProfileEditor.cpp \
+    Forms/Profile/ProfileManager.cpp \
+    Forms/Tools/DenMap.cpp \
+    Forms/Tools/IVCalculator.cpp \
+    Forms/Tools/SeedCalculator.cpp \
     Models/FrameModel.cpp \
     Models/ProfileModel.cpp \
     main.cpp

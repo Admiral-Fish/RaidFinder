@@ -20,8 +20,8 @@
 #ifndef SEEDSEARCHER_HPP
 #define SEEDSEARCHER_HPP
 
-#include <Core/Global.hpp>
 #include <Core/Results/Pokemon.hpp>
+#include <Core/Util/Global.hpp>
 #include <QVector>
 
 class SeedSearcher

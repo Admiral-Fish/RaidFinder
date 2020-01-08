@@ -20,7 +20,7 @@
 #ifndef IVFILTER_HPP
 #define IVFILTER_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 #include <QWidget>
 
 namespace Ui

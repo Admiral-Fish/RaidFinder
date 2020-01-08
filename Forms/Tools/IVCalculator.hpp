@@ -20,7 +20,7 @@
 #ifndef IVCALCULATOR_HPP
 #define IVCALCULATOR_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 #include <QLabel>
 
 namespace Ui

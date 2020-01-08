@@ -20,9 +20,9 @@
 #ifndef DEN_HPP
 #define DEN_HPP
 
-#include <Core/Game.hpp>
-#include <Core/Global.hpp>
 #include <Core/Results/Raid.hpp>
+#include <Core/Util/Game.hpp>
+#include <Core/Util/Global.hpp>
 #include <QVector>
 
 class Den

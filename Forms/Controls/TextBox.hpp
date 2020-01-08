@@ -20,7 +20,7 @@
 #ifndef TEXTBOX_HPP
 #define TEXTBOX_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 #include <QLineEdit>
 
 enum InputType

@@ -20,7 +20,7 @@
 #ifndef PERSONALINFO_HPP
 #define PERSONALINFO_HPP
 
-#include <Core/Global.hpp>
+#include <Core/Util/Global.hpp>
 #include <QVector>
 
 class PersonalInfo

@@ -20,7 +20,7 @@
 #include "SeedSearcher.hpp"
 #include <Core/RNG/XoroShiro.hpp>
 #include <QtConcurrent>
-#include <memory>
+#include <cstring>
 
 const u64 c_N[256] = {
     67108864ull,
