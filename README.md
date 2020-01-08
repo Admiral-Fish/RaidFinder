@@ -39,3 +39,11 @@ Option 2: Joining the raid
 2. Install [z3](https://pypi.org/project/z3-solver/) which raid_solver.py uses. `pip install z3-solver`
 
 3. Use the [raid_solver.py](https://github.com/Admiral-Fish/RaidFinder/blob/master/raid_solver.py) script that comes with RaidFinder and input the information it asks for. It will calculate your raid seed and output it to you.
+
+# Credits
+
+[Leanny](https://github.com/leanny): Labeling den map and den hashes in the [PKHeX Raid Plugin](https://github.com/Leanny/PKHeX_Raid_Plugin). Also providing me with event dens.
+
+[Kaphotics](https://github.com/kwsch): Easy dumping of raid tables with [pkNX](https://github.com/kwsch/pkNX). Also providing me with event dens.
+
+[rusted-coil](https://github.com/rusted-coil/): Providing a great open source seed searcher called [OneStar](https://github.com/rusted-coil/OneStar) from which I based my seed searcher.
