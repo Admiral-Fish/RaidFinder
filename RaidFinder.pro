@@ -36,6 +36,7 @@ FORMS += \
     Forms/Profile/ProfileEditor.ui \
     Forms/Profile/ProfileManager.ui \
     Forms/Tools/DenMap.ui \
+    Forms/Tools/EncounterLookup.ui \
     Forms/Tools/IVCalculator.ui \
     Forms/Tools/SeedCalculator.ui
 
@@ -66,6 +67,7 @@ HEADERS += \
     Forms/Profile/ProfileEditor.hpp \
     Forms/Profile/ProfileManager.hpp \
     Forms/Tools/DenMap.hpp \
+    Forms/Tools/EncounterLookup.hpp \
     Forms/Tools/IVCalculator.hpp \
     Forms/Tools/SeedCalculator.hpp \
     Models/FrameModel.hpp \
@@ -97,6 +99,7 @@ SOURCES += \
     Forms/Profile/ProfileEditor.cpp \
     Forms/Profile/ProfileManager.cpp \
     Forms/Tools/DenMap.cpp \
+    Forms/Tools/EncounterLookup.cpp \
     Forms/Tools/IVCalculator.cpp \
     Forms/Tools/SeedCalculator.cpp \
     Models/FrameModel.cpp \

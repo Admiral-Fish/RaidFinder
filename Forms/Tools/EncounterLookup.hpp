@@ -17,28 +17,37 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef DEN_HPP
-#define DEN_HPP
+#ifndef ENCOUNTERLOOKUP_HPP
+#define ENCOUNTERLOOKUP_HPP
 
-#include <Core/Results/Raid.hpp>
-#include <Core/Util/Game.hpp>
 #include <Core/Util/Global.hpp>
-#include <QVector>
+#include <QMap>
+#include <QStandardItemModel>
+#include <QWidget>
 
-class Den
+namespace Ui
 {
+    class EncounterLookup;
+}
+
+class EncounterLookup : public QWidget
+{
+    Q_OBJECT
+
 public:
-    Den() = default;
-    Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids);
-    Raid getRaid(u8 index, Game version) const;
-    QVector<Raid> getRaids(Game version) const;
-    QVector<QPair<u16, QString>> getSpecies(Game version) const;
-    u64 getHash() const;
+    explicit EncounterLookup(QWidget *parent = nullptr);
+    ~EncounterLookup() override;
 
 private:
-    QVector<Raid> swordRaids;
-    QVector<Raid> shieldRaids;
-    u64 hash;
+    Ui::EncounterLookup *ui;
+    QStandardItemModel *model;
+    QMap<u16, QSet<QPair<u8, u8>>> encounterLookup;
+
+    void setupModels();
+
+private slots:
+    void gameIndexChanged(int index);
+    void find();
 };
 
-#endif // DEN_HPP
+#endif // ENCOUNTERLOOKUP_HPP

@@ -26,17 +26,17 @@ Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldR
 
 Raid Den::getRaid(u8 index, Game version) const
 {
-    if (version == Game::Sword)
-    {
-        return swordRaids[index];
-    }
+    return (version == Game::Sword) ? swordRaids.at(index) : shieldRaids.at(index);
+}
 
-    return shieldRaids[index];
+QVector<Raid> Den::getRaids(Game version) const
+{
+    return (version == Game::Sword) ? swordRaids : shieldRaids;
 }
 
 QVector<QPair<u16, QString>> Den::getSpecies(Game version) const
 {
-    auto raids = version == Game::Sword ? swordRaids : shieldRaids;
+    auto raids = getRaids(version);
 
     QVector<QPair<u16, QString>> species;
     for (const Raid &raid : raids)

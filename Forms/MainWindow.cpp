@@ -26,6 +26,7 @@
 #include <Core/Util/Translator.hpp>
 #include <Forms/Profile/ProfileManager.hpp>
 #include <Forms/Tools/DenMap.hpp>
+#include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
@@ -187,6 +188,7 @@ void MainWindow::setupModels()
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
+    connect(ui->actionEncounter_Lookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIV_Calculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->actionSeed_Searcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
@@ -300,6 +302,12 @@ void MainWindow::openDenMap()
 {
     auto *map = new DenMap();
     map->show();
+}
+
+void MainWindow::openEncounterLookup()
+{
+    auto *lookup = new EncounterLookup();
+    lookup->show();
 }
 
 void MainWindow::openIVCalculator()

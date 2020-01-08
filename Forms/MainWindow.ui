@@ -668,6 +668,7 @@
      <string>Tools</string>
     </property>
     <addaction name="actionDen_Map"/>
+    <addaction name="actionEncounter_Lookup"/>
     <addaction name="actionIV_Calculator"/>
     <addaction name="actionSeed_Searcher"/>
    </widget>
@@ -767,6 +768,11 @@
   <action name="actionSeed_Searcher">
    <property name="text">
     <string>Seed Searcher</string>
+   </property>
+  </action>
+  <action name="actionEncounter_Lookup">
+   <property name="text">
+    <string>Encounter Lookup</string>
    </property>
   </action>
  </widget>

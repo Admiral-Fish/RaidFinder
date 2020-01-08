@@ -64,6 +64,7 @@ private slots:
     void profilesIndexChanged(int index);
     void openProfileManager();
     void openDenMap();
+    void openEncounterLookup();
     void openIVCalculator();
     void openSeedSearcher();
     void denIndexChanged(int index);
