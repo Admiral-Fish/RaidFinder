@@ -26,6 +26,7 @@
 class Pokemon
 {
 public:
+    Pokemon() = default;
     Pokemon(const QVector<u8> &ivs, u16 species, u8 ability, u8 nature, u8 characteristic, bool genderLocked, bool allowHiddenAbility);
     u8 getIV(u8 index) const;
     u16 getSpecies() const;
