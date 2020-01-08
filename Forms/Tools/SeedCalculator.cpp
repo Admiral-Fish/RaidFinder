@@ -369,7 +369,7 @@ void SeedCalculator::search()
 
     QSettings setting;
     int threads = setting.value("settings/thread", QThread::idealThreadCount()).toInt();
-    auto *thread = QThread::create([=] { searcher->startSearch(3, threads); });
+    auto *thread = QThread::create([=]() { searcher->startSearch(3, threads); });
 
     connect(thread, &QThread::finished, thread, &QThread::deleteLater);
     connect(thread, &QThread::destroyed, [=] {
