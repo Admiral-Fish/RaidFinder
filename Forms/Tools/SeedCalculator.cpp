@@ -27,7 +27,7 @@
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
 #include <QSettings>
-#include <QThread>
+#include <QtConcurrent>
 
 SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
@@ -164,6 +164,48 @@ void SeedCalculator::checkDay4()
     {
         ui->labelCheck->setText(tr("Invalid"));
     }
+}
+
+void SeedCalculator::toggleControls(bool flag)
+{
+    ui->comboBoxDen->setEnabled(flag);
+    ui->comboBoxRarity->setEnabled(flag);
+    ui->comboBoxGame->setEnabled(flag);
+    ui->checkBoxStop->setEnabled(flag);
+    ui->pushButtonSearch->setEnabled(flag);
+
+    ui->spinBoxHPDay4_1->setEnabled(flag);
+    ui->spinBoxAtkDay4_1->setEnabled(flag);
+    ui->spinBoxDefDay4_1->setEnabled(flag);
+    ui->spinBoxSpADay4_1->setEnabled(flag);
+    ui->spinBoxSpDDay4_1->setEnabled(flag);
+    ui->spinBoxSpeDay4_1->setEnabled(flag);
+    ui->comboBoxRaidDay4_1->setEnabled(flag);
+    ui->comboBoxNatureDay4_1->setEnabled(flag);
+    ui->comboBoxAbilityDay4_1->setEnabled(flag);
+    ui->comboBoxCharacteristicDay4_1->setEnabled(flag);
+
+    ui->spinBoxHPDay4_2->setEnabled(flag);
+    ui->spinBoxAtkDay4_2->setEnabled(flag);
+    ui->spinBoxDefDay4_2->setEnabled(flag);
+    ui->spinBoxSpADay4_2->setEnabled(flag);
+    ui->spinBoxSpDDay4_2->setEnabled(flag);
+    ui->spinBoxSpeDay4_2->setEnabled(flag);
+    ui->comboBoxRaidDay4_2->setEnabled(flag);
+    ui->comboBoxNatureDay4_2->setEnabled(flag);
+    ui->comboBoxAbilityDay4_2->setEnabled(flag);
+    ui->comboBoxCharacteristicDay4_2->setEnabled(flag);
+
+    ui->spinBoxHPDay5->setEnabled(flag);
+    ui->spinBoxAtkDay5->setEnabled(flag);
+    ui->spinBoxDefDay5->setEnabled(flag);
+    ui->spinBoxSpADay5->setEnabled(flag);
+    ui->spinBoxSpDDay5->setEnabled(flag);
+    ui->spinBoxSpeDay5->setEnabled(flag);
+    ui->comboBoxRaidDay5->setEnabled(flag);
+    ui->comboBoxNatureDay5->setEnabled(flag);
+    ui->comboBoxAbilityDay5->setEnabled(flag);
+    ui->comboBoxCharacteristicDay5->setEnabled(flag);
 }
 
 void SeedCalculator::denIndexChanged(int index)
@@ -362,18 +404,15 @@ void SeedCalculator::search()
 
     QVector<Pokemon> pokemon = { mon1, mon2, mon3 };
 
-    ui->pushButtonSearch->setEnabled(false);
+    toggleControls(false);
 
     auto *searcher = new SeedSearcher(pokemon, fixedIVs, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(getIVs(ivs1, ivs2));
 
-    QSettings setting;
-    int threads = setting.value("settings/thread", QThread::idealThreadCount()).toInt();
-    auto *thread = QThread::create([=]() { searcher->startSearch(3, threads); });
-
-    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
-    connect(thread, &QThread::destroyed, [=] {
-        ui->pushButtonSearch->setEnabled(true);
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
+    connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
+    connect(watcher, &QFutureWatcher<void>::finished, this, [=] {
+        toggleControls(false);
 
         QVector<u64> seeds = searcher->getResults();
         delete searcher;
@@ -384,7 +423,11 @@ void SeedCalculator::search()
         }
     });
 
-    thread->start();
+    QSettings setting;
+    int threads = setting.value("settings/thread", QThread::idealThreadCount()).toInt();
+
+    auto future = QtConcurrent::run([=] { searcher->startSearch(0, threads); });
+    watcher->setFuture(future);
 }
 
 void SeedCalculator::clear()

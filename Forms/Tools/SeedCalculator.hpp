@@ -43,6 +43,7 @@ private:
     void setupModels();
     QVector<u8> getIVs(const QVector<u8> &ivs1, const QVector<u8> &ivs2);
     void checkDay4();
+    void toggleControls(bool flag);
 
 private slots:
     void denIndexChanged(int index);
