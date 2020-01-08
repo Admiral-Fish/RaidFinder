@@ -654,8 +654,14 @@
      <addaction name="actionKorean"/>
      <addaction name="actionChinese"/>
     </widget>
+    <widget class="QMenu" name="menuThread">
+     <property name="title">
+      <string>Thread</string>
+     </property>
+    </widget>
     <addaction name="menuLanguage"/>
     <addaction name="menuStyle"/>
+    <addaction name="menuThread"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -663,6 +669,7 @@
     </property>
     <addaction name="actionDen_Map"/>
     <addaction name="actionIV_Calculator"/>
+    <addaction name="actionSeed_Searcher"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -755,6 +762,11 @@
   <action name="actionIV_Calculator">
    <property name="text">
     <string>IV Calculator</string>
+   </property>
+  </action>
+  <action name="actionSeed_Searcher">
+   <property name="text">
+    <string>Seed Searcher</string>
    </property>
   </action>
  </widget>

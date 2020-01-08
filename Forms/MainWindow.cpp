@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -27,11 +27,13 @@
 #include <Forms/DenMap.hpp>
 #include <Forms/IVCalculator.hpp>
 #include <Forms/ProfileManager.hpp>
+#include <Forms/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
 #include <QMessageBox>
 #include <QProcess>
 #include <QSettings>
+#include <QThread>
 
 MainWindow::MainWindow(bool debug, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), debug(debug)
 {
@@ -111,9 +113,9 @@ void MainWindow::setupModels()
         }
 
         QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
+        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    ui->comboBoxDen->addItem(tr("Event"));
+    ui->comboBoxDen->addItem(tr("Event"), 100);
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -159,6 +161,25 @@ void MainWindow::setupModels()
         styleGroup->addAction(action);
     }
 
+    threadGroup = new QActionGroup(ui->menuThread);
+    threadGroup->setExclusive(true);
+    connect(threadGroup, &QActionGroup::triggered, this, &MainWindow::slotThreadChanged);
+    int maxThread = QThread::idealThreadCount();
+    int thread = setting.value("settings/thread", maxThread).toInt();
+    for (auto i = 1; i <= maxThread; i++)
+    {
+        auto *action = ui->menuThread->addAction(QString::number(i));
+        action->setData(i);
+        action->setCheckable(true);
+
+        if (i == thread)
+        {
+            action->setChecked(true);
+        }
+
+        threadGroup->addAction(action);
+    }
+
     QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
     QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
     connect(outputTXT, &QAction::triggered, this, [=]() { ui->tableView->outputModelTXT(); });
@@ -167,6 +188,7 @@ void MainWindow::setupModels()
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionIV_Calculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
+    connect(ui->actionSeed_Searcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
@@ -217,6 +239,17 @@ void MainWindow::slotStyleChanged(QAction *action)
                 QApplication::quit();
             }
         }
+    }
+}
+
+void MainWindow::slotThreadChanged(QAction *action)
+{
+    if (action)
+    {
+        int thread = action->data().toInt();
+
+        QSettings setting;
+        setting.setValue("settings/thread", thread);
     }
 }
 
@@ -275,13 +308,19 @@ void MainWindow::openIVCalculator()
     calculator->show();
 }
 
+void MainWindow::openSeedSearcher()
+{
+    auto *searcher = new SeedCalculator();
+    searcher->show();
+}
+
 void MainWindow::denIndexChanged(int index)
 {
     if (index >= 0)
     {
         int rarity = ui->comboBoxRarity->currentIndex();
         ui->comboBoxSpecies->clear();
-        den = DenLoader::getDen(static_cast<u8>(index), static_cast<u8>(rarity));
+        den = DenLoader::getDen(static_cast<u8>(ui->comboBoxDen->currentData().toInt()), static_cast<u8>(rarity));
 
         const auto species = den.getSpecies(currentProfile.getVersion());
         for (const auto &specie : species)

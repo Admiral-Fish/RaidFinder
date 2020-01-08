@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -45,9 +45,8 @@ int main(int argc, char *argv[])
         }
     }
 
-    QString locale = setting.value("settings/locale", "en").toString();
-    QStringList localelist = { "de", "en", "es", "fr", "it", "ja", "ko", "zh" };
-    if (!localelist.contains(locale))
+    QString locale = setting.value("settings/locale", QLocale().name().left(2)).toString();
+    if (!QStringList({ "de", "en", "es", "fr", "it", "ja", "ko", "zh" }).contains(locale))
     {
         locale = "en";
         setting.setValue("settings/locale", "en");

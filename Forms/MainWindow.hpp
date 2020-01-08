@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -44,6 +44,7 @@ private:
     Ui::MainWindow *ui;
     QActionGroup *languageGroup;
     QActionGroup *styleGroup;
+    QActionGroup *threadGroup;
     QString currentLanguage;
     QString currentStyle;
     QVector<Profile> profiles;
@@ -58,11 +59,13 @@ private:
 private slots:
     void slotLanguageChanged(QAction *action);
     void slotStyleChanged(QAction *action);
+    void slotThreadChanged(QAction *action);
     void updateProfiles();
     void profilesIndexChanged(int index);
     void openProfileManager();
     void openDenMap();
     void openIVCalculator();
+    void openSeedSearcher();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);

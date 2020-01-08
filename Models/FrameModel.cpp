@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ void FrameModel::setInfo(const PersonalInfo &info)
 int FrameModel::columnCount(const QModelIndex &parent) const
 {
     (void)parent;
-    return 14;
+    return 15;
 }
 
 QVariant FrameModel::data(const QModelIndex &index, int role) const
@@ -40,22 +40,18 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DisplayRole)
     {
         auto &frame = model.at(index.row());
-        switch (index.column())
+        int column = index.column();
+        switch (column)
         {
         case 0:
             return frame.getFrame();
         case 1:
-            return frame.getIV(0);
         case 2:
-            return frame.getIV(1);
         case 3:
-            return frame.getIV(2);
         case 4:
-            return frame.getIV(3);
         case 5:
-            return frame.getIV(4);
         case 6:
-            return frame.getIV(5);
+            return frame.getIV(static_cast<u8>(column - 1));
         case 7:
         {
             u8 shiny = frame.getShiny();
@@ -85,10 +81,14 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
             return gender == 0 ? "♂" : gender == 1 ? "♀" : "-";
         }
         case 11:
-            return QString::number(frame.getSeed(), 16).toUpper();
+        {
+            return Translator::getCharacteristic(frame.getCharacteristic());
+        }
         case 12:
-            return QString::number(frame.getEC(), 16).toUpper();
+            return QString::number(frame.getSeed(), 16).toUpper();
         case 13:
+            return QString::number(frame.getEC(), 16).toUpper();
+        case 14:
             return QString::number(frame.getPID(), 16).toUpper();
         }
     }

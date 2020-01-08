@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -43,6 +43,7 @@ public:
     void setShiny(u8 shiny);
     u8 getIV(u8 index) const;
     void setIV(u8 index, u8 iv);
+    u8 getCharacteristic() const;
 
 private:
     u64 seed;

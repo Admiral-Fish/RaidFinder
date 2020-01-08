@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -44,6 +44,7 @@ namespace PersonalLoader
                 u8 spe = static_cast<u8>(data[i + 3]);
                 u8 spa = static_cast<u8>(data[i + 4]);
                 u8 spd = static_cast<u8>(data[i + 5]);
+                u8 genderRatio = static_cast<u8>(data[i + 18]);
                 u16 ability1 = (static_cast<u8>(data[i + 25]) << 8) | static_cast<u8>(data[i + 24]);
                 u16 ability2 = (static_cast<u8>(data[i + 27]) << 8) | static_cast<u8>(data[i + 26]);
                 u16 abilityH = (static_cast<u8>(data[i + 29]) << 8) | static_cast<u8>(data[i + 28]);
@@ -51,7 +52,8 @@ namespace PersonalLoader
                 u8 formCount = static_cast<u8>(data[i + 32]);
                 bool included = (static_cast<u8>(data[i + 33]) >> 6) & 1;
 
-                info.append(PersonalInfo(hp, atk, def, spa, spd, spe, ability1, ability2, abilityH, formCount, formStatIndex, included));
+                info.append(PersonalInfo(hp, atk, def, spa, spd, spe, genderRatio, ability1, ability2, abilityH, formCount, formStatIndex,
+                                         included));
             }
         }
     }

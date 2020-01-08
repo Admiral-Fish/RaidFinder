@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -25,8 +25,11 @@
 class XoroShiro
 {
 public:
+    XoroShiro();
     explicit XoroShiro(u64 seed);
+    void setSeed(u64 seed);
     u32 nextInt(u32 max, u32 mask);
+    u32 nextInt(u32 mask);
 
 private:
     u64 state[2];

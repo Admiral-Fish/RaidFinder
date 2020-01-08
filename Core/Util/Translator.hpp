@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -27,6 +27,8 @@ namespace Translator
 {
     void init(const QString &locale);
     QString getAbility(u16 ability);
+    QStringList getCharacteristics();
+    QString getCharacteristic(u8 characteristic);
     QString getLocation(u8 location);
     QStringList getNatures();
     QString getNature(u8 nature);

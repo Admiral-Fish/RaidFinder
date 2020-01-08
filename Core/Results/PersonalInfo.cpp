@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,14 +19,15 @@
 
 #include "PersonalInfo.hpp"
 
-PersonalInfo::PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u16 ability1, u16 ability2, u16 abilityH, u8 formCount,
-                           u16 formStatIndex, bool included) :
+PersonalInfo::PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 genderRatio, u16 ability1, u16 ability2, u16 abilityH,
+                           u8 formCount, u16 formStatIndex, bool included) :
     hp(hp),
     atk(atk),
     def(def),
     spa(spa),
     spd(spd),
     spe(spe),
+    genderRatio(genderRatio),
     ability1(ability1),
     ability2(ability2),
     abilityH(abilityH),
@@ -39,6 +40,11 @@ PersonalInfo::PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u16 ab
 QVector<u8> PersonalInfo::getBaseStats() const
 {
     return { hp, atk, def, spa, spd, spe };
+}
+
+u8 PersonalInfo::getGenderRatio() const
+{
+    return genderRatio;
 }
 
 u16 PersonalInfo::getAbility1() const

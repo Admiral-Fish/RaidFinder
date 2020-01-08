@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -141,7 +141,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         {
             if (result.getIV(i) == 255)
             {
-                result.setIV(i, static_cast<u8>(rng.nextInt(32, 31)));
+                result.setIV(i, static_cast<u8>(rng.nextInt(31)));
             }
         }
 
@@ -151,7 +151,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
         else if (abilityType == 3) // No hidden ability
         {
-            result.setAbility(static_cast<u8>(rng.nextInt(2, 1)));
+            result.setAbility(static_cast<u8>(rng.nextInt(1)));
         }
 
         // Altform, doesn't seem to have a rand call for raids

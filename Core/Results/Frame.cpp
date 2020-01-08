@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +18,8 @@
  */
 
 #include "Frame.hpp"
+
+constexpr u8 statOrder[6] = { 0, 1, 2, 5, 3, 4 };
 
 Frame::Frame(u64 seed, u32 frame) : seed(seed), frame(frame), ivs { 255, 255, 255, 255, 255, 255 }
 {
@@ -101,4 +103,18 @@ u8 Frame::getIV(u8 index) const
 void Frame::setIV(u8 index, u8 iv)
 {
     ivs[index] = iv;
+}
+
+u8 Frame::getCharacteristic() const
+{
+    u8 charStat = ec % 6;
+    for (u8 i = 0; i < 6; i++)
+    {
+        u8 stat = (charStat + i) % 6;
+        if (ivs[statOrder[stat]] == 31)
+        {
+            return stat;
+        }
+    }
+    return charStat;
 }

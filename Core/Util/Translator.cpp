@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 namespace
 {
     QStringList abilities;
+    QStringList characteristics;
     QStringList locations;
     QStringList natures;
     QStringList species;
@@ -53,6 +54,7 @@ namespace Translator
     void init(const QString &locale)
     {
         abilities = readFile(QString(":/text/abilities_%1.txt").arg(locale));
+        characteristics = readFile(QString(":/text/characteristics_%1.txt").arg(locale));
         locations = readFile(QString(":/text/locations_%1.txt").arg(locale));
         natures = readFile(QString(":/text/natures_%1.txt").arg(locale));
         species = readFile(QString(":/text/species_%1.txt").arg(locale));
@@ -61,6 +63,16 @@ namespace Translator
     QString getAbility(u16 ability)
     {
         return abilities.at(ability);
+    }
+
+    QStringList getCharacteristics()
+    {
+        return characteristics;
+    }
+
+    QString getCharacteristic(u8 characteristic)
+    {
+        return characteristics.at(characteristic);
     }
 
     QString getLocation(u8 location)

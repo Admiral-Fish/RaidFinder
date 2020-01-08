@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -36,8 +36,9 @@ public:
 
 private:
     PersonalInfo info;
-    QStringList header = { tr("Frame"), tr("HP"),     tr("Atk"),     tr("Def"),    tr("SpA"),  tr("SpD"), tr("Spe"),
-                           tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Seed"), tr("EC"),  tr("PID") };
+    QStringList header = { tr("Frame"), tr("HP"),    tr("Atk"),    tr("Def"),     tr("SpA"),    tr("SpD"),
+                           tr("Spe"),   tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Characteristic"),
+                           tr("Seed"),  tr("EC"),    tr("PID") };
 };
 
 #endif // FRAMEMODEL_HPP

@@ -19,6 +19,14 @@
         <file alias="abilities_ja.txt">Resources/Text/Abilities/abilities_ja.txt</file>
         <file alias="abilities_ko.txt">Resources/Text/Abilities/abilities_ko.txt</file>
         <file alias="abilities_zh.txt">Resources/Text/Abilities/abilities_zh.txt</file>
+        <file alias="characteristics_de.txt">Resources/Text/Characteristics/characteristics_de.txt</file>
+        <file alias="characteristics_en.txt">Resources/Text/Characteristics/characteristics_en.txt</file>
+        <file alias="characteristics_es.txt">Resources/Text/Characteristics/characteristics_es.txt</file>
+        <file alias="characteristics_fr.txt">Resources/Text/Characteristics/characteristics_fr.txt</file>
+        <file alias="characteristics_it.txt">Resources/Text/Characteristics/characteristics_it.txt</file>
+        <file alias="characteristics_ja.txt">Resources/Text/Characteristics/characteristics_ja.txt</file>
+        <file alias="characteristics_ko.txt">Resources/Text/Characteristics/characteristics_ko.txt</file>
+        <file alias="characteristics_zh.txt">Resources/Text/Characteristics/characteristics_zh.txt</file>
         <file alias="locations_de.txt">Resources/Text/Locations/locations_de.txt</file>
         <file alias="locations_en.txt">Resources/Text/Locations/locations_en.txt</file>
         <file alias="locations_es.txt">Resources/Text/Locations/locations_es.txt</file>

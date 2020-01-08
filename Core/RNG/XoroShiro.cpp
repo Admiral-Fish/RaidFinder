@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -24,8 +24,18 @@ static inline u64 rotl(u64 x, u8 k)
     return (x << k) | (x >> (64 - k));
 }
 
+XoroShiro::XoroShiro() : state { 0, 0x82A2B175229D6A5B }
+{
+}
+
 XoroShiro::XoroShiro(u64 seed) : state { seed, 0x82A2B175229D6A5B }
 {
+}
+
+void XoroShiro::setSeed(u64 seed)
+{
+    state[0] = seed;
+    state[1] = 0x82A2B175229D6A5B;
 }
 
 u32 XoroShiro::nextInt(u32 max, u32 mask)
@@ -36,6 +46,11 @@ u32 XoroShiro::nextInt(u32 max, u32 mask)
         result = next() & mask;
     } while (result >= max);
     return result;
+}
+
+u32 XoroShiro::nextInt(u32 mask)
+{
+    return next() & mask;
 }
 
 u32 XoroShiro::next()

@@ -1,7 +1,7 @@
 lessThan(QT_MAJOR_VERSION, 5): error("You need at least Qt 5.9 to build RaidFinder")
 equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at least Qt 5.9 to build RaidFinder")
 
-QT += widgets
+QT += concurrent widgets
 CONFIG += c++1z lrelease embed_translations
 
 TARGET = RaidFinder
@@ -36,7 +36,8 @@ FORMS += \
     Forms/IVCalculator.ui \
     Forms/MainWindow.ui \
     Forms/ProfileEditor.ui \
-    Forms/ProfileManager.ui
+    Forms/ProfileManager.ui \
+    Forms/SeedCalculator.ui
 
 HEADERS += \
     Core/FrameFilter.hpp \
@@ -50,8 +51,10 @@ HEADERS += \
     Core/Results/Den.hpp \
     Core/Results/Frame.hpp \
     Core/Results/PersonalInfo.hpp \
+    Core/Results/Pokemon.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
+    Core/Searcher/SeedSearcher.hpp \
     Core/Util/IVChecker.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
@@ -64,6 +67,7 @@ HEADERS += \
     Forms/MainWindow.hpp \
     Forms/ProfileEditor.hpp \
     Forms/ProfileManager.hpp \
+    Forms/SeedCalculator.hpp \
     Models/FrameModel.hpp \
     Models/ProfileModel.hpp \
     Models/TableModel.hpp
@@ -78,8 +82,10 @@ SOURCES += \
     Core/Results/Den.cpp \
     Core/Results/Frame.cpp \
     Core/Results/PersonalInfo.cpp \
+    Core/Results/Pokemon.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
+    Core/Searcher/SeedSearcher.cpp \
     Core/Util/IVChecker.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
@@ -92,6 +98,7 @@ SOURCES += \
     Forms/MainWindow.cpp \
     Forms/ProfileEditor.cpp \
     Forms/ProfileManager.cpp \
+    Forms/SeedCalculator.cpp \
     Models/FrameModel.cpp \
     Models/ProfileModel.cpp \
     main.cpp

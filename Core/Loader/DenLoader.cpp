@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -162,7 +162,6 @@ void DenLoader::init()
                 u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
                 u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
                 u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
-                u8 swordGenderRatio = static_cast<u8>(swordEntry["GenderRatio"].toInt());
                 bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
                 u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
 
@@ -176,7 +175,6 @@ void DenLoader::init()
                 u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
                 u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
                 u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
-                u8 shieldGenderRatio = static_cast<u8>(shieldEntry["GenderRatio"].toInt());
                 bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
                 u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
 
@@ -186,10 +184,9 @@ void DenLoader::init()
                     shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
                 }
 
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio, swordGigantamax,
-                                       swordSpecies, swordStar, 0));
-                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio, shieldGigantamax,
-                                        shieldSpecies, shieldStar, 0));
+                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar, 0));
+                shieldRaids.append(
+                    Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar, 0));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }
@@ -222,7 +219,6 @@ void DenLoader::init()
                 u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
                 u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
                 u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
-                u8 swordGenderRatio = static_cast<u8>(swordEntry["GenderRatio"].toInt());
                 bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
                 u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
                 u8 swordShiny = static_cast<u8>(swordEntry["ShinyType"].toInt());
@@ -237,7 +233,6 @@ void DenLoader::init()
                 u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
                 u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
                 u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
-                u8 shieldGenderRatio = static_cast<u8>(shieldEntry["GenderRatio"].toInt());
                 bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
                 u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
                 u8 shieldShiny = static_cast<u8>(swordEntry["ShinyType"].toInt());
@@ -248,10 +243,10 @@ void DenLoader::init()
                     shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
                 }
 
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGenderRatio, swordGigantamax,
-                                       swordSpecies, swordStar, swordShiny));
-                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGenderRatio, shieldGigantamax,
-                                        shieldSpecies, shieldStar, shieldShiny));
+                swordRaids.append(
+                    Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar, swordShiny));
+                shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies,
+                                        shieldStar, shieldShiny));
             }
             dens[hash] = Den(hash, swordRaids, shieldRaids);
         }

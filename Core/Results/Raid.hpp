@@ -1,6 +1,6 @@
 /*
  * This file is part of RaidFinder
- * Copyright (C) 2019 by Admiral_Fish
+ * Copyright (C) 2019-2020 by Admiral_Fish
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@ class Raid
 {
 public:
     Raid() = default;
-    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, u8 genderRatio, bool gigantamax, u16 species, const bool star[5], u8 shinyType);
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const bool star[5], u8 shinyType);
     u8 getAbility() const;
     u8 getAltForm() const;
     u8 getIVCount() const;
