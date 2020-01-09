@@ -360,7 +360,10 @@ void MainWindow::speciesIndexChanged(int index)
 
         ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
-        ui->comboBoxAbility->setItemText(3, "H: " + Translator::getAbility(info.getAbilityH()));
+        if (raid.getAbility() == 4)
+        {
+            ui->comboBoxAbility->setItemText(3, "H: " + Translator::getAbility(info.getAbilityH()));
+        }
     }
 }
 
