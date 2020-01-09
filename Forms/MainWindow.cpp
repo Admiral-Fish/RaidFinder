@@ -126,7 +126,7 @@ void MainWindow::setupModels()
     languageGroup->setExclusive(true);
     connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
     currentLanguage = setting.value("settings/locale", "en").toString();
-    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh"};
+    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh", "tw" };
     for (auto i = 0; i < locales.size(); i++)
     {
         const QString &lang = locales.at(i);
@@ -187,10 +187,10 @@ void MainWindow::setupModels()
     connect(outputCSV, &QAction::triggered, this, [=]() { ui->tableView->outputModelCSV(); });
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
-    connect(ui->actionDen_Map, &QAction::triggered, this, &MainWindow::openDenMap);
-    connect(ui->actionEncounter_Lookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
-    connect(ui->actionIV_Calculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
-    connect(ui->actionSeed_Searcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
+    connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
+    connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
+    connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
+    connect(ui->actionSeedSearcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);

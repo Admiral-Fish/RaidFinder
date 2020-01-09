@@ -653,6 +653,7 @@
      <addaction name="actionJapanese"/>
      <addaction name="actionKorean"/>
      <addaction name="actionChinese"/>
+     <addaction name="actionChineseTraditional"/>
     </widget>
     <widget class="QMenu" name="menuThread">
      <property name="title">
@@ -667,10 +668,10 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionDen_Map"/>
-    <addaction name="actionEncounter_Lookup"/>
-    <addaction name="actionIV_Calculator"/>
-    <addaction name="actionSeed_Searcher"/>
+    <addaction name="actionDenMap"/>
+    <addaction name="actionEncounterLookup"/>
+    <addaction name="actionIVCalculator"/>
+    <addaction name="actionSeedSearcher"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -755,24 +756,32 @@
     <string>Chinese</string>
    </property>
   </action>
-  <action name="actionDen_Map">
+  <action name="actionDenMap">
    <property name="text">
     <string>Den Map</string>
    </property>
   </action>
-  <action name="actionIV_Calculator">
+  <action name="actionIVCalculator">
    <property name="text">
     <string>IV Calculator</string>
    </property>
   </action>
-  <action name="actionSeed_Searcher">
+  <action name="actionSeedSearcher">
    <property name="text">
     <string>Seed Searcher</string>
    </property>
   </action>
-  <action name="actionEncounter_Lookup">
+  <action name="actionEncounterLookup">
    <property name="text">
     <string>Encounter Lookup</string>
+   </property>
+  </action>
+  <action name="actionChineseTraditional">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Chinese Traditional</string>
    </property>
   </action>
  </widget>

@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    QString locale = setting.value("settings/locale", QLocale().name().left(2)).toString();
+    QString locale = setting.value("settings/locale", "en").toString();
     if (!QStringList({ "de", "en", "es", "fr", "it", "ja", "ko", "zh", "tw" }).contains(locale))
     {
         locale = "en";

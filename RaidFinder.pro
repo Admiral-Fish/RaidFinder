@@ -28,7 +28,8 @@ TRANSLATIONS += \
     i18n/RaidFinder_it.ts \
     i18n/RaidFinder_ja.ts \
     i18n/RaidFinder_ko.ts \
-    i18n/RaidFinder_zh.ts
+    i18n/RaidFinder_zh.ts \
+    i18n/RaidFinder_tw.ts
 
 FORMS += \
     Forms/Controls/IVFilter.ui \
