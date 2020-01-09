@@ -17,17 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef SEEDSEARCHER_HPP
-#define SEEDSEARCHER_HPP
+#ifndef SEEDSEARCHER35_HPP
+#define SEEDSEARCHER35_HPP
 
 #include <Core/Results/Pokemon.hpp>
+#include <Core/Searcher/Matrix.hpp>
 #include <Core/Util/Global.hpp>
 #include <QVector>
 
-class SeedSearcher
+class SeedSearcher35
 {
 public:
-    explicit SeedSearcher(const QVector<Pokemon> &pokemon, int fixedIVs, int ivCount[2], bool firstResult);
+    SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
     void setIVs(const QVector<u8> &templateIVs);
     void startSearch(int maxRolls, int threads);
     QVector<u64> getResults() const;
@@ -35,32 +36,16 @@ public:
 private:
     bool ivFlag;
     int fixedIVs;
-    int ivCount[2];
+    QVector<int> ivCount;
     int ivOffset;
     bool firstResult;
     QVector<Pokemon> pokemon;
     QVector<u8> templateIVs;
 
-    u64 tempMatrix[256];
-    u64 inputMatrix[64];
-    u64 constantTermVector;
-    u64 coefficient[64];
-    u64 answerFlag[64];
-    int freeBit[64];
-    int freeId[64];
-    u64 coefficientData[0x4000];
-    u64 searchPattern[0x4000];
-
+    Matrix matrix;
     QVector<u64> results;
 
-    void prepare(int offset);
-    void initializeTransformationMatrix();
-    void proceedTransformationMatrix();
-    u64 getMatrixMultipler(int index);
-    u16 getMatrixConst(int index);
-    void calculateInverseMatrix(int length);
-    void calculateCoefficientData(int length);
     void search(u64 &seed);
 };
 
-#endif // SEEDSEARCHER_HPP
+#endif // SEEDSEARCHER35_HPP

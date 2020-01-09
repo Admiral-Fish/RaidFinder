@@ -330,10 +330,10 @@ void MainWindow::denIndexChanged(int index)
         ui->comboBoxSpecies->clear();
         den = DenLoader::getDen(static_cast<u8>(ui->comboBoxDen->currentData().toInt()), static_cast<u8>(rarity));
 
-        const auto species = den.getSpecies(currentProfile.getVersion());
-        for (const auto &specie : species)
+        auto raids = den.getRaids(currentProfile.getVersion());
+        for (const auto &raid : raids)
         {
-            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(specie.first), specie.second));
+            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(raid.getSpecies()), raid.getStarDisplay()));
         }
     }
 }

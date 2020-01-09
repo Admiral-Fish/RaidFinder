@@ -32,7 +32,6 @@ public:
     Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids);
     Raid getRaid(u8 index, Game version) const;
     QVector<Raid> getRaids(Game version) const;
-    QVector<QPair<u16, QString>> getSpecies(Game version) const;
     u64 getHash() const;
 
 private:

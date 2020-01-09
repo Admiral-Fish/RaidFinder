@@ -38,7 +38,9 @@ FORMS += \
     Forms/Tools/DenMap.ui \
     Forms/Tools/EncounterLookup.ui \
     Forms/Tools/IVCalculator.ui \
-    Forms/Tools/SeedCalculator.ui
+    Forms/Tools/SeedCalculator.ui \
+    Forms/Util/RaidInfo12.ui \
+    Forms/Util/RaidInfo35.ui
 
 HEADERS += \
     Core/FrameFilter.hpp \
@@ -53,7 +55,9 @@ HEADERS += \
     Core/Results/Pokemon.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
-    Core/Searcher/SeedSearcher.hpp \
+    Core/Searcher/Matrix.hpp \
+    Core/Searcher/SeedSearcher12.hpp \
+    Core/Searcher/SeedSearcher35.hpp \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
@@ -70,6 +74,8 @@ HEADERS += \
     Forms/Tools/EncounterLookup.hpp \
     Forms/Tools/IVCalculator.hpp \
     Forms/Tools/SeedCalculator.hpp \
+    Forms/Util/RaidInfo12.hpp \
+    Forms/Util/RaidInfo35.hpp \
     Models/FrameModel.hpp \
     Models/ProfileModel.hpp \
     Models/TableModel.hpp
@@ -87,7 +93,9 @@ SOURCES += \
     Core/Results/Pokemon.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
-    Core/Searcher/SeedSearcher.cpp \
+    Core/Searcher/Matrix.cpp \
+    Core/Searcher/SeedSearcher12.cpp \
+    Core/Searcher/SeedSearcher35.cpp \
     Core/Util/IVChecker.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
@@ -102,6 +110,8 @@ SOURCES += \
     Forms/Tools/EncounterLookup.cpp \
     Forms/Tools/IVCalculator.cpp \
     Forms/Tools/SeedCalculator.cpp \
+    Forms/Util/RaidInfo12.cpp \
+    Forms/Util/RaidInfo35.cpp \
     Models/FrameModel.cpp \
     Models/ProfileModel.cpp \
     main.cpp

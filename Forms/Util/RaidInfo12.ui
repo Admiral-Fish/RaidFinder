@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RaidInfo12</class>
+ <widget class="QWidget" name="RaidInfo12">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>596</width>
+    <height>223</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBoxDay1">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Day 1</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelIVCountDay1">
+        <property name="text">
+         <string>IV Count</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboBoxNatureDay1"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="comboBoxAbilityDay1"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="labelAbilityDay1">
+        <property name="text">
+         <string>Ability</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelRaidDay1">
+        <property name="text">
+         <string>Raid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSpinBox" name="spinBoxIVCountDay1">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="labelCharacteristicDay1">
+        <property name="text">
+         <string>Characteristic</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="comboBoxRaidDay1"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="labelNatureDay1">
+        <property name="text">
+         <string>Nature</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QSpinBox" name="spinBoxHPDay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxAtkDay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxDefDay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpADay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpDDay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpeDay1">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="6" column="1">
+       <widget class="QComboBox" name="comboBoxCharacteristicDay1"/>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="labelCheck">
+        <property name="text">
+         <string>Invalid</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBoxDay2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Day 2</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="0" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QSpinBox" name="spinBoxHPDay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxAtkDay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxDefDay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpADay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpDDay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBoxSpeDay2">
+          <property name="maximum">
+           <number>31</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelRaidDay2">
+        <property name="text">
+         <string>Raid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBoxRaidDay2"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelIVCountDay2">
+        <property name="text">
+         <string>IV Count</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="spinBoxIVCountDay2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelNatureDay2">
+        <property name="text">
+         <string>Nature</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboBoxNatureDay2"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="labelAbilityDay2">
+        <property name="text">
+         <string>Ability</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboBoxAbilityDay2"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="labelCharacteristicDay2">
+        <property name="text">
+         <string>Characteristic</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="comboBoxCharacteristicDay2"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>spinBoxHPDay1</tabstop>
+  <tabstop>spinBoxAtkDay1</tabstop>
+  <tabstop>spinBoxDefDay1</tabstop>
+  <tabstop>spinBoxSpADay1</tabstop>
+  <tabstop>spinBoxSpDDay1</tabstop>
+  <tabstop>spinBoxSpeDay1</tabstop>
+  <tabstop>comboBoxRaidDay1</tabstop>
+  <tabstop>spinBoxIVCountDay1</tabstop>
+  <tabstop>comboBoxNatureDay1</tabstop>
+  <tabstop>comboBoxAbilityDay1</tabstop>
+  <tabstop>comboBoxCharacteristicDay1</tabstop>
+  <tabstop>spinBoxHPDay2</tabstop>
+  <tabstop>spinBoxAtkDay2</tabstop>
+  <tabstop>spinBoxDefDay2</tabstop>
+  <tabstop>spinBoxSpADay2</tabstop>
+  <tabstop>spinBoxSpDDay2</tabstop>
+  <tabstop>spinBoxSpeDay2</tabstop>
+  <tabstop>comboBoxRaidDay2</tabstop>
+  <tabstop>spinBoxIVCountDay2</tabstop>
+  <tabstop>comboBoxNatureDay2</tabstop>
+  <tabstop>comboBoxAbilityDay2</tabstop>
+  <tabstop>comboBoxCharacteristicDay2</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

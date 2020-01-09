@@ -17,39 +17,50 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef SEEDCALCULATOR_HPP
-#define SEEDCALCULATOR_HPP
+#ifndef RAIDINFO35_HPP
+#define RAIDINFO35_HPP
 
-#include <Core/Util/Global.hpp>
+#include <Core/Results/Den.hpp>
+#include <Core/Results/Pokemon.hpp>
 #include <QWidget>
 
 namespace Ui
 {
-    class SeedCalculator;
+    class RaidInfo35;
 }
 
-class SeedCalculator : public QWidget
+class RaidInfo35 : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit SeedCalculator(QWidget *parent = nullptr);
-    ~SeedCalculator() override;
+    explicit RaidInfo35(QWidget *parent = nullptr);
+    ~RaidInfo35() override;
+    void setDen(const Den &den, Game game);
+    bool isValid() const;
+    QVector<u8> getIVs(int index) const;
+    QVector<u8> getConditionIVs() const;
+    QVector<int> getIVCounts() const;
+    Pokemon getPokemonDay4_1() const;
+    Pokemon getPokemonDay4_2() const;
+    Pokemon getPokemonDay5() const;
+    Pokemon getPokemonDay6() const;
+
+public slots:
+    void displayDay6(int flag);
 
 private:
-    Ui::SeedCalculator *ui;
+    Ui::RaidInfo35 *ui;
+    Den den;
+    Game game;
 
     void setupModels();
-    void toggleControls(bool flag);
-    void search35();
-    void search12();
+    void checkDay4();
 
 private slots:
-    void denIndexChanged(int index);
-    void rarityIndexChanged(int index);
-    void gameIndexChanged(int index);
-    void search();
-    void clear();
+    void raidDay4_1IndexChanged(int index);
+    void raidDay4_2IndexChanged(int index);
+    void raidDay5IndexChanged(int index);
+    void raidDay6IndexChanged(int index);
 };
 
-#endif // SEEDCALCULATOR_HPP
+#endif // RAIDINFO35_HPP

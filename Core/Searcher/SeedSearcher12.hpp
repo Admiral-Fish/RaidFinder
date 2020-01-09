@@ -17,24 +17,33 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Den.hpp"
+#ifndef SEEDSEARCHER12_HPP
+#define SEEDSEARCHER12_HPP
 
-Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) :
-    swordRaids(swordRaids), shieldRaids(shieldRaids), hash(hash)
-{
-}
+#include <Core/Results/Pokemon.hpp>
+#include <Core/Searcher/Matrix.hpp>
+#include <QVector>
 
-Raid Den::getRaid(u8 index, Game version) const
+class SeedSearcher12
 {
-    return (version == Game::Sword) ? swordRaids.at(index) : shieldRaids.at(index);
-}
+public:
+    SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult, bool ability);
+    void startSearch(int maxRolls, int threads);
+    QVector<u64> getResults() const;
 
-QVector<Raid> Den::getRaids(Game version) const
-{
-    return (version == Game::Sword) ? swordRaids : shieldRaids;
-}
+private:
+    bool ability;
+    bool firstResult;
+    QVector<Pokemon> pokemon;
+    QVector<u8> ivsRef;
+    u8 fixedIndex;
+    int rerolls;
+    QVector<int> ivCount;
 
-u64 Den::getHash() const
-{
-    return hash;
-}
+    Matrix matrix;
+    QVector<u64> results;
+
+    void search(u64 &seed);
+};
+
+#endif // SEEDSEARCHER12_HPP

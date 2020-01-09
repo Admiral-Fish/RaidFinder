@@ -80,3 +80,30 @@ u8 Raid::getShiny() const
 {
     return shinyType;
 }
+
+QString Raid::getStarDisplay() const
+{
+    u8 low = 4;
+    u8 high = 0;
+    for (u8 i = 0; i < 5; i++)
+    {
+        if (star[i])
+        {
+            if (i < low)
+            {
+                low = i;
+            }
+            if (i > high)
+            {
+                high = i;
+            }
+        }
+    }
+
+    if (low == high)
+    {
+        return QString("%1★").arg(low + 1);
+    }
+
+    return QString("%1-%2★").arg(low + 1).arg(high + 1);
+}

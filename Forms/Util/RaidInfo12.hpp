@@ -17,24 +17,42 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Den.hpp"
+#ifndef RAIDINFO12_HPP
+#define RAIDINFO12_HPP
 
-Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) :
-    swordRaids(swordRaids), shieldRaids(shieldRaids), hash(hash)
+#include <Core/Results/Den.hpp>
+#include <Core/Results/Pokemon.hpp>
+#include <QWidget>
+
+namespace Ui
 {
+    class RaidInfo12;
 }
 
-Raid Den::getRaid(u8 index, Game version) const
+class RaidInfo12 : public QWidget
 {
-    return (version == Game::Sword) ? swordRaids.at(index) : shieldRaids.at(index);
-}
+    Q_OBJECT
+public:
+    explicit RaidInfo12(QWidget *parent = nullptr);
+    ~RaidInfo12() override;
+    void setDen(const Den &den, Game game);
+    QVector<u8> getIVs(int index) const;
+    QVector<int> getIVCounts() const;
+    Pokemon getPokemonDay1() const;
+    Pokemon getPokemonDay2() const;
+    bool isValid() const;
 
-QVector<Raid> Den::getRaids(Game version) const
-{
-    return (version == Game::Sword) ? swordRaids : shieldRaids;
-}
+private:
+    Ui::RaidInfo12 *ui;
+    Den den;
+    Game game;
 
-u64 Den::getHash() const
-{
-    return hash;
-}
+    void setupModels();
+
+private slots:
+    void raidDay1IndexChanged(int index);
+    void raidDay2IndexChanged(int index);
+    void checkValid();
+};
+
+#endif // RAIDINFO12_HPP
