@@ -60,9 +60,10 @@ void RaidInfo35::setDen(const Den &den, Game game)
             ui->comboBoxRaidDay4_2->addItem(QString("%1: %2").arg(Translator::getSpecie(raid.getSpecies()), raid.getStarDisplay()), i);
         }
 
-        if (raid.getIVCount() >= 2 && (raid.getStar(2) || raid.getStar(3) || raid.getStar(4)))
+        if (raid.getStar(2) || raid.getStar(3) || raid.getStar(4))
         {
             ui->comboBoxRaidDay5->addItem(QString("%1: %2").arg(Translator::getSpecie(raid.getSpecies()), raid.getStarDisplay()), i);
+            ui->comboBoxRaidDay6->addItem(QString("%1: %2").arg(Translator::getSpecie(raid.getSpecies()), raid.getStarDisplay()), i);
         }
     }
 
@@ -107,8 +108,49 @@ QVector<u8> RaidInfo35::getIVs(int index) const
 
 QVector<u8> RaidInfo35::getConditionIVs() const
 {
-    QVector<u8> ivs = getIVs(0) + getIVs(1);
-    ivs.removeAll(31);
+    auto ivs1 = getIVs(0);
+    auto ivs2 = getIVs(1);
+    int ivCount2 = ivs2.count(31);
+
+    QVector<bool> flags;
+    for (int i = 0; i < 6; i++)
+    {
+        flags.append(ivs1.at(i) == 31);
+    }
+
+    int ivCount1 = ui->spinBoxIVCountDay4_1->value();
+    int index = 0;
+    QVector<u8> ivs(6);
+    for (int i = 0; i < 6; i++)
+    {
+        if (ivs.at(i) != 31)
+        {
+            ivs[index++] = ivs.at(i);
+            int position = ivs.at(i) % 8;
+            if (position < 6 && !flags.at(position))
+            {
+                flags[position] = true;
+                ivCount1++;
+                if (ivCount1 == ivCount2)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (!flags.at(i))
+        {
+            ivs[index++] = ivs2.at(i);
+            if (index == 6)
+            {
+                break;
+            }
+        }
+    }
+
     return ivs;
 }
 
