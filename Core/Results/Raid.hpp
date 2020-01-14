@@ -27,7 +27,7 @@ class Raid
 {
 public:
     Raid() = default;
-    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const bool star[5], u8 shinyType);
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const bool star[5], u8 shinyType = 0);
     u8 getAbility() const;
     u8 getAltForm() const;
     u8 getIVCount() const;
