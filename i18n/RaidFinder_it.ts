@@ -20,6 +20,44 @@
     </message>
 </context>
 <context>
+    <name>EncounterLookup</name>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Encounter Lookup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Pokémon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Sword</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Shield</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>Locations</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FrameModel</name>
     <message>
         <location filename="../Models/FrameModel.cpp" line="58"/>
@@ -367,6 +405,16 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
+        <source>Encounter Lookup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Chinese Traditional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
         <source>Ability</source>
         <translation type="unfinished"></translation>
     </message>
@@ -486,38 +534,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="118"/>
+        <location filename="../Forms/MainWindow.cpp" line="119"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="183"/>
+        <location filename="../Forms/MainWindow.cpp" line="184"/>
         <source>Output Results to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="184"/>
+        <location filename="../Forms/MainWindow.cpp" line="185"/>
         <source>Output Results to CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="214"/>
+        <location filename="../Forms/MainWindow.cpp" line="216"/>
         <source>Language update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="214"/>
-        <location filename="../Forms/MainWindow.cpp" line="234"/>
+        <location filename="../Forms/MainWindow.cpp" line="216"/>
+        <location filename="../Forms/MainWindow.cpp" line="236"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="234"/>
+        <location filename="../Forms/MainWindow.cpp" line="236"/>
         <source>Style change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="351"/>
+        <location filename="../Forms/MainWindow.cpp" line="359"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -548,7 +596,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="351"/>
+        <location filename="../Forms/MainWindow.cpp" line="359"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
@@ -714,57 +762,141 @@
     </message>
 </context>
 <context>
-    <name>SeedCalculator</name>
+    <name>RaidInfo12</name>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <source>Seed Calculator</source>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
+        <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <source>Day 4 (1st)</source>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
+        <source>Day 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>IV Count</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Ability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <source>Characteristic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Raid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
+        <source>Characteristic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Nature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="110"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="165"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="204"/>
         <source>Invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <location filename="../Forms/Util/RaidInfo12.ui"/>
+        <source>Day 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="129"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="200"/>
+        <source>Valid</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RaidInfo35</name>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Day 4 (1st)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>IV Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Ability</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Characteristic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Raid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Nature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="77"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="239"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="294"/>
+        <source>Invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Day 4 (2nd)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../Forms/Util/RaidInfo35.ui"/>
+        <source>Day 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="282"/>
+        <source>Day 4 (2nd): 3IV/4IV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="286"/>
+        <source>Day 4 (2nd): 3IV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="290"/>
+        <source>Day 4 (2nd): 4IV</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SeedCalculator</name>
+    <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <source>Day 4 (2nd)</source>
+        <source>Seed Calculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -824,37 +956,39 @@
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Use day 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Search Results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="58"/>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>3-5★</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>1-2★</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="59"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="153"/>
-        <source>Day 4 (2nd): 3IV/4IV</source>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="91"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="133"/>
+        <source>Invalid settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="157"/>
-        <source>Day 4 (2nd): 3IV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="161"/>
-        <source>Day 4 (2nd): 4IV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="307"/>
-        <source>Invalid IVs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="307"/>
-        <source>IVs do not match IV count</source>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="91"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="133"/>
+        <source>Search settings are invalid</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
