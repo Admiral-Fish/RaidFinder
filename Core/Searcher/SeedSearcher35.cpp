@@ -61,7 +61,7 @@ void SeedSearcher35::startSearch(int maxRolls, int threads)
             {
                 if (seed)
                 {
-                    results.append(seed - (0x82a2b175229d6a5b * 5));
+                    results.append(seed - (0x82a2b175229d6a5b * static_cast<u8>(pokemon.size() + 2)));
                 }
             }
 
