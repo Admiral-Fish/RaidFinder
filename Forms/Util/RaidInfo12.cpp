@@ -71,12 +71,10 @@ QVector<u8> RaidInfo12::getIVs(int index) const
                  static_cast<u8>(ui->spinBoxDefDay1->value()), static_cast<u8>(ui->spinBoxSpADay1->value()),
                  static_cast<u8>(ui->spinBoxSpDDay1->value()), static_cast<u8>(ui->spinBoxSpeDay1->value()) };
     }
-    else
-    {
-        return { static_cast<u8>(ui->spinBoxHPDay2->value()),  static_cast<u8>(ui->spinBoxAtkDay2->value()),
-                 static_cast<u8>(ui->spinBoxDefDay2->value()), static_cast<u8>(ui->spinBoxSpADay2->value()),
-                 static_cast<u8>(ui->spinBoxSpDDay2->value()), static_cast<u8>(ui->spinBoxSpeDay2->value()) };
-    }
+
+    return { static_cast<u8>(ui->spinBoxHPDay2->value()),  static_cast<u8>(ui->spinBoxAtkDay2->value()),
+             static_cast<u8>(ui->spinBoxDefDay2->value()), static_cast<u8>(ui->spinBoxSpADay2->value()),
+             static_cast<u8>(ui->spinBoxSpDDay2->value()), static_cast<u8>(ui->spinBoxSpeDay2->value()) };
 }
 
 QVector<int> RaidInfo12::getIVCounts() const

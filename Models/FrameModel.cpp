@@ -70,10 +70,8 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
             {
                 return "2: " + Translator::getAbility(info.getAbility2());
             }
-            else
-            {
-                return "H: " + Translator::getAbility(info.getAbilityH());
-            }
+
+            return "H: " + Translator::getAbility(info.getAbilityH());
         }
         case 10:
         {

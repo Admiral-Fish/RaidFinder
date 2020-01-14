@@ -357,6 +357,6 @@ void SeedSearcher35::search(u64 &seed)
             return;
         }
     }
+
     seed = 0;
-    return;
 }

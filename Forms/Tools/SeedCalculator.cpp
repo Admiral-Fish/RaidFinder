@@ -105,7 +105,7 @@ void SeedCalculator::search35()
     auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(ui->raidInfo35->getConditionIVs());
 
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
+    auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
@@ -142,7 +142,7 @@ void SeedCalculator::search12()
 
     auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
 
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
+    auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);

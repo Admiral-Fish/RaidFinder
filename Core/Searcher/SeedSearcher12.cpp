@@ -27,7 +27,7 @@ SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<in
     pokemon(pokemon),
     ivCount(ivCount)
 {
-    auto mon = pokemon.at(0);
+    const auto &mon = pokemon.at(0);
     ivsRef = { mon.getIV(1), mon.getIV(2), mon.getIV(3), mon.getIV(4), mon.getIV(5), mon.getIV(0), mon.getIV(2), mon.getIV(3),
                mon.getIV(4), mon.getIV(5), mon.getIV(0), mon.getIV(1), mon.getIV(3), mon.getIV(4), mon.getIV(5), mon.getIV(0),
                mon.getIV(1), mon.getIV(2), mon.getIV(4), mon.getIV(5), mon.getIV(0), mon.getIV(1), mon.getIV(2), mon.getIV(3),

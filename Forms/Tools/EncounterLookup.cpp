@@ -61,7 +61,7 @@ void EncounterLookup::gameIndexChanged(int index)
 
         auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
 
-        for (u8 i = 0; i < 101; i++)
+        for (u8 i = 0; i < 100; i++)
         {
             if (i == 16)
             {
@@ -107,7 +107,7 @@ void EncounterLookup::find()
     u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toInt());
     auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
 
-    for (u8 i = 0; i < 101; i++)
+    for (u8 i = 0; i < 100; i++)
     {
         auto normalDen = DenLoader::getDen(i, 0);
         auto normalRaids = normalDen.getRaids(game);
