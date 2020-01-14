@@ -153,6 +153,10 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         {
             result.setAbility(static_cast<u8>(rng.nextInt(1)));
         }
+        else // Locked ability
+        {
+            result.setAbility(abilityType);
+        }
 
         // Altform, doesn't seem to have a rand call for raids
 

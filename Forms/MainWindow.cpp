@@ -68,8 +68,11 @@ void MainWindow::setupModels()
 
     ui->comboBoxNature->setup(Translator::getNatures());
 
-    ui->comboBoxAbilityType->setItemData(0, 3);
-    ui->comboBoxAbilityType->setItemData(1, 4);
+    ui->comboBoxAbilityType->setItemData(0, 0);
+    ui->comboBoxAbilityType->setItemData(1, 1);
+    ui->comboBoxAbilityType->setItemData(2, 2);
+    ui->comboBoxAbilityType->setItemData(3, 3);
+    ui->comboBoxAbilityType->setItemData(4, 4);
 
     ui->textBoxSeed->setValues(InputType::Seed64Bit);
     ui->textBoxInitialFrame->setValues(InputType::Frame32Bit);

@@ -320,6 +320,21 @@
         <widget class="QComboBox" name="comboBoxAbilityType">
          <item>
           <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string notr="true">1/2</string>
           </property>
          </item>
