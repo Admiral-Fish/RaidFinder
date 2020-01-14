@@ -21,8 +21,8 @@
 #define ENCOUNTERLOOKUP_HPP
 
 #include <Core/Util/Global.hpp>
-#include <QMap>
 #include <QStandardItemModel>
+#include <QVector>
 #include <QWidget>
 
 namespace Ui
@@ -41,7 +41,7 @@ public:
 private:
     Ui::EncounterLookup *ui;
     QStandardItemModel *model;
-    QMap<u16, QSet<QPair<u8, u8>>> encounterLookup;
+    QVector<u16> speciesLookup;
 
     void setupModels();
 

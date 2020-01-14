@@ -40,7 +40,7 @@ EncounterLookup::~EncounterLookup()
 void EncounterLookup::setupModels()
 {
     model = new QStandardItemModel(ui->tableView);
-    model->setHorizontalHeaderLabels(QStringList({ tr("Locations") }));
+    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("Stars"), tr("Gigantamax") }));
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -56,7 +56,7 @@ void EncounterLookup::gameIndexChanged(int index)
 {
     if (index >= 0)
     {
-        encounterLookup.clear();
+        speciesLookup.clear();
         ui->comboBoxPokemon->clear();
 
         auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
@@ -75,14 +75,9 @@ void EncounterLookup::gameIndexChanged(int index)
             for (auto raid : normalRaids)
             {
                 u16 species = raid.getSpecies();
-
-                if (!encounterLookup.contains(species))
+                if (!speciesLookup.contains(species))
                 {
-                    encounterLookup[species] = QSet<QPair<u8, u8>> { qMakePair(i + 1, DenLoader::getLocation(i)) };
-                }
-                else
-                {
-                    encounterLookup[species].insert(qMakePair(i + 1, DenLoader::getLocation(i)));
+                    speciesLookup.append(species);
                 }
             }
 
@@ -90,19 +85,15 @@ void EncounterLookup::gameIndexChanged(int index)
             for (auto raid : rareRaids)
             {
                 u16 species = raid.getSpecies();
-
-                if (!encounterLookup.contains(species))
+                if (!speciesLookup.contains(species))
                 {
-                    encounterLookup[species] = QSet<QPair<u8, u8>> { qMakePair(i + 1, DenLoader::getLocation(i)) };
-                }
-                else
-                {
-                    encounterLookup[species].insert(qMakePair(i + 1, DenLoader::getLocation(i)));
+                    speciesLookup.append(species);
                 }
             }
         }
 
-        for (auto specie : encounterLookup.keys())
+        std::sort(speciesLookup.begin(), speciesLookup.end());
+        for (auto specie : speciesLookup)
         {
             ui->comboBoxPokemon->addItem(Translator::getSpecie(specie), specie);
         }
@@ -112,16 +103,44 @@ void EncounterLookup::gameIndexChanged(int index)
 void EncounterLookup::find()
 {
     model->removeRows(0, model->rowCount());
+
     u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toInt());
+    auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
 
-    auto encounters = encounterLookup[species];
-    auto locations = encounters.values();
-    std::sort(locations.begin(), locations.end(),
-              [](const QPair<u8, u8> pair1, const QPair<u8, u8> pair2) { return pair1.first < pair2.first; });
-
-    for (auto location : locations)
+    for (u8 i = 0; i < 101; i++)
     {
-        QString entry = QString("%1: %2").arg(location.first).arg(Translator::getLocation(location.second));
-        model->appendRow(new QStandardItem(entry));
+        auto normalDen = DenLoader::getDen(i, 0);
+        auto normalRaids = normalDen.getRaids(game);
+        for (auto raid : normalRaids)
+        {
+            if (raid.getSpecies() == species)
+            {
+                QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
+                QString rarity = tr("Normal");
+                QString stars = raid.getStarDisplay();
+                QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
+
+                QList<QStandardItem *> list
+                    = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(stars), new QStandardItem(gigantamax) };
+                model->appendRow(list);
+            }
+        }
+
+        auto rareDen = DenLoader::getDen(i, 1);
+        auto rareRaids = rareDen.getRaids(game);
+        for (auto raid : rareRaids)
+        {
+            if (raid.getSpecies() == species)
+            {
+                QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
+                QString rarity = tr("Rare");
+                QString stars = raid.getStarDisplay();
+                QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
+
+                QList<QStandardItem *> list
+                    = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(stars), new QStandardItem(gigantamax) };
+                model->appendRow(list);
+            }
+        }
     }
 }
