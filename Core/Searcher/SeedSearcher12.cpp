@@ -122,12 +122,6 @@ void SeedSearcher12::search(u64 &seed)
     XoroShiro rng;
     for (u64 search = 0; search <= max; search++)
     {
-        if (search == 118)
-        {
-            int x = 5;
-            x++;
-        }
-
         u64 searchSeed = (processedTarget ^ matrix.getCoefficientData(search)) | matrix.getSearchPattern(search);
         rng.setSeed(searchSeed);
 
