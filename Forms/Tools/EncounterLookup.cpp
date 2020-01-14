@@ -40,7 +40,7 @@ EncounterLookup::~EncounterLookup()
 void EncounterLookup::setupModels()
 {
     model = new QStandardItemModel(ui->tableView);
-    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("Stars"), tr("Gigantamax") }));
+    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("IV Count"), tr("HA"), tr("Gigantamax") }));
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -117,11 +117,12 @@ void EncounterLookup::find()
             {
                 QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
                 QString rarity = tr("Normal");
-                QString stars = raid.getStarDisplay();
+                QString iv = QString::number(raid.getIVCount());
+                QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
                 QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
 
-                QList<QStandardItem *> list
-                    = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(stars), new QStandardItem(gigantamax) };
+                QList<QStandardItem *> list = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(iv),
+                                                new QStandardItem(ha), new QStandardItem(gigantamax) };
                 model->appendRow(list);
             }
         }
@@ -134,11 +135,12 @@ void EncounterLookup::find()
             {
                 QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
                 QString rarity = tr("Rare");
-                QString stars = raid.getStarDisplay();
+                QString iv = QString::number(raid.getIVCount());
+                QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
                 QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
 
-                QList<QStandardItem *> list
-                    = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(stars), new QStandardItem(gigantamax) };
+                QList<QStandardItem *> list = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(iv),
+                                                new QStandardItem(ha), new QStandardItem(gigantamax) };
                 model->appendRow(list);
             }
         }
