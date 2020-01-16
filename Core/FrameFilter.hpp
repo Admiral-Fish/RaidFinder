@@ -28,6 +28,11 @@ class FrameFilter
 public:
     FrameFilter() = default;
     FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
+    bool compareShiny(const Frame &frame) const;
+    bool compareIVs(const Frame &frame) const;
+    bool compareAbility(const Frame &frame) const;
+    bool compareGender(const Frame &frame) const;
+    bool compareNature(const Frame &frame) const;
     bool compareFrame(const Frame &frame) const;
 
 private:

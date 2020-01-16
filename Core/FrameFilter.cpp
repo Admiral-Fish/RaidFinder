@@ -25,32 +25,14 @@ FrameFilter::FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVect
 {
 }
 
-bool FrameFilter::compareFrame(const Frame &frame) const
+bool FrameFilter::compareShiny(const Frame &frame) const
 {
-    if (skip)
-    {
-        return true;
-    }
+    return skip || shiny == 255 || (shiny & frame.getShiny());
+}
 
-    if (!natures.at(frame.getNature()))
-    {
-        return false;
-    }
-
-    if (gender != 255 && gender != frame.getGender())
-    {
-        return false;
-    }
-
-    if (ability != 255 && ability != frame.getAbility())
-    {
-        return false;
-    }
-
-    if (((shiny == 1 || shiny == 2) && shiny != frame.getShiny()) || (shiny == 3 && !frame.getShiny()))
-    {
-        return false;
-    }
+bool FrameFilter::compareIVs(const Frame &frame) const
+{
+    if (skip) return true;
 
     for (u8 i = 0; i < 6; i++)
     {
@@ -60,6 +42,29 @@ bool FrameFilter::compareFrame(const Frame &frame) const
             return false;
         }
     }
-
     return true;
+}
+
+bool FrameFilter::compareAbility(const Frame &frame) const
+{
+    return skip || ability == 255 || ability == frame.getAbility();
+}
+
+bool FrameFilter::compareGender(const Frame &frame) const
+{
+    return skip || gender == 255 || gender == frame.getGender();
+}
+
+bool FrameFilter::compareNature(const Frame &frame) const
+{
+    return skip || natures.at(frame.getNature());
+}
+
+bool FrameFilter::compareFrame(const Frame &frame) const
+{
+    if (skip) return true;
+
+    return compareShiny(frame) && compareIVs(frame) && 
+           compareAbility(frame) && compareGender(frame) && 
+           compareNature(frame);
 }
