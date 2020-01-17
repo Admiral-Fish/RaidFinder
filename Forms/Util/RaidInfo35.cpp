@@ -121,10 +121,10 @@ QVector<u8> RaidInfo35::getConditionIVs() const
     QVector<u8> ivs(6);
     for (int i = 0; i < 6; i++)
     {
-        if (ivs.at(i) != 31)
+        if (ivs1.at(i) != 31)
         {
-            ivs[index++] = ivs.at(i);
-            int position = ivs.at(i) % 8;
+            ivs[index++] = ivs1.at(i);
+            int position = ivs1.at(i) % 8;
             if (position < 6 && !flags.at(position))
             {
                 flags[position] = true;
