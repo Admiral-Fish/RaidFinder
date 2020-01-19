@@ -1,17 +1,17 @@
-Axew's Eye
-Bridge Field
-Dappled Grove
-Dusty Bowl
-East Lake Axewell
-Giant's Cap
-Giant's Mirror
-Giant's Seat
-Hammerlocke Hills
-Lake of Outrage
-Motostoke Riverbank
-North Lake Miloch
-Rolling Fields
-South Lake Miloch
-Stony Wilderness
-Watchtower Ruins
-West Lake Axewell
+Ojo de Axew
+Valle Entrepuentes
+Arboleda Claroscuro
+Cuenca Polvorienta
+Lago Axew (este)
+Gorro del Gigante
+Espejo del Gigante
+Silla del Gigante
+Cornisa de Artejo
+Lago del Enfado
+Ribera de Pistón
+Lago Milotic (norte)
+Pradera Radiante
+Lago Milotic (sur)
+Llanura Pétrea
+Antigua Atalaya
+Lago Axew (oeste)
