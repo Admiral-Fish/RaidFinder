@@ -1,17 +1,17 @@
-Axew's Eye
-Bridge Field
-Dappled Grove
-Dusty Bowl
-East Lake Axewell
-Giant's Cap
-Giant's Mirror
-Giant's Seat
-Hammerlocke Hills
-Lake of Outrage
-Motostoke Riverbank
-North Lake Miloch
-Rolling Fields
-South Lake Miloch
-Stony Wilderness
-Watchtower Ruins
-West Lake Axewell
+Occhio del Lago Axew
+Piana dei Ponti
+Boschetto Ombraluce
+Conca delle Sabbie
+Lago Axew (est)
+Berretto del Gigante
+Specchio del Gigante
+Sedia del Gigante
+Colle Knuckleburgh
+Lago Dragofuria
+Fiume di Steamington
+Lago Milotic (nord)
+Pianura Serena
+Lago Milotic (sud)
+Landa delle Pietre
+Torre Diroccata
+Lago Axew (ovest)
