@@ -20,7 +20,6 @@
 #include "SeedSearcher35.hpp"
 #include <Core/RNG/XoroShiro.hpp>
 #include <QtConcurrent>
-#include <cstring>
 
 constexpr u8 toxtricityAmpedNatures[13] = { 3, 4, 2, 8, 9, 19, 22, 11, 13, 14, 0, 6, 24 };
 
@@ -133,12 +132,10 @@ void SeedSearcher35::search(u64 &seed)
     for (u64 search = 0; search <= max; search++)
     {
         u64 searchSeed = (processedTarget ^ matrix.getCoefficientData(search)) ^ matrix.getSearchPattern(search);
-
         rng.setSeed(searchSeed);
 
-        u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-
         {
+            u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
             u8 characteristic = ec % 6;
             for (u8 i = 0; i < 6; i++)
             {
@@ -155,25 +152,9 @@ void SeedSearcher35::search(u64 &seed)
             }
         }
 
-        {
-            u8 characteristic = ec % 6;
-            for (u8 i = 0; i < 6; i++)
-            {
-                characteristic = (characteristic + i) % 6;
-                if (pokemon[1].checkCharacteristic(characteristic))
-                {
-                    break;
-                }
-            }
-
-            if (characteristic != pokemon[1].getCharacteristic())
-            {
-                continue;
-            }
-        }
-
         rng.nextInt(0xffffffff, 0xffffffff); // SIDTID
         rng.nextInt(0xffffffff, 0xffffffff); // PID
+
         {
             u8 ivs[6] = { 255, 255, 255, 255, 255, 255 };
             int count = 0;
@@ -260,27 +241,24 @@ void SeedSearcher35::search(u64 &seed)
         {
             rng.setSeed(searchSeed);
 
-            ec = rng.nextInt(0xffffffff, 0xffffffff);
+            u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
             rng.nextInt(0xffffffff, 0xffffffff); // SIDTID
             rng.nextInt(0xffffffff, 0xffffffff); // PID
 
-            if (i > 1)
+            u8 characteristic = ec % 6;
+            for (u8 j = 0; j < 6; j++)
             {
-                u8 characteristic = ec % 6;
-                for (u8 j = 0; j < 6; j++)
+                characteristic = (characteristic + j) % 6;
+                if (pokemon[i].checkCharacteristic(characteristic))
                 {
-                    characteristic = (characteristic + j) % 6;
-                    if (pokemon[i].checkCharacteristic(characteristic))
-                    {
-                        break;
-                    }
-                }
-
-                if (characteristic != pokemon[i].getCharacteristic())
-                {
-                    flag = false;
                     break;
                 }
+            }
+
+            if (characteristic != pokemon[i].getCharacteristic())
+            {
+                flag = false;
+                break;
             }
 
             u8 ivs[6] = { 255, 255, 255, 255, 255, 255 };
