@@ -22,6 +22,7 @@
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Util/IVChecker.hpp>
 #include <Core/Util/Translator.hpp>
+#include <QCompleter>
 #include <QMessageBox>
 #include <QSettings>
 
@@ -55,6 +56,10 @@ void IVCalculator::setupModels()
     altformIndexChanged(0);
 
     ui->comboBoxNature->addItems(Translator::getNatures());
+
+    ui->comboBoxPokemon->setEditable(true);
+    ui->comboBoxPokemon->setInsertPolicy(QComboBox::NoInsert);
+    ui->comboBoxPokemon->completer()->setCompletionMode(QCompleter::PopupCompletion);
 
     connect(ui->pushButtonFindIVs, &QPushButton::clicked, this, &IVCalculator::findIVs);
     connect(ui->comboBoxPokemon, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &IVCalculator::pokemonIndexChanged);

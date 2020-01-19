@@ -22,6 +22,7 @@
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
+#include <QCompleter>
 
 EncounterLookup::EncounterLookup(QWidget *parent) : QWidget(parent), ui(new Ui::EncounterLookup)
 {
@@ -47,6 +48,10 @@ void EncounterLookup::setupModels()
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
     gameIndexChanged(0);
+
+    ui->comboBoxPokemon->setEditable(true);
+    ui->comboBoxPokemon->setInsertPolicy(QComboBox::NoInsert);
+    ui->comboBoxPokemon->completer()->setCompletionMode(QCompleter::PopupCompletion);
 
     connect(ui->comboBoxGame, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &EncounterLookup::gameIndexChanged);
     connect(ui->pushButtonFind, &QPushButton::clicked, this, &EncounterLookup::find);
