@@ -1,17 +1,17 @@
-Axew's Eye
-Bridge Field
-Dappled Grove
-Dusty Bowl
-East Lake Axewell
-Giant's Cap
-Giant's Mirror
-Giant's Seat
-Hammerlocke Hills
-Lake of Outrage
-Motostoke Riverbank
-North Lake Miloch
-Rolling Fields
-South Lake Miloch
-Stony Wilderness
-Watchtower Ruins
-West Lake Axewell
+Œil du Lac
+Prairie Entre-Ponts
+Bois de Clairjour
+Fosse des Sables
+Lac Coupenotte Est
+Coiffe du Géant
+Miroir du Géant
+Siège du Géant
+Plateau de Kickenham
+Lac Ouragan
+Berges de Motorby
+Lac Milobellus Nord
+Plaine Verdoyante
+Lac Milobellus Sud
+Plaine Rocheuse
+Tour en ruines
+Lac Coupenotte Ouest
