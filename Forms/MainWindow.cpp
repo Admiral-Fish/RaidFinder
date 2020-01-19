@@ -95,10 +95,10 @@ void MainWindow::setupModels()
     ui->comboBoxGenderRatio->setItemData(5, 127);
     ui->comboBoxGenderRatio->setItemData(6, 191);
 
-    ui->comboBoxShiny->setItemData(0, 255);
-    ui->comboBoxShiny->setItemData(1, 1);
-    ui->comboBoxShiny->setItemData(2, 2);
-    ui->comboBoxShiny->setItemData(3, 3);
+    ui->comboBoxShiny->setItemData(0, 255); // Any shiny type
+    ui->comboBoxShiny->setItemData(1, 1); // Star
+    ui->comboBoxShiny->setItemData(2, 2); // Square
+    ui->comboBoxShiny->setItemData(3, 3); // Star or square
 
     ui->comboBoxShinyType->setItemData(0, 0);
     ui->comboBoxShinyType->setItemData(1, 2);

@@ -65,24 +65,3 @@ bool Pokemon::getAllowHiddenAbility() const
 {
     return allowHiddenAbility;
 }
-
-bool Pokemon::checkCharacteristic(u8 index)
-{
-    switch (index)
-    {
-    case 0:
-        return (ivs[0] == 31);
-    case 1:
-        return (ivs[1] == 31);
-    case 2:
-        return (ivs[2] == 31);
-    case 3:
-        return (ivs[5] == 31);
-    case 4:
-        return (ivs[3] == 31);
-    case 5:
-        return (ivs[4] == 31);
-    default:
-        return true;
-    }
-}

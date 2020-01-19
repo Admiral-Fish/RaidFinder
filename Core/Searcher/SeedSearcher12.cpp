@@ -22,10 +22,8 @@
 #include <QtConcurrent>
 
 SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult, bool ability) :
-    ability(ability),
-    firstResult(firstResult),
-    pokemon(pokemon),
-    ivCount(ivCount)
+    SeedSearcher(pokemon, ivCount, firstResult),
+    ability(ability)
 {
     const auto &mon = pokemon.at(0);
     ivsRef = { mon.getIV(1), mon.getIV(2), mon.getIV(3), mon.getIV(4), mon.getIV(5), mon.getIV(0), mon.getIV(2), mon.getIV(3),
@@ -42,47 +40,43 @@ SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<in
     }
 }
 
-void SeedSearcher12::startSearch(int maxRolls, int threads)
+void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
 {
-    QThreadPool::globalInstance()->setMaxThreadCount(threads);
-    for (int i = 0; i <= maxRolls; i++)
+    pool.setMaxThreadCount(threads);
+    searching = true;
+
+    u32 max = 0xfffffff;
+    u32 split = max / threads;
+
+    for (int i = minRolls; i <= maxRolls; i++)
     {
         matrix.prepare(ability, i);
         rerolls = i;
 
-        for (u8 j = 0; j < 5; j++)
+        u32 min = 0;
+        QVector<QFuture<void>> threadContainer;
+        for (int j = 0; j < threads; j++)
         {
-            QVector<u64> seeds;
-            seeds.reserve(0x3333333);
-            for (u32 k = 0x3333333u * j; k < 0x3333333u * (j + 1); k++)
+            if (j == threads - 1)
             {
-                seeds.append(k);
+                threadContainer.append(QtConcurrent::run(&pool, [=] { search(min, max); }));
+            }
+            else
+            {
+                threadContainer.append(QtConcurrent::run(&pool, [=] { search(min, min + split); }));
             }
 
-            QtConcurrent::blockingMap(seeds, [this](u64 &seed) { search(seed); });
+            min += split;
+        }
 
-            for (u64 seed : seeds)
-            {
-                if (seed)
-                {
-                    results.append(seed - (0x82a2b175229d6a5b * static_cast<u8>((pokemon.size()))));
-                }
-            }
-
-            if (firstResult && !results.isEmpty())
-            {
-                return;
-            }
+        for (int j = 0; j < threads; j++)
+        {
+            threadContainer[i].waitForFinished();
         }
     }
 }
 
-QVector<u64> SeedSearcher12::getResults() const
-{
-    return results;
-}
-
-void SeedSearcher12::search(u64 &seed)
+bool SeedSearcher12::searchSeed(u64 &seed)
 {
     int length = ability ? 57 : 56;
 
@@ -127,17 +121,7 @@ void SeedSearcher12::search(u64 &seed)
 
         {
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            u8 characteristic = ec % 6;
-            for (u8 i = 0; i < 6; i++)
-            {
-                characteristic = (characteristic + i) % 6;
-                if (pokemon[0].checkCharacteristic(characteristic))
-                {
-                    break;
-                }
-            }
-
-            if (characteristic != pokemon[0].getCharacteristic())
+            if (checkCharacteristic(ec % 6, 0) != pokemon.at(0).getCharacteristic())
             {
                 continue;
             }
@@ -164,7 +148,7 @@ void SeedSearcher12::search(u64 &seed)
             }
 
             u8 ability;
-            if (pokemon[0].getAllowHiddenAbility())
+            if (pokemon.at(0).getAllowHiddenAbility())
             {
                 ability = static_cast<u8>(rng.nextInt(3, 3));
             }
@@ -172,18 +156,18 @@ void SeedSearcher12::search(u64 &seed)
             {
                 ability = static_cast<u8>(rng.nextInt(1));
             }
-            if (pokemon[0].getAbility() != 255 && pokemon[0].getAbility() != ability)
+            if (pokemon.at(0).getAbility() != 255 && pokemon.at(0).getAbility() != ability)
             {
                 continue;
             }
 
-            if (!pokemon[0].getGenderLocked())
+            if (!pokemon.at(0).getGenderLocked())
             {
                 rng.nextInt(253, 255);
             }
 
             u8 nature = static_cast<u8>(rng.nextInt(25, 31));
-            if (nature != pokemon[0].getNature())
+            if (nature != pokemon.at(0).getNature())
             {
                 continue;
             }
@@ -196,24 +180,14 @@ void SeedSearcher12::search(u64 &seed)
             rng.setSeed(searchSeed);
 
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            rng.nextInt(0xffffffff, 0xffffffff); // SIDTID
-            rng.nextInt(0xffffffff, 0xffffffff); // PID
-
-            u8 characteristic = ec % 6;
-            for (u8 j = 0; j < 6; j++)
-            {
-                characteristic = (characteristic + j) % 6;
-                if (pokemon[i].checkCharacteristic(characteristic))
-                {
-                    break;
-                }
-            }
-
-            if (characteristic != pokemon[i].getCharacteristic())
+            if (checkCharacteristic(ec % 6, i) != pokemon.at(i).getCharacteristic())
             {
                 flag = false;
                 break;
             }
+
+            rng.nextInt(0xffffffff, 0xffffffff); // SIDTID
+            rng.nextInt(0xffffffff, 0xffffffff); // PID
 
             u8 ivs[6] = { 255, 255, 255, 255, 255, 255 };
             int count = 0;
@@ -235,7 +209,7 @@ void SeedSearcher12::search(u64 &seed)
                     ivs[j] = static_cast<u8>(rng.nextInt(31));
                 }
 
-                if (ivs[j] != pokemon[i].getIV(j))
+                if (ivs[j] != pokemon.at(i).getIV(j))
                 {
                     flag = false;
                     break;
@@ -247,7 +221,7 @@ void SeedSearcher12::search(u64 &seed)
             }
 
             u8 ability;
-            if (pokemon[i].getAllowHiddenAbility())
+            if (pokemon.at(i).getAllowHiddenAbility())
             {
                 ability = static_cast<u8>(rng.nextInt(3, 3));
             }
@@ -255,19 +229,19 @@ void SeedSearcher12::search(u64 &seed)
             {
                 ability = static_cast<u8>(rng.nextInt(1));
             }
-            if ((pokemon[i].getAbility() != ability) || (pokemon[i].getAbility() == 255 && ability >= 2))
+            if ((pokemon.at(i).getAbility() != ability) || (pokemon.at(i).getAbility() == 255 && ability >= 2))
             {
                 flag = false;
                 break;
             }
 
-            if (!pokemon[i].getGenderLocked())
+            if (!pokemon.at(i).getGenderLocked())
             {
                 rng.nextInt(253, 255);
             }
 
             u8 nature = static_cast<u8>(rng.nextInt(25, 31));
-            if (nature != pokemon[i].getNature())
+            if (nature != pokemon.at(i).getNature())
             {
                 flag = false;
                 break;
@@ -276,9 +250,10 @@ void SeedSearcher12::search(u64 &seed)
 
         if (flag)
         {
-            seed = searchSeed;
-            return;
+            seed = searchSeed - (0x82a2b175229d6a5b * static_cast<u8>((pokemon.size())));
+            return true;
         }
     }
-    seed = 0;
+
+    return false;
 }

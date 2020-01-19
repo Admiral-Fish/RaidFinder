@@ -57,6 +57,7 @@ HEADERS += \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
     Core/Searcher/Matrix.hpp \
+    Core/Searcher/SeedSearcher.hpp \
     Core/Searcher/SeedSearcher12.hpp \
     Core/Searcher/SeedSearcher35.hpp \
     Core/Util/Game.hpp \
@@ -95,6 +96,7 @@ SOURCES += \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
     Core/Searcher/Matrix.cpp \
+    Core/Searcher/SeedSearcher.cpp \
     Core/Searcher/SeedSearcher12.cpp \
     Core/Searcher/SeedSearcher35.cpp \
     Core/Util/IVChecker.cpp \

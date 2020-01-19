@@ -20,30 +20,21 @@
 #ifndef SEEDSEARCHER12_HPP
 #define SEEDSEARCHER12_HPP
 
-#include <Core/Results/Pokemon.hpp>
-#include <Core/Searcher/Matrix.hpp>
-#include <QVector>
+#include <Core/Searcher/SeedSearcher.hpp>
 
-class SeedSearcher12
+class SeedSearcher12 : public SeedSearcher
 {
 public:
     SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult, bool ability);
-    void startSearch(int maxRolls, int threads);
-    QVector<u64> getResults() const;
+    void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
     bool ability;
-    bool firstResult;
-    QVector<Pokemon> pokemon;
     QVector<u8> ivsRef;
     u8 fixedIndex;
     int rerolls;
-    QVector<int> ivCount;
 
-    Matrix matrix;
-    QVector<u64> results;
-
-    void search(u64 &seed);
+    bool searchSeed(u64 &seed) override;
 };
 
 #endif // SEEDSEARCHER12_HPP

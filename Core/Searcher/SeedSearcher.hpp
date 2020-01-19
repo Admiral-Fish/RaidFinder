@@ -17,33 +17,38 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef POKEMON_HPP
-#define POKEMON_HPP
+#ifndef SEEDSEARCHER_HPP
+#define SEEDSEARCHER_HPP
 
-#include <Core/Util/Global.hpp>
+#include <Core/Results/Pokemon.hpp>
+#include <Core/Searcher/Matrix.hpp>
+#include <QThreadPool>
 #include <QVector>
+#include <mutex>
 
-class Pokemon
+class SeedSearcher
 {
 public:
-    Pokemon() = default;
-    Pokemon(const QVector<u8> &ivs, u16 species, u8 ability, u8 nature, u8 characteristic, bool genderLocked, bool allowHiddenAbility);
-    u8 getIV(u8 index) const;
-    u16 getSpecies() const;
-    u8 getAbility() const;
-    u8 getNature() const;
-    u8 getCharacteristic() const;
-    bool getGenderLocked() const;
-    bool getAllowHiddenAbility() const;
+    SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
+    virtual ~SeedSearcher() = default;
+    virtual void startSearch(int minRolls, int maxRolls, int threads) = 0;
+    void cancelSearch();
+    QVector<u64> getResults() const;
 
-private:
-    QVector<u8> ivs;
-    u16 species;
-    u8 ability;
-    u8 nature;
-    u8 characteristic;
-    bool genderLocked;
-    bool allowHiddenAbility;
+protected:
+    QVector<Pokemon> pokemon;
+    QVector<int> ivCount;
+    bool firstResult;
+
+    QThreadPool pool;
+    Matrix matrix;
+    QVector<u64> results;
+    bool searching;
+    std::mutex mutex;
+
+    void search(u64 min, u64 max);
+    virtual bool searchSeed(u64 &seed) = 0;
+    u8 checkCharacteristic(u8 characteristic, u8 index) const;
 };
 
-#endif // POKEMON_HPP
+#endif // SEEDSEARCHER_HPP

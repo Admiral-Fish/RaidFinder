@@ -77,9 +77,12 @@ void SeedCalculator::toggleControls(bool flag)
     ui->comboBoxDen->setEnabled(flag);
     ui->comboBoxRarity->setEnabled(flag);
     ui->comboBoxGame->setEnabled(flag);
+    ui->spinBoxIVDeviationMin->setEnabled(flag);
+    ui->spinBoxIVDeviationMax->setEnabled(flag);
     ui->checkBoxStop->setEnabled(flag);
     ui->checkBoxDay6->setEnabled(flag);
     ui->pushButtonSearch->setEnabled(flag);
+    ui->pushButtonCancel->setEnabled(!flag);
 
     ui->tabWidgetStars->setEnabled(flag);
 }
@@ -105,6 +108,8 @@ void SeedCalculator::search35()
     auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(ui->raidInfo35->getConditionIVs());
 
+    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
@@ -122,7 +127,10 @@ void SeedCalculator::search35()
     QSettings setting;
     int threads = setting.value("settings/thread", QThread::idealThreadCount()).toInt();
 
-    auto future = QtConcurrent::run([=] { searcher->startSearch(0, threads); });
+    int minRolls = ui->spinBoxIVDeviationMin->value();
+    int maxRolls = ui->spinBoxIVDeviationMax->value();
+    auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
+
     watcher->setFuture(future);
 }
 
@@ -142,6 +150,8 @@ void SeedCalculator::search12()
 
     auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
 
+    connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
@@ -159,7 +169,10 @@ void SeedCalculator::search12()
     QSettings setting;
     int threads = setting.value("settings/thread", QThread::idealThreadCount()).toInt();
 
-    auto future = QtConcurrent::run([=] { searcher->startSearch(0, threads); });
+    int minRolls = ui->spinBoxIVDeviationMin->value();
+    int maxRolls = ui->spinBoxIVDeviationMax->value();
+    auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
+
     watcher->setFuture(future);
 }
 
