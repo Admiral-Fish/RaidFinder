@@ -32,7 +32,10 @@ bool FrameFilter::compareShiny(const Frame &frame) const
 
 bool FrameFilter::compareIVs(const Frame &frame) const
 {
-    if (skip) return true;
+    if (skip)
+    {
+        return true;
+    }
 
     for (u8 i = 0; i < 6; i++)
     {
@@ -58,13 +61,4 @@ bool FrameFilter::compareGender(const Frame &frame) const
 bool FrameFilter::compareNature(const Frame &frame) const
 {
     return skip || natures.at(frame.getNature());
-}
-
-bool FrameFilter::compareFrame(const Frame &frame) const
-{
-    if (skip) return true;
-
-    return compareShiny(frame) && compareIVs(frame) && 
-           compareAbility(frame) && compareGender(frame) && 
-           compareNature(frame);
 }

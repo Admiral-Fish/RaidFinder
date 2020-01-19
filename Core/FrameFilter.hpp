@@ -33,7 +33,6 @@ public:
     bool compareAbility(const Frame &frame) const;
     bool compareGender(const Frame &frame) const;
     bool compareNature(const Frame &frame) const;
-    bool compareFrame(const Frame &frame) const;
 
 private:
     QVector<u8> min;

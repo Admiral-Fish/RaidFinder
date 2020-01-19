@@ -72,10 +72,12 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
     QVector<Frame> frames;
     u16 tsv = (tid ^ sid) >> 4;
 
-    u64 baseSeed = 0x82A2B175229D6A5B;
-    seed += baseSeed * (startFrame - 1);
+    for (u32 i = 1; i < startFrame; i++)
+    {
+        seed += 0x82A2B175229D6A5B;
+    }
 
-    for (u32 frame = 0; frame < maxResults; frame++, seed += baseSeed)
+    for (u32 frame = 0; frame < maxResults; frame++, seed += 0x82A2B175229D6A5B)
     {
         XoroShiro rng(seed);
         Frame result(seed, startFrame + frame);
@@ -121,7 +123,10 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
                 pid = (high << 16) | (pid & 0xffff);
             }
         }
-        if (!filter.compareShiny(result)) continue;
+        if (!filter.compareShiny(result)) 
+        {
+            continue;
+        }
         result.setPID(pid);
 
         // Set IVs that will be 31s
@@ -143,7 +148,10 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
                 result.setIV(i, static_cast<u8>(rng.nextInt(31)));
             }
         }
-        if (!filter.compareIVs(result)) continue;
+        if (!filter.compareIVs(result))
+        {
+            continue;
+        }
 
         if (abilityType == 4) // Allow hidden ability
         {
@@ -157,7 +165,10 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         {
             result.setAbility(abilityType);
         }
-        if (!filter.compareAbility(result)) continue;
+        if (!filter.compareAbility(result))
+        {
+            continue;
+        }
 
         // Altform, doesn't seem to have a rand call for raids
 
@@ -192,7 +203,10 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         {
             result.setGender(2);
         }
-        if (!filter.compareGender(result)) continue;
+        if (!filter.compareGender(result))
+        {
+            continue;
+        }
 
         if (species != 849)
         {
