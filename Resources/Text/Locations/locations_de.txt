@@ -1,17 +1,17 @@
-Axew's Eye
-Bridge Field
-Dappled Grove
-Dusty Bowl
-East Lake Axewell
-Giant's Cap
-Giant's Mirror
-Giant's Seat
-Hammerlocke Hills
-Lake of Outrage
-Motostoke Riverbank
-North Lake Miloch
-Rolling Fields
-South Lake Miloch
-Stony Wilderness
-Watchtower Ruins
-West Lake Axewell
+Milza-See (Auge)
+Brückental
+Wipfelscheinwald
+Sandsturmkessel
+Milza-See (Osten)
+Hut des Giganten
+Spiegel des Giganten
+Sitz des Giganten
+Claw-Plateau
+Wutanfall-See
+Engine-Flussufer
+Milotic-See (Norden)
+Wonnewiesen
+Milotic-See (Süden)
+Megalithen-Ebene
+Wachturmruine
+Milza-See (Westen)
