@@ -18,6 +18,7 @@
  */
 
 #include "Profile.hpp"
+#include <QCoreApplication>
 
 Profile::Profile() : name("None"), tid(12345), sid(54321), version(Game::Sword)
 {
@@ -57,9 +58,9 @@ QString Profile::getVersionString() const
     switch (version)
     {
     case Game::Sword:
-        return "Sword";
+        return QCoreApplication::tr("Sword");
     case Game::Shield:
-        return "Shield";
+        return QCoreApplication::tr("Shield");
     }
     return "-";
 }
