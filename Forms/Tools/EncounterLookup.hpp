@@ -21,6 +21,7 @@
 #define ENCOUNTERLOOKUP_HPP
 
 #include <Core/Util/Global.hpp>
+#include <Core/Results/Raid.hpp>
 #include <QStandardItemModel>
 #include <QVector>
 #include <QWidget>
@@ -44,6 +45,7 @@ private:
     QVector<u16> speciesLookup;
 
     void setupModels();
+    void addRow(int, bool, Raid);
 
 private slots:
     void gameIndexChanged(int index);
