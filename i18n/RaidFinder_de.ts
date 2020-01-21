@@ -229,7 +229,7 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Altform</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ-Form</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
