@@ -34,18 +34,24 @@ public:
     virtual void startSearch(int minRolls, int maxRolls, int threads) = 0;
     void cancelSearch();
     QVector<u64> getResults() const;
+    int getProgress() const;
+    int getMaxProgress() const;
 
 protected:
     QVector<Pokemon> pokemon;
     QVector<int> ivCount;
     bool firstResult;
     int ivOffset;
+    int max;
+    int progressOffset;
 
     QThreadPool pool;
     Matrix matrix;
     QVector<u64> results;
     bool searching;
-    std::mutex mutex;
+    std::mutex resultMutex;
+    std::mutex progressMutex;
+    u64 progress;
 
     void search(u32 min, u32 max);
     virtual bool searchSeed(u64 &seed) = 0;

@@ -28,6 +28,7 @@ SeedSearcher35::SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<in
     ivFlag(ivCount.at(0) == 3),
     fixedIVs(ivCount.at(0) == 2 ? 6 : 5)
 {
+    max = ivFlag ? 0x1FFFFFF : 0x3FFFFFFF;
 }
 
 void SeedSearcher35::setIVs(const QVector<u8> &templateIVs)
@@ -40,7 +41,7 @@ void SeedSearcher35::startSearch(int minRolls, int maxRolls, int threads)
     pool.setMaxThreadCount(threads);
     searching = true;
 
-    u32 max = ivFlag ? 0x1FFFFFF : 0x3FFFFFFF;
+    progressOffset = maxRolls - minRolls + 1;
     u32 split = max / threads;
 
     for (int i = minRolls; i <= maxRolls && searching; i++)

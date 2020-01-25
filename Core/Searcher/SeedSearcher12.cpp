@@ -38,6 +38,8 @@ SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<in
             fixedIndex = i;
         }
     }
+
+    max = 0xfffffff;
 }
 
 void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
@@ -45,7 +47,7 @@ void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
     pool.setMaxThreadCount(threads);
     searching = true;
 
-    u32 max = 0xfffffff;
+    progressOffset = maxRolls - minRolls + 1;
     u32 split = max / threads;
 
     for (int i = minRolls; i <= maxRolls && searching; i++)

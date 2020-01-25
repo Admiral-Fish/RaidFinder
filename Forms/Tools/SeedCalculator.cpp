@@ -28,6 +28,7 @@
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
 #include <QSettings>
+#include <QTimer>
 #include <QtConcurrent>
 
 SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
@@ -107,15 +108,24 @@ void SeedCalculator::search35()
 
     auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(ui->raidInfo35->getConditionIVs());
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
+    connect(timer, &QTimer::timeout, [=] { ui->progressBar->setValue(searcher->getProgress()); });
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -132,6 +142,7 @@ void SeedCalculator::search35()
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::search12()
@@ -149,15 +160,23 @@ void SeedCalculator::search12()
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
     auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -174,6 +193,7 @@ void SeedCalculator::search12()
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::denIndexChanged(int index)

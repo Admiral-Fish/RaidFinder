@@ -40,6 +40,16 @@ QVector<u64> SeedSearcher::getResults() const
     return results;
 }
 
+int SeedSearcher::getProgress() const
+{
+    return static_cast<int>(progress / progressOffset);
+}
+
+int SeedSearcher::getMaxProgress() const
+{
+    return max;
+}
+
 void SeedSearcher::search(u32 min, u32 max)
 {
     for (u64 search = min; search <= max && searching; search++)
@@ -47,14 +57,17 @@ void SeedSearcher::search(u32 min, u32 max)
         u64 seed = search;
         if (searchSeed(seed))
         {
-            std::lock_guard<std::mutex> lock(mutex);
-
+            std::lock_guard<std::mutex> lock(resultMutex);
             results.append(seed);
+
             if (firstResult)
             {
                 searching = false;
             }
         }
+
+        std::lock_guard<std::mutex> lock(progressMutex);
+        progress++;
     }
 }
 
