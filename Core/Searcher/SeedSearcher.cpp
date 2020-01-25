@@ -40,7 +40,7 @@ QVector<u64> SeedSearcher::getResults() const
     return results;
 }
 
-void SeedSearcher::search(u64 min, u64 max)
+void SeedSearcher::search(u32 min, u32 max)
 {
     for (u64 search = min; search <= max && searching; search++)
     {

@@ -39,6 +39,7 @@ protected:
     QVector<Pokemon> pokemon;
     QVector<int> ivCount;
     bool firstResult;
+    int ivOffset;
 
     QThreadPool pool;
     Matrix matrix;
@@ -46,7 +47,7 @@ protected:
     bool searching;
     std::mutex mutex;
 
-    void search(u64 min, u64 max);
+    void search(u32 min, u32 max);
     virtual bool searchSeed(u64 &seed) = 0;
     u8 checkCharacteristic(u8 characteristic, u8 index) const;
 };

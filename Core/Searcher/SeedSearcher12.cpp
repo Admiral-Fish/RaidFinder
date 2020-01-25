@@ -48,10 +48,10 @@ void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
     u32 max = 0xfffffff;
     u32 split = max / threads;
 
-    for (int i = minRolls; i <= maxRolls; i++)
+    for (int i = minRolls; i <= maxRolls && searching; i++)
     {
         matrix.prepare(ability, i);
-        rerolls = i;
+        ivOffset = i;
 
         u32 min = 0;
         QVector<QFuture<void>> threadContainer;
@@ -137,7 +137,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
                 offset++;
             } while (stat >= 6);
 
-            if (offset != rerolls)
+            if (offset != ivOffset)
             {
                 continue;
             }
