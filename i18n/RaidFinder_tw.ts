@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_TW">
+<TS version="2.2" language="zh_TW">
+<context>
+    <name>QCoreApplication</name>
+    <message>
+        <location filename="../Core/Results/Profile.cpp" line="61"/>
+        <source>Sword</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Core/Results/Profile.cpp" line="63"/>
+        <source>Shield</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>CheckList</name>
     <message>
@@ -55,6 +68,52 @@
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
         <source>Locations</source>
         <translation>地點</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>Rarity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>IV Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>HA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>Gigantamax</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="124"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="126"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="127"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="144"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="126"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="127"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="144"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="142"/>
+        <source>Rare</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -911,6 +970,11 @@
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>IV Deviation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Den</source>
         <translation>坑</translation>
     </message>
@@ -938,6 +1002,10 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Search</source>
         <translation>檢索</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
