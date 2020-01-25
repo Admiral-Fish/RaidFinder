@@ -1055,6 +1055,11 @@
         <source>Search settings are invalid</source>
         <translation>Die Sucheinstellungen sind ungültig.</translation>
     </message>
+    <message>
+        <source>elapsed time: %1:%2:%3 - estimated time: %4:%5:%6</source>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="151"/>
+        <translation>Zeit: %1:%2:%3 - Restdauer: %4:%5:%6</translation>
+    </message>
 </context>
 <context>
     <name>TableView</name>
