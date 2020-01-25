@@ -1004,6 +1004,10 @@
         <translation>檢索</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Rarity</source>
         <translation>稀有度</translation>

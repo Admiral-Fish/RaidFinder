@@ -974,6 +974,10 @@
         <translation>Suchen</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Abbrechen</translation>
+    </message>
+    <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Game</source>
         <translation>Spiel</translation>

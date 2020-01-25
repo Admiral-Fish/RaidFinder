@@ -974,6 +974,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Game</source>
         <translation type="unfinished"></translation>
