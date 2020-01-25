@@ -22,6 +22,7 @@
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Results/Pokemon.hpp>
+#include <Core/Searcher/SeedSearcher.hpp>
 #include <Core/Searcher/SeedSearcher12.hpp>
 #include <Core/Searcher/SeedSearcher35.hpp>
 #include <Core/Util/Game.hpp>
@@ -29,6 +30,7 @@
 #include <QMessageBox>
 #include <QSettings>
 #include <QtConcurrent>
+#include <time.h>
 
 SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
@@ -63,6 +65,9 @@ void SeedCalculator::setupModels()
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
 
+    ui->progressBar->setValue(0);
+    ui->progressLabel->setText("");
+
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::rarityIndexChanged);
     connect(ui->comboBoxGame, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::gameIndexChanged);
@@ -85,6 +90,13 @@ void SeedCalculator::toggleControls(bool flag)
     ui->pushButtonCancel->setEnabled(!flag);
 
     ui->tabWidgetStars->setEnabled(flag);
+
+    ui->progressBar->setEnabled(!flag);
+    ui->progressLabel->setEnabled(!flag);
+    if (!flag)
+    {
+        ui->progressLabel->setText("");
+    }
 }
 
 void SeedCalculator::search35()
@@ -129,6 +141,30 @@ void SeedCalculator::search35()
 
     int minRolls = ui->spinBoxIVDeviationMin->value();
     int maxRolls = ui->spinBoxIVDeviationMax->value();
+
+    u32 minSeed = 0;
+    u32 maxSeed = ivCount.at(0) == 3 ? 0x1FFFFFF : 0x3FFFFFFF;
+    int steps = (maxSeed - minSeed + 1) * (maxRolls - minRolls + 1);
+    ui->progressBar->setValue(0);
+    ui->progressBar->setMaximum(steps);
+    auto startTime = time(0);
+
+    connect(searcher, &SeedSearcher::singleSearchFinished, this, [=] {
+        auto value = ui->progressBar->value() + 1;
+        ui->progressBar->setValue(value);
+        if (value % 1000 != 0) return;
+        auto currentTime = time(0);
+        auto elapsedTime = currentTime - startTime;
+        auto estimatedTime = elapsedTime * (steps - value) / value;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
+    });
+
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
@@ -220,4 +256,6 @@ void SeedCalculator::search()
 void SeedCalculator::clear()
 {
     ui->textEdit->clear();
+    ui->progressBar->setValue(0);
+    ui->progressLabel->setText("");
 }

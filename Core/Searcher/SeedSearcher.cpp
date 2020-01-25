@@ -55,6 +55,7 @@ void SeedSearcher::search(u64 min, u64 max)
                 searching = false;
             }
         }
+        emit singleSearchFinished();
     }
 }
 

@@ -24,10 +24,13 @@
 #include <Core/Searcher/Matrix.hpp>
 #include <QThreadPool>
 #include <QVector>
+#include <QObject>
 #include <mutex>
 
-class SeedSearcher
+class SeedSearcher : public QObject
 {
+    Q_OBJECT
+
 public:
     SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
     virtual ~SeedSearcher() = default;
@@ -49,6 +52,9 @@ protected:
     void search(u64 min, u64 max);
     virtual bool searchSeed(u64 &seed) = 0;
     u8 checkCharacteristic(u8 characteristic, u8 index) const;
+
+signals:
+    void singleSearchFinished();
 };
 
 #endif // SEEDSEARCHER_HPP
