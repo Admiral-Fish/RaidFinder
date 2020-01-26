@@ -28,6 +28,7 @@ SeedSearcher35::SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<in
     ivFlag(ivCount.at(0) == 3),
     fixedIVs(ivCount.at(0) == 2 ? 6 : 5)
 {
+    max = ivFlag ? 0x1FFFFFF : 0x3FFFFFFF;
 }
 
 void SeedSearcher35::setIVs(const QVector<u8> &templateIVs)
@@ -40,7 +41,7 @@ void SeedSearcher35::startSearch(int minRolls, int maxRolls, int threads)
     pool.setMaxThreadCount(threads);
     searching = true;
 
-    u32 max = ivFlag ? 0x1FFFFFF : 0x3FFFFFFF;
+    progressOffset = maxRolls - minRolls + 1;
     u32 split = max / threads;
 
     for (int i = minRolls; i <= maxRolls && searching; i++)
@@ -130,7 +131,9 @@ bool SeedSearcher35::searchSeed(u64 &seed)
 
         {
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, 0) != pokemon.at(0).getCharacteristic())
+            u8 characteristic = ec % 6;
+
+            if (!characteristicFlags.at(0).at(characteristic) || !characteristicFlags.at(1).at(characteristic))
             {
                 continue;
             }
@@ -227,10 +230,13 @@ bool SeedSearcher35::searchSeed(u64 &seed)
 
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
 
-            if (checkCharacteristic(ec % 6, i) != pokemon.at(i).getCharacteristic())
+            if (i != 1)
             {
-                flag = false;
-                break;
+                if (!characteristicFlags.at(i).at(ec % 6))
+                {
+                    flag = false;
+                    break;
+                }
             }
 
             rng.nextInt(0xffffffff, 0xffffffff); // SIDTID

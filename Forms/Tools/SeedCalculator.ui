@@ -33,6 +33,29 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QProgressBar" name="progressBar">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="format">
+         <string notr="true">%p%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="progressLabel">
+        <property name="text">
+         <string>elapsed time: %1:%2:%3 - estimated time: %4:%5:%6</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

@@ -20,14 +20,32 @@
 #include "SeedSearcher.hpp"
 #include <Core/RNG/XoroShiro.hpp>
 
-constexpr u8 order[6] = { 0, 1, 2, 5, 3, 4 };
-
 SeedSearcher::SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult) :
     pokemon(pokemon),
     ivCount(ivCount),
     firstResult(firstResult),
     searching(false)
 {
+    for (u8 i = 0; i < pokemon.size(); i++)
+    {
+        const auto &mon = pokemon.at(i);
+
+        characteristicFlags.append(QVector<bool>(6, false));
+        characteristicFlags[i][mon.getCharacteristic()] = true;
+
+        for (u8 j = 1; j < 6; j++)
+        {
+            u8 target = (mon.getCharacteristic() + 6 - j) % 6;
+            if (!mon.isCharacterized(target))
+            {
+                characteristicFlags[i][target] = true;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
 }
 
 void SeedSearcher::cancelSearch()
@@ -40,35 +58,33 @@ QVector<u64> SeedSearcher::getResults() const
     return results;
 }
 
-void SeedSearcher::search(u64 min, u64 max)
+int SeedSearcher::getProgress() const
+{
+    return static_cast<int>(progress / progressOffset);
+}
+
+int SeedSearcher::getMaxProgress() const
+{
+    return static_cast<int>(max);
+}
+
+void SeedSearcher::search(u32 min, u32 max)
 {
     for (u64 search = min; search <= max && searching; search++)
     {
         u64 seed = search;
         if (searchSeed(seed))
         {
-            std::lock_guard<std::mutex> lock(mutex);
-
+            std::lock_guard<std::mutex> lock(resultMutex);
             results.append(seed);
+
             if (firstResult)
             {
                 searching = false;
             }
         }
+
+        std::lock_guard<std::mutex> lock(progressMutex);
+        progress++;
     }
-}
-
-u8 SeedSearcher::checkCharacteristic(u8 characteristic, u8 index) const
-{
-    for (u8 j = 0; j < 6; j++)
-    {
-        u8 stat = (characteristic + j) % 6;
-
-        if (pokemon.at(index).getIV(order[stat]) == 31)
-        {
-            return stat;
-        }
-    }
-
-    return characteristic;
 }

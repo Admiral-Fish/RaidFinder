@@ -38,6 +38,8 @@ SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<in
             fixedIndex = i;
         }
     }
+
+    max = 0xfffffff;
 }
 
 void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
@@ -45,13 +47,13 @@ void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
     pool.setMaxThreadCount(threads);
     searching = true;
 
-    u32 max = 0xfffffff;
+    progressOffset = maxRolls - minRolls + 1;
     u32 split = max / threads;
 
-    for (int i = minRolls; i <= maxRolls; i++)
+    for (int i = minRolls; i <= maxRolls && searching; i++)
     {
         matrix.prepare(ability, i);
-        rerolls = i;
+        ivOffset = i;
 
         u32 min = 0;
         QVector<QFuture<void>> threadContainer;
@@ -121,7 +123,8 @@ bool SeedSearcher12::searchSeed(u64 &seed)
 
         {
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, 0) != pokemon.at(0).getCharacteristic())
+
+            if (!characteristicFlags.at(0).at(ec % 6))
             {
                 continue;
             }
@@ -137,7 +140,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
                 offset++;
             } while (stat >= 6);
 
-            if (offset != rerolls)
+            if (offset != ivOffset)
             {
                 continue;
             }
@@ -180,7 +183,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
             rng.setSeed(searchSeed);
 
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, i) != pokemon.at(i).getCharacteristic())
+            if (!characteristicFlags.at(i).at(ec % 6))
             {
                 flag = false;
                 break;
