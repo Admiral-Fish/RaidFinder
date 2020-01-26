@@ -32,7 +32,6 @@ private:
     bool ability;
     QVector<u8> ivsRef;
     u8 fixedIndex;
-    int rerolls;
 
     bool searchSeed(u64 &seed) override;
 };

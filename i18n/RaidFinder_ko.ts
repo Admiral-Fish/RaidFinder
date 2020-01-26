@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko_KR">
+<TS version="2.2" language="ko_KR">
+<context>
+    <name>QCoreApplication</name>
+    <message>
+        <location filename="../Core/Results/Profile.cpp" line="61"/>
+        <source>Sword</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Core/Results/Profile.cpp" line="63"/>
+        <source>Shield</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>CheckList</name>
     <message>
@@ -54,6 +67,52 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
         <source>Locations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>Rarity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>IV Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>HA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="43"/>
+        <source>Gigantamax</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="124"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="126"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="127"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="144"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="126"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="127"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="144"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="142"/>
+        <source>Rare</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -915,8 +974,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>IV Deviation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -989,6 +1057,11 @@
         <location filename="../Forms/Tools/SeedCalculator.cpp" line="91"/>
         <location filename="../Forms/Tools/SeedCalculator.cpp" line="133"/>
         <source>Search settings are invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>elapsed time: %1:%2:%3 - estimated time: %4:%5:%6</source>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="151"/>
         <translation type="unfinished"></translation>
     </message>
 </context>

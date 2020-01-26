@@ -28,7 +28,9 @@
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
 #include <QSettings>
+#include <QTimer>
 #include <QtConcurrent>
+#include <time.h>
 
 SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
@@ -60,6 +62,8 @@ void SeedCalculator::setupModels()
 
     denIndexChanged(0);
 
+    ui->progressLabel->setText("");
+
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
 
@@ -85,6 +89,13 @@ void SeedCalculator::toggleControls(bool flag)
     ui->pushButtonCancel->setEnabled(!flag);
 
     ui->tabWidgetStars->setEnabled(flag);
+
+    ui->progressBar->setEnabled(!flag);
+    ui->progressLabel->setEnabled(!flag);
+    if (!flag)
+    {
+        ui->progressLabel->setText("");
+    }
 }
 
 void SeedCalculator::search35()
@@ -107,15 +118,43 @@ void SeedCalculator::search35()
 
     auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(ui->raidInfo35->getConditionIVs());
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
+    auto startTime = time(0);
+    connect(timer, &QTimer::timeout, [=] {
+        auto progress = searcher->getProgress();
+        ui->progressBar->setValue(progress);
+        auto elapsedTime = time(0) - startTime;
+        auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
+    });
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+        auto elapsedTime = time(0) - startTime;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg("00").arg("00").arg("00"));
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -132,6 +171,7 @@ void SeedCalculator::search35()
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::search12()
@@ -149,15 +189,43 @@ void SeedCalculator::search12()
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
     auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
+    auto startTime = time(0);
+    connect(timer, &QTimer::timeout, [=] {
+        auto progress = searcher->getProgress();
+        ui->progressBar->setValue(progress);
+        auto elapsedTime = time(0) - startTime;
+        auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
+    });
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+        auto elapsedTime = time(0) - startTime;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg("00").arg("00").arg("00"));
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -174,6 +242,7 @@ void SeedCalculator::search12()
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::denIndexChanged(int index)
@@ -220,4 +289,6 @@ void SeedCalculator::search()
 void SeedCalculator::clear()
 {
     ui->textEdit->clear();
+    ui->progressBar->setValue(0);
+    ui->progressLabel->setText("");
 }
