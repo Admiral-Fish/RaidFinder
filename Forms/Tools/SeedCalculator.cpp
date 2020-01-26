@@ -129,7 +129,7 @@ void SeedCalculator::search35()
         ui->progressBar->setValue(progress);
         auto elapsedTime = time(0) - startTime;
         auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
-        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+        ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
                                    .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
                                    .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
                                    .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
@@ -149,7 +149,7 @@ void SeedCalculator::search35()
         QVector<u64> seeds = searcher->getResults();
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(0) - startTime;
-        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+        ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
                                    .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
                                    .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
                                    .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
@@ -200,7 +200,7 @@ void SeedCalculator::search12()
         ui->progressBar->setValue(progress);
         auto elapsedTime = time(0) - startTime;
         auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
-        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+        ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
                                    .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
                                    .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
                                    .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
@@ -220,7 +220,7 @@ void SeedCalculator::search12()
         QVector<u64> seeds = searcher->getResults();
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(0) - startTime;
-        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+        ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
                                    .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
                                    .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
                                    .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))

@@ -1060,7 +1060,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>elapsed time: %1:%2:%3 - estimated time: %4:%5:%6</source>
+        <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <location filename="../Forms/Tools/SeedCalculator.cpp" line="151"/>
         <translation type="unfinished"></translation>
     </message>
