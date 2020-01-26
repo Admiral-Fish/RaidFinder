@@ -31,8 +31,8 @@ public:
     u64 getConstantTermVector() const;
     int getFreeBit(int index) const;
     u64 getModifiedAnswerFlag(int index, u64 target) const;
-    u64 getCoefficientData(u64 index);
-    u64 getSearchPattern(u64 index);
+    u64 getCoefficientData(u64 index) const;
+    u64 getSearchPattern(u64 index) const;
 
 private:
     u64 tempMatrix[256];
@@ -47,8 +47,8 @@ private:
 
     void initializeTransformationMatrix();
     void proceedTransformationMatrix();
-    u64 getMatrixMultipler(int index);
-    u16 getMatrixConst(int index);
+    u64 getMatrixMultipler(int index) const;
+    u16 getMatrixConst(int index) const;
     void calculateInverseMatrix(int length);
     void calculateCoefficientData(int length);
 };

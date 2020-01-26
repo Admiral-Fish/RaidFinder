@@ -65,3 +65,24 @@ bool Pokemon::getAllowHiddenAbility() const
 {
     return allowHiddenAbility;
 }
+
+bool Pokemon::isCharacterized(u8 num) const
+{
+    switch (num)
+    {
+    case 0:
+        return ivs.at(0) == 31;
+    case 1:
+        return ivs.at(1) == 31;
+    case 2:
+        return ivs.at(2) == 31;
+    case 3:
+        return ivs.at(5) == 31;
+    case 4:
+        return ivs.at(3) == 31;
+    case 5:
+        return ivs.at(4) == 31;
+    }
+
+    return false;
+}
