@@ -32,7 +32,6 @@ public:
 private:
     bool ivFlag;
     int fixedIVs;
-    int ivOffset;
     QVector<u8> templateIVs;
 
     bool searchSeed(u64 &seed) override;

@@ -20,7 +20,7 @@
 #include "Matrix.hpp"
 #include <cstring>
 
-const u64 c_N[256] = {
+constexpr u64 c_N[256] = {
     67108864ull,
     67108864ull,
     33554432ull,
@@ -400,12 +400,12 @@ u64 Matrix::getModifiedAnswerFlag(int index, u64 target) const
     return getSignature(answerFlag[index] & target);
 }
 
-u64 Matrix::getCoefficientData(u64 index)
+u64 Matrix::getCoefficientData(u64 index) const
 {
     return coefficientData[index];
 }
 
-u64 Matrix::getSearchPattern(u64 index)
+u64 Matrix::getSearchPattern(u64 index) const
 {
     return searchPattern[index];
 }
@@ -454,12 +454,12 @@ void Matrix::proceedTransformationMatrix()
     }
 }
 
-u64 Matrix::getMatrixMultipler(int index)
+u64 Matrix::getMatrixMultipler(int index) const
 {
     return tempMatrix[index * 2 + 1];
 }
 
-u16 Matrix::getMatrixConst(int index)
+u16 Matrix::getMatrixConst(int index) const
 {
     return static_cast<u16>(getSignature(tempMatrix[index * 2] & 0x82a2b175229d6a5b));
 }

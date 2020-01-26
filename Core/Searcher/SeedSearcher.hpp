@@ -27,34 +27,36 @@
 #include <QObject>
 #include <mutex>
 
-class SeedSearcher : public QObject
+class SeedSearcher
 {
-    Q_OBJECT
-
 public:
     SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
     virtual ~SeedSearcher() = default;
     virtual void startSearch(int minRolls, int maxRolls, int threads) = 0;
     void cancelSearch();
     QVector<u64> getResults() const;
+    int getProgress() const;
+    int getMaxProgress() const;
 
 protected:
     QVector<Pokemon> pokemon;
     QVector<int> ivCount;
+    QVector<QVector<bool>> characteristicFlags;
     bool firstResult;
+    int ivOffset;
+    u32 max;
 
     QThreadPool pool;
     Matrix matrix;
     QVector<u64> results;
     bool searching;
-    std::mutex mutex;
+    std::mutex resultMutex;
+    std::mutex progressMutex;
+    u64 progress;
+    int progressOffset;
 
-    void search(u64 min, u64 max);
+    void search(u32 min, u32 max);
     virtual bool searchSeed(u64 &seed) = 0;
-    u8 checkCharacteristic(u8 characteristic, u8 index) const;
-
-signals:
-    void singleSearchFinished();
 };
 
 #endif // SEEDSEARCHER_HPP

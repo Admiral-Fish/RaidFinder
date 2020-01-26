@@ -22,13 +22,13 @@
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Results/Pokemon.hpp>
-#include <Core/Searcher/SeedSearcher.hpp>
 #include <Core/Searcher/SeedSearcher12.hpp>
 #include <Core/Searcher/SeedSearcher35.hpp>
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QMessageBox>
 #include <QSettings>
+#include <QTimer>
 #include <QtConcurrent>
 #include <time.h>
 
@@ -62,11 +62,10 @@ void SeedCalculator::setupModels()
 
     denIndexChanged(0);
 
+    ui->progressLabel->setText("");
+
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
-
-    ui->progressBar->setValue(0);
-    ui->progressLabel->setText("");
 
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::rarityIndexChanged);
@@ -119,15 +118,43 @@ void SeedCalculator::search35()
 
     auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
     searcher->setIVs(ui->raidInfo35->getConditionIVs());
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
+    auto startTime = time(0);
+    connect(timer, &QTimer::timeout, [=] {
+        auto progress = searcher->getProgress();
+        ui->progressBar->setValue(progress);
+        auto elapsedTime = time(0) - startTime;
+        auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
+    });
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+        auto elapsedTime = time(0) - startTime;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg("00").arg("00").arg("00"));
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -141,33 +168,10 @@ void SeedCalculator::search35()
 
     int minRolls = ui->spinBoxIVDeviationMin->value();
     int maxRolls = ui->spinBoxIVDeviationMax->value();
-
-    u32 minSeed = 0;
-    u32 maxSeed = ivCount.at(0) == 3 ? 0x1FFFFFF : 0x3FFFFFFF;
-    int steps = (maxSeed - minSeed + 1) * (maxRolls - minRolls + 1);
-    ui->progressBar->setValue(0);
-    ui->progressBar->setMaximum(steps);
-    auto startTime = time(0);
-
-    connect(searcher, &SeedSearcher::singleSearchFinished, this, [=] {
-        auto value = ui->progressBar->value() + 1;
-        ui->progressBar->setValue(value);
-        if (value % 1000 != 0) return;
-        auto currentTime = time(0);
-        auto elapsedTime = currentTime - startTime;
-        auto estimatedTime = elapsedTime * (steps - value) / value;
-        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
-                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
-                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
-    });
-
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::search12()
@@ -185,15 +189,43 @@ void SeedCalculator::search12()
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
     auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
-
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
+
+    ui->progressBar->setRange(0, searcher->getMaxProgress());
+
+    auto *timer = new QTimer();
+    auto startTime = time(0);
+    connect(timer, &QTimer::timeout, [=] {
+        auto progress = searcher->getProgress();
+        ui->progressBar->setValue(progress);
+        auto elapsedTime = time(0) - startTime;
+        auto estimatedTime = elapsedTime * (searcher->getMaxProgress() - progress) / progress;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((estimatedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(estimatedTime % 60, 2, 10, QLatin1Char('0')));
+    });
 
     auto *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
     connect(watcher, &QFutureWatcher<void>::destroyed, this, [=] {
         toggleControls(true);
 
+        timer->stop();
+        delete timer;
+
         QVector<u64> seeds = searcher->getResults();
+        ui->progressBar->setValue(searcher->getProgress());
+        auto elapsedTime = time(0) - startTime;
+        ui->progressLabel->setText(tr("elapsed time: %1:%2:%3 - estimated time: %4:%5:%6")
+                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                   .arg("00").arg("00").arg("00"));
+
         delete searcher;
 
         for (u64 seed : seeds)
@@ -210,6 +242,7 @@ void SeedCalculator::search12()
     auto future = QtConcurrent::run([=] { searcher->startSearch(minRolls, maxRolls, threads); });
 
     watcher->setFuture(future);
+    timer->start(1000);
 }
 
 void SeedCalculator::denIndexChanged(int index)
