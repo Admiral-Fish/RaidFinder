@@ -35,6 +35,7 @@ public:
     u8 getCharacteristic() const;
     bool getGenderLocked() const;
     bool getAllowHiddenAbility() const;
+    bool isCharacterized(u8 num) const;
 
 private:
     QVector<u8> ivs;

@@ -40,10 +40,10 @@ public:
 protected:
     QVector<Pokemon> pokemon;
     QVector<int> ivCount;
+    QVector<QVector<bool>> characteristicFlags;
     bool firstResult;
     int ivOffset;
-    int max;
-    int progressOffset;
+    u32 max;
 
     QThreadPool pool;
     Matrix matrix;
@@ -52,10 +52,10 @@ protected:
     std::mutex resultMutex;
     std::mutex progressMutex;
     u64 progress;
+    int progressOffset;
 
     void search(u32 min, u32 max);
     virtual bool searchSeed(u64 &seed) = 0;
-    u8 checkCharacteristic(u8 characteristic, u8 index) const;
 };
 
 #endif // SEEDSEARCHER_HPP

@@ -123,7 +123,8 @@ bool SeedSearcher12::searchSeed(u64 &seed)
 
         {
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, 0) != pokemon.at(0).getCharacteristic())
+
+            if (!characteristicFlags.at(0).at(ec % 6))
             {
                 continue;
             }
@@ -182,7 +183,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
             rng.setSeed(searchSeed);
 
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, i) != pokemon.at(i).getCharacteristic())
+            if (!characteristicFlags.at(i).at(ec % 6))
             {
                 flag = false;
                 break;

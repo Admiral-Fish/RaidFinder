@@ -131,7 +131,9 @@ bool SeedSearcher35::searchSeed(u64 &seed)
 
         {
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
-            if (checkCharacteristic(ec % 6, 0) != pokemon.at(0).getCharacteristic())
+            u8 characteristic = ec % 6;
+
+            if (!characteristicFlags.at(0).at(characteristic) || !characteristicFlags.at(1).at(characteristic))
             {
                 continue;
             }
@@ -228,10 +230,13 @@ bool SeedSearcher35::searchSeed(u64 &seed)
 
             u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
 
-            if (checkCharacteristic(ec % 6, i) != pokemon.at(i).getCharacteristic())
+            if (i != 1)
             {
-                flag = false;
-                break;
+                if (!characteristicFlags.at(i).at(ec % 6))
+                {
+                    flag = false;
+                    break;
+                }
             }
 
             rng.nextInt(0xffffffff, 0xffffffff); // SIDTID
