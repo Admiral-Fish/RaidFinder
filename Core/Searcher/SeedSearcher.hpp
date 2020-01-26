@@ -24,7 +24,6 @@
 #include <Core/Searcher/Matrix.hpp>
 #include <QThreadPool>
 #include <QVector>
-#include <QObject>
 #include <mutex>
 
 class SeedSearcher
