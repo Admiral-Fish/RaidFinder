@@ -86,13 +86,15 @@ QVector<u8> RaidInfo35::getIVs(int index) const
                  static_cast<u8>(ui->spinBoxDefDay4_1->value()), static_cast<u8>(ui->spinBoxSpADay4_1->value()),
                  static_cast<u8>(ui->spinBoxSpDDay4_1->value()), static_cast<u8>(ui->spinBoxSpeDay4_1->value()) };
     }
-    else if (index == 1)
+
+    if (index == 1)
     {
         return { static_cast<u8>(ui->spinBoxHPDay4_2->value()),  static_cast<u8>(ui->spinBoxAtkDay4_2->value()),
                  static_cast<u8>(ui->spinBoxDefDay4_2->value()), static_cast<u8>(ui->spinBoxSpADay4_2->value()),
                  static_cast<u8>(ui->spinBoxSpDDay4_2->value()), static_cast<u8>(ui->spinBoxSpeDay4_2->value()) };
     }
-    else if (index == 2)
+
+    if (index == 2)
     {
         return { static_cast<u8>(ui->spinBoxHPDay5->value()),  static_cast<u8>(ui->spinBoxAtkDay5->value()),
                  static_cast<u8>(ui->spinBoxDefDay5->value()), static_cast<u8>(ui->spinBoxSpADay5->value()),
