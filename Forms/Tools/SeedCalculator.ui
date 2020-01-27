@@ -50,11 +50,7 @@
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="progressLabel">
-        <property name="text">
-         <string>elapsed time: %1:%2:%3 - estimated time: %4:%5:%6</string>
-        </property>
-       </widget>
+       <widget class="QLabel" name="progressLabel"/>
       </item>
      </layout>
     </widget>
