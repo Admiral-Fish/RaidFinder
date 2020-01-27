@@ -118,17 +118,8 @@ void EncounterLookup::find()
         auto normalRaids = normalDen.getRaids(game);
         for (auto raid : normalRaids)
         {
-            if (raid.getSpecies() == species)
-            {
-                QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
-                QString rarity = tr("Normal");
-                QString iv = QString::number(raid.getIVCount());
-                QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
-                QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
-
-                QList<QStandardItem *> list = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(iv),
-                                                new QStandardItem(ha), new QStandardItem(gigantamax) };
-                model->appendRow(list);
+            if (raid.getSpecies() == species) {
+                addRow(i, false, raid);
             }
         }
 
@@ -136,18 +127,34 @@ void EncounterLookup::find()
         auto rareRaids = rareDen.getRaids(game);
         for (auto raid : rareRaids)
         {
-            if (raid.getSpecies() == species)
-            {
-                QString location = QString("%1: %2").arg(i + 1).arg(Translator::getLocation(DenLoader::getLocation(i)));
-                QString rarity = tr("Rare");
-                QString iv = QString::number(raid.getIVCount());
-                QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
-                QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
-
-                QList<QStandardItem *> list = { new QStandardItem(location), new QStandardItem(rarity), new QStandardItem(iv),
-                                                new QStandardItem(ha), new QStandardItem(gigantamax) };
-                model->appendRow(list);
+            if (raid.getSpecies() == species) {
+                addRow(i, true, raid);
             }
         }
     }
+
+    ui->tableView->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+}
+
+void EncounterLookup::addRow(int denId, bool isRare, Raid raid)
+{
+    QString location = QString("%1: %2").arg(denId + 1).arg(Translator::getLocation(DenLoader::getLocation(denId)));
+    QString rarity = isRare ? tr("Rare") : tr("Normal");
+    QString iv = QString::number(raid.getIVCount());
+    QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
+    QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
+
+    auto iLocation = new QStandardItem(location);
+    auto iRarity = new QStandardItem(rarity);
+    auto iIV = new QStandardItem(iv);
+    auto iHA = new QStandardItem(ha);
+    auto iGMax = new QStandardItem(gigantamax);
+
+    iRarity->setTextAlignment(Qt::AlignCenter);
+    iIV->setTextAlignment(Qt::AlignCenter);
+    iHA->setTextAlignment(Qt::AlignCenter);
+    iGMax->setTextAlignment(Qt::AlignCenter);
+
+    model->appendRow({ iLocation, iRarity, iIV, iHA, iGMax });
 }
