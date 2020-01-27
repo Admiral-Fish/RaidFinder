@@ -1115,6 +1115,11 @@
         <source>IVs do not match IV count</source>
         <translation type="vanished">IVs do not match IV count</translation>
     </message>
+    <message>
+        <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="151"/>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TableView</name>

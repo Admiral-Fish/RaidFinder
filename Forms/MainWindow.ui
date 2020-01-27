@@ -18,93 +18,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="3">
-     <widget class="QGroupBox" name="groupBoxProfile">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>1</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="title">
-       <string>Profiles</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_15">
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelProfile">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Profile</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="6">
-        <widget class="QLabel" name="labelProfileGameValue">
-         <property name="text">
-          <string>Sword</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4" rowspan="2">
-        <widget class="Line" name="line">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="labelProfileSIDValue">
-         <property name="text">
-          <string notr="true">54321</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="5">
-        <widget class="QLabel" name="labelProfileGame">
-         <property name="text">
-          <string>Game</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="labelProfileSID">
-         <property name="text">
-          <string>SID</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelProfileTID">
-         <property name="text">
-          <string>TID</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButtonProfileManager">
-         <property name="text">
-          <string>Manager</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="comboBoxProfiles"/>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLabel" name="labelProfileTIDValue">
-         <property name="text">
-          <string notr="true">12345</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QGroupBox" name="groupBoxStationaryRNGInfo">
       <property name="sizePolicy">
@@ -120,16 +33,17 @@
        <item row="1" column="1">
         <widget class="TextBox" name="textBoxSeed"/>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="labelMaxResults">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+       <item row="3" column="1">
+        <widget class="TextBox" name="textBoxInitialFrame">
          <property name="text">
-          <string>Max Results</string>
+          <string notr="true">1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButtonGenerate">
+         <property name="text">
+          <string>Generate</string>
          </property>
         </widget>
        </item>
@@ -143,20 +57,6 @@
          </property>
          <property name="text">
           <string>Initial Frame</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="TextBox" name="textBoxInitialFrame">
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="2">
-        <widget class="QPushButton" name="pushButtonGenerate">
-         <property name="text">
-          <string>Generate</string>
          </property>
         </widget>
        </item>
@@ -177,6 +77,19 @@
          </property>
          <property name="text">
           <string>Seed</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="labelMaxResults">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Max Results</string>
          </property>
         </widget>
        </item>
@@ -211,111 +124,6 @@
        <string>Settings</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelSpecies">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Species</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBoxIVCount">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>5</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="labelIVCount">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>IV Count</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="comboBoxRarity">
-         <item>
-          <property name="text">
-           <string>Normal</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Rare</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelRarity">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Rarity</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="comboBoxSpecies"/>
-       </item>
-       <item row="3" column="2">
-        <widget class="QLabel" name="labelGigantamax">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Gigantamax</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QLabel" name="labelGigantamaxValue">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>No</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="labelAbilityType">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Ability</string>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="1">
         <widget class="QComboBox" name="comboBoxAbilityType">
          <item>
@@ -345,21 +153,8 @@
          </item>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelGenderType">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Gender</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QComboBox" name="comboBoxGenderType">
+       <item row="2" column="3">
+        <widget class="QComboBox" name="comboBoxShinyType">
          <item>
           <property name="text">
            <string>Random</string>
@@ -367,23 +162,13 @@
          </item>
          <item>
           <property name="text">
-           <string notr="true">♂</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">♀</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Genderless</string>
+           <string>Force shiny</string>
           </property>
          </item>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="labelGenderRatio">
+       <item row="3" column="0">
+        <widget class="QLabel" name="labelAbilityType">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -391,7 +176,33 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Gender Ratio</string>
+          <string>Ability</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelRarity">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Rarity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelSpecies">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Species</string>
          </property>
         </widget>
        </item>
@@ -434,15 +245,73 @@
          </item>
         </widget>
        </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="labelShinyType">
+       <item row="1" column="2">
+        <widget class="QLabel" name="labelGenderRatio">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
-          <string>Shiny Type</string>
+          <string>Gender Ratio</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="3">
-        <widget class="QComboBox" name="comboBoxShinyType">
+       <item row="3" column="3">
+        <widget class="QLabel" name="labelGigantamaxValue">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>No</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBoxSpecies"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelGenderType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinBoxIVCount">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelIVCount">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>IV Count</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QComboBox" name="comboBoxGenderType">
          <item>
           <property name="text">
            <string>Random</string>
@@ -450,9 +319,53 @@
          </item>
          <item>
           <property name="text">
-           <string>Force shiny</string>
+           <string notr="true">♂</string>
           </property>
          </item>
+         <item>
+          <property name="text">
+           <string notr="true">♀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Genderless</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="labelGigantamax">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Gigantamax</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBoxRarity">
+         <item>
+          <property name="text">
+           <string>Normal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rare</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="labelShinyType">
+         <property name="text">
+          <string>Shiny Type</string>
+         </property>
         </widget>
        </item>
       </layout>
@@ -632,6 +545,111 @@
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
       </attribute>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBoxProfile">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string>Profiles</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_15">
+       <item row="0" column="4" colspan="3">
+        <layout class="QGridLayout" name="gridLayout_4" columnstretch="1,2,1,0,1,0,1,0,1">
+         <item row="0" column="4">
+          <widget class="QLabel" name="labelProfileGame">
+           <property name="text">
+            <string>Game</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5" rowspan="2">
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" rowspan="2">
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="8">
+          <widget class="QLabel" name="labelProfileSIDValue">
+           <property name="text">
+            <string notr="true">54321</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <widget class="QLabel" name="labelProfileTID">
+           <property name="text">
+            <string>TID</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="labelProfileGameValue">
+           <property name="text">
+            <string>Sword</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7" rowspan="2">
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QLabel" name="labelProfileTIDValue">
+           <property name="text">
+            <string notr="true">12345</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="8">
+          <widget class="QLabel" name="labelProfileSID">
+           <property name="text">
+            <string>SID</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" rowspan="2">
+          <widget class="QComboBox" name="comboBoxProfiles"/>
+         </item>
+         <item row="0" column="2" rowspan="2">
+          <widget class="QPushButton" name="pushButtonProfileManager">
+           <property name="text">
+            <string>Manager</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" rowspan="2">
+          <widget class="QLabel" name="labelProfile">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Profile</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -827,8 +845,6 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>comboBoxProfiles</tabstop>
-  <tabstop>pushButtonProfileManager</tabstop>
   <tabstop>comboBoxDen</tabstop>
   <tabstop>textBoxSeed</tabstop>
   <tabstop>textBoxInitialFrame</tabstop>
