@@ -32,11 +32,6 @@ bool FrameFilter::compareFrame(const Frame &frame) const
         return true;
     }
 
-    if (!natures.at(frame.getNature()))
-    {
-        return false;
-    }
-
     if (gender != 255 && gender != frame.getGender())
     {
         return false;
@@ -47,7 +42,7 @@ bool FrameFilter::compareFrame(const Frame &frame) const
         return false;
     }
 
-    if (((shiny == 1 || shiny == 2) && shiny != frame.getShiny()) || (shiny == 3 && !frame.getShiny()))
+    if (!natures.at(frame.getNature()))
     {
         return false;
     }
@@ -62,4 +57,9 @@ bool FrameFilter::compareFrame(const Frame &frame) const
     }
 
     return true;
+}
+
+bool FrameFilter::compareShiny(const Frame &frame) const
+{
+    return skip || shiny == 255 || (shiny & frame.getShiny());
 }
