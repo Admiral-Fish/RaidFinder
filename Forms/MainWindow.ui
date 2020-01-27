@@ -128,17 +128,17 @@
         <widget class="QComboBox" name="comboBoxAbilityType">
          <item>
           <property name="text">
-           <string>1</string>
+           <string notr="true">1</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>2</string>
+           <string notr="true">2</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>H</string>
+           <string notr="true">H</string>
           </property>
          </item>
          <item>
@@ -820,6 +820,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TextBox</class>
+   <extends>QLineEdit</extends>
+   <header>Forms/Controls/TextBox.hpp</header>
+  </customwidget>
+  <customwidget>
    <class>TableView</class>
    <extends>QTableView</extends>
    <header>Forms/Controls/TableView.hpp</header>
@@ -837,11 +842,6 @@
    <slots>
     <slot>resetChecks()</slot>
    </slots>
-  </customwidget>
-  <customwidget>
-   <class>TextBox</class>
-   <extends>QLineEdit</extends>
-   <header>Forms/Controls/TextBox.hpp</header>
   </customwidget>
  </customwidgets>
  <tabstops>

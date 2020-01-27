@@ -125,6 +125,11 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
         result.setPID(pid);
 
+        if (!filter.compareShiny(result))
+        {
+            continue;
+        }
+
         // Set IVs that will be 31s
         for (u8 i = 0; i < ivCount;)
         {

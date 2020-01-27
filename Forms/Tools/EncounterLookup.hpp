@@ -45,7 +45,7 @@ private:
     QVector<u16> speciesLookup;
 
     void setupModels();
-    void addRow(int, bool, Raid);
+    void addRow(int denId, bool isRare, Raid raid);
 
 private slots:
     void gameIndexChanged(int index);
