@@ -901,8 +901,8 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="78"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="279"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="334"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="281"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="336"/>
         <source>Invalid</source>
         <translation>无效</translation>
     </message>
@@ -922,17 +922,17 @@
         <translation>第6天</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="322"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="324"/>
         <source>Day 4 (2nd): 3IV/4IV</source>
         <translation>第4天(第2只):3V/4V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="326"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="328"/>
         <source>Day 4 (2nd): 3IV</source>
         <translation>第4天(第2只):3V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="330"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="332"/>
         <source>Day 4 (2nd): 4IV</source>
         <translation>第4天(第2只):4V</translation>
     </message>
