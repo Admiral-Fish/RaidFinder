@@ -69,7 +69,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
         <source>HA</source>
-        <translation type="unfinished"></translation>
+        <translation>梦特</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
@@ -124,7 +124,7 @@
     <message>
         <location filename="../Models/FrameModel.hpp" line="39"/>
         <source>HP</source>
-        <translation></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="39"/>
@@ -184,7 +184,7 @@
     <message>
         <location filename="../Models/FrameModel.hpp" line="41"/>
         <source>PID</source>
-        <translation></translation>
+        <translation>PID</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="41"/>
@@ -723,7 +723,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation></translation>
+        <translation>信息名称</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -962,7 +962,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -972,7 +972,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>IV Deviation</source>
-        <translation type="unfinished"></translation>
+        <translation>IV 偏差</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1052,7 +1052,7 @@
         <location filename="../Forms/Tools/SeedCalculator.cpp" line="201"/>
         <location filename="../Forms/Tools/SeedCalculator.cpp" line="221"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
-        <translation type="unfinished"></translation>
+        <translation>运行时间: %1:%2:%3 - 预估时间: %4:%5:%6</translation>
     </message>
 </context>
 <context>
