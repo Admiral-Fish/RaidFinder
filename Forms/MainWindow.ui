@@ -705,6 +705,7 @@
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
     <addaction name="actionSeedSearcher"/>
+    <addaction name="actionUpdateEventData"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -815,6 +816,11 @@
    </property>
    <property name="text">
     <string>Chinese Traditional</string>
+   </property>
+  </action>
+  <action name="actionUpdateEventData">
+   <property name="text">
+    <string>Update Event Data</string>
    </property>
   </action>
  </widget>

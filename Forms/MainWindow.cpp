@@ -31,7 +31,11 @@
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
+#include <QEventLoop>
+#include <QFile>
 #include <QMessageBox>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
 #include <QThread>
@@ -119,7 +123,12 @@ void MainWindow::setupModels()
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    ui->comboBoxDen->addItem(tr("Event"), 100);
+
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
+
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -194,6 +203,7 @@ void MainWindow::setupModels()
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->actionSeedSearcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
+    connect(ui->actionUpdateEventData, &QAction::triggered, this, &MainWindow::updateEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
@@ -323,6 +333,44 @@ void MainWindow::openSeedSearcher()
 {
     auto *searcher = new SeedCalculator();
     searcher->show();
+}
+
+void MainWindow::updateEventData()
+{
+    QNetworkAccessManager manager;
+    QNetworkRequest request(QUrl("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/nests_event.bin"));
+    QScopedPointer<QNetworkReply> reply(manager.get(request));
+
+    QEventLoop loop;
+    connect(reply.data(), &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    connect(reply.data(), QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), &loop, &QEventLoop::quit);
+    loop.exec();
+
+    auto response = reply->readAll();
+    if (response.isEmpty())
+    {
+        QMessageBox error(QMessageBox::Critical, tr("Failed download"),
+                          tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
+        error.exec();
+        return;
+    }
+    else
+    {
+        QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
+        if (f.open(QIODevice::WriteOnly))
+        {
+            f.write(response);
+            f.close();
+
+            QMessageBox message(QMessageBox::Question, tr("Download finished"), tr("Restart to see event data. Restart now?"),
+                                QMessageBox::Yes | QMessageBox::No);
+            if (message.exec() == QMessageBox::Yes)
+            {
+                QProcess::startDetached(QApplication::applicationFilePath());
+                QApplication::quit();
+            }
+        }
+    }
 }
 
 void MainWindow::denIndexChanged(int index)

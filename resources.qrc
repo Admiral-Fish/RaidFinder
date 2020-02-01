@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/encounters">
         <file alias="nests.bin">Resources/Encounters/nests.bin</file>
-        <file alias="nests_event.bin">Resources/Encounters/nests_event.bin</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="raidfinder.ico">Resources/Images/raidfinder.ico</file>

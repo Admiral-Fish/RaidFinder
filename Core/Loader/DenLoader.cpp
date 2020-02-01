@@ -18,6 +18,7 @@
  */
 
 #include "DenLoader.hpp"
+#include <QApplication>
 #include <QFile>
 #include <QHash>
 #include <QJsonArray>
@@ -188,12 +189,12 @@ void DenLoader::init()
                 shieldRaids.append(
                     Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar));
             }
-            dens[hash] = Den(hash, swordRaids, shieldRaids);
+            dens[hash] = Den(swordRaids, shieldRaids);
         }
     }
 
     // Event Dens
-    f.setFileName(":/encounters/nests_event.bin");
+    f.setFileName(QApplication::applicationDirPath() + "/nests_event.bin");
     if (f.open(QIODevice::ReadOnly))
     {
         QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
@@ -245,7 +246,7 @@ void DenLoader::init()
                 shieldRaids.append(
                     Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar));
             }
-            dens[hash] = Den(hash, swordRaids, shieldRaids);
+            dens[hash] = Den(swordRaids, shieldRaids);
         }
     }
 }

@@ -67,6 +67,7 @@ private slots:
     void openEncounterLookup();
     void openIVCalculator();
     void openSeedSearcher();
+    void updateEventData();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
