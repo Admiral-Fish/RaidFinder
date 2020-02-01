@@ -1063,27 +1063,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="61"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="65"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Invalid settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Search settings are invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="130"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="150"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="201"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="221"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="135"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="155"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="206"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="226"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <translation type="unfinished"></translation>
     </message>

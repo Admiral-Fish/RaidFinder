@@ -1063,27 +1063,27 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="61"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="65"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Invalid settings</source>
         <translation>无效设定</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Search settings are invalid</source>
         <translation>无效检索设置</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="130"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="150"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="201"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="221"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="135"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="155"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="206"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="226"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <translation>运行时间: %1:%2:%3 - 预估时间: %4:%5:%6</translation>
     </message>

@@ -26,11 +26,13 @@
 #include <Core/Searcher/SeedSearcher35.hpp>
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
+#include <QApplication>
+#include <QFile>
 #include <QMessageBox>
 #include <QSettings>
 #include <QTimer>
 #include <QtConcurrent>
-#include <time.h>
+#include <ctime>
 
 SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
@@ -58,7 +60,10 @@ void SeedCalculator::setupModels()
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    ui->comboBoxDen->addItem(tr("Event"), 100);
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
 
     denIndexChanged(0);
 
