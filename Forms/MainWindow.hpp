@@ -55,6 +55,7 @@ private:
     bool debug;
 
     void setupModels();
+    QByteArray downloadFile(const QString &url);
 
 private slots:
     void slotLanguageChanged(QAction *action);
@@ -67,7 +68,7 @@ private slots:
     void openEncounterLookup();
     void openIVCalculator();
     void openSeedSearcher();
-    void updateEventData();
+    void downloadEventData();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);

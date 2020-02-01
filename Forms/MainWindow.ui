@@ -660,7 +660,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -702,10 +702,10 @@
      <string>Tools</string>
     </property>
     <addaction name="actionDenMap"/>
+    <addaction name="actionDownloadEventData"/>
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
     <addaction name="actionSeedSearcher"/>
-    <addaction name="actionUpdateEventData"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -818,9 +818,9 @@
     <string>Chinese Traditional</string>
    </property>
   </action>
-  <action name="actionUpdateEventData">
+  <action name="actionDownloadEventData">
    <property name="text">
-    <string>Update Event Data</string>
+    <string>Download Event Data</string>
    </property>
   </action>
  </widget>
