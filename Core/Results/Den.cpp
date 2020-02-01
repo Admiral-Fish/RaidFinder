@@ -19,8 +19,7 @@
 
 #include "Den.hpp"
 
-Den::Den(u64 hash, const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) :
-    swordRaids(swordRaids), shieldRaids(shieldRaids), hash(hash)
+Den::Den(const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) : swordRaids(swordRaids), shieldRaids(shieldRaids)
 {
 }
 
@@ -32,9 +31,4 @@ Raid Den::getRaid(u8 index, Game version) const
 QVector<Raid> Den::getRaids(Game version) const
 {
     return (version == Game::Sword) ? swordRaids : shieldRaids;
-}
-
-u64 Den::getHash() const
-{
-    return hash;
 }
