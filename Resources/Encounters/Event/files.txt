@@ -1,0 +1,6 @@
+191115_butterfree.bin,12
+191204_snorlax.bin,143
+191220_delibird.bin,225
+191231_magikarp.bin,129
+200109_alcremie.bin,869
+200131_milcery.bin,868
