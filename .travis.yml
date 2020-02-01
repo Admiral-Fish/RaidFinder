@@ -7,7 +7,6 @@ matrix:
 install:
   - brew update
   - brew install qt5
-  - brew upgrade qt
   - brew link --force qt5
 
 script:
