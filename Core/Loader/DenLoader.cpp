@@ -201,8 +201,8 @@ void DenLoader::init()
         f.close();
 
         QJsonArray tables = data["Tables"].toArray();
-        QJsonArray swordEntries = tables.at(0)["Entries"].toArray();
-        QJsonArray shieldEntries = tables.at(1)["Entries"].toArray();
+        QJsonArray swordEntries = tables.at(0).toObject()["Entries"].toArray();
+        QJsonArray shieldEntries = tables.at(1).toObject()["Entries"].toArray();
 
         QVector<Raid> swordRaids;
         QVector<Raid> shieldRaids;
