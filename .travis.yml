@@ -15,7 +15,7 @@ script:
 
 before_deploy:
   - /usr/local/Cellar/qt/5.13.2/bin/macdeployqt RaidFinder.app -verbose=2
-  - zip RaidFinder-macOS.zip RaidFinder.app raid_solver.py
+  - zip -r RaidFinder-macOS.zip RaidFinder.app raid_solver.py
   - shasum -a 256 RaidFinder-macOS.zip > RaidFinder-macOS.zip.sha256
 
 deploy:
