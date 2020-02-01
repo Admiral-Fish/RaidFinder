@@ -356,7 +356,7 @@ void MainWindow::downloadEventData()
         = downloadFile("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/Event/files.txt");
     if (fileResponse.isEmpty())
     {
-        QMessageBox error(QMessageBox::Critical, tr("Failed download"),
+        QMessageBox error(QMessageBox::Critical, tr("Download failed"),
                           tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
         error.exec();
         return;
@@ -385,7 +385,7 @@ void MainWindow::downloadEventData()
                                           + files.at(index));
         if (eventResponse.isEmpty())
         {
-            QMessageBox error(QMessageBox::Critical, tr("Failed download"),
+            QMessageBox error(QMessageBox::Critical, tr("Download failed"),
                               tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
             error.exec();
             return;

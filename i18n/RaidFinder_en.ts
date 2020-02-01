@@ -576,38 +576,66 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="122"/>
+        <location filename="../Forms/MainWindow.cpp" line="130"/>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="187"/>
+        <location filename="../Forms/MainWindow.cpp" line="197"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="188"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="359"/>
+        <location filename="../Forms/MainWindow.cpp" line="388"/>
+        <source>Download failed</source>
+        <translation>Download failed</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="360"/>
+        <location filename="../Forms/MainWindow.cpp" line="389"/>
+        <source>Make sure you are connected to the internet and have OpenSSL setup</source>
+        <translation>Make sure you are connected to the internet and have OpenSSL setup</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <source>Download event data</source>
+        <translation>Download event data</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Download finished</source>
+        <translation>Download finished</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Restart to see event data. Restart now?</source>
+        <translation>Restart to see event data. Restart now?</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -638,7 +666,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -691,6 +719,11 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed Searcher</source>
         <translation>Seed Searcher</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Download Event Data</source>
+        <translation>Download Event Data</translation>
     </message>
 </context>
 <context>
