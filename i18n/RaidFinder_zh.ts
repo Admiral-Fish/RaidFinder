@@ -611,28 +611,28 @@
         <location filename="../Forms/MainWindow.cpp" line="359"/>
         <location filename="../Forms/MainWindow.cpp" line="388"/>
         <source>Download failed</source>
-        <translation type="unfinished"></translation>
+        <translation>下载失败</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="360"/>
         <location filename="../Forms/MainWindow.cpp" line="389"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
-        <translation type="unfinished"></translation>
+        <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="376"/>
         <source>Download event data</source>
-        <translation type="unfinished"></translation>
+        <translation>下载活动数据</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="401"/>
         <source>Download finished</source>
-        <translation type="unfinished"></translation>
+        <translation>下载完成</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="401"/>
         <source>Restart to see event data. Restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="447"/>
@@ -723,7 +723,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Download Event Data</source>
-        <translation type="unfinished"></translation>
+        <translation>下载活动数据</translation>
     </message>
 </context>
 <context>
