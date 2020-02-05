@@ -37,7 +37,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit MainWindow(bool debug = false, QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
 private:
@@ -52,7 +52,6 @@ private:
     Den den;
     FrameModel *model;
     QMenu *menu;
-    bool debug;
 
     void setupModels();
     QByteArray downloadFile(const QString &url);
