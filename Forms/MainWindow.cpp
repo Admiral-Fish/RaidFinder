@@ -31,7 +31,12 @@
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
+#include <QEventLoop>
+#include <QFile>
+#include <QInputDialog>
 #include <QMessageBox>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
 #include <QThread>
@@ -119,7 +124,12 @@ void MainWindow::setupModels()
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    ui->comboBoxDen->addItem(tr("Event"), 100);
+
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
+
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -194,6 +204,7 @@ void MainWindow::setupModels()
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->actionSeedSearcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
+    connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
@@ -205,6 +216,20 @@ void MainWindow::setupModels()
     {
         this->restoreGeometry(setting.value("mainWindow/geometry").toByteArray());
     }
+}
+
+QByteArray MainWindow::downloadFile(const QString &url)
+{
+    QNetworkAccessManager manager;
+    QNetworkRequest request(url);
+    QScopedPointer<QNetworkReply> reply(manager.get(request));
+
+    QEventLoop loop;
+    connect(reply.data(), &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    connect(reply.data(), QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), &loop, &QEventLoop::quit);
+    loop.exec();
+
+    return reply->readAll();
 }
 
 void MainWindow::slotLanguageChanged(QAction *action)
@@ -323,6 +348,66 @@ void MainWindow::openSeedSearcher()
 {
     auto *searcher = new SeedCalculator();
     searcher->show();
+}
+
+void MainWindow::downloadEventData()
+{
+    auto fileResponse
+        = downloadFile("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/Event/files.txt");
+    if (fileResponse.isEmpty())
+    {
+        QMessageBox error(QMessageBox::Critical, tr("Download failed"),
+                          tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
+        error.exec();
+        return;
+    }
+    else
+    {
+        QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
+        QStringList files, entries;
+        for (const QString &info : infos)
+        {
+            QStringList data = info.split(',');
+            files.append(data.at(0));
+            entries.append(Translator::getSpecie(data.at(1).toUShort()));
+        }
+
+        bool flag;
+        QString item = QInputDialog::getItem(this, tr("Download event data"), tr("Event"), entries, 0, false, &flag);
+        if (!flag)
+        {
+            return;
+        }
+
+        int index = entries.indexOf(item);
+
+        auto eventResponse = downloadFile("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/Event/"
+                                          + files.at(index));
+        if (eventResponse.isEmpty())
+        {
+            QMessageBox error(QMessageBox::Critical, tr("Download failed"),
+                              tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
+            error.exec();
+            return;
+        }
+        else
+        {
+            QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
+            if (f.open(QIODevice::WriteOnly))
+            {
+                f.write(qUncompress(eventResponse));
+                f.close();
+
+                QMessageBox message(QMessageBox::Question, tr("Download finished"), tr("Restart to see event data. Restart now?"),
+                                    QMessageBox::Yes | QMessageBox::No);
+                if (message.exec() == QMessageBox::Yes)
+                {
+                    QProcess::startDetached(QApplication::applicationFilePath());
+                    QApplication::quit();
+                }
+            }
+        }
+    }
 }
 
 void MainWindow::denIndexChanged(int index)

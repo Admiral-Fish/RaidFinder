@@ -69,7 +69,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
         <source>HA</source>
-        <translation type="unfinished"></translation>
+        <translation>梦特</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
@@ -124,7 +124,7 @@
     <message>
         <location filename="../Models/FrameModel.hpp" line="39"/>
         <source>HP</source>
-        <translation></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="39"/>
@@ -184,7 +184,7 @@
     <message>
         <location filename="../Models/FrameModel.hpp" line="41"/>
         <source>PID</source>
-        <translation></translation>
+        <translation>PID</translation>
     </message>
     <message>
         <location filename="../Models/FrameModel.hpp" line="41"/>
@@ -576,38 +576,66 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="122"/>
+        <location filename="../Forms/MainWindow.cpp" line="130"/>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="187"/>
+        <location filename="../Forms/MainWindow.cpp" line="197"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="188"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="359"/>
+        <location filename="../Forms/MainWindow.cpp" line="388"/>
+        <source>Download failed</source>
+        <translation>下载失败</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="360"/>
+        <location filename="../Forms/MainWindow.cpp" line="389"/>
+        <source>Make sure you are connected to the internet and have OpenSSL setup</source>
+        <translation>确保您已连接到互联网并已设置OpenSSL</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <source>Download event data</source>
+        <translation>下载活动数据</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Download finished</source>
+        <translation>下载完成</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Restart to see event data. Restart now?</source>
+        <translation>是否立即重启以查看活动数据？</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -638,7 +666,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -692,6 +720,11 @@
         <source>Seed Searcher</source>
         <translation>Seed查询器</translation>
     </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Download Event Data</source>
+        <translation>下载活动数据</translation>
+    </message>
 </context>
 <context>
     <name>ProfileEditor</name>
@@ -723,7 +756,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation></translation>
+        <translation>信息名称</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -962,7 +995,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -972,7 +1005,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>IV Deviation</source>
-        <translation type="unfinished"></translation>
+        <translation>IV 偏差</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1030,29 +1063,29 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="61"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="65"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Invalid settings</source>
         <translation>无效设定</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Search settings are invalid</source>
         <translation>无效检索设置</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="130"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="150"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="201"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="221"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="135"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="155"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="206"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="226"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
-        <translation type="unfinished"></translation>
+        <translation>运行时间: %1:%2:%3 - 预估时间: %4:%5:%6</translation>
     </message>
 </context>
 <context>

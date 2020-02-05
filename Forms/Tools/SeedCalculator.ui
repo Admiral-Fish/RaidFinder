@@ -133,7 +133,7 @@
            </sizepolicy>
           </property>
           <property name="maximum">
-           <number>6</number>
+           <number>20</number>
           </property>
          </widget>
         </item>
@@ -146,7 +146,7 @@
            </sizepolicy>
           </property>
           <property name="maximum">
-           <number>6</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>3</number>

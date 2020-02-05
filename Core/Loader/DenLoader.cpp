@@ -18,6 +18,7 @@
  */
 
 #include "DenLoader.hpp"
+#include <QApplication>
 #include <QFile>
 #include <QHash>
 #include <QJsonArray>
@@ -146,13 +147,11 @@ void DenLoader::init()
         for (auto i : tables)
         {
             QJsonObject table = i.toObject();
-
-            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
+            QJsonArray swordEntries = table["SwordEntries"].toArray();
+            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
 
             QVector<Raid> swordRaids;
             QVector<Raid> shieldRaids;
-            QJsonArray swordEntries = table["SwordEntries"].toArray();
-            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
             for (u8 j = 0; j < 12; j++)
             {
                 QJsonObject swordEntry = swordEntries[j].toObject();
@@ -188,65 +187,64 @@ void DenLoader::init()
                 shieldRaids.append(
                     Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar));
             }
-            dens[hash] = Den(hash, swordRaids, shieldRaids);
+
+            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
+            dens[hash] = Den(swordRaids, shieldRaids);
         }
     }
 
     // Event Dens
-    f.setFileName(":/encounters/nests_event.bin");
+    f.setFileName(QApplication::applicationDirPath() + "/nests_event.bin");
     if (f.open(QIODevice::ReadOnly))
     {
         QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
         f.close();
 
         QJsonArray tables = data["Tables"].toArray();
-        for (auto i : tables)
+        QJsonArray swordEntries = tables.at(0).toObject()["Entries"].toArray();
+        QJsonArray shieldEntries = tables.at(1).toObject()["Entries"].toArray();
+
+        QVector<Raid> swordRaids;
+        QVector<Raid> shieldRaids;
+        for (u8 j = 0; j < 30; j++)
         {
-            QJsonObject table = i.toObject();
+            QJsonObject swordEntry = swordEntries[j].toObject();
+            QJsonObject shieldEntry = shieldEntries[j].toObject();
 
-            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
+            u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
+            u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
+            u8 swordShinyType = static_cast<u8>(swordEntry["Field_12"].toInt());
+            u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
+            u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
+            bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
+            u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
 
-            QVector<Raid> swordRaids;
-            QVector<Raid> shieldRaids;
-            QJsonArray swordEntries = table["SwordEntries"].toArray();
-            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
-            for (u8 j = 0; j < 30; j++)
+            bool swordStar[5];
+            for (u8 k = 0; k < 5; k++)
             {
-                QJsonObject swordEntry = swordEntries[j].toObject();
-                QJsonObject shieldEntry = shieldEntries[j].toObject();
-
-                u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
-                u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
-                u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
-                u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
-                bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
-                u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
-
-                bool swordStar[5];
-                for (u8 k = 0; k < 5; k++)
-                {
-                    swordStar[k] = swordEntry["Stars"].toArray()[k].toBool();
-                }
-
-                u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
-                u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
-                u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
-                u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
-                bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
-                u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
-
-                bool shieldStar[5];
-                for (u8 k = 0; k < 5; k++)
-                {
-                    shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
-                }
-
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar));
-                shieldRaids.append(
-                    Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar));
+                swordStar[k] = swordEntry["Probabilities"].toArray()[k].toInt() != 0;
             }
-            dens[hash] = Den(hash, swordRaids, shieldRaids);
+
+            u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
+            u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
+            u8 shieldShinyType = static_cast<u8>(swordEntry["Field_12"].toInt());
+            u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
+            u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
+            bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
+            u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+
+            bool shieldStar[5];
+            for (u8 k = 0; k < 5; k++)
+            {
+                shieldStar[k] = shieldEntry["Probabilities"].toArray()[k].toInt() != 0;
+            }
+
+            swordRaids.append(
+                Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar, swordShinyType));
+            shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar,
+                                    shieldShinyType));
         }
+        dens[0x17e59bbd874fd95c] = Den(swordRaids, shieldRaids);
     }
 }
 

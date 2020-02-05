@@ -3,6 +3,7 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
     QTPATH: C:\Qt\5.14\msvc2017_64
     OS: win64
+    OpenSSL: C:\OpenSSL-v111-Win64\bin
     VCVARSALLPATH: C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
     VCVARSALL: x64
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
@@ -10,6 +11,7 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
     QTPATH: C:\Qt\5.14\msvc2017
     OS: win32
+    OpenSSL: C:\OpenSSL-v111-Win32\bin
     VCVARSALLPATH: C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
     VCVARSALL: x86
 
@@ -37,8 +39,11 @@ after_build:
     - cmd: move release\RaidFinder.exe RaidFinder-windows\RaidFinder.exe 
     - cmd: move raid_solver.py RaidFinder-windows\raid_solver.py
     - cmd: windeployqt --release --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
+    - cmd: del RaidFinder-windows\vc_redist*.exe
     - cmd: xcopy /I %QTPATH%\plugins\platforms\qwindows.dll RaidFinder-windows\platforms\
     - cmd: xcopy /I %QTPATH%\plugins\styles\qwindowsvistastyle.dll RaidFinder-windows\styles\
+    - cmd: xcopy /I %OpenSSL%\libcrypto*.dll RaidFinder-windows\
+    - cmd: xcopy /I %OpenSSL%\libssl*.dll RaidFinder-windows\
     - cmd: 7z a RaidFinder-%OS%.zip RaidFinder-windows\
     - cmd: sha256sum RaidFinder-%OS%.zip > RaidFinder-%OS%.zip.sha256
     # Linux

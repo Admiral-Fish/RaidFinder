@@ -576,38 +576,66 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="122"/>
+        <location filename="../Forms/MainWindow.cpp" line="130"/>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="187"/>
+        <location filename="../Forms/MainWindow.cpp" line="197"/>
         <source>Output Results to TXT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="188"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to CSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
         <source>Language update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="219"/>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="244"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="264"/>
         <source>Style change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="359"/>
+        <location filename="../Forms/MainWindow.cpp" line="388"/>
+        <source>Download failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="360"/>
+        <location filename="../Forms/MainWindow.cpp" line="389"/>
+        <source>Make sure you are connected to the internet and have OpenSSL setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <source>Download event data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Download finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <source>Restart to see event data. Restart now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -638,7 +666,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="362"/>
+        <location filename="../Forms/MainWindow.cpp" line="447"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
@@ -690,6 +718,11 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed Searcher</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Download Event Data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1030,27 +1063,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="61"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="65"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Invalid settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="103"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="179"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
         <source>Search settings are invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="130"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="150"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="201"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="221"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="135"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="155"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="206"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="226"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <translation type="unfinished"></translation>
     </message>
