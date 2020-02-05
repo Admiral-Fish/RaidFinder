@@ -22,6 +22,7 @@
 #include <QtConcurrent>
 
 constexpr u8 toxtricityAmpedNatures[13] = { 3, 4, 2, 8, 9, 19, 22, 11, 13, 14, 0, 6, 24 };
+constexpr u8 toxtricityLowKeyNatures[12] = { 1, 5, 7, 10, 12, 15, 16, 17, 18, 20, 21, 23 };
 
 SeedSearcher35::SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult) :
     SeedSearcher(pokemon, ivCount, firstResult),
@@ -212,7 +213,14 @@ bool SeedSearcher35::searchSeed(u64 &seed)
             }
             else
             {
-                nature = toxtricityAmpedNatures[rng.nextInt(13, 15)];
+                if (pokemon.at(0).getAltform() == 0)
+                {
+                    nature = toxtricityAmpedNatures[rng.nextInt(13, 15)];
+                }
+                else
+                {
+                    nature = toxtricityLowKeyNatures[rng.nextInt(12, 15)];
+                }
             }
 
             if (nature != pokemon.at(0).getNature())
@@ -298,7 +306,14 @@ bool SeedSearcher35::searchSeed(u64 &seed)
             }
             else
             {
-                nature = toxtricityAmpedNatures[rng.nextInt(13, 15)];
+                if (pokemon.at(i).getAltform() == 0)
+                {
+                    nature = toxtricityAmpedNatures[rng.nextInt(13, 15)];
+                }
+                else
+                {
+                    nature = toxtricityLowKeyNatures[rng.nextInt(12, 15)];
+                }
             }
 
             if (nature != pokemon.at(i).getNature())

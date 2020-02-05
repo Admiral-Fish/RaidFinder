@@ -21,6 +21,7 @@
 #include <Core/RNG/XoroShiro.hpp>
 
 constexpr u8 toxtricityAmpedNatures[13] = { 3, 4, 2, 8, 9, 19, 22, 11, 13, 14, 0, 6, 24 };
+constexpr u8 toxtricityLowKeyNatures[12] = { 1, 5, 7, 10, 12, 15, 16, 17, 18, 20, 21, 23 };
 
 static inline u16 getSv(u32 val)
 {
@@ -38,27 +39,13 @@ static inline u8 getShinyType(u32 sidtid, u32 pid)
     return 1; // Star shiny
 }
 
-RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, u16 species, u8 abilityType, u8 shinyType, u8 ivCount,
-                             u8 genderType, u8 genderRatio) :
-    startFrame(startFrame),
-    maxResults(maxResults),
-    tid(tid),
-    sid(sid),
-    species(species),
-    abilityType(abilityType),
-    shinyType(shinyType),
-    ivCount(ivCount),
-    genderType(genderType),
-    genderRatio(genderRatio)
-{
-}
-
 RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, const Raid &raid) :
     startFrame(startFrame),
     maxResults(maxResults),
     tid(tid),
     sid(sid),
     species(raid.getSpecies()),
+    altform(raid.getAltForm()),
     abilityType(raid.getAbility()),
     shinyType(raid.getShiny()),
     ivCount(raid.getIVCount()),
@@ -203,7 +190,14 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
         else
         {
-            result.setNature(toxtricityAmpedNatures[rng.nextInt(13, 15)]);
+            if (altform == 0)
+            {
+                result.setNature(toxtricityAmpedNatures[rng.nextInt(13, 15)]);
+            }
+            else
+            {
+                result.setNature(toxtricityLowKeyNatures[rng.nextInt(12, 15)]);
+            }
         }
 
         if (filter.compareFrame(result))

@@ -34,7 +34,7 @@ public:
 private:
     u64 state[2];
 
-    u32 next();
+    u64 next();
 };
 
 #endif // XOROSHIRO_HPP
