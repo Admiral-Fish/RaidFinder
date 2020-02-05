@@ -19,10 +19,11 @@
 
 #include "Pokemon.hpp"
 
-Pokemon::Pokemon(const QVector<u8> &ivs, u16 species, u8 ability, u8 nature, u8 characteristic, bool genderLocked,
+Pokemon::Pokemon(const QVector<u8> &ivs, u16 species, u8 altform, u8 ability, u8 nature, u8 characteristic, bool genderLocked,
                  bool allowHiddenAbility) :
     ivs(ivs),
     species(species),
+    altform(altform),
     ability(ability),
     nature(nature),
     characteristic(characteristic),
@@ -39,6 +40,11 @@ u8 Pokemon::getIV(u8 index) const
 u16 Pokemon::getSpecies() const
 {
     return species;
+}
+
+u8 Pokemon::getAltform() const
+{
+    return altform;
 }
 
 u8 Pokemon::getAbility() const

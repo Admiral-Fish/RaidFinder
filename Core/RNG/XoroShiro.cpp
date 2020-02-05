@@ -53,11 +53,11 @@ u32 XoroShiro::nextInt(u32 mask)
     return next() & mask;
 }
 
-u32 XoroShiro::next()
+u64 XoroShiro::next()
 {
     const u64 s0 = state[0];
     u64 s1 = state[1];
-    const u32 result = static_cast<u32>(s0 + s1);
+    const u64 result = s0 + s1;
 
     s1 ^= s0;
     state[0] = rotl(s0, 24) ^ s1 ^ (s1 << 16);

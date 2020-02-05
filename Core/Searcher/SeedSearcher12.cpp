@@ -104,14 +104,12 @@ bool SeedSearcher12::searchSeed(u64 &seed)
     target ^= matrix.getConstantTermVector();
 
     u64 processedTarget = 0;
-    int offsetTarget = 0;
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < 64; i++)
     {
-        while (matrix.getFreeBit(i + offsetTarget) > 0)
+        if (matrix.getAnswerFlag(i) != 0)
         {
-            offsetTarget++;
+            processedTarget |= matrix.getModifiedAnswerFlag(i, target) << (63 - i);
         }
-        processedTarget |= (matrix.getModifiedAnswerFlag(i, target) << (63 - (i + offsetTarget)));
     }
 
     u64 max = ((1ull << (64 - length)) - 1);

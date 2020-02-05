@@ -31,6 +31,7 @@ public:
     u64 getConstantTermVector() const;
     int getFreeBit(int index) const;
     u64 getModifiedAnswerFlag(int index, u64 target) const;
+    u64 getAnswerFlag(int index) const;
     u64 getCoefficientData(u64 index) const;
     u64 getSearchPattern(u64 index) const;
 
