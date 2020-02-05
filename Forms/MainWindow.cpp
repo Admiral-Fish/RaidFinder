@@ -361,51 +361,46 @@ void MainWindow::downloadEventData()
         error.exec();
         return;
     }
-    else
+
+    QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
+    QStringList files, entries;
+    for (const QString &info : infos)
     {
-        QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
-        QStringList files, entries;
-        for (const QString &info : infos)
-        {
-            QStringList data = info.split(',');
-            files.append(data.at(0));
-            entries.append(Translator::getSpecie(data.at(1).toUShort()));
-        }
+        QStringList data = info.split(',');
+        files.append(data.at(0));
+        entries.append(Translator::getSpecie(data.at(1).toUShort()));
+    }
 
-        bool flag;
-        QString item = QInputDialog::getItem(this, tr("Download event data"), tr("Event"), entries, 0, false, &flag);
-        if (!flag)
-        {
-            return;
-        }
+    bool flag;
+    QString item = QInputDialog::getItem(this, tr("Download event data"), tr("Event"), entries, 0, false, &flag);
+    if (!flag)
+    {
+        return;
+    }
 
-        int index = entries.indexOf(item);
+    int index = entries.indexOf(item);
+    auto eventResponse
+        = downloadFile("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/Event/" + files.at(index));
+    if (eventResponse.isEmpty())
+    {
+        QMessageBox error(QMessageBox::Critical, tr("Download failed"),
+                          tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
+        error.exec();
+        return;
+    }
 
-        auto eventResponse = downloadFile("https://raw.githubusercontent.com/Admiral-Fish/RaidFinder/master/Resources/Encounters/Event/"
-                                          + files.at(index));
-        if (eventResponse.isEmpty())
-        {
-            QMessageBox error(QMessageBox::Critical, tr("Download failed"),
-                              tr("Make sure you are connected to the internet and have OpenSSL setup"), QMessageBox::Ok);
-            error.exec();
-            return;
-        }
-        else
-        {
-            QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
-            if (f.open(QIODevice::WriteOnly))
-            {
-                f.write(qUncompress(eventResponse));
-                f.close();
+    QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
+    if (f.open(QIODevice::WriteOnly))
+    {
+        f.write(qUncompress(eventResponse));
+        f.close();
 
-                QMessageBox message(QMessageBox::Question, tr("Download finished"), tr("Restart to see event data. Restart now?"),
-                                    QMessageBox::Yes | QMessageBox::No);
-                if (message.exec() == QMessageBox::Yes)
-                {
-                    QProcess::startDetached(QApplication::applicationFilePath());
-                    QApplication::quit();
-                }
-            }
+        QMessageBox message(QMessageBox::Question, tr("Download finished"), tr("Restart to see event data. Restart now?"),
+                            QMessageBox::Yes | QMessageBox::No);
+        if (message.exec() == QMessageBox::Yes)
+        {
+            QProcess::startDetached(QApplication::applicationFilePath());
+            QApplication::quit();
         }
     }
 }
@@ -428,8 +423,10 @@ void MainWindow::denIndexChanged(int index)
 
 void MainWindow::rarityIndexChange(int index)
 {
-    (void)index;
-    denIndexChanged(ui->comboBoxDen->currentIndex());
+    if (index >= 0)
+    {
+        denIndexChanged(ui->comboBoxDen->currentIndex());
+    }
 }
 
 void MainWindow::speciesIndexChanged(int index)
