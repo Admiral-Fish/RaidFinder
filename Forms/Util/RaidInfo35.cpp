@@ -167,6 +167,7 @@ Pokemon RaidInfo35::getPokemonDay4_1() const
 
     auto ivs = getIVs(0);
     u16 species = raid.getSpecies();
+    u8 altform = raid.getAltForm();
     u8 ability = static_cast<u8>(ui->comboBoxAbilityDay4_1->currentIndex());
     if (ability != 2 && (info.getAbility1() == info.getAbility2()))
     {
@@ -177,7 +178,7 @@ Pokemon RaidInfo35::getPokemonDay4_1() const
     bool genderLocked = raid.getGender() != 0 || raid.getGenderRatio() == 0 || raid.getGenderRatio() == 254 || raid.getGenderRatio() == 255;
     bool allowHiddenAbility = raid.getAbility() == 4;
 
-    return Pokemon(ivs, species, ability, nature, characteristic, genderLocked, allowHiddenAbility);
+    return Pokemon(ivs, species, altform, ability, nature, characteristic, genderLocked, allowHiddenAbility);
 }
 
 Pokemon RaidInfo35::getPokemonDay4_2() const
@@ -187,6 +188,7 @@ Pokemon RaidInfo35::getPokemonDay4_2() const
 
     auto ivs = getIVs(1);
     u16 species = raid.getSpecies();
+    u8 altform = raid.getAltForm();
     u8 ability = static_cast<u8>(ui->comboBoxAbilityDay4_2->currentIndex());
     if (ability != 2 && (info.getAbility1() == info.getAbility2()))
     {
@@ -197,7 +199,7 @@ Pokemon RaidInfo35::getPokemonDay4_2() const
     bool genderLocked = raid.getGender() != 0 || raid.getGenderRatio() == 0 || raid.getGenderRatio() == 254 || raid.getGenderRatio() == 255;
     bool allowHiddenAbility = raid.getAbility() == 4;
 
-    return Pokemon(ivs, species, ability, nature, characteristic, genderLocked, allowHiddenAbility);
+    return Pokemon(ivs, species, altform, ability, nature, characteristic, genderLocked, allowHiddenAbility);
 }
 
 Pokemon RaidInfo35::getPokemonDay5() const
@@ -207,6 +209,7 @@ Pokemon RaidInfo35::getPokemonDay5() const
 
     auto ivs = getIVs(2);
     u16 species = raid.getSpecies();
+    u8 altform = raid.getAltForm();
     u8 ability = static_cast<u8>(ui->comboBoxAbilityDay5->currentIndex());
     if (ability != 2 && (info.getAbility1() == info.getAbility2()))
     {
@@ -217,7 +220,7 @@ Pokemon RaidInfo35::getPokemonDay5() const
     bool genderLocked = raid.getGender() != 0 || raid.getGenderRatio() == 0 || raid.getGenderRatio() == 254 || raid.getGenderRatio() == 255;
     bool allowHiddenAbility = raid.getAbility() == 4;
 
-    return Pokemon(ivs, species, ability, nature, characteristic, genderLocked, allowHiddenAbility);
+    return Pokemon(ivs, species, altform, ability, nature, characteristic, genderLocked, allowHiddenAbility);
 }
 
 Pokemon RaidInfo35::getPokemonDay6() const
@@ -227,6 +230,7 @@ Pokemon RaidInfo35::getPokemonDay6() const
 
     auto ivs = getIVs(3);
     u16 species = raid.getSpecies();
+    u8 altform = raid.getAltForm();
     u8 ability = static_cast<u8>(ui->comboBoxAbilityDay6->currentIndex());
     if (ability != 2 && (info.getAbility1() == info.getAbility2()))
     {
@@ -237,7 +241,7 @@ Pokemon RaidInfo35::getPokemonDay6() const
     bool genderLocked = raid.getGender() != 0 || raid.getGenderRatio() == 0 || raid.getGenderRatio() == 254 || raid.getGenderRatio() == 255;
     bool allowHiddenAbility = raid.getAbility() == 4;
 
-    return Pokemon(ivs, species, ability, nature, characteristic, genderLocked, allowHiddenAbility);
+    return Pokemon(ivs, species, altform, ability, nature, characteristic, genderLocked, allowHiddenAbility);
 }
 
 void RaidInfo35::displayDay6(int flag)

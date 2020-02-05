@@ -41,7 +41,7 @@
 #include <QSettings>
 #include <QThread>
 
-MainWindow::MainWindow(bool debug, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), debug(debug)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
@@ -107,12 +107,6 @@ void MainWindow::setupModels()
 
     ui->comboBoxShinyType->setItemData(0, 0);
     ui->comboBoxShinyType->setItemData(1, 2);
-
-    ui->spinBoxIVCount->setEnabled(debug);
-    ui->comboBoxAbilityType->setEnabled(debug);
-    ui->comboBoxGenderType->setEnabled(debug);
-    ui->comboBoxGenderRatio->setEnabled(debug);
-    ui->comboBoxShinyType->setEnabled(debug);
 
     for (u8 i = 0; i < 100; i++)
     {
@@ -473,22 +467,7 @@ void MainWindow::generate()
     u16 tid = currentProfile.getTID();
     u16 sid = currentProfile.getSID();
 
-    RaidGenerator *generator;
-    if (debug)
-    {
-        u8 abilityType = static_cast<u8>(ui->comboBoxAbilityType->currentData().toInt());
-        u8 genderType = static_cast<u8>(ui->comboBoxGenderType->currentIndex());
-        u8 genderRatio = static_cast<u8>(ui->comboBoxGenderRatio->currentData().toInt());
-        u8 ivCount = static_cast<u8>(ui->spinBoxIVCount->value());
-        u8 shinyType = static_cast<u8>(ui->comboBoxShinyType->currentData().toInt());
-
-        generator = new RaidGenerator(initialFrame, maxResults, tid, sid, raid.getSpecies(), abilityType, shinyType, ivCount, genderType,
-                                      genderRatio);
-    }
-    else
-    {
-        generator = new RaidGenerator(initialFrame, maxResults, tid, sid, raid);
-    }
+    RaidGenerator generator(initialFrame, maxResults, tid, sid, raid);
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
@@ -501,8 +480,6 @@ void MainWindow::generate()
 
     u64 seed = ui->textBoxSeed->getULong();
 
-    QVector<Frame> frames = generator->generate(filter, seed);
+    QVector<Frame> frames = generator.generate(filter, seed);
     model->addItems(frames);
-
-    delete generator;
 }

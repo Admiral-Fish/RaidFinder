@@ -59,13 +59,7 @@ int main(int argc, char *argv[])
         app.installTranslator(&translator);
     }
 
-    bool debug = false;
-    if (argc > 1 && QString(argv[1]) == "debug")
-    {
-        debug = true;
-    }
-
-    MainWindow w(debug);
+    MainWindow w;
     w.show();
     w.raise();
 
