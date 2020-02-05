@@ -26,6 +26,8 @@ SeedSearcher::SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &
     firstResult(firstResult),
     searching(false)
 {
+    progress = 0;
+
     for (u8 i = 0; i < pokemon.size(); i++)
     {
         const auto &mon = pokemon.at(i);
