@@ -400,6 +400,11 @@ u64 Matrix::getModifiedAnswerFlag(int index, u64 target) const
     return getSignature(answerFlag[index] & target);
 }
 
+u64 Matrix::getAnswerFlag(int index) const
+{
+    return answerFlag[index];
+}
+
 u64 Matrix::getCoefficientData(u64 index) const
 {
     return coefficientData[index];
@@ -516,10 +521,24 @@ void Matrix::calculateInverseMatrix(int length)
         }
     }
 
+    for (int i = skip, j = length + skip - 1; i > 0; j--)
+    {
+        if (freeBit[j] == 0)
+        {
+            freeBit[j] = answerFlag[j - i];
+        }
+        else
+        {
+            answerFlag[j] = 0;
+            i--;
+        }
+    }
+
     for (int i = length + skip; i < 64; i++)
     {
         freeBit[i] = 1;
         freeId[i - length] = i;
+        skip++;
     }
 
     for (int i = 0; i < length; i++)
