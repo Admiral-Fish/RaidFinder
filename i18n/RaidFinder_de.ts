@@ -16,7 +16,7 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation>Nester in der Naturzone</translation>
+        <translation>Naturzone</translation>
     </message>
 </context>
 <context>
@@ -611,28 +611,28 @@
         <location filename="../Forms/MainWindow.cpp" line="359"/>
         <location filename="../Forms/MainWindow.cpp" line="388"/>
         <source>Download failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Download fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="360"/>
         <location filename="../Forms/MainWindow.cpp" line="389"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Stelle sicher, dass du mit dem Internet verbunden bist und OpenSSL installiert ist.</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="376"/>
         <source>Download event data</source>
-        <translation type="unfinished"></translation>
+        <translation>Eventdaten herunterladen</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="401"/>
         <source>Download finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Download abgeschlossen</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="401"/>
         <source>Restart to see event data. Restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Programm muss neu gestartet werden, um die heruntergeladenen Eventdaten anzuzueigen. Jetzt neu starten?</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="447"/>
@@ -723,7 +723,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Download Event Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Eventdaten herunterladen</translation>
     </message>
 </context>
 <context>
