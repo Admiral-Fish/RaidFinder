@@ -24,7 +24,8 @@ SeedSearcher::SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &
     pokemon(pokemon),
     ivCount(ivCount),
     firstResult(firstResult),
-    searching(false)
+    searching(false),
+    progress(0)
 {
     for (u8 i = 0; i < pokemon.size(); i++)
     {
