@@ -586,66 +586,66 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="130"/>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <location filename="../Forms/MainWindow.cpp" line="124"/>
+        <location filename="../Forms/MainWindow.cpp" line="369"/>
         <source>Event</source>
         <translation>活動</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="197"/>
+        <location filename="../Forms/MainWindow.cpp" line="191"/>
         <source>Output Results to TXT</source>
         <translation>結果儲存到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="192"/>
         <source>Output Results to CSV</source>
         <translation>結果儲存到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="244"/>
+        <location filename="../Forms/MainWindow.cpp" line="238"/>
         <source>Language update</source>
         <translation>更新語言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="244"/>
-        <location filename="../Forms/MainWindow.cpp" line="264"/>
+        <location filename="../Forms/MainWindow.cpp" line="238"/>
+        <location filename="../Forms/MainWindow.cpp" line="258"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重啟後使設定生效，現在重啟嗎？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="264"/>
+        <location filename="../Forms/MainWindow.cpp" line="258"/>
         <source>Style change</source>
         <translation>改變風格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="359"/>
-        <location filename="../Forms/MainWindow.cpp" line="388"/>
+        <location filename="../Forms/MainWindow.cpp" line="353"/>
+        <location filename="../Forms/MainWindow.cpp" line="380"/>
         <source>Download failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="360"/>
-        <location filename="../Forms/MainWindow.cpp" line="389"/>
+        <location filename="../Forms/MainWindow.cpp" line="354"/>
+        <location filename="../Forms/MainWindow.cpp" line="381"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <location filename="../Forms/MainWindow.cpp" line="369"/>
         <source>Download event data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <location filename="../Forms/MainWindow.cpp" line="392"/>
         <source>Download finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <location filename="../Forms/MainWindow.cpp" line="392"/>
         <source>Restart to see event data. Restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="447"/>
+        <location filename="../Forms/MainWindow.cpp" line="438"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -676,7 +676,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="447"/>
+        <location filename="../Forms/MainWindow.cpp" line="438"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -883,7 +883,7 @@
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="202"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="204"/>
         <source>Invalid</source>
         <translation>無效</translation>
     </message>
@@ -893,8 +893,8 @@
         <translation>第2天</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="127"/>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="198"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="129"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="200"/>
         <source>Valid</source>
         <translation>有效</translation>
     </message>
@@ -934,8 +934,8 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="78"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="281"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="336"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="285"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="340"/>
         <source>Invalid</source>
         <translation>無效</translation>
     </message>
@@ -955,17 +955,17 @@
         <translation>第6天</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="324"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="328"/>
         <source>Day 4 (2nd): 3IV/4IV</source>
         <translation>第4天(第2只): 3V/4V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="328"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="332"/>
         <source>Day 4 (2nd): 3IV</source>
         <translation>第4天(第2只): 3V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="332"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="336"/>
         <source>Day 4 (2nd): 4IV</source>
         <translation>第4天(第2只): 4V</translation>
     </message>
