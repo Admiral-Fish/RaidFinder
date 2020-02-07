@@ -119,7 +119,7 @@ void MainWindow::setupModels()
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
 
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
     {
         ui->comboBoxDen->addItem(tr("Event"), 100);
     }
@@ -383,7 +383,7 @@ void MainWindow::downloadEventData()
         return;
     }
 
-    QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
+    QFile f(QApplication::applicationDirPath() + "/nests_event.json");
     if (f.open(QIODevice::WriteOnly))
     {
         f.write(qUncompress(eventResponse));

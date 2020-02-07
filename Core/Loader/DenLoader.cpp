@@ -140,10 +140,10 @@ void DenLoader::init()
     QFile f(":/encounters/nests.bin");
     if (f.open(QIODevice::ReadOnly))
     {
-        QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
+        QJsonObject doc(QJsonDocument::fromJson(qUncompress(f.readAll())).object());
         f.close();
 
-        QJsonArray tables = data["Tables"].toArray();
+        QJsonArray tables = doc["Tables"].toArray();
         for (auto i : tables)
         {
             QJsonObject table = i.toObject();
@@ -194,13 +194,13 @@ void DenLoader::init()
     }
 
     // Event Dens
-    f.setFileName(QApplication::applicationDirPath() + "/nests_event.bin");
+    f.setFileName(QApplication::applicationDirPath() + "/nests_event.json");
     if (f.open(QIODevice::ReadOnly))
     {
-        QJsonObject data(QJsonDocument::fromBinaryData(f.readAll()).object());
+        QJsonObject doc(QJsonDocument::fromJson(f.readAll()).object());
         f.close();
 
-        QJsonArray tables = data["Tables"].toArray();
+        QJsonArray tables = doc["Tables"].toArray();
         QJsonArray swordEntries = tables.at(0).toObject()["Entries"].toArray();
         QJsonArray shieldEntries = tables.at(1).toObject()["Entries"].toArray();
 

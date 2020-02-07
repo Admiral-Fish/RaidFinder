@@ -60,7 +60,7 @@ void SeedCalculator::setupModels()
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
     {
         ui->comboBoxDen->addItem(tr("Event"), 100);
     }
