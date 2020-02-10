@@ -21,9 +21,8 @@
 #include <Core/RNG/XoroShiro.hpp>
 #include <QtConcurrent>
 
-SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult, bool ability) :
-    SeedSearcher(pokemon, ivCount, firstResult),
-    ability(ability)
+SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult) :
+    SeedSearcher(pokemon, ivCount, firstResult)
 {
     const auto &mon = pokemon.at(0);
     ivsRef = { mon.getIV(1), mon.getIV(2), mon.getIV(3), mon.getIV(4), mon.getIV(5), mon.getIV(0), mon.getIV(2), mon.getIV(3),
@@ -39,6 +38,7 @@ SeedSearcher12::SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<in
         }
     }
 
+    ability = !mon.getAllowHiddenAbility() && (mon.getAbility() == 0 || mon.getAbility() == 1);
     max = 0xfffffff;
 }
 
@@ -95,21 +95,22 @@ bool SeedSearcher12::searchSeed(u64 &seed)
 
     target |= ((8ul + fixedIndex - ((seed & 0xE000000ul) >> 25)) & 7) << (50 + bitOffset);
 
-    target |= ((32ul + ivsRef[fixedIndex * 5] - ((seed & 0x1F00000ul) >> 20)) & 0x1F) << (40 + bitOffset);
-    target |= ((32ul + ivsRef[fixedIndex * 5 + 1] - ((seed & 0xF8000ul) >> 15)) & 0x1F) << (30 + bitOffset);
-    target |= ((32ul + ivsRef[fixedIndex * 5 + 2] - ((seed & 0x7C00ul) >> 10)) & 0x1F) << (20 + bitOffset);
-    target |= ((32ul + ivsRef[fixedIndex * 5 + 3] - ((seed & 0x3E0ul) >> 5)) & 0x1F) << (10 + bitOffset);
-    target |= ((32ul + ivsRef[fixedIndex * 5 + 4] - (seed & 0x1Ful)) & 0x1F) << bitOffset;
+    target |= ((32ul + ivsRef.at(fixedIndex * 5) - ((seed & 0x1F00000ul) >> 20)) & 0x1F) << (40 + bitOffset);
+    target |= ((32ul + ivsRef.at(fixedIndex * 5 + 1) - ((seed & 0xF8000ul) >> 15)) & 0x1F) << (30 + bitOffset);
+    target |= ((32ul + ivsRef.at(fixedIndex * 5 + 2) - ((seed & 0x7C00ul) >> 10)) & 0x1F) << (20 + bitOffset);
+    target |= ((32ul + ivsRef.at(fixedIndex * 5 + 3) - ((seed & 0x3E0ul) >> 5)) & 0x1F) << (10 + bitOffset);
+    target |= ((32ul + ivsRef.at(fixedIndex * 5 + 4) - (seed & 0x1Ful)) & 0x1F) << bitOffset;
 
     target ^= matrix.getConstantTermVector();
 
     u64 processedTarget = 0;
-    for (int i = 0; i < 64; i++)
+    for (int i = 0, offset = 0; i < 64; i++)
     {
-        if (matrix.getAnswerFlag(i) != 0)
+        while (matrix.getFreeBit(i + offset))
         {
-            processedTarget |= matrix.getModifiedAnswerFlag(i, target) << (63 - i);
+            offset++;
         }
+        processedTarget |= matrix.getModifiedAnswerFlag(i, target) << (63 - (i + offset));
     }
 
     u64 max = ((1ull << (64 - length)) - 1);
@@ -201,7 +202,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
                     ivs[stat] = 31;
                     count++;
                 }
-            } while (count < ivCount[i]);
+            } while (count < ivCount.at(i));
 
             for (u8 j = 0; j < 6; j++)
             {
@@ -230,7 +231,7 @@ bool SeedSearcher12::searchSeed(u64 &seed)
             {
                 ability = static_cast<u8>(rng.nextInt(1));
             }
-            if ((pokemon.at(i).getAbility() != ability) || (pokemon.at(i).getAbility() == 255 && ability >= 2))
+            if (pokemon.at(i).getAbility() != 255 && pokemon.at(i).getAbility() != ability)
             {
                 flag = false;
                 break;

@@ -26,10 +26,10 @@ class Matrix
 {
 public:
     Matrix();
-    void prepare(bool ability, int rerolls);
+    void prepare(bool ability, int ivOffset);
     void prepareSix(int offset, int fixedIVs);
     u64 getConstantTermVector() const;
-    int getFreeBit(int index) const;
+    bool getFreeBit(int index) const;
     u64 getModifiedAnswerFlag(int index, u64 target) const;
     u64 getAnswerFlag(int index) const;
     u64 getCoefficientData(u64 index) const;
@@ -41,7 +41,7 @@ private:
     u64 constantTermVector;
     u64 coefficient[64];
     u64 answerFlag[64];
-    int freeBit[64];
+    bool freeBit[64];
     int freeId[64];
     u64 coefficientData[0x4000];
     u64 searchPattern[0x4000];

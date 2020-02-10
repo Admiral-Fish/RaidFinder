@@ -41,6 +41,7 @@ void SeedSearcher35::startSearch(int minRolls, int maxRolls, int threads)
 {
     pool.setMaxThreadCount(threads);
     searching = true;
+    progress = 1;
 
     progressOffset = maxRolls - minRolls + 1;
     u32 split = max / threads;
@@ -68,7 +69,7 @@ void SeedSearcher35::startSearch(int minRolls, int maxRolls, int threads)
 
         for (int j = 0; j < threads; j++)
         {
-            threadContainer[i].waitForFinished();
+            threadContainer[j].waitForFinished();
         }
     }
 }
@@ -113,12 +114,13 @@ bool SeedSearcher35::searchSeed(u64 &seed)
     target ^= matrix.getConstantTermVector();
 
     u64 processedTarget = 0;
-    for (int i = 0; i < 64; i++)
+    for (int i = 0, offset = 0; i < 64; i++)
     {
-        if (matrix.getAnswerFlag(i) != 0)
+        while (matrix.getFreeBit(i + offset))
         {
-            processedTarget |= matrix.getModifiedAnswerFlag(i, target) << (63 - i);
+            offset++;
         }
+        processedTarget |= matrix.getModifiedAnswerFlag(i, target) << (63 - (i + offset));
     }
 
     XoroShiro rng;
@@ -259,7 +261,7 @@ bool SeedSearcher35::searchSeed(u64 &seed)
                     ivs[stat] = 31;
                     count++;
                 }
-            } while (count < ivCount[i]);
+            } while (count < ivCount.at(i));
 
             for (u8 j = 0; j < 6; j++)
             {
@@ -288,7 +290,7 @@ bool SeedSearcher35::searchSeed(u64 &seed)
             {
                 ability = static_cast<u8>(rng.nextInt(1));
             }
-            if ((pokemon.at(i).getAbility() != ability) || (pokemon.at(i).getAbility() == 255 && ability >= 2))
+            if (pokemon.at(i).getAbility() != 255 && pokemon.at(i).getAbility() != ability)
             {
                 flag = false;
                 break;

@@ -295,20 +295,20 @@ Matrix::Matrix()
     std::memset(inputMatrix, 0, sizeof(u64) * 64);
     std::memset(coefficient, 0, sizeof(u64) * 64);
     std::memset(answerFlag, 0, sizeof(u64) * 64);
-    std::memset(freeBit, 0, sizeof(int) * 64);
+    std::memset(freeBit, false, sizeof(bool) * 64);
     std::memset(freeId, 0, sizeof(int) * 64);
     std::memset(coefficientData, 0, sizeof(u64) * 0x4000);
     std::memset(searchPattern, 0, sizeof(u64) * 0x4000);
 }
 
-void Matrix::prepare(bool ability, int rerolls)
+void Matrix::prepare(bool ability, int ivOffset)
 {
     int length = ability ? 57 : 56;
 
     constantTermVector = 0;
 
     initializeTransformationMatrix();
-    for (int i = 0; i <= rerolls + 1; i++)
+    for (int i = 0; i <= ivOffset + 1; i++)
     {
         proceedTransformationMatrix();
     }
@@ -390,7 +390,7 @@ u64 Matrix::getConstantTermVector() const
     return constantTermVector;
 }
 
-int Matrix::getFreeBit(int index) const
+bool Matrix::getFreeBit(int index) const
 {
     return freeBit[index];
 }
@@ -476,10 +476,10 @@ void Matrix::calculateInverseMatrix(int length)
         answerFlag[i] = (1ull << (length - 1 - i));
     }
 
-    std::memset(freeBit, 0, sizeof(int) * 64);
+    std::memset(freeBit, false, sizeof(bool) * 64);
 
     int skip = 0;
-    for (int rank = 0; rank < length;)
+    for (int rank = 0; rank + skip < 64;)
     {
         u64 top = (1ull << (63 - (rank + skip)));
         bool flag = false;
@@ -510,35 +510,16 @@ void Matrix::calculateInverseMatrix(int length)
 
                 rank++;
                 flag = true;
+                break;
             }
         }
 
         if (!flag)
         {
-            freeBit[rank + skip] = 1;
+            freeBit[rank + skip] = true;
             freeId[skip] = rank + skip;
             skip++;
         }
-    }
-
-    for (int i = skip, j = length + skip - 1; i > 0; j--)
-    {
-        if (freeBit[j] == 0)
-        {
-            freeBit[j] = answerFlag[j - i];
-        }
-        else
-        {
-            answerFlag[j] = 0;
-            i--;
-        }
-    }
-
-    for (int i = length + skip; i < 64; i++)
-    {
-        freeBit[i] = 1;
-        freeId[i - length] = i;
-        skip++;
     }
 
     for (int i = 0; i < length; i++)
@@ -553,9 +534,9 @@ void Matrix::calculateInverseMatrix(int length)
 
 void Matrix::calculateCoefficientData(int length)
 {
-    u16 max = static_cast<u16>((1 << (64 - length)) - 1);
+    u32 max = (1 << (64 - length)) - 1;
 
-    for (u16 search = 0; search <= max; search++)
+    for (u32 search = 0; search <= max; search++)
     {
         coefficientData[search] = 0;
         searchPattern[search] = 0;
@@ -563,7 +544,7 @@ void Matrix::calculateCoefficientData(int length)
         int offset = 0;
         for (int i = 0; i < length; i++)
         {
-            while (freeBit[i + offset] > 0)
+            while (freeBit[i + offset])
             {
                 offset++;
             }

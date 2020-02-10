@@ -191,7 +191,7 @@ void SeedCalculator::search12()
     QVector<int> ivCount = ui->raidInfo12->getIVCounts();
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
-    auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
+    auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked());
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
 
     ui->progressBar->setRange(0, searcher->getMaxProgress());

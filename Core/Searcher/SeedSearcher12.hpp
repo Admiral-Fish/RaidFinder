@@ -25,7 +25,7 @@
 class SeedSearcher12 : public SeedSearcher
 {
 public:
-    SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult, bool ability);
+    SeedSearcher12(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
     void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
