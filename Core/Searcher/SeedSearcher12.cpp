@@ -73,7 +73,7 @@ void SeedSearcher12::startSearch(int minRolls, int maxRolls, int threads)
 
         for (int j = 0; j < threads; j++)
         {
-            threadContainer[i].waitForFinished();
+            threadContainer[j].waitForFinished();
         }
     }
 }
