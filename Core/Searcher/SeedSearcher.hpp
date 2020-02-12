@@ -56,7 +56,7 @@ protected:
     int progressOffset;
 
     void search(u32 min, u32 max);
-    virtual bool searchSeed(u64 &seed) = 0;
+    virtual bool searchSeed(u64 &seed) const = 0;
     virtual bool compareFirst(u64 seed) const;
     bool compareRest(u64 seed) const;
 };

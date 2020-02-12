@@ -78,7 +78,7 @@ void SeedSearcher1::startSearch(int minRolls, int maxRolls, int threads)
     }
 }
 
-bool SeedSearcher1::searchSeed(u64 &seed)
+bool SeedSearcher1::searchSeed(u64 &seed) const
 {
     int length = ability ? 57 : 56;
 
@@ -118,7 +118,7 @@ bool SeedSearcher1::searchSeed(u64 &seed)
     {
         u64 searchSeed = (processedTarget ^ matrix.getCoefficientData(search)) | matrix.getSearchPattern(search);
 
-        if (compareFirst(searchSeed) && compareRest(searchSeed))
+        if (compareFirst(searchSeed) && compareRest(searchSeed + 0x82a2b175229d6a5bull))
         {
             seed = searchSeed;
             return true;

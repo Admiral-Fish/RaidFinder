@@ -29,7 +29,7 @@ public:
     void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
-    bool searchSeed(u64 &seed) override;
+    bool searchSeed(u64 &seed) const override;
 };
 
 #endif // SEEDSEARCHER35_HPP

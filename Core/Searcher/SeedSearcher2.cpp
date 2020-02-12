@@ -66,7 +66,7 @@ void SeedSearcher2::startSearch(int minRolls, int maxRolls, int threads)
     }
 }
 
-bool SeedSearcher2::searchSeed(u64 &seed)
+bool SeedSearcher2::searchSeed(u64 &seed) const
 {
     u64 target = (seed & 0x3E000000ul) << 30;
     target |= (seed & 0x1F00000ul) << 25;
@@ -100,7 +100,7 @@ bool SeedSearcher2::searchSeed(u64 &seed)
 
         if (compareFirst(searchSeed) && compareRest(searchSeed))
         {
-            seed = searchSeed - (0x82a2b175229d6a5b * 2);
+            seed = searchSeed - (0x82a2b175229d6a5b * 3);
             return true;
         }
     }

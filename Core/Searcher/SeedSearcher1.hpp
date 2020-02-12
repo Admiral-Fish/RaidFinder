@@ -32,7 +32,7 @@ private:
     bool ability;
     u8 fixedIndex;
 
-    bool searchSeed(u64 &seed) override;
+    bool searchSeed(u64 &seed) const override;
     bool compareFirst(u64 seed) const override;
 };
 
