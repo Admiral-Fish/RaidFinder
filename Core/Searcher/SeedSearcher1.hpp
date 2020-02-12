@@ -17,25 +17,23 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef XOROSHIRO_HPP
-#define XOROSHIRO_HPP
+#ifndef SEEDSEARCHER1_HPP
+#define SEEDSEARCHER1_HPP
 
-#include <Core/Util/Global.hpp>
+#include <Core/Searcher/SeedSearcher.hpp>
 
-class XoroShiro
+class SeedSearcher1 : public SeedSearcher
 {
 public:
-    XoroShiro();
-    explicit XoroShiro(u64 seed);
-    void setSeed(u64 seed);
-    u32 nextInt(u32 max, u32 mask, int &count);
-    u32 nextInt(u32 max, u32 mask);
-    u32 nextInt(u32 mask);
+    SeedSearcher1(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
+    void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
-    u64 state[2];
+    bool ability;
+    u8 fixedIndex;
 
-    u64 next();
+    bool searchSeed(u64 &seed) override;
+    bool compareFirst(u64 seed) const override;
 };
 
-#endif // XOROSHIRO_HPP
+#endif // SEEDSEARCHER1_HPP

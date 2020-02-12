@@ -22,8 +22,9 @@
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Results/Pokemon.hpp>
-#include <Core/Searcher/SeedSearcher12.hpp>
-#include <Core/Searcher/SeedSearcher35.hpp>
+#include <Core/Searcher/SeedSearcher1.hpp>
+#include <Core/Searcher/SeedSearcher2.hpp>
+#include <Core/Searcher/SeedSearcher3.hpp>
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QApplication>
@@ -119,8 +120,15 @@ void SeedCalculator::search35()
         pokemon.append(ui->raidInfo35->getPokemonDay6());
     }
 
-    auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
-    searcher->setIVs(ui->raidInfo35->getConditionIVs());
+    SeedSearcher *searcher;
+    if (ivCount.at(0) == 2)
+    {
+        searcher = new SeedSearcher2(pokemon, ivCount, ui->raidInfo35->getConditionIVs(), ui->checkBoxStop->isChecked());
+    }
+    else
+    {
+        searcher = new SeedSearcher3(pokemon, ivCount, ui->raidInfo35->getConditionIVs(), ui->checkBoxStop->isChecked());
+    }
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
 
     ui->progressBar->setRange(0, searcher->getMaxProgress());
@@ -191,7 +199,7 @@ void SeedCalculator::search12()
     QVector<int> ivCount = ui->raidInfo12->getIVCounts();
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
-    auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked());
+    auto *searcher = new SeedSearcher1(pokemon, ivCount, ui->checkBoxStop->isChecked());
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
 
     ui->progressBar->setRange(0, searcher->getMaxProgress());

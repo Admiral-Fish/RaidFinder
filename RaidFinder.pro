@@ -58,8 +58,9 @@ HEADERS += \
     Core/Results/Raid.hpp \
     Core/Searcher/Matrix.hpp \
     Core/Searcher/SeedSearcher.hpp \
-    Core/Searcher/SeedSearcher12.hpp \
-    Core/Searcher/SeedSearcher35.hpp \
+    Core/Searcher/SeedSearcher1.hpp \
+    Core/Searcher/SeedSearcher2.hpp \
+    Core/Searcher/SeedSearcher3.hpp \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
@@ -97,8 +98,9 @@ SOURCES += \
     Core/Results/Raid.cpp \
     Core/Searcher/Matrix.cpp \
     Core/Searcher/SeedSearcher.cpp \
-    Core/Searcher/SeedSearcher12.cpp \
-    Core/Searcher/SeedSearcher35.cpp \
+    Core/Searcher/SeedSearcher1.cpp \
+    Core/Searcher/SeedSearcher2.cpp \
+    Core/Searcher/SeedSearcher3.cpp \
     Core/Util/IVChecker.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \

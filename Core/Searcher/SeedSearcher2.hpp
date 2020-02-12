@@ -17,23 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef SEEDSEARCHER35_HPP
-#define SEEDSEARCHER35_HPP
+#ifndef SEEDSEARCHER2_HPP
+#define SEEDSEARCHER2_HPP
 
 #include <Core/Searcher/SeedSearcher.hpp>
 
-class SeedSearcher35 : public SeedSearcher
+class SeedSearcher2 : public SeedSearcher
 {
 public:
-    SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
-    void setIVs(const QVector<u8> &templateIVs);
+    SeedSearcher2(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, const QVector<u8> &templateIVs, bool firstResult);
     void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
-    bool ivFlag;
-    int fixedIVs;
-    QVector<u8> templateIVs;
-
     bool searchSeed(u64 &seed) override;
 };
 

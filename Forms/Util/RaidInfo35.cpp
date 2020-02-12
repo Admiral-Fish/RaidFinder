@@ -110,6 +110,7 @@ QVector<u8> RaidInfo35::getConditionIVs() const
 {
     auto ivs1 = getIVs(0);
     auto ivs2 = getIVs(1);
+    int ivCount1 = ivs1.count(31);
     int ivCount2 = ivs2.count(31);
 
     QVector<bool> flags;
@@ -118,7 +119,6 @@ QVector<u8> RaidInfo35::getConditionIVs() const
         flags.append(ivs1.at(i) == 31);
     }
 
-    int ivCount1 = ui->spinBoxIVCountDay4_1->value();
     int index = 0;
     QVector<u8> ivs(6);
     for (int i = 0; i < 6; i++)
