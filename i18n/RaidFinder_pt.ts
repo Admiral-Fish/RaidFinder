@@ -448,7 +448,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Encounter Lookup</source>
-        <translation>Pesquisa de localização<</translation>
+        <translation>Pesquisa de localização</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
