@@ -298,5 +298,5 @@ void IVCalculator::checkIVs()
 
     int dayIndex = dayType.indexOf(dayItem);
 
-    emit sendIVs(starIndex, dayIndex, ivs);
+    emit sendIVs(starIndex, dayIndex, ui->comboBoxNature->currentIndex(), ivs);
 }

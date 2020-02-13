@@ -48,15 +48,15 @@ SeedCalculator::~SeedCalculator()
     delete ui;
 }
 
-void SeedCalculator::setIVs(int star, int index, const QVector<u8> &ivs)
+void SeedCalculator::setIVs(int star, int index, int nature, const QVector<u8> &ivs)
 {
     if (star == 0)
     {
-        ui->raidInfo12->setIVs(index, ivs);
+        ui->raidInfo12->setInfo(index, nature, ivs);
     }
     else
     {
-        ui->raidInfo35->setIVs(index, ivs);
+        ui->raidInfo35->setInfo(index, nature, ivs);
     }
 }
 

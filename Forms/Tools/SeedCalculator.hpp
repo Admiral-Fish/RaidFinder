@@ -37,7 +37,7 @@ public:
     ~SeedCalculator() override;
 
 public slots:
-    void setIVs(int star, int index, const QVector<u8> &ivs);
+    void setIVs(int star, int index, int nature, const QVector<u8> &ivs);
 
 private:
     Ui::SeedCalculator *ui;

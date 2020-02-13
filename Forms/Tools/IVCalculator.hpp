@@ -32,7 +32,7 @@ class IVCalculator : public QWidget
 {
     Q_OBJECT
 signals:
-    void sendIVs(int, int, QVector<u8>);
+    void sendIVs(int, int, int, QVector<u8>);
 
 public:
     explicit IVCalculator(QWidget *parent = nullptr);

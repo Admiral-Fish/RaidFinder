@@ -38,7 +38,7 @@ public:
     void setDen(const Den &den, Game game);
     bool isValid() const;
     QVector<u8> getIVs(int index) const;
-    void setIVs(int index, const QVector<u8> &ivs);
+    void setInfo(int index, int nature, const QVector<u8> &ivs);
     QVector<u8> getConditionIVs() const;
     QVector<int> getIVCounts() const;
     Pokemon getPokemonDay4_1() const;

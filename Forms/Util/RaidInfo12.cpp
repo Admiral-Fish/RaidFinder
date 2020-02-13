@@ -77,7 +77,7 @@ QVector<u8> RaidInfo12::getIVs(int index) const
              static_cast<u8>(ui->spinBoxSpDDay2->value()), static_cast<u8>(ui->spinBoxSpeDay2->value()) };
 }
 
-void RaidInfo12::setIVs(int index, const QVector<u8> &ivs)
+void RaidInfo12::setInfo(int index, int nature, const QVector<u8> &ivs)
 {
     if (index == 0)
     {
@@ -87,6 +87,7 @@ void RaidInfo12::setIVs(int index, const QVector<u8> &ivs)
         ui->spinBoxSpADay1->setValue(ivs.at(3));
         ui->spinBoxSpDDay1->setValue(ivs.at(4));
         ui->spinBoxSpeDay1->setValue(ivs.at(5));
+        ui->comboBoxNatureDay1->setCurrentIndex(nature);
     }
     else
     {
@@ -96,6 +97,7 @@ void RaidInfo12::setIVs(int index, const QVector<u8> &ivs)
         ui->spinBoxSpADay2->setValue(ivs.at(3));
         ui->spinBoxSpDDay2->setValue(ivs.at(4));
         ui->spinBoxSpeDay2->setValue(ivs.at(5));
+        ui->comboBoxNatureDay2->setCurrentIndex(nature);
     }
 }
 

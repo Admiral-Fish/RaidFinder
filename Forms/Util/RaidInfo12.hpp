@@ -37,7 +37,7 @@ public:
     ~RaidInfo12() override;
     void setDen(const Den &den, Game game);
     QVector<u8> getIVs(int index) const;
-    void setIVs(int index, const QVector<u8> &ivs);
+    void setInfo(int index, int nature, const QVector<u8> &ivs);
     QVector<int> getIVCounts() const;
     Pokemon getPokemonDay1() const;
     Pokemon getPokemonDay2() const;
