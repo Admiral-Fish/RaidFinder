@@ -67,6 +67,8 @@ MainWindow::~MainWindow()
     setting.setValue("settings/style", currentStyle);
 
     delete ui;
+    delete ivCalculator;
+    delete seedCalculator;
 }
 
 void MainWindow::setupModels()
@@ -339,14 +341,30 @@ void MainWindow::openEncounterLookup()
 
 void MainWindow::openIVCalculator()
 {
-    auto *calculator = new IVCalculator();
-    calculator->show();
+    if (!ivCalculator)
+    {
+        ivCalculator = new IVCalculator();
+        if (seedCalculator)
+        {
+            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
+            ivCalculator->setConnected(true);
+        }
+    }
+    ivCalculator->show();
 }
 
 void MainWindow::openSeedCalculator()
 {
-    auto *searcher = new SeedCalculator();
-    searcher->show();
+    if (!seedCalculator)
+    {
+        seedCalculator = new SeedCalculator();
+        if (ivCalculator)
+        {
+            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
+            ivCalculator->setConnected(true);
+        }
+    }
+    seedCalculator->show();
 }
 
 void MainWindow::downloadEventData()

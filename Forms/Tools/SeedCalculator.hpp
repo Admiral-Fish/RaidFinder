@@ -36,6 +36,9 @@ public:
     explicit SeedCalculator(QWidget *parent = nullptr);
     ~SeedCalculator() override;
 
+public slots:
+    void setIVs(int star, int index, const QVector<u8> &ivs);
+
 private:
     Ui::SeedCalculator *ui;
 

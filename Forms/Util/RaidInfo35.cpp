@@ -106,6 +106,46 @@ QVector<u8> RaidInfo35::getIVs(int index) const
              static_cast<u8>(ui->spinBoxSpDDay6->value()), static_cast<u8>(ui->spinBoxSpeDay6->value()) };
 }
 
+void RaidInfo35::setIVs(int index, const QVector<u8> &ivs)
+{
+    if (index == 0)
+    {
+        ui->spinBoxHPDay4_1->setValue(ivs.at(0));
+        ui->spinBoxAtkDay4_1->setValue(ivs.at(1));
+        ui->spinBoxDefDay4_1->setValue(ivs.at(2));
+        ui->spinBoxSpADay4_1->setValue(ivs.at(3));
+        ui->spinBoxSpDDay4_1->setValue(ivs.at(4));
+        ui->spinBoxSpeDay4_1->setValue(ivs.at(5));
+    }
+    else if (index == 1)
+    {
+        ui->spinBoxHPDay4_2->setValue(ivs.at(0));
+        ui->spinBoxAtkDay4_2->setValue(ivs.at(1));
+        ui->spinBoxDefDay4_2->setValue(ivs.at(2));
+        ui->spinBoxSpADay4_2->setValue(ivs.at(3));
+        ui->spinBoxSpDDay4_2->setValue(ivs.at(4));
+        ui->spinBoxSpeDay4_2->setValue(ivs.at(5));
+    }
+    else if (index == 2)
+    {
+        ui->spinBoxHPDay5->setValue(ivs.at(0));
+        ui->spinBoxAtkDay5->setValue(ivs.at(1));
+        ui->spinBoxDefDay5->setValue(ivs.at(2));
+        ui->spinBoxSpADay5->setValue(ivs.at(3));
+        ui->spinBoxSpDDay5->setValue(ivs.at(4));
+        ui->spinBoxSpeDay5->setValue(ivs.at(5));
+    }
+    else
+    {
+        ui->spinBoxHPDay6->setValue(ivs.at(0));
+        ui->spinBoxAtkDay6->setValue(ivs.at(1));
+        ui->spinBoxDefDay6->setValue(ivs.at(2));
+        ui->spinBoxSpADay6->setValue(ivs.at(3));
+        ui->spinBoxSpDDay6->setValue(ivs.at(4));
+        ui->spinBoxSpeDay6->setValue(ivs.at(5));
+    }
+}
+
 QVector<u8> RaidInfo35::getConditionIVs() const
 {
     auto ivs1 = getIVs(0);

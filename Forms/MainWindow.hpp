@@ -27,6 +27,8 @@
 #include <QMenu>
 
 class FrameModel;
+class IVCalculator;
+class SeedCalculator;
 
 namespace Ui
 {
@@ -52,6 +54,8 @@ private:
     Den den;
     FrameModel *model;
     QMenu *menu;
+    IVCalculator *ivCalculator = nullptr;
+    SeedCalculator *seedCalculator = nullptr;
 
     void setupModels();
     QByteArray downloadFile(const QString &url);

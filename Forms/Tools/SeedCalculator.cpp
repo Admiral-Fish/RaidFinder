@@ -39,7 +39,6 @@ SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::Se
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     setupModels();
 }
@@ -47,6 +46,18 @@ SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::Se
 SeedCalculator::~SeedCalculator()
 {
     delete ui;
+}
+
+void SeedCalculator::setIVs(int star, int index, const QVector<u8> &ivs)
+{
+    if (star == 0)
+    {
+        ui->raidInfo12->setIVs(index, ivs);
+    }
+    else
+    {
+        ui->raidInfo35->setIVs(index, ivs);
+    }
 }
 
 void SeedCalculator::setupModels()
