@@ -79,7 +79,7 @@ void ProfileManager::edit()
     if (r < 0)
     {
         QMessageBox error;
-        error.setText(tr("Please select a profile."));
+        error.setText(tr("Please select a profile"));
         error.exec();
         return;
     }
@@ -101,7 +101,7 @@ void ProfileManager::remove()
     if (r < 0)
     {
         QMessageBox error;
-        error.setText(tr("Please select a profile."));
+        error.setText(tr("Please select a profile"));
         error.exec();
         return;
     }

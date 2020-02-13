@@ -288,7 +288,7 @@ void IVCalculator::checkIVs()
     {
         dayType = QStringList({ tr("Day 4 (1st)"), tr("Day 4 (2nd)"), tr("Day 5"), tr("Day 6") });
     }
-    QString dayItem = QInputDialog::getItem(this, tr("Choose day"), tr("day"), dayType, 0, false, &flag,
+    QString dayItem = QInputDialog::getItem(this, tr("Choose day"), tr("Day"), dayType, 0, false, &flag,
                                             Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
 
     if (!flag)
