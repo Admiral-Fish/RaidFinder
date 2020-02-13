@@ -660,7 +660,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -705,7 +705,7 @@
     <addaction name="actionDownloadEventData"/>
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
-    <addaction name="actionSeedSearcher"/>
+    <addaction name="actionSeedCalculator"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -800,9 +800,9 @@
     <string>IV Calculator</string>
    </property>
   </action>
-  <action name="actionSeedSearcher">
+  <action name="actionSeedCalculator">
    <property name="text">
-    <string>Seed Searcher</string>
+    <string>Seed Calculator</string>
    </property>
   </action>
   <action name="actionEncounterLookup">

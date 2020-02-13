@@ -47,7 +47,7 @@ void RaidInfo35::setDen(const Den &den, Game game)
     ui->comboBoxRaidDay6->clear();
 
     auto raids = den.getRaids(game);
-    for (u8 i = 0; i < raids.size(); i++)
+    for (int i = 0; i < raids.size(); i++)
     {
         auto raid = raids.at(i);
         if ((raid.getIVCount() == 2 || raid.getIVCount() == 3) && (raid.getStar(2) || raid.getStar(3) || raid.getStar(4)))

@@ -62,10 +62,12 @@ void TableView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void TableView::outputModelTXT()
+void TableView::outputModel(bool csv) const
 {
-    QString fileName
-        = QFileDialog::getSaveFileName(nullptr, tr("Save Output to TXT"), QDir::currentPath(), tr("Text File (*.txt);;All Files (*)"));
+    QString caption = tr(csv ? "Save Output to CSV" : "Save Output to TXT");
+    QString filter = tr(csv ? "CSV File (*.csv);;All Files (*)" : "Text File (*.txt);;All Files (*)");
+
+    QString fileName = QFileDialog::getSaveFileName(nullptr, caption, QDir::currentPath(), filter);
 
     if (fileName.isEmpty())
     {
@@ -73,7 +75,7 @@ void TableView::outputModelTXT()
     }
 
     QFile file(fileName);
-    if (file.open(QIODevice::WriteOnly))
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
         QAbstractItemModel *model = this->model();
 
@@ -87,61 +89,7 @@ void TableView::outputModelTXT()
             header += model->headerData(i, Qt::Horizontal, 0).toString();
             if (i != columns - 1)
             {
-                header += "\t";
-            }
-        }
-        header += "\n";
-        ts << header;
-
-        for (int i = 0; i < rows; i++)
-        {
-            QString body = "";
-            for (int j = 0; j < columns; j++)
-            {
-                QString entry = model->data(model->index(i, j)).toString();
-                body += (entry.isEmpty() ? "-" : entry);
-                if (i != columns - 1)
-                {
-                    body += "\t";
-                }
-            }
-            if (i != rows - 1)
-            {
-                body += "\n";
-            }
-            ts << body;
-        }
-
-        file.close();
-    }
-}
-
-void TableView::outputModelCSV()
-{
-    QString fileName
-        = QFileDialog::getSaveFileName(nullptr, tr("Save Output to CSV"), QDir::currentPath(), tr("CSV File (*.csv);;All Files (*)"));
-
-    if (fileName.isEmpty())
-    {
-        return;
-    }
-
-    QFile file(fileName);
-    if (file.open(QIODevice::WriteOnly))
-    {
-        QAbstractItemModel *model = this->model();
-
-        QTextStream ts(&file);
-        int rows = model->rowCount();
-        int columns = model->columnCount();
-
-        QString header = "";
-        for (int i = 0; i < columns; i++)
-        {
-            header += model->headerData(i, Qt::Horizontal, 0).toString();
-            if (i != columns - 1)
-            {
-                header += ",";
+                header += csv ? "," : "\t";
             }
         }
         header += "\n";
@@ -156,7 +104,7 @@ void TableView::outputModelCSV()
                 body += (entry.isEmpty() ? "-" : entry);
                 if (j != columns - 1)
                 {
-                    body += ",";
+                    body += csv ? "," : "\t";
                 }
             }
             if (i != rows - 1)
@@ -177,14 +125,14 @@ void TableView::setSelectionToClipBoard()
     {
         QString selectedText;
 
-        for (auto i = 0; i < indexes.size(); i++)
+        for (int i = 0; i < indexes.size(); i++)
         {
-            QModelIndex current = indexes[i];
+            QModelIndex current = indexes.at(i);
             QString text = current.data().toString();
 
             if (i + 1 < selectedIndexes().count())
             {
-                QModelIndex next = indexes[i + 1];
+                QModelIndex next = indexes.at(i + 1);
 
                 if (next.row() != current.row())
                 {

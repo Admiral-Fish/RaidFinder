@@ -30,8 +30,7 @@ public:
     void resizeEvent(QResizeEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
-    void outputModelTXT();
-    void outputModelCSV();
+    void outputModel(bool csv) const;
 
 private:
     void setSelectionToClipBoard();

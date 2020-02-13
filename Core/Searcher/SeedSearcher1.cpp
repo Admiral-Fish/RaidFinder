@@ -174,10 +174,5 @@ bool SeedSearcher1::compareFirst(u64 seed) const
     }
 
     u8 nature = static_cast<u8>(rng.nextInt(25, 31));
-    if (nature != pokemon.at(0).getNature())
-    {
-        return false;
-    }
-
-    return true;
+    return nature == pokemon.at(0).getNature();
 }

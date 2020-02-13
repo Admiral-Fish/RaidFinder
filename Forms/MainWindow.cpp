@@ -31,15 +31,19 @@
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
+#include <QDesktopServices>
 #include <QEventLoop>
 #include <QFile>
 #include <QInputDialog>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMessageBox>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
 #include <QThread>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -51,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     updateProfiles();
     setupModels();
+    QTimer::singleShot(1000, this, &MainWindow::checkUpdates);
 }
 
 MainWindow::~MainWindow()
@@ -134,7 +139,7 @@ void MainWindow::setupModels()
     connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
     currentLanguage = setting.value("settings/locale", "en").toString();
     QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh", "tw" };
-    for (auto i = 0; i < locales.size(); i++)
+    for (int i = 0; i < locales.size(); i++)
     {
         const QString &lang = locales.at(i);
 
@@ -154,7 +159,7 @@ void MainWindow::setupModels()
     connect(styleGroup, &QActionGroup::triggered, this, &MainWindow::slotStyleChanged);
     currentStyle = setting.value("settings/style", "dark").toString();
     QStringList styles = { "dark", "light" };
-    for (auto i = 0; i < styles.size(); i++)
+    for (int i = 0; i < styles.size(); i++)
     {
         const QString &style = styles.at(i);
 
@@ -174,7 +179,7 @@ void MainWindow::setupModels()
     connect(threadGroup, &QActionGroup::triggered, this, &MainWindow::slotThreadChanged);
     int maxThread = QThread::idealThreadCount();
     int thread = setting.value("settings/thread", maxThread).toInt();
-    for (auto i = 1; i <= maxThread; i++)
+    for (int i = 1; i <= maxThread; i++)
     {
         auto *action = ui->menuThread->addAction(QString::number(i));
         action->setData(i);
@@ -190,14 +195,14 @@ void MainWindow::setupModels()
 
     QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
     QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
-    connect(outputTXT, &QAction::triggered, this, [=]() { ui->tableView->outputModelTXT(); });
-    connect(outputCSV, &QAction::triggered, this, [=]() { ui->tableView->outputModelCSV(); });
+    connect(outputTXT, &QAction::triggered, this, [=] { ui->tableView->outputModel(false); });
+    connect(outputCSV, &QAction::triggered, this, [=] { ui->tableView->outputModel(true); });
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
-    connect(ui->actionSeedSearcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
+    connect(ui->actionSeedCalculator, &QAction::triggered, this, &MainWindow::openSeedCalculator);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -338,7 +343,7 @@ void MainWindow::openIVCalculator()
     calculator->show();
 }
 
-void MainWindow::openSeedSearcher()
+void MainWindow::openSeedCalculator()
 {
     auto *searcher = new SeedCalculator();
     searcher->show();
@@ -357,7 +362,8 @@ void MainWindow::downloadEventData()
     }
 
     QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
-    QStringList files, entries;
+    QStringList files;
+    QStringList entries;
     for (const QString &info : infos)
     {
         QStringList data = info.split(',');
@@ -397,6 +403,33 @@ void MainWindow::downloadEventData()
             QApplication::quit();
         }
     }
+}
+
+void MainWindow::checkUpdates()
+{
+    QSettings setting;
+    QDate today = QDate::currentDate();
+    QDate lastOpened = setting.value("settings/lastOpened", today).toDate();
+
+    if (lastOpened.daysTo(today) > 0)
+    {
+        auto response = downloadFile("https://api.github.com/repos/Admiral-Fish/RaidFinder/releases/latest");
+        auto json = QJsonDocument::fromJson(response).object();
+
+        QString webVersion = json["tag_name"].toString().right(5);
+        if (!webVersion.isEmpty() && VERSION != webVersion)
+        {
+            QMessageBox info(QMessageBox::Question, tr("Update Check"),
+                             tr("An update is available. Would you like to download the newest version?"),
+                             QMessageBox::Yes | QMessageBox::No);
+            if (info.exec() == QMessageBox::Yes)
+            {
+                QDesktopServices::openUrl(QUrl("https://github.com/Admiral-Fish/RaidFinder/releases/latest"));
+            }
+        }
+    }
+
+    setting.setValue("settings/lastOpened", today);
 }
 
 void MainWindow::denIndexChanged(int index)

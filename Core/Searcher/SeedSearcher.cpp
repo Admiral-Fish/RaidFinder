@@ -30,7 +30,7 @@ SeedSearcher::SeedSearcher(const QVector<Pokemon> &pokemon, const QVector<int> &
     searching(false),
     progress(0)
 {
-    for (u8 i = 0; i < pokemon.size(); i++)
+    for (int i = 0; i < pokemon.size(); i++)
     {
         const auto &mon = pokemon.at(i);
 
@@ -175,12 +175,7 @@ bool SeedSearcher::compareFirst(u64 seed) const
         }
     }
 
-    if (nature != pokemon.at(0).getNature())
-    {
-        return false;
-    }
-
-    return true;
+    return nature == pokemon.at(0).getNature();
 }
 
 bool SeedSearcher::compareRest(u64 seed) const

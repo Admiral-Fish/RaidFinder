@@ -86,13 +86,13 @@ QVector<QVector<u8>> IVChecker::calculateIVRange(const PersonalInfo &info, const
 {
     QVector<QSet<u8>> first = calculateIVs(info, stats.at(0), level.at(0), nature);
 
-    for (u8 i = 1; i < stats.size(); i++)
+    for (int i = 1; i < stats.size(); i++)
     {
         auto next = calculateIVs(info, stats.at(i), level.at(i), nature);
 
         for (u8 j = 0; j < 6; j++)
         {
-            first[j].intersect(next[j]);
+            first[j].intersect(next.at(j));
         }
     }
 
