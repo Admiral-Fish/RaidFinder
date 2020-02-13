@@ -275,6 +275,33 @@ void RaidInfo35::setupModels()
 
 void RaidInfo35::checkDay4()
 {
+    QVector<bool> possible;
+    if (!isValid(possible))
+    {
+        ui->labelCheck->setText(tr("Incorrect IV count"));
+        return;
+    }
+
+    if (possible.at(3) && possible.at(4))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV/4IV"));
+    }
+    else if (possible.at(3))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV"));
+    }
+    else if (possible.at(4))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 4IV"));
+    }
+    else
+    {
+        ui->labelCheck->setText(tr("IVs not searchable"));
+    }
+}
+
+bool RaidInfo35::isValid(QVector<bool> &possible)
+{
     QVector<u8> ivs = getIVs(0);
 
     int ivCount = ivs.count(31);
@@ -282,8 +309,7 @@ void RaidInfo35::checkDay4()
 
     if (ivCount != limit)
     {
-        ui->labelCheck->setText(tr("Invalid"));
-        return;
+        return false;
     }
 
     QVector<bool> ivFlag;
@@ -293,7 +319,7 @@ void RaidInfo35::checkDay4()
     }
 
     int needNumber = ui->spinBoxIVCountDay4_1->value() < 3 ? 6 : 5;
-    QVector<bool> possible(6, false);
+    possible.fill(false, 6);
     for (int count = ivCount + 1; count < 5; count++)
     {
         int c = ivCount;
@@ -323,22 +349,7 @@ void RaidInfo35::checkDay4()
         }
     }
 
-    if (possible.at(3) && possible.at(4))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV/4IV"));
-    }
-    else if (possible.at(3))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV"));
-    }
-    else if (possible.at(4))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 4IV"));
-    }
-    else
-    {
-        ui->labelCheck->setText(tr("Invalid"));
-    }
+    return true;
 }
 
 void RaidInfo35::raidDay4_1IndexChanged(int index)

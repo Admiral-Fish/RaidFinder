@@ -55,6 +55,7 @@ private:
 
     void setupModels();
     void checkDay4();
+    bool isValid(QVector<bool> &possible);
 
 private slots:
     void raidDay4_1IndexChanged(int index);

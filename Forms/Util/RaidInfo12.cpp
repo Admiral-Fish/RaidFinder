@@ -126,7 +126,8 @@ Pokemon RaidInfo12::getPokemonDay2() const
 
 bool RaidInfo12::isValid() const
 {
-    return ui->labelCheck->text() == tr("Valid");
+    auto ivs = getIVs(0);
+    return ivs.count(31) == 1;
 }
 
 void RaidInfo12::setupModels()
@@ -155,6 +156,7 @@ void RaidInfo12::raidDay1IndexChanged(int index)
         auto info = PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm());
 
         ui->spinBoxIVCountDay1->setValue(raid.getIVCount());
+        checkValid();
 
         ui->comboBoxAbilityDay1->clear();
         ui->comboBoxAbilityDay1->addItem(Translator::getAbility(info.getAbility1()), info.getAbility1());
@@ -193,14 +195,12 @@ void RaidInfo12::raidDay2IndexChanged(int index)
 
 void RaidInfo12::checkValid()
 {
-    auto ivs = getIVs(0);
-
-    if (ivs.count(31) == 1)
+    if (isValid())
     {
         ui->labelCheck->setText(tr("Valid"));
     }
     else
     {
-        ui->labelCheck->setText(tr("Invalid"));
+        ui->labelCheck->setText(tr("Incorrect IV count"));
     }
 }
