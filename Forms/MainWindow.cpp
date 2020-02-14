@@ -492,7 +492,11 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
         if (raid.getAbility() == 4)
         {
-            ui->comboBoxAbility->setItemText(3, "H: " + Translator::getAbility(info.getAbilityH()));
+            ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
+        }
+        else
+        {
+            ui->comboBoxAbility->removeItem(3);
         }
     }
 }
