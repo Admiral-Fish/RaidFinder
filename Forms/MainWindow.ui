@@ -126,6 +126,9 @@
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="3" column="1">
         <widget class="QComboBox" name="comboBoxAbilityType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string notr="true">1</string>
@@ -155,6 +158,9 @@
        </item>
        <item row="2" column="3">
         <widget class="QComboBox" name="comboBoxShinyType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string>Random</string>
@@ -208,6 +214,9 @@
        </item>
        <item row="1" column="3">
         <widget class="QComboBox" name="comboBoxGenderRatio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string>Genderless</string>
@@ -272,7 +281,11 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="comboBoxSpecies"/>
+        <widget class="QComboBox" name="comboBoxSpecies">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item row="0" column="2">
         <widget class="QLabel" name="labelGenderType">
@@ -289,6 +302,9 @@
        </item>
        <item row="2" column="1">
         <widget class="QSpinBox" name="spinBoxIVCount">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimum">
           <number>1</number>
          </property>
@@ -312,6 +328,9 @@
        </item>
        <item row="0" column="3">
         <widget class="QComboBox" name="comboBoxGenderType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string>Random</string>
