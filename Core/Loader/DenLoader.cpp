@@ -213,7 +213,7 @@ void DenLoader::init()
 
             u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
             u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
-            u8 swordShinyType = static_cast<u8>(swordEntry["Field_12"].toInt());
+            u8 swordShinyType = static_cast<u8>(swordEntry["ShinyForced"].toInt());
             u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
             u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
             bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
@@ -227,7 +227,7 @@ void DenLoader::init()
 
             u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
             u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
-            u8 shieldShinyType = static_cast<u8>(swordEntry["Field_12"].toInt());
+            u8 shieldShinyType = static_cast<u8>(swordEntry["ShinyForced"].toInt());
             u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
             u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
             bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
