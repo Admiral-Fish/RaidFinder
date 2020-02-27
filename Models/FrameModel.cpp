@@ -20,6 +20,7 @@
 #include "FrameModel.hpp"
 #include <Core/Util/Nature.hpp>
 #include <Core/Util/Translator.hpp>
+#include <cmath>
 
 FrameModel::FrameModel(QObject *parent) : TableModel<Frame>(parent), showStats(false), level(1)
 {
