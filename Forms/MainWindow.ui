@@ -699,8 +699,9 @@
      <addaction name="actionItalian"/>
      <addaction name="actionJapanese"/>
      <addaction name="actionKorean"/>
-     <addaction name="actionChinese"/>
+     <addaction name="actionPortuguese"/>
      <addaction name="actionChineseTraditional"/>
+     <addaction name="actionChinese"/>
     </widget>
     <widget class="QMenu" name="menuThread">
      <property name="title">
@@ -835,6 +836,14 @@
   <action name="actionDownloadEventData">
    <property name="text">
     <string>Download Event Data</string>
+   </property>
+  </action>
+  <action name="actionPortuguese">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Portuguese</string>
    </property>
   </action>
  </widget>
