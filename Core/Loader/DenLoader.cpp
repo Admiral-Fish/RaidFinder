@@ -24,6 +24,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <array>
 
 // Normal hash, rare hash, location, x, y
 constexpr u64 denInfo[100][5] = {
@@ -151,41 +152,45 @@ void DenLoader::init()
             QJsonArray shieldEntries = table["ShieldEntries"].toArray();
 
             QVector<Raid> swordRaids;
-            QVector<Raid> shieldRaids;
-            for (u8 j = 0; j < 12; j++)
+            for (auto j : swordEntries)
             {
-                QJsonObject swordEntry = swordEntries[j].toObject();
-                QJsonObject shieldEntry = shieldEntries[j].toObject();
+                QJsonObject entry = j.toObject();
 
-                u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
-                u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
-                u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
-                u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
-                bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
-                u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
+                u8 ability = static_cast<u8>(entry["Ability"].toInt());
+                u8 altform = static_cast<u8>(entry["AltForm"].toInt());
+                u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
+                u8 gender = static_cast<u8>(entry["Gender"].toInt());
+                bool gigantamax = entry["IsGigantamax"].toBool();
+                u16 species = static_cast<u16>(entry["Species"].toInt());
 
-                bool swordStar[5];
+                std::array<bool, 5> star;
                 for (u8 k = 0; k < 5; k++)
                 {
-                    swordStar[k] = swordEntry["Stars"].toArray()[k].toBool();
+                    star[k] = entry["Stars"].toArray()[k].toBool();
                 }
 
-                u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
-                u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
-                u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
-                u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
-                bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
-                u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+                swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star));
+            }
 
-                bool shieldStar[5];
+            QVector<Raid> shieldRaids;
+            for (auto j : shieldEntries)
+            {
+                QJsonObject entry = j.toObject();
+
+                u8 ability = static_cast<u8>(entry["Ability"].toInt());
+                u8 altform = static_cast<u8>(entry["AltForm"].toInt());
+                u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
+                u8 gender = static_cast<u8>(entry["Gender"].toInt());
+                bool gigantamax = entry["IsGigantamax"].toBool();
+                u16 species = static_cast<u16>(entry["Species"].toInt());
+
+                std::array<bool, 5> star;
                 for (u8 k = 0; k < 5; k++)
                 {
-                    shieldStar[k] = shieldEntry["Stars"].toArray()[k].toBool();
+                    star[k] = entry["Stars"].toArray()[k].toBool();
                 }
 
-                swordRaids.append(Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar));
-                shieldRaids.append(
-                    Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar));
+                shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star));
             }
 
             u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
@@ -205,44 +210,47 @@ void DenLoader::init()
         QJsonArray shieldEntries = tables.at(1).toObject()["Entries"].toArray();
 
         QVector<Raid> swordRaids;
-        QVector<Raid> shieldRaids;
-        for (u8 j = 0; j < 30; j++)
+        for (auto i : swordEntries)
         {
-            QJsonObject swordEntry = swordEntries[j].toObject();
-            QJsonObject shieldEntry = shieldEntries[j].toObject();
+            QJsonObject entry = i.toObject();
 
-            u8 swordAbility = static_cast<u8>(swordEntry["Ability"].toInt());
-            u8 swordAltform = static_cast<u8>(swordEntry["AltForm"].toInt());
-            u8 swordShinyType = static_cast<u8>(swordEntry["ShinyForced"].toInt());
-            u8 swordIVCount = static_cast<u8>(swordEntry["FlawlessIVs"].toInt());
-            u8 swordGender = static_cast<u8>(swordEntry["Gender"].toInt());
-            bool swordGigantamax = swordEntry["IsGigantamax"].toBool();
-            u16 swordSpecies = static_cast<u16>(swordEntry["Species"].toInt());
+            u8 ability = static_cast<u8>(entry["Ability"].toInt());
+            u8 altform = static_cast<u8>(entry["AltForm"].toInt());
+            u8 shinyType = static_cast<u8>(entry["ShinyForced"].toInt());
+            u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
+            u8 gender = static_cast<u8>(entry["Gender"].toInt());
+            bool gigantamax = entry["IsGigantamax"].toBool();
+            u16 species = static_cast<u16>(entry["Species"].toInt());
 
-            bool swordStar[5];
+            std::array<bool, 5> star;
             for (u8 k = 0; k < 5; k++)
             {
-                swordStar[k] = swordEntry["Probabilities"].toArray()[k].toInt() != 0;
+                star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
             }
 
-            u8 shieldAbility = static_cast<u8>(shieldEntry["Ability"].toInt());
-            u8 shieldAltform = static_cast<u8>(shieldEntry["AltForm"].toInt());
-            u8 shieldShinyType = static_cast<u8>(swordEntry["ShinyForced"].toInt());
-            u8 shieldIVCount = static_cast<u8>(shieldEntry["FlawlessIVs"].toInt());
-            u8 shieldGender = static_cast<u8>(shieldEntry["Gender"].toInt());
-            bool shieldGigantamax = shieldEntry["IsGigantamax"].toBool();
-            u16 shieldSpecies = static_cast<u16>(shieldEntry["Species"].toInt());
+            swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+        }
 
-            bool shieldStar[5];
+        QVector<Raid> shieldRaids;
+        for (auto i : shieldEntries)
+        {
+            QJsonObject entry = i.toObject();
+
+            u8 ability = static_cast<u8>(entry["Ability"].toInt());
+            u8 altform = static_cast<u8>(entry["AltForm"].toInt());
+            u8 shinyType = static_cast<u8>(entry["ShinyForced"].toInt());
+            u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
+            u8 gender = static_cast<u8>(entry["Gender"].toInt());
+            bool gigantamax = entry["IsGigantamax"].toBool();
+            u16 species = static_cast<u16>(entry["Species"].toInt());
+
+            std::array<bool, 5> star;
             for (u8 k = 0; k < 5; k++)
             {
-                shieldStar[k] = shieldEntry["Probabilities"].toArray()[k].toInt() != 0;
+                star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
             }
 
-            swordRaids.append(
-                Raid(swordAbility, swordAltform, swordIVCount, swordGender, swordGigantamax, swordSpecies, swordStar, swordShinyType));
-            shieldRaids.append(Raid(shieldAbility, shieldAltform, shieldIVCount, shieldGender, shieldGigantamax, shieldSpecies, shieldStar,
-                                    shieldShinyType));
+            shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
         }
         dens[0x17e59bbd874fd95c] = Den(swordRaids, shieldRaids);
     }

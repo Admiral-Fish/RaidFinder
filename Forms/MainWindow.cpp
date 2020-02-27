@@ -503,12 +503,10 @@ void MainWindow::speciesIndexChanged(int index)
 
 void MainWindow::tableViewContextMenu(QPoint pos)
 {
-    if (model->rowCount() == 0)
+    if (model->rowCount() > 0)
     {
-        return;
+        menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
     }
-
-    menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
 void MainWindow::generate()

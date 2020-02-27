@@ -20,20 +20,17 @@
 #include "Raid.hpp"
 #include <Core/Loader/PersonalLoader.hpp>
 
-Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const bool star[], u8 shinyType) :
+Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<bool, 5> &star, u8 shinyType) :
     ability(ability),
     altform(altform),
     ivCount(ivCount),
     gender(gender),
+    genderRatio(PersonalLoader::getInfo(species, altform).getGenderRatio()),
     gigantamax(gigantamax),
     species(species),
+    star(star),
     shinyType(shinyType)
 {
-    genderRatio = PersonalLoader::getInfo(species, altform).getGenderRatio();
-    for (u8 i = 0; i < 5; i++)
-    {
-        this->star[i] = star[i];
-    }
 }
 
 u8 Raid::getAbility() const
