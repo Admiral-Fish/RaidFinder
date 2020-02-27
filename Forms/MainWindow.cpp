@@ -65,6 +65,7 @@ MainWindow::~MainWindow()
     setting.setValue("mainWindow/geometry", this->saveGeometry());
     setting.setValue("settings/locale", currentLanguage);
     setting.setValue("settings/style", currentStyle);
+    setting.setValue("settings/seed", ui->textBoxSeed->text());
 
     delete ui;
     delete ivCalculator;
@@ -213,6 +214,10 @@ void MainWindow::setupModels()
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
+    if (setting.contains("settings/seed"))
+    {
+        ui->textBoxSeed->setText(setting.value("settings/seed").toString());
+    }
     if (setting.contains("mainWindow/geometry"))
     {
         this->restoreGeometry(setting.value("mainWindow/geometry").toByteArray());
