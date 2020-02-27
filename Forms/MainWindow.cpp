@@ -116,6 +116,10 @@ void MainWindow::setupModels()
     ui->comboBoxShinyType->setItemData(0, 0);
     ui->comboBoxShinyType->setItemData(1, 2);
 
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
     for (u8 i = 0; i < 100; i++)
     {
         if (i == 16)
@@ -125,11 +129,6 @@ void MainWindow::setupModels()
 
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
-    }
-
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 100);
     }
 
     denIndexChanged(0);
