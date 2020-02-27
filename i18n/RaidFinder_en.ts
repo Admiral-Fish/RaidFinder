@@ -663,76 +663,76 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="131"/>
-        <location filename="../Forms/MainWindow.cpp" line="393"/>
+        <location filename="../Forms/MainWindow.cpp" line="132"/>
+        <location filename="../Forms/MainWindow.cpp" line="398"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="200"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="245"/>
+        <location filename="../Forms/MainWindow.cpp" line="250"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="245"/>
-        <location filename="../Forms/MainWindow.cpp" line="265"/>
+        <location filename="../Forms/MainWindow.cpp" line="250"/>
+        <location filename="../Forms/MainWindow.cpp" line="270"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="265"/>
+        <location filename="../Forms/MainWindow.cpp" line="270"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
-        <location filename="../Forms/MainWindow.cpp" line="404"/>
+        <location filename="../Forms/MainWindow.cpp" line="381"/>
+        <location filename="../Forms/MainWindow.cpp" line="409"/>
         <source>Download failed</source>
         <translation>Download failed</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="377"/>
-        <location filename="../Forms/MainWindow.cpp" line="405"/>
+        <location filename="../Forms/MainWindow.cpp" line="382"/>
+        <location filename="../Forms/MainWindow.cpp" line="410"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>Make sure you are connected to the internet and have OpenSSL setup</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="393"/>
+        <location filename="../Forms/MainWindow.cpp" line="398"/>
         <source>Download event data</source>
         <translation>Download event data</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="416"/>
+        <location filename="../Forms/MainWindow.cpp" line="421"/>
         <source>Download finished</source>
         <translation>Download finished</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="416"/>
+        <location filename="../Forms/MainWindow.cpp" line="421"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>Restart to see event data. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="440"/>
+        <location filename="../Forms/MainWindow.cpp" line="445"/>
         <source>Update Check</source>
         <translation>Update Check</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="441"/>
+        <location filename="../Forms/MainWindow.cpp" line="446"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation>An update is available. Would you like to download the newest version?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="489"/>
+        <location filename="../Forms/MainWindow.cpp" line="494"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="489"/>
+        <location filename="../Forms/MainWindow.cpp" line="494"/>
         <source>No</source>
         <translation>No</translation>
     </message>

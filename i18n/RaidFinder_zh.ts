@@ -663,76 +663,76 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="131"/>
-        <location filename="../Forms/MainWindow.cpp" line="393"/>
+        <location filename="../Forms/MainWindow.cpp" line="132"/>
+        <location filename="../Forms/MainWindow.cpp" line="398"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="200"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="245"/>
+        <location filename="../Forms/MainWindow.cpp" line="250"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="245"/>
-        <location filename="../Forms/MainWindow.cpp" line="265"/>
+        <location filename="../Forms/MainWindow.cpp" line="250"/>
+        <location filename="../Forms/MainWindow.cpp" line="270"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="265"/>
+        <location filename="../Forms/MainWindow.cpp" line="270"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
-        <location filename="../Forms/MainWindow.cpp" line="404"/>
+        <location filename="../Forms/MainWindow.cpp" line="381"/>
+        <location filename="../Forms/MainWindow.cpp" line="409"/>
         <source>Download failed</source>
         <translation>下载失败</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="377"/>
-        <location filename="../Forms/MainWindow.cpp" line="405"/>
+        <location filename="../Forms/MainWindow.cpp" line="382"/>
+        <location filename="../Forms/MainWindow.cpp" line="410"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="393"/>
+        <location filename="../Forms/MainWindow.cpp" line="398"/>
         <source>Download event data</source>
         <translation>下载活动数据</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="416"/>
+        <location filename="../Forms/MainWindow.cpp" line="421"/>
         <source>Download finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="416"/>
+        <location filename="../Forms/MainWindow.cpp" line="421"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="440"/>
+        <location filename="../Forms/MainWindow.cpp" line="445"/>
         <source>Update Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="441"/>
+        <location filename="../Forms/MainWindow.cpp" line="446"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="489"/>
+        <location filename="../Forms/MainWindow.cpp" line="494"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="489"/>
+        <location filename="../Forms/MainWindow.cpp" line="494"/>
         <source>No</source>
         <translation>否</translation>
     </message>
