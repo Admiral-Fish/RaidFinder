@@ -6,4 +6,4 @@
 200131_milcery.bin,868
 200207_toxtricity.bin,849
 200217_krabby.bin,98
-200227_squirtle.json,7
+200227_squirtle.bin,7
