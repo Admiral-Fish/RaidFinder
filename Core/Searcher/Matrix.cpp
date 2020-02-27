@@ -291,14 +291,14 @@ inline u64 getSignature(u64 value)
 
 Matrix::Matrix()
 {
-    std::memset(tempMatrix, 0, sizeof(u64) * 256);
-    std::memset(inputMatrix, 0, sizeof(u64) * 64);
-    std::memset(coefficient, 0, sizeof(u64) * 64);
-    std::memset(answerFlag, 0, sizeof(u64) * 64);
-    std::memset(freeBit, false, sizeof(bool) * 64);
-    std::memset(freeId, 0, sizeof(int) * 64);
-    std::memset(coefficientData, 0, sizeof(u64) * 0x4000);
-    std::memset(searchPattern, 0, sizeof(u64) * 0x4000);
+    std::memset(tempMatrix, 0, sizeof(tempMatrix));
+    std::memset(inputMatrix, 0, sizeof(inputMatrix));
+    std::memset(coefficient, 0, sizeof(coefficient));
+    std::memset(answerFlag, 0, sizeof(answerFlag));
+    std::memset(freeBit, false, sizeof(freeBit));
+    std::memset(freeId, 0, sizeof(freeId));
+    std::memset(coefficientData, 0, sizeof(coefficientData));
+    std::memset(searchPattern, 0, sizeof(searchPattern));
 }
 
 void Matrix::prepare(bool ability, int ivOffset)
@@ -476,7 +476,7 @@ void Matrix::calculateInverseMatrix(int length)
         answerFlag[i] = (1ull << (length - 1 - i));
     }
 
-    std::memset(freeBit, false, sizeof(bool) * 64);
+    std::memset(freeBit, false, sizeof(freeBit));
 
     int skip = 0;
     for (int rank = 0; rank + skip < 64;)
