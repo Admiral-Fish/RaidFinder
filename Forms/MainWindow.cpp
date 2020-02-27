@@ -211,6 +211,8 @@ void MainWindow::setupModels()
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
+    connect(ui->checkBoxShowStats, &QCheckBox::toggled, this, &MainWindow::showStatsToggled);
+    connect(ui->spinBoxLevel, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::levelValueChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
     if (setting.contains("settings/seed"))
@@ -503,6 +505,17 @@ void MainWindow::speciesIndexChanged(int index)
             ui->comboBoxAbility->removeItem(3);
         }
     }
+}
+
+void MainWindow::showStatsToggled(bool flag)
+{
+    ui->spinBoxLevel->setEnabled(flag);
+    model->setShowStats(flag);
+}
+
+void MainWindow::levelValueChanged(int value)
+{
+    model->setLevel(value);
 }
 
 void MainWindow::tableViewContextMenu(QPoint pos)

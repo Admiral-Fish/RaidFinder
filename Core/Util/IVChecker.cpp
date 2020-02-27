@@ -18,36 +18,9 @@
  */
 
 #include "IVChecker.hpp"
+#include <Core/Util/Nature.hpp>
 #include <QSet>
 #include <cmath>
-
-constexpr double modifiers[25][6] = {
-    { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }, // Hardy
-    { 1.0, 1.1, 0.9, 1.0, 1.0, 1.0 }, // Lonely
-    { 1.0, 1.1, 1.0, 1.0, 1.0, 0.9 }, // Brave
-    { 1.0, 1.1, 1.0, 0.9, 1.0, 1.0 }, // Adamant
-    { 1.0, 1.1, 1.0, 1.0, 0.9, 1.0 }, // Naughty
-    { 1.0, 0.9, 1.1, 1.0, 1.0, 1.0 }, // Bold
-    { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }, // Docile
-    { 1.0, 1.0, 1.1, 1.0, 1.0, 0.9 }, // Relaxed
-    { 1.0, 1.0, 1.1, 0.9, 1.0, 1.0 }, // Impish
-    { 1.0, 1.0, 1.1, 1.0, 0.9, 1.0 }, // Lax
-    { 1.0, 0.9, 1.0, 1.0, 1.0, 1.1 }, // Timid
-    { 1.0, 1.0, 0.9, 1.0, 1.0, 1.1 }, // Hasty
-    { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }, // Serious
-    { 1.0, 1.0, 1.0, 0.9, 1.0, 1.1 }, // Jolly
-    { 1.0, 1.0, 1.0, 1.0, 0.9, 1.1 }, // Naive
-    { 1.0, 0.9, 1.0, 1.1, 1.0, 1.0 }, // Modest
-    { 1.0, 1.0, 0.9, 1.1, 1.0, 1.0 }, // Mild
-    { 1.0, 1.0, 1.0, 1.1, 1.0, 0.9 }, // Quiet
-    { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }, // Bashful
-    { 1.0, 1.0, 1.0, 1.1, 0.9, 1.0 }, // Rash
-    { 1.0, 0.9, 1.0, 1.0, 1.1, 1.0 }, // Calm
-    { 1.0, 1.0, 0.9, 1.0, 1.1, 1.0 }, // Gentle
-    { 1.0, 1.0, 1.0, 1.0, 1.1, 0.9 }, // Sassy
-    { 1.0, 1.0, 1.0, 0.9, 1.1, 1.0 }, // Careful
-    { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 } // Quirky
-};
 
 namespace
 {
@@ -67,7 +40,7 @@ namespace
                 }
                 else
                 {
-                    stat = (std::floor(((2 * baseStats.at(i) + iv) * level) / 100.0) + 5) * modifiers[nature][i];
+                    stat = (std::floor(((2 * baseStats.at(i) + iv) * level) / 100.0) + 5) * Nature::getNatureModifier(nature, i);
                 }
 
                 if (static_cast<u16>(stat) == stats.at(i))

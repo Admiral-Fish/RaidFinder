@@ -76,6 +76,8 @@ private slots:
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
+    void showStatsToggled(bool flag);
+    void levelValueChanged(int value);
     void tableViewContextMenu(QPoint pos);
     void generate();
 };

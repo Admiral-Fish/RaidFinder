@@ -118,7 +118,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
 
         // Set IVs that will be 31s
-        for (u8 i = 0; i < ivCount;)
+        for (int i = 0; i < ivCount;)
         {
             u8 index = static_cast<u8>(rng.nextInt(6, 7));
             if (result.getIV(index) == 255)
@@ -129,7 +129,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
 
         // Fill rest of IVs with rand calls
-        for (u8 i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             if (result.getIV(i) == 255)
             {

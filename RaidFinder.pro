@@ -65,6 +65,7 @@ HEADERS += \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
+    Core/Util/Nature.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
@@ -103,6 +104,7 @@ SOURCES += \
     Core/Searcher/SeedSearcher2.cpp \
     Core/Searcher/SeedSearcher3.cpp \
     Core/Util/IVChecker.cpp \
+    Core/Util/Nature.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \

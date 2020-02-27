@@ -29,6 +29,8 @@ class FrameModel : public TableModel<Frame>
     Q_OBJECT
 public:
     FrameModel(QObject *parent = nullptr);
+    void setShowStats(bool showStats);
+    void setLevel(int level);
     void setInfo(const PersonalInfo &info);
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
@@ -36,6 +38,8 @@ public:
 
 private:
     PersonalInfo info;
+    bool showStats;
+    int level;
     QStringList header = { tr("Frame"), tr("HP"),    tr("Atk"),    tr("Def"),     tr("SpA"),    tr("SpD"),
                            tr("Spe"),   tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Characteristic"),
                            tr("Seed"),  tr("EC"),    tr("PID") };

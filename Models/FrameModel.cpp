@@ -18,10 +18,23 @@
  */
 
 #include "FrameModel.hpp"
+#include <Core/Util/Nature.hpp>
 #include <Core/Util/Translator.hpp>
 
-FrameModel::FrameModel(QObject *parent) : TableModel<Frame>(parent)
+FrameModel::FrameModel(QObject *parent) : TableModel<Frame>(parent), showStats(false), level(1)
 {
+}
+
+void FrameModel::setLevel(int level)
+{
+    this->level = level;
+    emit dataChanged(index(0, 1), index(rowCount(), 6), { Qt::DisplayRole });
+}
+
+void FrameModel::setShowStats(bool showStats)
+{
+    this->showStats = showStats;
+    emit dataChanged(index(0, 1), index(rowCount(), 6), { Qt::DisplayRole });
 }
 
 void FrameModel::setInfo(const PersonalInfo &info)
@@ -51,7 +64,24 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         case 4:
         case 5:
         case 6:
-            return frame.getIV(static_cast<u8>(column - 1));
+            if (!showStats)
+            {
+                return frame.getIV(static_cast<u8>(column - 1));
+            }
+            else
+            {
+                double stat = std::floor(((2 * info.getBaseStat(column - 1) + frame.getIV(column - 1)) * level) / 100.0);
+                if (column == 1)
+                {
+                    stat += level + 10;
+                }
+                else
+                {
+                    stat = std::floor((stat + 5) * Nature::getNatureModifier(frame.getNature(), column - 1));
+                }
+
+                return stat;
+            }
         case 7:
         {
             u8 shiny = frame.getShiny();
@@ -80,9 +110,7 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
             return gender == 0 ? "♂" : gender == 1 ? "♀" : "-";
         }
         case 11:
-        {
             return Translator::getCharacteristic(frame.getCharacteristic());
-        }
         case 12:
             return QString::number(frame.getSeed(), 16).toUpper();
         case 13:

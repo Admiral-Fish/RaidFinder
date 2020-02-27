@@ -17,35 +17,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PERSONALINFO_HPP
-#define PERSONALINFO_HPP
+#ifndef NATURE_HPP
+#define NATURE_HPP
 
 #include <Core/Util/Global.hpp>
-#include <QVector>
 
-class PersonalInfo
+namespace Nature
 {
-public:
-    PersonalInfo() = default;
-    PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 genderRatio, u16 ability1, u16 ability2, u16 abilityH, u8 formCount,
-                 u16 formStatIndex, bool included);
-    QVector<u8> getBaseStats() const;
-    u8 getBaseStat(int index) const;
-    u8 getGenderRatio() const;
-    u16 getAbility1() const;
-    u16 getAbility2() const;
-    u16 getAbilityH() const;
-    u8 getFormCount() const;
-    u16 getFormStatIndex() const;
-    bool getIncluded() const;
+    double getNatureModifier(u8 nature, int index);
+}
 
-private:
-    u8 hp, atk, def, spa, spd, spe;
-    u8 genderRatio;
-    u16 ability1, ability2, abilityH;
-    u8 formCount;
-    u16 formStatIndex;
-    bool included;
-};
-
-#endif // PERSONALINFO_HPP
+#endif // NATURE_HPP
