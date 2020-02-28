@@ -200,7 +200,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
             }
         }
 
-        // Heigh (2 calls)
+        // Height (2 calls)
         // Weight (2 calls)
 
         if (filter.compareFrame(result))
