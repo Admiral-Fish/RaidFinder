@@ -417,13 +417,13 @@ u64 Matrix::getSearchPattern(u64 index) const
 
 void Matrix::initializeTransformationMatrix()
 {
-    std::memcpy(tempMatrix, c_N, sizeof(u64) * 256);
+    std::memcpy(tempMatrix, c_N, sizeof(tempMatrix));
 }
 
 void Matrix::proceedTransformationMatrix()
 {
     u64 temp[256];
-    std::memcpy(temp, tempMatrix, sizeof(u64) * 256);
+    std::memcpy(temp, tempMatrix, sizeof(temp));
 
     for (int i = 0; i < 128; i++)
     {
