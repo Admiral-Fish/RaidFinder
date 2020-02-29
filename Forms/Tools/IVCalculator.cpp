@@ -183,9 +183,9 @@ void IVCalculator::findIVs()
 
     u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
     u8 form = static_cast<u8>(ui->comboBoxAltForm->currentIndex());
-    PersonalInfo info = PersonalLoader::getInfo(species, form);
+    auto info = PersonalLoader::getInfo(species, form);
 
-    auto possible = IVChecker::calculateIVRange(info, stats, levels, nature);
+    auto possible = IVChecker::calculateIVRange(info.getBaseStats(), stats, levels, nature);
 
     displayIVs(ui->labelHPIVValue, possible.at(0));
     displayIVs(ui->labelAtkIVValue, possible.at(1));

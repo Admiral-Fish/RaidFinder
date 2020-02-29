@@ -24,10 +24,9 @@
 
 namespace
 {
-    QVector<QSet<u8>> calculateIVs(const PersonalInfo &info, const QVector<u16> &stats, u8 level, u8 nature)
+    QVector<QSet<u8>> calculateIVs(const QVector<u8> &baseStats, const QVector<u16> &stats, u8 level, u8 nature)
     {
         QVector<QSet<u8>> ivs(6);
-        QVector<u8> baseStats = info.getBaseStats();
 
         for (u8 i = 0; i < 6; i++)
         {
@@ -54,14 +53,14 @@ namespace
     }
 }
 
-QVector<QVector<u8>> IVChecker::calculateIVRange(const PersonalInfo &info, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
+QVector<QVector<u8>> IVChecker::calculateIVRange(const QVector<u8> &baseStats, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
                                                  u8 nature)
 {
-    QVector<QSet<u8>> first = calculateIVs(info, stats.at(0), level.at(0), nature);
+    QVector<QSet<u8>> first = calculateIVs(baseStats, stats.at(0), level.at(0), nature);
 
     for (int i = 1; i < stats.size(); i++)
     {
-        auto next = calculateIVs(info, stats.at(i), level.at(i), nature);
+        auto next = calculateIVs(baseStats, stats.at(i), level.at(i), nature);
 
         for (u8 j = 0; j < 6; j++)
         {
