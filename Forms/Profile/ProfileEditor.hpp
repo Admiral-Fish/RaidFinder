@@ -28,7 +28,7 @@ namespace Ui
     class ProfileEditor;
 }
 
-class ProfileEditor : public QDialog
+class ProfileEditor final : public QDialog
 {
     Q_OBJECT
 signals:
@@ -39,7 +39,7 @@ public:
     explicit ProfileEditor(QWidget *parent = nullptr);
     explicit ProfileEditor(const Profile &profile, QWidget *parent = nullptr);
     explicit ProfileEditor(u32 tick, u32 offset, QWidget *parent = nullptr);
-    ~ProfileEditor() override;
+    ~ProfileEditor() override final;
     Profile getNewProfile();
     Profile getOriginal();
 

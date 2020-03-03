@@ -22,7 +22,7 @@
 
 #include <QLabel>
 
-class Label : public QLabel
+class Label final : public QLabel
 {
     Q_OBJECT
 signals:
@@ -30,7 +30,7 @@ signals:
 
 public:
     explicit Label(QWidget *parent = nullptr);
-    void mousePressEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override final;
 };
 
 #endif // LABEL_HPP

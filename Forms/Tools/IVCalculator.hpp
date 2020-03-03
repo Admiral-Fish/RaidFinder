@@ -28,7 +28,7 @@ namespace Ui
     class IVCalculator;
 }
 
-class IVCalculator : public QWidget
+class IVCalculator final : public QWidget
 {
     Q_OBJECT
 signals:
@@ -36,7 +36,7 @@ signals:
 
 public:
     explicit IVCalculator(QWidget *parent = nullptr);
-    ~IVCalculator() override;
+    ~IVCalculator() override final;
 
     void setConnected(bool connected);
 

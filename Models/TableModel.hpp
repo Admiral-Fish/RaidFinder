@@ -84,7 +84,7 @@ public:
         }
     }
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override final
     {
         (void)parent;
         return model.size();

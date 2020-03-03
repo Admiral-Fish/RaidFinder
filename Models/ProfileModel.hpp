@@ -23,14 +23,14 @@
 #include <Core/Results/Profile.hpp>
 #include <Models/TableModel.hpp>
 
-class ProfileModel : public TableModel<Profile>
+class ProfileModel final : public TableModel<Profile>
 {
     Q_OBJECT
 public:
     ProfileModel(QObject *parent = nullptr);
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override final;
+    QVariant data(const QModelIndex &index, int role) const override final;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override final;
 
 private:
     QStringList header = { tr("Profile Name"), tr("Version"), tr("TID"), tr("SID") };

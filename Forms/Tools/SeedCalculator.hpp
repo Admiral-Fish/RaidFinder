@@ -28,13 +28,12 @@ namespace Ui
     class SeedCalculator;
 }
 
-class SeedCalculator : public QWidget
+class SeedCalculator final : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit SeedCalculator(QWidget *parent = nullptr);
-    ~SeedCalculator() override;
+    ~SeedCalculator() override final;
 
 public slots:
     void setIVs(int star, int index, int nature, const QVector<u8> &ivs);

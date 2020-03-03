@@ -31,13 +31,12 @@ namespace Ui
     class EncounterLookup;
 }
 
-class EncounterLookup : public QWidget
+class EncounterLookup final : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit EncounterLookup(QWidget *parent = nullptr);
-    ~EncounterLookup() override;
+    ~EncounterLookup() override final;
 
 private:
     Ui::EncounterLookup *ui;

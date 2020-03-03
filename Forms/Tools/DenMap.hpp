@@ -27,12 +27,12 @@ namespace Ui
     class DenMap;
 }
 
-class DenMap : public QWidget
+class DenMap final : public QWidget
 {
     Q_OBJECT
 public:
     explicit DenMap(QWidget *parent = nullptr);
-    ~DenMap();
+    ~DenMap() override final;
 
 private:
     Ui::DenMap *ui;

@@ -29,12 +29,12 @@ namespace Ui
     class RaidInfo35;
 }
 
-class RaidInfo35 : public QWidget
+class RaidInfo35 final : public QWidget
 {
     Q_OBJECT
 public:
     explicit RaidInfo35(QWidget *parent = nullptr);
-    ~RaidInfo35() override;
+    ~RaidInfo35() override final;
     void setDen(const Den &den, Game game);
     bool isValid() const;
     QVector<u8> getIVs(int index) const;
