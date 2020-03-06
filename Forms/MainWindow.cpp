@@ -391,8 +391,16 @@ void MainWindow::downloadEventData()
     for (const QString &info : infos)
     {
         QStringList data = info.split(',');
-        files.append(data.at(0));
-        entries.append(Translator::getSpecie(data.at(1).toUShort()));
+        QString file = data.at(0);
+        u16 specie = data.at(1).toUShort();
+
+        files.append(file);
+
+        file = file.left(file.indexOf('_'));
+        file.insert(2, '-');
+        file.insert(5, '-');
+
+        entries.append(QString("%1: %2").arg(file, Translator::getSpecie(specie)));
     }
 
     bool flag;
