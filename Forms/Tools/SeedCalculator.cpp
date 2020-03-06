@@ -172,10 +172,10 @@ void SeedCalculator::search35()
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(nullptr) - startTime;
         ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
-                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
-                                   .arg("00").arg("00").arg("00"));
+                                       .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                       .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                       .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                       .arg("00", "00", "00"));
 
         delete searcher;
 
@@ -243,10 +243,10 @@ void SeedCalculator::search12()
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(nullptr) - startTime;
         ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
-                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
-                                   .arg("00").arg("00").arg("00"));
+                                       .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                       .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                       .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                       .arg("00", "00", "00"));
 
         delete searcher;
 
