@@ -16,7 +16,7 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation>坑地图</translation>
+        <translation> 巢穴地图</translation>
     </message>
 </context>
 <context>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Encounter Lookup</source>
-        <translation>坑位检索</translation>
+        <translation>巢穴检索</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
@@ -257,37 +257,37 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Information</source>
-        <translation>信息</translation>
+        <translation>种族值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base HP</source>
-        <translation>HP种族值</translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Atk</source>
-        <translation>攻击种族值</translation>
+        <translation>攻击</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Def</source>
-        <translation>防御种族值</translation>
+        <translation>防御</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base SpA</source>
-        <translation>特攻种族值</translation>
+        <translation>特攻</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base SpD</source>
-        <translation>特防种族值</translation>
+        <translation>特防</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Spe</source>
-        <translation>速度种族值</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
@@ -309,37 +309,37 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
         <source>Cannot send IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>无法传递个体值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
         <source>The seed calculator must be open to send IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>Seed查询器必须打开才能传递个体值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
         <source>Multiple IVs Present</source>
-        <translation type="unfinished"></translation>
+        <translation>个体值存在多个</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
         <source>There must be only one IV present per stat</source>
-        <translation type="unfinished"></translation>
+        <translation>每个属性必须只有一个个体值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
         <source>Invalid IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>个体值无效</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
         <source>All stats must have valid IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>所有属性必须都有有效个体值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
         <source>Choose star</source>
-        <translation type="unfinished"></translation>
+        <translation>选择星星</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
@@ -349,42 +349,42 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
         <source>Day 1</source>
-        <translation>第1天</translation>
+        <translation>第1帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
         <source>Day 2</source>
-        <translation>第2天</translation>
+        <translation>第2帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
         <source>Day 4 (1st)</source>
-        <translation>第4天(第1只)</translation>
+        <translation>第4帧(第1只)</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
         <source>Day 4 (2nd)</source>
-        <translation>第4天(第2只)</translation>
+        <translation>第4帧(第2只)</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
         <source>Day 5</source>
-        <translation>第5天</translation>
+        <translation>第5帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
         <source>Day 6</source>
-        <translation>第6天</translation>
+        <translation>第6帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
         <source>Choose day</source>
-        <translation type="unfinished"></translation>
+        <translation>选择帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
         <source>Day</source>
-        <translation type="unfinished"></translation>
+        <translation>帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
@@ -399,7 +399,7 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Send to Seed Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>传递到Seed查询器</translation>
     </message>
 </context>
 <context>
@@ -475,12 +475,12 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -515,7 +515,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den</source>
-        <translation>坑</translation>
+        <translation>巢穴</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -535,7 +535,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Encounter Lookup</source>
-        <translation>坑位检索</translation>
+        <translation>巢穴检索</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -724,12 +724,12 @@
     <message>
         <location filename="../Forms/MainWindow.cpp" line="454"/>
         <source>Update Check</source>
-        <translation type="unfinished"></translation>
+        <translation>检查更新</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="455"/>
         <source>An update is available. Would you like to download the newest version?</source>
-        <translation type="unfinished"></translation>
+        <translation>有可用更新。您想下载最新版本吗？</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="503"/>
@@ -790,7 +790,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den Map</source>
-        <translation>坑地图</translation>
+        <translation>巢穴地图</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -825,17 +825,17 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Show stats</source>
-        <translation type="unfinished"></translation>
+        <translation>显示属性</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Level</source>
-        <translation type="unfinished"></translation>
+        <translation>等级</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>葡萄牙语</translation>
     </message>
 </context>
 <context>
@@ -848,7 +848,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -873,7 +873,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.cpp" line="89"/>
@@ -940,12 +940,12 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
 </context>
 <context>
@@ -966,7 +966,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Day 1</source>
-        <translation>第1天</translation>
+        <translation>第1帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
@@ -996,7 +996,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Day 2</source>
-        <translation>第2天</translation>
+        <translation>第2帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo12.cpp" line="224"/>
@@ -1006,7 +1006,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.cpp" line="228"/>
         <source>Incorrect IV count</source>
-        <translation type="unfinished"></translation>
+        <translation>无效</translation>
     </message>
 </context>
 <context>
@@ -1014,7 +1014,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 4 (1st)</source>
-        <translation>第4天(第1只)</translation>
+        <translation>第4帧(第1只)</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
@@ -1049,42 +1049,42 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 4 (2nd)</source>
-        <translation>第4天(第2只)</translation>
+        <translation>第4帧(第2只)</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 5</source>
-        <translation>第5天</translation>
+        <translation>第5帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 6</source>
-        <translation>第6天</translation>
+        <translation>第6帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="325"/>
         <source>Incorrect IV count</source>
-        <translation type="unfinished"></translation>
+        <translation>无效</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="331"/>
         <source>Day 4 (2nd): 3IV/4IV</source>
-        <translation>第4天(第2只):3V/4V</translation>
+        <translation>第4帧(第2只):3V/4V</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="335"/>
         <source>Day 4 (2nd): 3IV</source>
-        <translation>第4天(第2只):3V</translation>
+        <translation>第4帧(第2只):3V</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="339"/>
         <source>Day 4 (2nd): 4IV</source>
-        <translation>第4天(第2只):4V</translation>
+        <translation>第4帧(第2只):4V</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="343"/>
         <source>IVs not searchable</source>
-        <translation type="unfinished"></translation>
+        <translation>个体无法搜索</translation>
     </message>
 </context>
 <context>
@@ -1102,7 +1102,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Den</source>
-        <translation>坑</translation>
+        <translation>巢穴</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1157,7 +1157,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Use day 6</source>
-        <translation>用第6天结果</translation>
+        <translation>用第6帧结果</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1202,7 +1202,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Search Range</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索范围</translation>
     </message>
 </context>
 </TS>
