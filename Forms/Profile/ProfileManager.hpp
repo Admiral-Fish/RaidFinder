@@ -29,7 +29,7 @@ namespace Ui
     class ProfileManager;
 }
 
-class ProfileManager final : public QWidget
+class ProfileManager : public QWidget
 {
     Q_OBJECT
 signals:
@@ -37,7 +37,7 @@ signals:
 
 public:
     explicit ProfileManager(QWidget *parent = nullptr);
-    ~ProfileManager() override final;
+    ~ProfileManager() override;
 
 private:
     Ui::ProfileManager *ui;

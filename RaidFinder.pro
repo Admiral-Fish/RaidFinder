@@ -3,6 +3,7 @@ equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at le
 
 QT += concurrent network widgets
 CONFIG += c++1z lrelease embed_translations
+QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
 
 TARGET = RaidFinder
 TEMPLATE = app
@@ -13,8 +14,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 RC_ICONS += Resources/Images/raidfinder.ico
 ICON += Resources/Images/raidfinder.icns
-
-DEFINES += QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
     resources.qrc \

@@ -102,92 +102,92 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Square</source>
         <translation>Square</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Star</source>
         <translation>Star</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Frame</source>
         <translation>Frame</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Atk</source>
         <translation>Atk</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Def</source>
         <translation>Def</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpA</source>
         <translation>SpA</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpD</source>
         <translation>SpD</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Spe</source>
         <translation>Spe</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Shiny</source>
         <translation>Shiny</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Nature</source>
         <translation>Nature</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Ability</source>
         <translation>Ability</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Gender</source>
         <translation>Gender</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Characteristic</source>
         <translation>Characteristic</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>EC</source>
         <translation>EC</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>PID</source>
         <translation>PID</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>Seed</source>
         <translation>Seed</translation>
     </message>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="27"/>
         <source>Click to clear</source>
-        <translation>Click to Clear</translation>
+        <translation>Click to clear</translation>
     </message>
     <message>
         <location filename="../Forms/Controls/IVFilter.cpp" line="27"/>
@@ -663,76 +663,76 @@
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="132"/>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="121"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to TXT</source>
         <translation>Output Results to TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="200"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to CSV</source>
         <translation>Output Results to CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
         <source>Language update</source>
         <translation>Language update</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Restart for changes to take effect. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Style change</source>
         <translation>Style change</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="381"/>
-        <location filename="../Forms/MainWindow.cpp" line="409"/>
+        <location filename="../Forms/MainWindow.cpp" line="382"/>
+        <location filename="../Forms/MainWindow.cpp" line="418"/>
         <source>Download failed</source>
         <translation>Download failed</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="382"/>
-        <location filename="../Forms/MainWindow.cpp" line="410"/>
+        <location filename="../Forms/MainWindow.cpp" line="383"/>
+        <location filename="../Forms/MainWindow.cpp" line="419"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>Make sure you are connected to the internet and have OpenSSL setup</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Download event data</source>
         <translation>Download event data</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Download finished</source>
         <translation>Download finished</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>Restart to see event data. Restart now?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="445"/>
+        <location filename="../Forms/MainWindow.cpp" line="454"/>
         <source>Update Check</source>
         <translation>Update Check</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="446"/>
+        <location filename="../Forms/MainWindow.cpp" line="455"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation>An update is available. Would you like to download the newest version?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -821,6 +821,21 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed Calculator</source>
         <translation>Seed Calculator</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Show stats</source>
+        <translation>Show stats</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Level</source>
+        <translation>Level</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Portuguese</source>
+        <translation>Portuguese</translation>
     </message>
 </context>
 <context>
@@ -991,7 +1006,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.cpp" line="228"/>
         <source>Incorrect IV count</source>
-        <translation>Incorrect IV Count</translation>
+        <translation>Incorrect IV count</translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1175,7 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="77"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="67"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>

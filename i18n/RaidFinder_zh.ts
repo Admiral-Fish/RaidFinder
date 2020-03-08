@@ -102,92 +102,92 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Frame</source>
         <translation>帧</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>EC</source>
         <translation>加密常数</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>PID</source>
         <translation>PID</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>Seed</source>
         <translation>Seed</translation>
     </message>
@@ -663,76 +663,76 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="132"/>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="121"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="200"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="381"/>
-        <location filename="../Forms/MainWindow.cpp" line="409"/>
+        <location filename="../Forms/MainWindow.cpp" line="382"/>
+        <location filename="../Forms/MainWindow.cpp" line="418"/>
         <source>Download failed</source>
         <translation>下载失败</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="382"/>
-        <location filename="../Forms/MainWindow.cpp" line="410"/>
+        <location filename="../Forms/MainWindow.cpp" line="383"/>
+        <location filename="../Forms/MainWindow.cpp" line="419"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Download event data</source>
         <translation>下载活动数据</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Download finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="445"/>
+        <location filename="../Forms/MainWindow.cpp" line="454"/>
         <source>Update Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="446"/>
+        <location filename="../Forms/MainWindow.cpp" line="455"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -821,6 +821,21 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed Calculator</source>
         <translation>Seed查询器</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Show stats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Portuguese</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1175,7 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="77"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="67"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>

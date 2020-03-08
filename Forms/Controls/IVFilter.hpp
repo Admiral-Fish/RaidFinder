@@ -28,12 +28,12 @@ namespace Ui
     class IVFilter;
 }
 
-class IVFilter final : public QWidget
+class IVFilter : public QWidget
 {
     Q_OBJECT
 public:
     explicit IVFilter(QWidget *parent = nullptr);
-    ~IVFilter() override final;
+    ~IVFilter() override;
     QVector<u8> getLower() const;
     QVector<u8> getUpper() const;
     void clearValues();

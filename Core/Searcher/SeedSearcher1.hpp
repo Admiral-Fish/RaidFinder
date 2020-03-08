@@ -22,18 +22,18 @@
 
 #include <Core/Searcher/SeedSearcher.hpp>
 
-class SeedSearcher1 final : public SeedSearcher
+class SeedSearcher1 : public SeedSearcher
 {
 public:
     SeedSearcher1(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
-    void startSearch(int minRolls, int maxRolls, int threads) override final;
+    void startSearch(int minRolls, int maxRolls, int threads) override;
 
 private:
     bool ability;
     u8 fixedIndex;
 
-    bool searchSeed(u64 &seed) const override final;
-    bool compareFirst(u64 seed) const override final;
+    bool searchSeed(u64 &seed) const override;
+    bool compareFirst(u64 seed) const override;
 };
 
 #endif // SEEDSEARCHER1_HPP

@@ -23,7 +23,7 @@
 #include <QComboBox>
 #include <QStandardItemModel>
 
-class CheckList final : public QComboBox
+class CheckList : public QComboBox
 {
     Q_OBJECT
 public:

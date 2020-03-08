@@ -102,92 +102,92 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Square</source>
         <translation>Vierecke</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Star</source>
         <translation>Sterne</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Frame</source>
         <translation>Frame</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>HP</source>
         <translation>KP</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Atk</source>
         <translation>Angriff</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Def</source>
         <translation>Vert.</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpA</source>
         <translation>Sp.-Ang.</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpD</source>
         <translation>Sp.-Vert.</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Spe</source>
         <translation>Initiative</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Shiny</source>
         <translation>Shiny</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Nature</source>
         <translation>Wesen</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Ability</source>
         <translation>Fähigkeit</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Gender</source>
         <translation>Geschlecht</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Characteristic</source>
         <translation>Spruch</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>EC</source>
         <translation>EC</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>PID</source>
         <translation>PID</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>Seed</source>
         <translation>Seed</translation>
     </message>
@@ -663,76 +663,76 @@
         <translation>Chinesisch</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="132"/>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="121"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="198"/>
         <source>Output Results to TXT</source>
         <translation>Ergebnisse als TXT speichern</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="200"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to CSV</source>
         <translation>Ergebnisse als CSV speichern</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
         <source>Language update</source>
         <translation>Sprache ändern</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="250"/>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="251"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>Das Programm muss neu gestartet werden, um die Änderungen wirksam zu machen. Jetzt neu starten?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="270"/>
+        <location filename="../Forms/MainWindow.cpp" line="271"/>
         <source>Style change</source>
         <translation>Stil ändern</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="381"/>
-        <location filename="../Forms/MainWindow.cpp" line="409"/>
+        <location filename="../Forms/MainWindow.cpp" line="382"/>
+        <location filename="../Forms/MainWindow.cpp" line="418"/>
         <source>Download failed</source>
         <translation>Download fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="382"/>
-        <location filename="../Forms/MainWindow.cpp" line="410"/>
+        <location filename="../Forms/MainWindow.cpp" line="383"/>
+        <location filename="../Forms/MainWindow.cpp" line="419"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>Stelle sicher, dass du mit dem Internet verbunden bist und OpenSSL installiert ist.</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="398"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Download event data</source>
         <translation>Eventdaten herunterladen</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Download finished</source>
         <translation>Download abgeschlossen</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="421"/>
+        <location filename="../Forms/MainWindow.cpp" line="430"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>Das Programm muss neu gestartet werden, um die heruntergeladenen Eventdaten anzuzueigen. Jetzt neu starten?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="445"/>
+        <location filename="../Forms/MainWindow.cpp" line="454"/>
         <source>Update Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="446"/>
+        <location filename="../Forms/MainWindow.cpp" line="455"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
@@ -763,7 +763,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="494"/>
+        <location filename="../Forms/MainWindow.cpp" line="503"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
@@ -820,7 +820,22 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Seed Calculator</source>
-        <translation type="unfinished">Seed Rechner</translation>
+        <translation>Seed Rechner</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Show stats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Portuguese</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1175,7 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="77"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="67"/>
         <source>Event</source>
         <translation>Event</translation>
     </message>

@@ -22,14 +22,14 @@
 
 #include <QTableView>
 
-class TableView final : public QTableView
+class TableView : public QTableView
 {
     Q_OBJECT
 public:
     explicit TableView(QWidget *parent = nullptr);
-    void resizeEvent(QResizeEvent *event) override final;
-    void mouseDoubleClickEvent(QMouseEvent *event) override final;
-    void keyPressEvent(QKeyEvent *event) override final;
+    void resizeEvent(QResizeEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     void outputModel(bool csv) const;
 
 private:

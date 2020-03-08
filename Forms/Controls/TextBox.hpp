@@ -34,7 +34,7 @@ enum InputType
     ID = 1 << 6
 };
 
-class TextBox final : public QLineEdit
+class TextBox : public QLineEdit
 {
     Q_OBJECT
 public:
