@@ -7,7 +7,7 @@ QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
 
 TARGET = RaidFinder
 TEMPLATE = app
-VERSION = 2.2.3
+VERSION = 2.3.0
 
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
