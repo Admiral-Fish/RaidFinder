@@ -4,6 +4,7 @@ equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at le
 QT += concurrent network widgets
 CONFIG += c++1z lrelease embed_translations
 QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
+QMAKE_RESOURCE_FLAGS = -threshold 0 -compress 9
 
 TARGET = RaidFinder
 TEMPLATE = app
