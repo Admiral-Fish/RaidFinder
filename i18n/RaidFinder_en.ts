@@ -708,8 +708,8 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="407"/>
-        <source>Download event data</source>
-        <translation>Download event data</translation>
+        <source>Download Event Data</source>
+        <translation>Download Event Data</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="430"/>

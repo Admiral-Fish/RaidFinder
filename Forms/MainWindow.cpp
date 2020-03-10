@@ -404,7 +404,7 @@ void MainWindow::downloadEventData()
     }
 
     bool flag;
-    QString item = QInputDialog::getItem(this, tr("Download event data"), tr("Event"), entries, 0, false, &flag, Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+    QString item = QInputDialog::getItem(this, tr("Download Event Data"), tr("Event"), entries, 0, false, &flag, Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
     if (!flag)
     {
         return;
