@@ -460,12 +460,12 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Profiles</source>
-        <translation>信息管理</translation>
+        <translation>配置管理</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Profile</source>
-        <translation>信息</translation>
+        <translation>配置</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -600,7 +600,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Disable Filters</source>
-        <translation>不用过滤器</translation>
+        <translation>禁用过滤器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -709,7 +709,7 @@
     <message>
         <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Download Event Data</source>
-        <translation>下载活动数据</translation>
+        <translation>更新活动</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="430"/>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Editor</source>
-        <translation>信息编辑器</translation>
+        <translation>配置编辑器</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -868,7 +868,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation>信息名称</translation>
+        <translation>配置名称</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -878,7 +878,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.cpp" line="89"/>
         <source>Enter a Profile Name</source>
-        <translation>请输入信息名</translation>
+        <translation>请输入配置名称</translation>
     </message>
 </context>
 <context>
@@ -886,7 +886,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileManager.ui"/>
         <source>Profile Manager</source>
-        <translation>信息管理器</translation>
+        <translation>配置管理器</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileManager.ui"/>
@@ -917,12 +917,12 @@
     <message>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="109"/>
         <source>Delete profile</source>
-        <translation>删除信息</translation>
+        <translation>删除配置</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="109"/>
         <source>Are you sure you wish to delete this profile?</source>
-        <translation>您确定要删除信息吗？</translation>
+        <translation>您确定要删除配置吗？</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>Profile Name</source>
-        <translation>信息名</translation>
+        <translation>配置名</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
