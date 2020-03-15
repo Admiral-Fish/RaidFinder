@@ -756,6 +756,7 @@
     <addaction name="actionDenMap"/>
     <addaction name="actionDownloadEventData"/>
     <addaction name="actionEncounterLookup"/>
+    <addaction name="actionDateCalculator"/>
     <addaction name="actionIVCalculator"/>
     <addaction name="actionSeedCalculator"/>
    </widget>
@@ -855,6 +856,11 @@
   <action name="actionSeedCalculator">
    <property name="text">
     <string>Seed Calculator</string>
+   </property>
+  </action>
+  <action name="actionDateCalculator">
+   <property name="text">
+    <string>Date Calculator</string>
    </property>
   </action>
   <action name="actionEncounterLookup">

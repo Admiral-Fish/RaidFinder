@@ -27,6 +27,7 @@
 #include <Forms/Profile/ProfileManager.hpp>
 #include <Forms/Tools/DenMap.hpp>
 #include <Forms/Tools/EncounterLookup.hpp>
+#include <Forms/Tools/DateCalculator.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
@@ -203,6 +204,7 @@ void MainWindow::setupModels()
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
+    connect(ui->actionDateCalculator, &QAction::triggered, this, &MainWindow::openDateCalculator);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->actionSeedCalculator, &QAction::triggered, this, &MainWindow::openSeedCalculator);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
@@ -342,6 +344,12 @@ void MainWindow::openDenMap()
 void MainWindow::openEncounterLookup()
 {
     auto *lookup = new EncounterLookup();
+    lookup->show();
+}
+
+void MainWindow::openDateCalculator()
+{
+    auto *lookup = new DateCalculator();
     lookup->show();
 }
 
@@ -504,13 +512,11 @@ void MainWindow::speciesIndexChanged(int index)
 
         ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
+
+        ui->comboBoxAbility->removeItem(3);
         if (raid.getAbility() == 4)
         {
             ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
-        }
-        else
-        {
-            ui->comboBoxAbility->removeItem(3);
         }
     }
 }

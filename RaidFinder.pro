@@ -4,6 +4,7 @@ equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at le
 QT += concurrent network widgets
 CONFIG += c++1z lrelease embed_translations
 QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
+QMAKE_RESOURCE_FLAGS = -threshold 0 -compress 9
 
 TARGET = RaidFinder
 TEMPLATE = app
@@ -40,6 +41,7 @@ FORMS += \
     Forms/Tools/EncounterLookup.ui \
     Forms/Tools/IVCalculator.ui \
     Forms/Tools/SeedCalculator.ui \
+    Forms/Tools/DateCalculator.ui \
     Forms/Util/RaidInfo12.ui \
     Forms/Util/RaidInfo35.ui
 
@@ -78,6 +80,7 @@ HEADERS += \
     Forms/Tools/EncounterLookup.hpp \
     Forms/Tools/IVCalculator.hpp \
     Forms/Tools/SeedCalculator.hpp \
+    Forms/Tools/DateCalculator.hpp \
     Forms/Util/RaidInfo12.hpp \
     Forms/Util/RaidInfo35.hpp \
     Models/FrameModel.hpp \
@@ -116,6 +119,7 @@ SOURCES += \
     Forms/Tools/DenMap.cpp \
     Forms/Tools/EncounterLookup.cpp \
     Forms/Tools/IVCalculator.cpp \
+    Forms/Tools/DateCalculator.cpp \
     Forms/Tools/SeedCalculator.cpp \
     Forms/Util/RaidInfo12.cpp \
     Forms/Util/RaidInfo35.cpp \

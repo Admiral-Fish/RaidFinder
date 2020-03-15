@@ -29,6 +29,7 @@
 class FrameModel;
 class IVCalculator;
 class SeedCalculator;
+class DateCalculator;
 
 namespace Ui
 {
@@ -56,6 +57,7 @@ private:
     QMenu *menu;
     IVCalculator *ivCalculator = nullptr;
     SeedCalculator *seedCalculator = nullptr;
+    DateCalculator *dateCalculator = nullptr;
 
     void setupModels();
     QByteArray downloadFile(const QString &url);
@@ -71,6 +73,7 @@ private slots:
     void openEncounterLookup();
     void openIVCalculator();
     void openSeedCalculator();
+    void openDateCalculator();
     void downloadEventData();
     void checkUpdates();
     void denIndexChanged(int index);
