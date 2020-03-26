@@ -342,7 +342,7 @@ void MainWindow::openDenMap()
 
 void MainWindow::openEncounterLookup()
 {
-    auto *lookup = new EncounterLookup();
+    auto *lookup = new EncounterLookup(currentProfile.getVersion());
     lookup->show();
 }
 
@@ -364,7 +364,7 @@ void MainWindow::openSeedCalculator()
 {
     if (!seedCalculator)
     {
-        seedCalculator = new SeedCalculator();
+        seedCalculator = new SeedCalculator(currentProfile.getVersion());
         if (ivCalculator)
         {
             connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);

@@ -25,7 +25,6 @@
 #include <Core/Searcher/SeedSearcher1.hpp>
 #include <Core/Searcher/SeedSearcher2.hpp>
 #include <Core/Searcher/SeedSearcher3.hpp>
-#include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QApplication>
 #include <QFile>
@@ -35,12 +34,13 @@
 #include <QtConcurrent>
 #include <ctime>
 
-SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
+SeedCalculator::SeedCalculator(Game version, QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
 
     setupModels();
+    ui->comboBoxGame->setCurrentIndex(ui->comboBoxGame->findData(version));
 }
 
 SeedCalculator::~SeedCalculator()
@@ -77,10 +77,10 @@ void SeedCalculator::setupModels()
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
 
-    denIndexChanged(0);
-
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
+
+    denIndexChanged(0);
 
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::rarityIndexChanged);
