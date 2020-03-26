@@ -101,6 +101,15 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
                 }
             }
         }
+        else if (shinyType == 1) // Force non-shiny
+        {
+            result.setShiny(0);
+            u16 psv = getSv(pid);
+            if (psv == tsv)
+            {
+                pid ^= 0x10000000;
+            }
+        }
         else // Force shiny
         {
             result.setShiny(2);

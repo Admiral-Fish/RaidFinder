@@ -311,6 +311,11 @@
          </item>
          <item>
           <property name="text">
+           <string>Force non-shiny</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string>Force shiny</string>
           </property>
          </item>

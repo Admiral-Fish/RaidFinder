@@ -113,8 +113,9 @@ void MainWindow::setupModels()
     ui->comboBoxShiny->setItemData(2, 2); // Square
     ui->comboBoxShiny->setItemData(3, 3); // Star or square
 
-    ui->comboBoxShinyType->setItemData(0, 0);
-    ui->comboBoxShinyType->setItemData(1, 2);
+    ui->comboBoxShinyType->setItemData(0, 0); // Random shiny chance
+    ui->comboBoxShinyType->setItemData(1, 1); // Forced non-shiny
+    ui->comboBoxShinyType->setItemData(2, 2); // Forced shiny
 
     if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
     {
