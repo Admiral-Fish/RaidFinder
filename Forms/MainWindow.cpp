@@ -31,15 +31,19 @@
 #include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/FrameModel.hpp>
 #include <QApplication>
+#include <QDesktopServices>
 #include <QEventLoop>
 #include <QFile>
 #include <QInputDialog>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMessageBox>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
 #include <QThread>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -51,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     updateProfiles();
     setupModels();
+    QTimer::singleShot(1000, this, &MainWindow::checkUpdates);
 }
 
 MainWindow::~MainWindow()
@@ -60,8 +65,11 @@ MainWindow::~MainWindow()
     setting.setValue("mainWindow/geometry", this->saveGeometry());
     setting.setValue("settings/locale", currentLanguage);
     setting.setValue("settings/style", currentStyle);
+    setting.setValue("settings/seed", ui->textBoxSeed->text());
 
     delete ui;
+    delete ivCalculator;
+    delete seedCalculator;
 }
 
 void MainWindow::setupModels()
@@ -105,9 +113,14 @@ void MainWindow::setupModels()
     ui->comboBoxShiny->setItemData(2, 2); // Square
     ui->comboBoxShiny->setItemData(3, 3); // Star or square
 
-    ui->comboBoxShinyType->setItemData(0, 0);
-    ui->comboBoxShinyType->setItemData(1, 2);
+    ui->comboBoxShinyType->setItemData(0, 0); // Random shiny chance
+    ui->comboBoxShinyType->setItemData(1, 1); // Forced non-shiny
+    ui->comboBoxShinyType->setItemData(2, 2); // Forced shiny
 
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
     for (u8 i = 0; i < 100; i++)
     {
         if (i == 16)
@@ -119,11 +132,6 @@ void MainWindow::setupModels()
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
 
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 100);
-    }
-
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -133,8 +141,8 @@ void MainWindow::setupModels()
     languageGroup->setExclusive(true);
     connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
     currentLanguage = setting.value("settings/locale", "en").toString();
-    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "zh", "tw" };
-    for (auto i = 0; i < locales.size(); i++)
+    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "pt", "tw", "zh" };
+    for (int i = 0; i < locales.size(); i++)
     {
         const QString &lang = locales.at(i);
 
@@ -154,7 +162,7 @@ void MainWindow::setupModels()
     connect(styleGroup, &QActionGroup::triggered, this, &MainWindow::slotStyleChanged);
     currentStyle = setting.value("settings/style", "dark").toString();
     QStringList styles = { "dark", "light" };
-    for (auto i = 0; i < styles.size(); i++)
+    for (int i = 0; i < styles.size(); i++)
     {
         const QString &style = styles.at(i);
 
@@ -174,7 +182,7 @@ void MainWindow::setupModels()
     connect(threadGroup, &QActionGroup::triggered, this, &MainWindow::slotThreadChanged);
     int maxThread = QThread::idealThreadCount();
     int thread = setting.value("settings/thread", maxThread).toInt();
-    for (auto i = 1; i <= maxThread; i++)
+    for (int i = 1; i <= maxThread; i++)
     {
         auto *action = ui->menuThread->addAction(QString::number(i));
         action->setData(i);
@@ -190,22 +198,28 @@ void MainWindow::setupModels()
 
     QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
     QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
-    connect(outputTXT, &QAction::triggered, this, [=]() { ui->tableView->outputModelTXT(); });
-    connect(outputCSV, &QAction::triggered, this, [=]() { ui->tableView->outputModelCSV(); });
+    connect(outputTXT, &QAction::triggered, this, [=] { ui->tableView->outputModel(false); });
+    connect(outputCSV, &QAction::triggered, this, [=] { ui->tableView->outputModel(true); });
 
     connect(ui->pushButtonProfileManager, &QPushButton::clicked, this, &MainWindow::openProfileManager);
     connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
-    connect(ui->actionSeedSearcher, &QAction::triggered, this, &MainWindow::openSeedSearcher);
+    connect(ui->actionSeedCalculator, &QAction::triggered, this, &MainWindow::openSeedCalculator);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
+    connect(ui->checkBoxShowStats, &QCheckBox::toggled, this, &MainWindow::showStatsToggled);
+    connect(ui->spinBoxLevel, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::levelValueChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
+    if (setting.contains("settings/seed"))
+    {
+        ui->textBoxSeed->setText(setting.value("settings/seed").toString());
+    }
     if (setting.contains("mainWindow/geometry"))
     {
         this->restoreGeometry(setting.value("mainWindow/geometry").toByteArray());
@@ -328,20 +342,36 @@ void MainWindow::openDenMap()
 
 void MainWindow::openEncounterLookup()
 {
-    auto *lookup = new EncounterLookup();
+    auto *lookup = new EncounterLookup(currentProfile.getVersion());
     lookup->show();
 }
 
 void MainWindow::openIVCalculator()
 {
-    auto *calculator = new IVCalculator();
-    calculator->show();
+    if (!ivCalculator)
+    {
+        ivCalculator = new IVCalculator();
+        if (seedCalculator)
+        {
+            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
+            ivCalculator->setConnected(true);
+        }
+    }
+    ivCalculator->show();
 }
 
-void MainWindow::openSeedSearcher()
+void MainWindow::openSeedCalculator()
 {
-    auto *searcher = new SeedCalculator();
-    searcher->show();
+    if (!seedCalculator)
+    {
+        seedCalculator = new SeedCalculator(currentProfile.getVersion());
+        if (ivCalculator)
+        {
+            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
+            ivCalculator->setConnected(true);
+        }
+    }
+    seedCalculator->show();
 }
 
 void MainWindow::downloadEventData()
@@ -357,16 +387,25 @@ void MainWindow::downloadEventData()
     }
 
     QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
-    QStringList files, entries;
+    QStringList files;
+    QStringList entries;
     for (const QString &info : infos)
     {
         QStringList data = info.split(',');
-        files.append(data.at(0));
-        entries.append(Translator::getSpecie(data.at(1).toUShort()));
+        QString file = data.at(0);
+        u16 specie = data.at(1).toUShort();
+
+        files.append(file);
+
+        file = file.left(file.indexOf('_'));
+        file.insert(2, '-');
+        file.insert(5, '-');
+
+        entries.append(QString("%1: %2").arg(file, Translator::getSpecie(specie)));
     }
 
     bool flag;
-    QString item = QInputDialog::getItem(this, tr("Download event data"), tr("Event"), entries, 0, false, &flag, Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+    QString item = QInputDialog::getItem(this, tr("Download Event Data"), tr("Event"), entries, 0, false, &flag, Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
     if (!flag)
     {
         return;
@@ -383,7 +422,7 @@ void MainWindow::downloadEventData()
         return;
     }
 
-    QFile f(QApplication::applicationDirPath() + "/nests_event.bin");
+    QFile f(QApplication::applicationDirPath() + "/nests_event.json");
     if (f.open(QIODevice::WriteOnly))
     {
         f.write(qUncompress(eventResponse));
@@ -397,6 +436,33 @@ void MainWindow::downloadEventData()
             QApplication::quit();
         }
     }
+}
+
+void MainWindow::checkUpdates()
+{
+    QSettings setting;
+    QDate today = QDate::currentDate();
+    QDate lastOpened = setting.value("settings/lastOpened", today).toDate();
+
+    if (lastOpened.daysTo(today) > 0)
+    {
+        auto response = downloadFile("https://api.github.com/repos/Admiral-Fish/RaidFinder/releases/latest");
+        auto json = QJsonDocument::fromJson(response).object();
+
+        QString webVersion = json["tag_name"].toString().right(5);
+        if (!webVersion.isEmpty() && VERSION != webVersion)
+        {
+            QMessageBox info(QMessageBox::Question, tr("Update Check"),
+                             tr("An update is available. Would you like to download the newest version?"),
+                             QMessageBox::Yes | QMessageBox::No);
+            if (info.exec() == QMessageBox::Yes)
+            {
+                QDesktopServices::openUrl(QUrl("https://github.com/Admiral-Fish/RaidFinder/releases/latest"));
+            }
+        }
+    }
+
+    setting.setValue("settings/lastOpened", today);
 }
 
 void MainWindow::denIndexChanged(int index)
@@ -439,21 +505,32 @@ void MainWindow::speciesIndexChanged(int index)
 
         ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
+
+        ui->comboBoxAbility->removeItem(3);
         if (raid.getAbility() == 4)
         {
-            ui->comboBoxAbility->setItemText(3, "H: " + Translator::getAbility(info.getAbilityH()));
+            ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
         }
     }
 }
 
+void MainWindow::showStatsToggled(bool flag)
+{
+    ui->spinBoxLevel->setEnabled(flag);
+    model->setShowStats(flag);
+}
+
+void MainWindow::levelValueChanged(int value)
+{
+    model->setLevel(value);
+}
+
 void MainWindow::tableViewContextMenu(QPoint pos)
 {
-    if (model->rowCount() == 0)
+    if (model->rowCount() > 0)
     {
-        return;
+        menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
     }
-
-    menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
 void MainWindow::generate()

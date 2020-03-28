@@ -20,8 +20,9 @@
 #ifndef ENCOUNTERLOOKUP_HPP
 #define ENCOUNTERLOOKUP_HPP
 
-#include <Core/Util/Global.hpp>
 #include <Core/Results/Raid.hpp>
+#include <Core/Util/Game.hpp>
+#include <Core/Util/Global.hpp>
 #include <QStandardItemModel>
 #include <QVector>
 #include <QWidget>
@@ -34,9 +35,8 @@ namespace Ui
 class EncounterLookup : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit EncounterLookup(QWidget *parent = nullptr);
+    explicit EncounterLookup(Game version, QWidget *parent = nullptr);
     ~EncounterLookup() override;
 
 private:

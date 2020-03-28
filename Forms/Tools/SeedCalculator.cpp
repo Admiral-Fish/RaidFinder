@@ -22,9 +22,9 @@
 #include <Core/Loader/DenLoader.hpp>
 #include <Core/Loader/PersonalLoader.hpp>
 #include <Core/Results/Pokemon.hpp>
-#include <Core/Searcher/SeedSearcher12.hpp>
-#include <Core/Searcher/SeedSearcher35.hpp>
-#include <Core/Util/Game.hpp>
+#include <Core/Searcher/SeedSearcher1.hpp>
+#include <Core/Searcher/SeedSearcher2.hpp>
+#include <Core/Searcher/SeedSearcher3.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QApplication>
 #include <QFile>
@@ -34,13 +34,13 @@
 #include <QtConcurrent>
 #include <ctime>
 
-SeedCalculator::SeedCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
+SeedCalculator::SeedCalculator(Game version, QWidget *parent) : QWidget(parent), ui(new Ui::SeedCalculator)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     setupModels();
+    ui->comboBoxGame->setCurrentIndex(ui->comboBoxGame->findData(version));
 }
 
 SeedCalculator::~SeedCalculator()
@@ -48,8 +48,24 @@ SeedCalculator::~SeedCalculator()
     delete ui;
 }
 
+void SeedCalculator::setIVs(int star, int index, int nature, const QVector<u8> &ivs)
+{
+    if (star == 0)
+    {
+        ui->raidInfo12->setInfo(index, nature, ivs);
+    }
+    else
+    {
+        ui->raidInfo35->setInfo(index, nature, ivs);
+    }
+}
+
 void SeedCalculator::setupModels()
 {
+    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+    {
+        ui->comboBoxDen->addItem(tr("Event"), 100);
+    }
     for (u8 i = 0; i < 100; i++)
     {
         if (i == 16)
@@ -60,15 +76,11 @@ void SeedCalculator::setupModels()
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
     }
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.bin"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 100);
-    }
-
-    denIndexChanged(0);
 
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
+
+    denIndexChanged(0);
 
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::rarityIndexChanged);
@@ -119,8 +131,15 @@ void SeedCalculator::search35()
         pokemon.append(ui->raidInfo35->getPokemonDay6());
     }
 
-    auto *searcher = new SeedSearcher35(pokemon, ivCount, ui->checkBoxStop->isChecked());
-    searcher->setIVs(ui->raidInfo35->getConditionIVs());
+    SeedSearcher *searcher;
+    if (ivCount.at(0) == 2)
+    {
+        searcher = new SeedSearcher2(pokemon, ivCount, ui->raidInfo35->getConditionIVs(), ui->checkBoxStop->isChecked());
+    }
+    else
+    {
+        searcher = new SeedSearcher3(pokemon, ivCount, ui->raidInfo35->getConditionIVs(), ui->checkBoxStop->isChecked());
+    }
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
 
     ui->progressBar->setRange(0, searcher->getMaxProgress());
@@ -153,10 +172,10 @@ void SeedCalculator::search35()
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(nullptr) - startTime;
         ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
-                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
-                                   .arg("00").arg("00").arg("00"));
+                                       .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                       .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                       .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                       .arg("00", "00", "00"));
 
         delete searcher;
 
@@ -191,7 +210,7 @@ void SeedCalculator::search12()
     QVector<int> ivCount = ui->raidInfo12->getIVCounts();
     QVector<Pokemon> pokemon = { ui->raidInfo12->getPokemonDay1(), ui->raidInfo12->getPokemonDay2() };
 
-    auto *searcher = new SeedSearcher12(pokemon, ivCount, ui->checkBoxStop->isChecked(), pokemon.at(0).getAbility() != 255);
+    auto *searcher = new SeedSearcher1(pokemon, ivCount, ui->checkBoxStop->isChecked());
     connect(ui->pushButtonCancel, &QPushButton::clicked, [searcher] { searcher->cancelSearch(); });
 
     ui->progressBar->setRange(0, searcher->getMaxProgress());
@@ -224,10 +243,10 @@ void SeedCalculator::search12()
         ui->progressBar->setValue(searcher->getProgress());
         auto elapsedTime = time(nullptr) - startTime;
         ui->progressLabel->setText(tr("Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6")
-                                   .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
-                                   .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
-                                   .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
-                                   .arg("00").arg("00").arg("00"));
+                                       .arg((elapsedTime / 60) / 60, 2, 10, QLatin1Char('0'))
+                                       .arg((elapsedTime / 60) % 60, 2, 10, QLatin1Char('0'))
+                                       .arg(elapsedTime % 60, 2, 10, QLatin1Char('0'))
+                                       .arg("00", "00", "00"));
 
         delete searcher;
 

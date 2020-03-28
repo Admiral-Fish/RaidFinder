@@ -47,7 +47,7 @@ void RaidInfo35::setDen(const Den &den, Game game)
     ui->comboBoxRaidDay6->clear();
 
     auto raids = den.getRaids(game);
-    for (u8 i = 0; i < raids.size(); i++)
+    for (int i = 0; i < raids.size(); i++)
     {
         auto raid = raids.at(i);
         if ((raid.getIVCount() == 2 || raid.getIVCount() == 3) && (raid.getStar(2) || raid.getStar(3) || raid.getStar(4)))
@@ -106,10 +106,55 @@ QVector<u8> RaidInfo35::getIVs(int index) const
              static_cast<u8>(ui->spinBoxSpDDay6->value()), static_cast<u8>(ui->spinBoxSpeDay6->value()) };
 }
 
+void RaidInfo35::setInfo(int index, int nature, const QVector<u8> &ivs)
+{
+    if (index == 0)
+    {
+        ui->spinBoxHPDay4_1->setValue(ivs.at(0));
+        ui->spinBoxAtkDay4_1->setValue(ivs.at(1));
+        ui->spinBoxDefDay4_1->setValue(ivs.at(2));
+        ui->spinBoxSpADay4_1->setValue(ivs.at(3));
+        ui->spinBoxSpDDay4_1->setValue(ivs.at(4));
+        ui->spinBoxSpeDay4_1->setValue(ivs.at(5));
+        ui->comboBoxNatureDay4_1->setCurrentIndex(nature);
+    }
+    else if (index == 1)
+    {
+        ui->spinBoxHPDay4_2->setValue(ivs.at(0));
+        ui->spinBoxAtkDay4_2->setValue(ivs.at(1));
+        ui->spinBoxDefDay4_2->setValue(ivs.at(2));
+        ui->spinBoxSpADay4_2->setValue(ivs.at(3));
+        ui->spinBoxSpDDay4_2->setValue(ivs.at(4));
+        ui->spinBoxSpeDay4_2->setValue(ivs.at(5));
+        ui->comboBoxNatureDay4_2->setCurrentIndex(nature);
+    }
+    else if (index == 2)
+    {
+        ui->spinBoxHPDay5->setValue(ivs.at(0));
+        ui->spinBoxAtkDay5->setValue(ivs.at(1));
+        ui->spinBoxDefDay5->setValue(ivs.at(2));
+        ui->spinBoxSpADay5->setValue(ivs.at(3));
+        ui->spinBoxSpDDay5->setValue(ivs.at(4));
+        ui->spinBoxSpeDay5->setValue(ivs.at(5));
+        ui->comboBoxNatureDay5->setCurrentIndex(nature);
+    }
+    else
+    {
+        ui->spinBoxHPDay6->setValue(ivs.at(0));
+        ui->spinBoxAtkDay6->setValue(ivs.at(1));
+        ui->spinBoxDefDay6->setValue(ivs.at(2));
+        ui->spinBoxSpADay6->setValue(ivs.at(3));
+        ui->spinBoxSpDDay6->setValue(ivs.at(4));
+        ui->spinBoxSpeDay6->setValue(ivs.at(5));
+        ui->comboBoxNatureDay6->setCurrentIndex(nature);
+    }
+}
+
 QVector<u8> RaidInfo35::getConditionIVs() const
 {
     auto ivs1 = getIVs(0);
     auto ivs2 = getIVs(1);
+    int ivCount1 = ivs1.count(31);
     int ivCount2 = ivs2.count(31);
 
     QVector<bool> flags;
@@ -118,7 +163,6 @@ QVector<u8> RaidInfo35::getConditionIVs() const
         flags.append(ivs1.at(i) == 31);
     }
 
-    int ivCount1 = ui->spinBoxIVCountDay4_1->value();
     int index = 0;
     QVector<u8> ivs(6);
     for (int i = 0; i < 6; i++)
@@ -275,6 +319,33 @@ void RaidInfo35::setupModels()
 
 void RaidInfo35::checkDay4()
 {
+    QVector<bool> possible;
+    if (!isValid(possible))
+    {
+        ui->labelCheck->setText(tr("Incorrect IV count"));
+        return;
+    }
+
+    if (possible.at(3) && possible.at(4))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV/4IV"));
+    }
+    else if (possible.at(3))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV"));
+    }
+    else if (possible.at(4))
+    {
+        ui->labelCheck->setText(tr("Day 4 (2nd): 4IV"));
+    }
+    else
+    {
+        ui->labelCheck->setText(tr("IVs not searchable"));
+    }
+}
+
+bool RaidInfo35::isValid(QVector<bool> &possible)
+{
     QVector<u8> ivs = getIVs(0);
 
     int ivCount = ivs.count(31);
@@ -282,8 +353,7 @@ void RaidInfo35::checkDay4()
 
     if (ivCount != limit)
     {
-        ui->labelCheck->setText(tr("Invalid"));
-        return;
+        return false;
     }
 
     QVector<bool> ivFlag;
@@ -293,7 +363,7 @@ void RaidInfo35::checkDay4()
     }
 
     int needNumber = ui->spinBoxIVCountDay4_1->value() < 3 ? 6 : 5;
-    QVector<bool> possible(6, false);
+    possible.fill(false, 6);
     for (int count = ivCount + 1; count < 5; count++)
     {
         int c = ivCount;
@@ -323,22 +393,7 @@ void RaidInfo35::checkDay4()
         }
     }
 
-    if (possible.at(3) && possible.at(4))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV/4IV"));
-    }
-    else if (possible.at(3))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 3IV"));
-    }
-    else if (possible.at(4))
-    {
-        ui->labelCheck->setText(tr("Day 4 (2nd): 4IV"));
-    }
-    else
-    {
-        ui->labelCheck->setText(tr("Invalid"));
-    }
+    return true;
 }
 
 void RaidInfo35::raidDay4_1IndexChanged(int index)

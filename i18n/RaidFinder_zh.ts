@@ -16,7 +16,7 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation>坑地图</translation>
+        <translation> 巢穴地图</translation>
     </message>
 </context>
 <context>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Encounter Lookup</source>
-        <translation>坑位检索</translation>
+        <translation>巢穴检索</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
@@ -102,92 +102,92 @@
 <context>
     <name>FrameModel</name>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Square</source>
         <translation>方块</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.cpp" line="58"/>
+        <location filename="../Models/FrameModel.cpp" line="89"/>
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Frame</source>
         <translation>帧</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>HP</source>
         <translation>HP</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Atk</source>
         <translation>攻击</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>Def</source>
         <translation>防御</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpA</source>
         <translation>特攻</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="39"/>
+        <location filename="../Models/FrameModel.hpp" line="43"/>
         <source>SpD</source>
         <translation>特防</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Spe</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Shiny</source>
         <translation>异色</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Nature</source>
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Gender</source>
         <translation>性别</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="40"/>
+        <location filename="../Models/FrameModel.hpp" line="44"/>
         <source>Characteristic</source>
         <translation>个性</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>EC</source>
         <translation>加密常数</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>PID</source>
         <translation>PID</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="41"/>
+        <location filename="../Models/FrameModel.hpp" line="45"/>
         <source>Seed</source>
         <translation>Seed</translation>
     </message>
@@ -257,37 +257,37 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Information</source>
-        <translation>信息</translation>
+        <translation>种族值</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base HP</source>
-        <translation>HP种族值</translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Atk</source>
-        <translation>攻击种族值</translation>
+        <translation>攻击</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Def</source>
-        <translation>防御种族值</translation>
+        <translation>防御</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base SpA</source>
-        <translation>特攻种族值</translation>
+        <translation>特攻</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base SpD</source>
-        <translation>特防种族值</translation>
+        <translation>特防</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Base Spe</source>
-        <translation>速度种族值</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
@@ -295,14 +295,96 @@
         <translation>结果</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="81"/>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="87"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="261"/>
         <source>Invalid</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="171"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="177"/>
         <source>Invalid input</source>
         <translation>输入有误</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <source>Cannot send IVs</source>
+        <translation>无法传递个体值</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <source>The seed calculator must be open to send IVs</source>
+        <translation>Seed查询器必须打开才能传递个体值</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <source>Multiple IVs Present</source>
+        <translation>个体值存在多个</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <source>There must be only one IV present per stat</source>
+        <translation>每个属性必须只有一个个体值</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <source>Invalid IVs</source>
+        <translation>个体值无效</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <source>All stats must have valid IVs</source>
+        <translation>所有属性必须都有有效个体值</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <source>Choose star</source>
+        <translation>选择星星</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <source>Star</source>
+        <translation>星星</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <source>Day 1</source>
+        <translation>第1帧</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <source>Day 2</source>
+        <translation>第2帧</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <source>Day 4 (1st)</source>
+        <translation>第4帧(第1只)</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <source>Day 4 (2nd)</source>
+        <translation>第4帧(第2只)</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <source>Day 5</source>
+        <translation>第5帧</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <source>Day 6</source>
+        <translation>第6帧</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <source>Choose day</source>
+        <translation>选择帧</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <source>Day</source>
+        <translation>帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
@@ -313,6 +395,11 @@
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Level HP Atk Def SpA SpD Spe</source>
         <translation>等级 HP 攻击 防御 特攻 特防 速度</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Send to Seed Calculator</source>
+        <translation>传递到Seed查询器</translation>
     </message>
 </context>
 <context>
@@ -373,12 +460,12 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Profiles</source>
-        <translation>信息管理</translation>
+        <translation>配置管理</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Profile</source>
-        <translation>信息</translation>
+        <translation>配置</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -388,12 +475,12 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -428,7 +515,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den</source>
-        <translation>坑</translation>
+        <translation>巢穴</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -448,7 +535,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Encounter Lookup</source>
-        <translation>坑位检索</translation>
+        <translation>巢穴检索</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -513,7 +600,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Disable Filters</source>
-        <translation>不用过滤器</translation>
+        <translation>禁用过滤器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -576,66 +663,77 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="130"/>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
+        <location filename="../Forms/MainWindow.cpp" line="122"/>
+        <location filename="../Forms/MainWindow.cpp" line="408"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="197"/>
+        <location filename="../Forms/MainWindow.cpp" line="199"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="198"/>
+        <location filename="../Forms/MainWindow.cpp" line="200"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="244"/>
+        <location filename="../Forms/MainWindow.cpp" line="252"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="244"/>
-        <location filename="../Forms/MainWindow.cpp" line="264"/>
+        <location filename="../Forms/MainWindow.cpp" line="252"/>
+        <location filename="../Forms/MainWindow.cpp" line="272"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="264"/>
+        <location filename="../Forms/MainWindow.cpp" line="272"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="359"/>
-        <location filename="../Forms/MainWindow.cpp" line="388"/>
+        <location filename="../Forms/MainWindow.cpp" line="383"/>
+        <location filename="../Forms/MainWindow.cpp" line="419"/>
         <source>Download failed</source>
         <translation>下载失败</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="360"/>
-        <location filename="../Forms/MainWindow.cpp" line="389"/>
+        <location filename="../Forms/MainWindow.cpp" line="384"/>
+        <location filename="../Forms/MainWindow.cpp" line="420"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="376"/>
-        <source>Download event data</source>
-        <translation>下载活动数据</translation>
+        <location filename="../Forms/MainWindow.ui"/>
+        <location filename="../Forms/MainWindow.cpp" line="408"/>
+        <source>Download Event Data</source>
+        <translation>更新活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <location filename="../Forms/MainWindow.cpp" line="431"/>
         <source>Download finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="401"/>
+        <location filename="../Forms/MainWindow.cpp" line="431"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="447"/>
+        <location filename="../Forms/MainWindow.cpp" line="455"/>
+        <source>Update Check</source>
+        <translation>检查更新</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="456"/>
+        <source>An update is available. Would you like to download the newest version?</source>
+        <translation>有可用更新。您想下载最新版本吗？</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.cpp" line="504"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -666,7 +764,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="447"/>
+        <location filename="../Forms/MainWindow.cpp" line="504"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -693,7 +791,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Den Map</source>
-        <translation>坑地图</translation>
+        <translation>巢穴地图</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -717,13 +815,28 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <source>Seed Searcher</source>
+        <source>Seed Calculator</source>
         <translation>Seed查询器</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <source>Download Event Data</source>
-        <translation>下载活动数据</translation>
+        <source>Show stats</source>
+        <translation>显示属性</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Level</source>
+        <translation>等级</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Portuguese</source>
+        <translation>葡萄牙语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Force non-shiny</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -731,12 +844,12 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Editor</source>
-        <translation>信息编辑器</translation>
+        <translation>配置编辑器</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
@@ -756,17 +869,17 @@
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>Profile Name</source>
-        <translation>信息名称</translation>
+        <translation>配置名称</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.ui"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileEditor.cpp" line="89"/>
-        <source>Enter a Profile Name.</source>
-        <translation>请输入信息名</translation>
+        <source>Enter a Profile Name</source>
+        <translation>请输入配置名称</translation>
     </message>
 </context>
 <context>
@@ -774,7 +887,7 @@
     <message>
         <location filename="../Forms/Profile/ProfileManager.ui"/>
         <source>Profile Manager</source>
-        <translation>信息管理器</translation>
+        <translation>配置管理器</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileManager.ui"/>
@@ -799,18 +912,18 @@
     <message>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="82"/>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="104"/>
-        <source>Please select a profile.</source>
+        <source>Please select a profile</source>
         <translation>请选择一个版本</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="109"/>
         <source>Delete profile</source>
-        <translation>删除信息</translation>
+        <translation>删除配置</translation>
     </message>
     <message>
         <location filename="../Forms/Profile/ProfileManager.cpp" line="109"/>
         <source>Are you sure you wish to delete this profile?</source>
-        <translation>您确定要删除信息吗？</translation>
+        <translation>您确定要删除配置吗？</translation>
     </message>
 </context>
 <context>
@@ -818,7 +931,7 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>Profile Name</source>
-        <translation>信息名</translation>
+        <translation>配置名</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
@@ -828,12 +941,12 @@
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>TID</source>
-        <translation>TID</translation>
+        <translation>TID(表ID)</translation>
     </message>
     <message>
         <location filename="../Models/ProfileModel.hpp" line="36"/>
         <source>SID</source>
-        <translation>SID</translation>
+        <translation>SID(里ID)</translation>
     </message>
 </context>
 <context>
@@ -854,7 +967,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Day 1</source>
-        <translation>第1天</translation>
+        <translation>第1帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
@@ -883,20 +996,18 @@
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo12.ui"/>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="202"/>
-        <source>Invalid</source>
-        <translation>无效</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Util/RaidInfo12.ui"/>
         <source>Day 2</source>
-        <translation>第2天</translation>
+        <translation>第2帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="127"/>
-        <location filename="../Forms/Util/RaidInfo12.cpp" line="198"/>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="224"/>
         <source>Valid</source>
         <translation>有效</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo12.cpp" line="228"/>
+        <source>Incorrect IV count</source>
+        <translation>无效</translation>
     </message>
 </context>
 <context>
@@ -904,7 +1015,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 4 (1st)</source>
-        <translation>第4天(第1只)</translation>
+        <translation>第4帧(第1只)</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
@@ -932,42 +1043,49 @@
         <translation>性格</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.ui"/>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="78"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="281"/>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="336"/>
         <source>Invalid</source>
         <translation>无效</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 4 (2nd)</source>
-        <translation>第4天(第2只)</translation>
+        <translation>第4帧(第2只)</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 5</source>
-        <translation>第5天</translation>
+        <translation>第5帧</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.ui"/>
         <source>Day 6</source>
-        <translation>第6天</translation>
+        <translation>第6帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="324"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="325"/>
+        <source>Incorrect IV count</source>
+        <translation>无效</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="331"/>
         <source>Day 4 (2nd): 3IV/4IV</source>
-        <translation>第4天(第2只):3V/4V</translation>
+        <translation>第4帧(第2只):3V/4V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="328"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="335"/>
         <source>Day 4 (2nd): 3IV</source>
-        <translation>第4天(第2只):3V</translation>
+        <translation>第4帧(第2只):3V</translation>
     </message>
     <message>
-        <location filename="../Forms/Util/RaidInfo35.cpp" line="332"/>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="339"/>
         <source>Day 4 (2nd): 4IV</source>
-        <translation>第4天(第2只):4V</translation>
+        <translation>第4帧(第2只):4V</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Util/RaidInfo35.cpp" line="343"/>
+        <source>IVs not searchable</source>
+        <translation>个体无法搜索</translation>
     </message>
 </context>
 <context>
@@ -985,7 +1103,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Den</source>
-        <translation>坑</translation>
+        <translation>巢穴</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1001,11 +1119,6 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Game</source>
         <translation>游戏版本</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/SeedCalculator.ui"/>
-        <source>IV Deviation</source>
-        <translation>IV 偏差</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1045,7 +1158,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Use day 6</source>
-        <translation>用第6天结果</translation>
+        <translation>用第6帧结果</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
@@ -1063,52 +1176,34 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="65"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="67"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="120"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="203"/>
         <source>Invalid settings</source>
         <translation>无效设定</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="108"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="184"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="120"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="203"/>
         <source>Search settings are invalid</source>
         <translation>无效检索设置</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="135"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="155"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="206"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="226"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="154"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="174"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="225"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="245"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <translation>运行时间: %1:%2:%3 - 预估时间: %4:%5:%6</translation>
     </message>
-</context>
-<context>
-    <name>TableView</name>
     <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
-        <source>Save Output to TXT</source>
-        <translation>保存结果到TXT</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="68"/>
-        <source>Text File (*.txt);;All Files (*)</source>
-        <translation>文本文件(*.txt);;所有文件(*)</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
-        <source>Save Output to CSV</source>
-        <translation>保存结果到CSV</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Controls/TableView.cpp" line="122"/>
-        <source>CSV File (*.csv);;All Files (*)</source>
-        <translation>CSV文件(*.csv);;所有文件(*)</translation>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Search Range</source>
+        <translation>搜索范围</translation>
     </message>
 </context>
 </TS>

@@ -42,6 +42,26 @@ QVector<u8> PersonalInfo::getBaseStats() const
     return { hp, atk, def, spa, spd, spe };
 }
 
+u8 PersonalInfo::getBaseStat(int index) const
+{
+    switch (index)
+    {
+    case 0:
+        return hp;
+    case 1:
+        return atk;
+    case 2:
+        return def;
+    case 3:
+        return spa;
+    case 4:
+        return spd;
+    case 5:
+        return spe;
+    }
+    return 0;
+}
+
 u8 PersonalInfo::getGenderRatio() const
 {
     return genderRatio;

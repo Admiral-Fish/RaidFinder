@@ -207,6 +207,27 @@
       <string>Results</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
+      <item row="4" column="0">
+       <widget class="QLabel" name="labelSpDIV">
+        <property name="text">
+         <string>SpD</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="labelDefIVValue">
+        <property name="text">
+         <string>Invalid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="labelSpAIVValue">
+        <property name="text">
+         <string>Invalid</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="labelHPIV">
         <property name="text">
@@ -214,10 +235,38 @@
         </property>
        </widget>
       </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="labelSpeIV">
+        <property name="text">
+         <string>Spe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelSpAIV">
+        <property name="text">
+         <string>SpA</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="labelSpeIVValue">
+        <property name="text">
+         <string>Invalid</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="1">
        <widget class="QLabel" name="labelHPIVValue">
         <property name="text">
-         <string/>
+         <string>Invalid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="labelSpDIVValue">
+        <property name="text">
+         <string>Invalid</string>
         </property>
        </widget>
       </item>
@@ -231,7 +280,7 @@
       <item row="1" column="1">
        <widget class="QLabel" name="labelAtkIVValue">
         <property name="text">
-         <string/>
+         <string>Invalid</string>
         </property>
        </widget>
       </item>
@@ -242,52 +291,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="labelDefIVValue">
+      <item row="6" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButtonSend">
         <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="labelSpAIV">
-        <property name="text">
-         <string>SpA</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLabel" name="labelSpAIVValue">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="labelSpDIV">
-        <property name="text">
-         <string>SpD</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLabel" name="labelSpDIVValue">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="labelSpeIV">
-        <property name="text">
-         <string>Spe</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLabel" name="labelSpeIVValue">
-        <property name="text">
-         <string/>
+         <string>Send to Seed Calculator</string>
         </property>
        </widget>
       </item>

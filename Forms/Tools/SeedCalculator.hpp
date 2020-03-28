@@ -20,6 +20,7 @@
 #ifndef SEEDCALCULATOR_HPP
 #define SEEDCALCULATOR_HPP
 
+#include <Core/Util/Game.hpp>
 #include <Core/Util/Global.hpp>
 #include <QWidget>
 
@@ -31,10 +32,12 @@ namespace Ui
 class SeedCalculator : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit SeedCalculator(QWidget *parent = nullptr);
+    explicit SeedCalculator(Game version, QWidget *parent = nullptr);
     ~SeedCalculator() override;
+
+public slots:
+    void setIVs(int star, int index, int nature, const QVector<u8> &ivs);
 
 private:
     Ui::SeedCalculator *ui;

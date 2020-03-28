@@ -41,8 +41,8 @@ public:
     void setGender(u8 gender);
     u8 getShiny() const;
     void setShiny(u8 shiny);
-    u8 getIV(u8 index) const;
-    void setIV(u8 index, u8 iv);
+    u8 getIV(int index) const;
+    void setIV(int index, u8 iv);
     u8 getCharacteristic() const;
 
 private:

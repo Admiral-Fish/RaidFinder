@@ -9,6 +9,12 @@ class PK8:
     def getEC(self):
         return struct.unpack("<I", self.data[0x0:0x4])[0]
 
+    def getTID(self):
+        return struct.unpack("<H", self.data[0xC:0xE])[0]
+
+    def getSID(self):
+        return struct.unpack("<H", self.data[0xE:0x10])[0]
+
     def getPID(self):
         return struct.unpack("<I", self.data[0x1C:0x20])[0]
 
@@ -38,8 +44,7 @@ class XoroShiro:
         self.s0 = seed
         self.s1 = 0x82A2B175229D6A5B
 
-    @staticmethod
-    def rotl(x, k):
+    def rotl(self, x, k):
         return ((x << k) | (x >> (64 - k))) & 0xFFFFFFFFFFFFFFFF
 
     def next(self):
@@ -57,22 +62,27 @@ class XoroShiro:
             result = self.next() & mask
         return result
 
-def sym_xoroshiro128plus(sym_s0, sym_s1, result):
-    sym_r = (sym_s0 + sym_s1) & 0xFFFFFFFF	
-    condition = sym_r == result
+def get_shiny_type(tid, sid, pid):
+    tsv = tid ^ sid
+    psv = (pid >> 16) ^ (pid & 0xffff)
 
-    sym_s0, sym_s1 = sym_xoroshiro128plusadvance(sym_s0, sym_s1)
+    if tsv == psv:
+        return 2 # Square
+    elif (tsv ^ psv) < 16:
+        return 1 # Star
+    else:
+        return 0 # Not shiny
 
-    return sym_s0, sym_s1, condition
+def sym_xoroshiro128plus(sym_s0, sym_s1):
+    sym_r = (sym_s0 + sym_s1) & 0xFFFFFFFF
 
-def sym_xoroshiro128plusadvance(sym_s0, sym_s1):    
     sym_s1 ^= sym_s0
     sym_s0 = z3.RotateLeft(sym_s0, 24) ^ sym_s1 ^ ((sym_s1 << 16) & 0xFFFFFFFFFFFFFFFF)
     sym_s1 = z3.RotateLeft(sym_s1, 37)
 
-    return sym_s0, sym_s1
+    return sym_s0, sym_s1, sym_r
 
-def get_models(s):
+def get_results(s):
     result = []
     while s.check() == z3.sat:
         m = s.model()
@@ -85,7 +95,7 @@ def get_models(s):
 
     return result
 
-def find_seeds(ec, pid):
+def find_origin_seeds(ec, pid, tid, sid, shiny):
     solver = z3.Solver()
     start_s0 = z3.BitVecs('start_s0', 64)[0]
 
@@ -93,20 +103,37 @@ def find_seeds(ec, pid):
     sym_s1 = 0x82A2B175229D6A5B
 
     # EC call
-    sym_s0, sym_s1, condition = sym_xoroshiro128plus(sym_s0, sym_s1, ec)
-    solver.add(condition)
+    sym_s0, sym_s1, sym_ec = sym_xoroshiro128plus(sym_s0, sym_s1)
 
     # TID/SID call
-    sym_s0, sym_s1 = sym_xoroshiro128plusadvance(sym_s0, sym_s1)
+    sym_s0, sym_s1, sym_sidtid = sym_xoroshiro128plus(sym_s0, sym_s1)
 
     # PID call
-    sym_s0, sym_s1, condition = sym_xoroshiro128plus(sym_s0, sym_s1, pid)
-    solver.add(condition)
-        
-    models = get_models(solver)
-    return [ model[start_s0].as_long() for model in models ]
+    sym_s0, sym_s1, sym_pid = sym_xoroshiro128plus(sym_s0, sym_s1)
 
-def find_seed(seeds, ivs):
+    # Validate EC
+    solver.add(sym_ec == ec)
+
+    # Validate pid type
+    sym_shiny = (sym_sidtid >> 16) ^ (sym_sidtid & 0xffff) ^ (sym_pid >> 16) ^ (sym_pid & 0xffff)
+    if shiny == 0:
+        solver.add(sym_shiny >= 16)
+    elif shiny == 1:
+        solver.add(sym_shiny < 16)
+    else:
+        solver.add(sym_shiny == 0)
+
+    # Validate PID
+    if shiny != 0:
+        high = (sym_pid & 0xffff) ^ tid ^ sid ^ (2 - shiny)
+        sym_pid = (high << 16) | (sym_pid & 0xffff)
+    solver.add(sym_pid == pid)
+
+    return [ result[start_s0].as_long() for result in get_results(solver) ]
+
+def find_valid_seeds(seeds, ivs):
+    results = []
+
     for seed in seeds:
         for iv_count in range(1, 6):
             rng = XoroShiro(seed)
@@ -128,59 +155,50 @@ def find_seed(seeds, ivs):
                     check_ivs[i] = rng.nextInt(32, 31)
 
             if ivs == check_ivs:
-                return seed, iv_count
+                results.append((seed, iv_count))
 
-    return None, None
+    return results
 
-def search(ec, pid, ivs):
-    print("")
-    seeds = find_seeds(ec, pid)    
-    if len(seeds) > 0:
-        seed, iv_count = find_seed(seeds, ivs)
-        if seed != None:
-            print(f"Raid seed: {hex(seed)} with IV count of {iv_count}")
-            return True
+def search(pkm):
+    ec = pkm.getEC()
+    pid = pkm.getPID()
+    tid = pkm.getTID()
+    sid = pkm.getSID()
+    ivs = [ pkm.getHP(), pkm.getAtk(), pkm.getDef(), pkm.getSpA(), pkm.getSpD(), pkm.getSpe() ]
 
-    seedsXor = find_seeds(ec, pid ^ 0x10000000) # Check for shiny lock
-    if len(seedsXor) > 0:
-        seed, iv_count = find_seed(seedsXor, ivs)
-        if seed != None:
-            print(f"Raid seed (shiny locked): {hex(seed)} with IV count of {iv_count}")
-            return True
+    for flag in [ False, True ]:
+        # !flag: checks normal and shiny
+        # flag: checks shiny locked        
+        
+        if flag:
+            pid ^= 0x10000000
+        
+        shiny = get_shiny_type(tid, sid, pid)
+
+        origin_seeds = find_origin_seeds(ec, pid, tid, sid, shiny)
+        if len(origin_seeds) > 0:
+            valid_seeds = find_valid_seeds(origin_seeds, ivs)
+            if len(valid_seeds) > 0:
+                for seed, iv_count in valid_seeds:
+                    print(f"Raid seed: {hex(seed)} with IV count of {iv_count}")
+                return True
 
     return False
 
-def searchPKM():
-    file_name = sys.argv[1]
-    with open(file_name, "rb") as f:
-        data = f.read()
-    pkm = PK8(data)
-
-    ec = pkm.getEC()
-    pid = pkm.getPID()
-    ivs = [ pkm.getHP(), pkm.getAtk(), pkm.getDef(), pkm.getSpA(), pkm.getSpD(), pkm.getSpe() ]
-
-    return search(ec, pid, ivs)
-
-def searchInput():
-    ec = int(input("Enter EC: 0x"), 16)
-    pid = int(input("Enter PID: 0x"), 16)
-    ivs = [ int(iv) for iv in input("Enter IVs(x.x.x.x.x.x): ").split(".") ]
-
-    return search(ec, pid, ivs)
-
 def main():
-    if len(sys.argv) == 1:
-        return searchInput()
+    if len(sys.argv) > 1:
+        file_name = sys.argv[1]
+        with open(file_name, "rb") as f:
+            data = f.read()
+        pkm = PK8(data)
+
+        return search(pkm)
     else:
-        return searchPKM()
+        print("You must provide a pk8 file")
+        return False
 
 if __name__ == "__main__":
     if main() == False:
         print("No raid seed")
-        print("This means one of three things")
-        print("1. You entered something wrong")
-        print("2. This script does not check for forced shiny since that takes a long time to compute. Try again with a non-shiny raid")
-        print("3. You encountered an extremely rare edge case (odds are you fall under case 1 though)")
     
-    input("Press ENTER to exit")
+    input("\nPress ENTER to exit")

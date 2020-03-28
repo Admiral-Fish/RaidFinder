@@ -23,14 +23,14 @@
 #include <Core/Util/IVChecker.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QCompleter>
+#include <QInputDialog>
 #include <QMessageBox>
 #include <QSettings>
 
-IVCalculator::IVCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::IVCalculator)
+IVCalculator::IVCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::IVCalculator), connected(false)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     setupModels();
 }
@@ -41,6 +41,11 @@ IVCalculator::~IVCalculator()
     setting.setValue("ivCalculator/geometry", this->saveGeometry());
 
     delete ui;
+}
+
+void IVCalculator::setConnected(bool connected)
+{
+    this->connected = connected;
 }
 
 void IVCalculator::setupModels()
@@ -64,6 +69,7 @@ void IVCalculator::setupModels()
     connect(ui->pushButtonFindIVs, &QPushButton::clicked, this, &IVCalculator::findIVs);
     connect(ui->comboBoxPokemon, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &IVCalculator::pokemonIndexChanged);
     connect(ui->comboBoxAltForm, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &IVCalculator::altformIndexChanged);
+    connect(ui->pushButtonSend, &QPushButton::clicked, this, &IVCalculator::checkIVs);
 
     QSettings setting;
     if (setting.contains("ivCalculator/geometry"))
@@ -177,9 +183,9 @@ void IVCalculator::findIVs()
 
     u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toUInt());
     u8 form = static_cast<u8>(ui->comboBoxAltForm->currentIndex());
-    PersonalInfo info = PersonalLoader::getInfo(species, form);
+    auto info = PersonalLoader::getInfo(species, form);
 
-    auto possible = IVChecker::calculateIVRange(info, stats, levels, nature);
+    auto possible = IVChecker::calculateIVRange(info.getBaseStats(), stats, levels, nature);
 
     displayIVs(ui->labelHPIVValue, possible.at(0));
     displayIVs(ui->labelAtkIVValue, possible.at(1));
@@ -225,4 +231,72 @@ void IVCalculator::altformIndexChanged(int index)
         ui->labelBaseSpDValue->setText(QString::number(stats[4]));
         ui->labelBaseSpeValue->setText(QString::number(stats[5]));
     }
+}
+
+void IVCalculator::checkIVs()
+{
+    if (!connected)
+    {
+        QMessageBox error(QMessageBox::Critical, tr("Cannot send IVs"), tr("The seed calculator must be open to send IVs"),
+                          QMessageBox::Ok);
+        error.exec();
+        return;
+    }
+
+    auto labels
+        = { ui->labelHPIVValue, ui->labelAtkIVValue, ui->labelDefIVValue, ui->labelSpAIVValue, ui->labelSpDIVValue, ui->labelSpeIVValue };
+
+    QVector<u8> ivs;
+    for (const auto &label : labels)
+    {
+        QString text = label->text();
+
+        if (text.contains(",") || text.contains("-"))
+        {
+            QMessageBox error(QMessageBox::Critical, tr("Multiple IVs Present"), tr("There must be only one IV present per stat"),
+                              QMessageBox::Ok);
+            error.exec();
+            return;
+        }
+        if (text == tr("Invalid"))
+        {
+            QMessageBox error(QMessageBox::Critical, tr("Invalid IVs"), tr("All stats must have valid IVs"), QMessageBox::Ok);
+            error.exec();
+            return;
+        }
+
+        ivs.append(static_cast<u8>(text.toUInt()));
+    }
+
+    bool flag;
+    QStringList starType = { "1-2★", "3-5★" };
+    QString starItem = QInputDialog::getItem(this, tr("Choose star"), tr("Star"), starType, 0, false, &flag,
+                                             Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+    if (!flag)
+    {
+        return;
+    }
+
+    int starIndex = starType.indexOf(starItem);
+
+    QStringList dayType;
+    if (starIndex == 0)
+    {
+        dayType = QStringList({ tr("Day 1"), tr("Day 2") });
+    }
+    else
+    {
+        dayType = QStringList({ tr("Day 4 (1st)"), tr("Day 4 (2nd)"), tr("Day 5"), tr("Day 6") });
+    }
+    QString dayItem = QInputDialog::getItem(this, tr("Choose day"), tr("Day"), dayType, 0, false, &flag,
+                                            Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+
+    if (!flag)
+    {
+        return;
+    }
+
+    int dayIndex = dayType.indexOf(dayItem);
+
+    emit sendIVs(starIndex, dayIndex, ui->comboBoxNature->currentIndex(), ivs);
 }

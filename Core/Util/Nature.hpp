@@ -17,24 +17,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef SEEDSEARCHER35_HPP
-#define SEEDSEARCHER35_HPP
+#ifndef NATURE_HPP
+#define NATURE_HPP
 
-#include <Core/Searcher/SeedSearcher.hpp>
+#include <Core/Util/Global.hpp>
 
-class SeedSearcher35 : public SeedSearcher
+namespace Nature
 {
-public:
-    SeedSearcher35(const QVector<Pokemon> &pokemon, const QVector<int> &ivCount, bool firstResult);
-    void setIVs(const QVector<u8> &templateIVs);
-    void startSearch(int minRolls, int maxRolls, int threads) override;
+    double getNatureModifier(u8 nature, int index);
+}
 
-private:
-    bool ivFlag;
-    int fixedIVs;
-    QVector<u8> templateIVs;
-
-    bool searchSeed(u64 &seed) override;
-};
-
-#endif // SEEDSEARCHER35_HPP
+#endif // NATURE_HPP

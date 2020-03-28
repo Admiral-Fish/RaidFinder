@@ -120,7 +120,7 @@
         <item>
          <widget class="QLabel" name="labelIVDeviation">
           <property name="text">
-           <string>IV Deviation</string>
+           <string>Search Range</string>
           </property>
          </widget>
         </item>

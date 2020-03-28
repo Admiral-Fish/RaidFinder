@@ -20,12 +20,12 @@
 #ifndef IVCHECKER_HPP
 #define IVCHECKER_HPP
 
-#include <Core/Results/PersonalInfo.hpp>
+#include <Core/Util/Global.hpp>
 #include <QVector>
 
 namespace IVChecker
 {
-    QVector<QVector<u8>> calculateIVRange(const PersonalInfo &info, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
+    QVector<QVector<u8>> calculateIVRange(const QVector<u8> &baseStats, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
                                           u8 nature);
 }
 

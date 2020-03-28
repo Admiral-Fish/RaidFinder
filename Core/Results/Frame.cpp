@@ -95,12 +95,12 @@ void Frame::setShiny(u8 shiny)
     this->shiny = shiny;
 }
 
-u8 Frame::getIV(u8 index) const
+u8 Frame::getIV(int index) const
 {
     return ivs[index];
 }
 
-void Frame::setIV(u8 index, u8 iv)
+void Frame::setIV(int index, u8 iv)
 {
     ivs[index] = iv;
 }

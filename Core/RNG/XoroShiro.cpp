@@ -38,6 +38,17 @@ void XoroShiro::setSeed(u64 seed)
     state[1] = 0x82A2B175229D6A5B;
 }
 
+u32 XoroShiro::nextInt(u32 max, u32 mask, int &count)
+{
+    u32 result;
+    do
+    {
+        result = next() & mask;
+        count++;
+    } while (result >= max);
+    return result;
+}
+
 u32 XoroShiro::nextInt(u32 max, u32 mask)
 {
     u32 result;

@@ -20,17 +20,17 @@
 #include "EncounterLookup.hpp"
 #include "ui_EncounterLookup.h"
 #include <Core/Loader/DenLoader.hpp>
-#include <Core/Util/Game.hpp>
 #include <Core/Util/Translator.hpp>
 #include <QCompleter>
 
-EncounterLookup::EncounterLookup(QWidget *parent) : QWidget(parent), ui(new Ui::EncounterLookup)
+EncounterLookup::EncounterLookup(Game version, QWidget *parent) : QWidget(parent), ui(new Ui::EncounterLookup)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
     setAttribute(Qt::WA_DeleteOnClose);
 
     setupModels();
+    ui->comboBoxGame->setCurrentIndex(ui->comboBoxGame->findData(version));
 }
 
 EncounterLookup::~EncounterLookup()

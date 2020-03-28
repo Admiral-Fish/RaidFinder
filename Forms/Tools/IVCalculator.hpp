@@ -31,20 +31,27 @@ namespace Ui
 class IVCalculator : public QWidget
 {
     Q_OBJECT
+signals:
+    void sendIVs(int, int, int, QVector<u8>);
+
 public:
     explicit IVCalculator(QWidget *parent = nullptr);
     ~IVCalculator() override;
+
+    void setConnected(bool connected);
 
 private:
     Ui::IVCalculator *ui;
 
     void setupModels();
     void displayIVs(QLabel *label, const QVector<u8> &ivs);
+    bool connected;
 
 private slots:
     void findIVs();
     void pokemonIndexChanged(int index);
     void altformIndexChanged(int index);
+    void checkIVs();
 };
 
 #endif // IVCALCULATOR_HPP

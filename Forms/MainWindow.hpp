@@ -27,6 +27,8 @@
 #include <QMenu>
 
 class FrameModel;
+class IVCalculator;
+class SeedCalculator;
 
 namespace Ui
 {
@@ -52,6 +54,8 @@ private:
     Den den;
     FrameModel *model;
     QMenu *menu;
+    IVCalculator *ivCalculator = nullptr;
+    SeedCalculator *seedCalculator = nullptr;
 
     void setupModels();
     QByteArray downloadFile(const QString &url);
@@ -66,11 +70,14 @@ private slots:
     void openDenMap();
     void openEncounterLookup();
     void openIVCalculator();
-    void openSeedSearcher();
+    void openSeedCalculator();
     void downloadEventData();
+    void checkUpdates();
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);
+    void showStatsToggled(bool flag);
+    void levelValueChanged(int value);
     void tableViewContextMenu(QPoint pos);
     void generate();
 };

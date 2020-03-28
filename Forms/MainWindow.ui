@@ -124,62 +124,6 @@
        <string>Settings</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="3" column="1">
-        <widget class="QComboBox" name="comboBoxAbilityType">
-         <item>
-          <property name="text">
-           <string notr="true">1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">H</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">1/2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">1/2/H</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QComboBox" name="comboBoxShinyType">
-         <item>
-          <property name="text">
-           <string>Random</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Force shiny</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="labelAbilityType">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Ability</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="labelRarity">
          <property name="sizePolicy">
@@ -191,6 +135,60 @@
          <property name="text">
           <string>Rarity</string>
          </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBoxRarity">
+         <item>
+          <property name="text">
+           <string>Normal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rare</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelGenderType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Gender</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QComboBox" name="comboBoxGenderType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Random</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string notr="true">♂</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string notr="true">♀</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Genderless</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item row="1" column="0">
@@ -206,8 +204,31 @@
          </property>
         </widget>
        </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBoxSpecies">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="labelGenderRatio">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Gender Ratio</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="3">
         <widget class="QComboBox" name="comboBoxGenderRatio">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string>Genderless</string>
@@ -245,58 +266,6 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="labelGenderRatio">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Gender Ratio</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QLabel" name="labelGigantamaxValue">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>No</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="comboBoxSpecies"/>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelGenderType">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Gender</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBoxIVCount">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>5</number>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="0">
         <widget class="QLabel" name="labelIVCount">
          <property name="sizePolicy">
@@ -310,8 +279,31 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="3">
-        <widget class="QComboBox" name="comboBoxGenderType">
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spinBoxIVCount">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="labelShinyType">
+         <property name="text">
+          <string>Shiny Type</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QComboBox" name="comboBoxShinyType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <item>
           <property name="text">
            <string>Random</string>
@@ -319,17 +311,57 @@
          </item>
          <item>
           <property name="text">
-           <string notr="true">♂</string>
+           <string>Force non-shiny</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string notr="true">♀</string>
+           <string>Force shiny</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="labelAbilityType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Ability</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="comboBoxAbilityType">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string notr="true">1</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Genderless</string>
+           <string notr="true">2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string notr="true">H</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string notr="true">1/2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string notr="true">1/2/H</string>
           </property>
          </item>
         </widget>
@@ -347,26 +379,55 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="comboBoxRarity">
-         <item>
-          <property name="text">
-           <string>Normal</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Rare</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="labelShinyType">
+       <item row="3" column="3">
+        <widget class="QLabel" name="labelGigantamaxValue">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
-          <string>Shiny Type</string>
+          <string>No</string>
          </property>
         </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QCheckBox" name="checkBoxShowStats">
+           <property name="text">
+            <string>Show stats</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelLevel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Level</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spinBoxLevel">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -469,11 +530,6 @@
          <item>
           <property name="text">
            <string notr="true">2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string notr="true">H</string>
           </property>
          </item>
         </widget>
@@ -660,7 +716,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -685,8 +741,9 @@
      <addaction name="actionItalian"/>
      <addaction name="actionJapanese"/>
      <addaction name="actionKorean"/>
-     <addaction name="actionChinese"/>
+     <addaction name="actionPortuguese"/>
      <addaction name="actionChineseTraditional"/>
+     <addaction name="actionChinese"/>
     </widget>
     <widget class="QMenu" name="menuThread">
      <property name="title">
@@ -705,7 +762,7 @@
     <addaction name="actionDownloadEventData"/>
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
-    <addaction name="actionSeedSearcher"/>
+    <addaction name="actionSeedCalculator"/>
    </widget>
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
@@ -800,9 +857,9 @@
     <string>IV Calculator</string>
    </property>
   </action>
-  <action name="actionSeedSearcher">
+  <action name="actionSeedCalculator">
    <property name="text">
-    <string>Seed Searcher</string>
+    <string>Seed Calculator</string>
    </property>
   </action>
   <action name="actionEncounterLookup">
@@ -821,6 +878,14 @@
   <action name="actionDownloadEventData">
    <property name="text">
     <string>Download Event Data</string>
+   </property>
+  </action>
+  <action name="actionPortuguese">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Portuguese</string>
    </property>
   </action>
  </widget>
@@ -851,6 +916,8 @@
   </customwidget>
  </customwidgets>
  <tabstops>
+  <tabstop>comboBoxProfiles</tabstop>
+  <tabstop>pushButtonProfileManager</tabstop>
   <tabstop>comboBoxDen</tabstop>
   <tabstop>textBoxSeed</tabstop>
   <tabstop>textBoxInitialFrame</tabstop>
@@ -863,6 +930,8 @@
   <tabstop>comboBoxGenderType</tabstop>
   <tabstop>comboBoxGenderRatio</tabstop>
   <tabstop>comboBoxShinyType</tabstop>
+  <tabstop>checkBoxShowStats</tabstop>
+  <tabstop>spinBoxLevel</tabstop>
   <tabstop>comboBoxNature</tabstop>
   <tabstop>pushButtonAnyNature</tabstop>
   <tabstop>comboBoxAbility</tabstop>

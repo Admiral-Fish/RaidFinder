@@ -30,6 +30,7 @@ public:
     PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 genderRatio, u16 ability1, u16 ability2, u16 abilityH, u8 formCount,
                  u16 formStatIndex, bool included);
     QVector<u8> getBaseStats() const;
+    u8 getBaseStat(int index) const;
     u8 getGenderRatio() const;
     u16 getAbility1() const;
     u16 getAbility2() const;

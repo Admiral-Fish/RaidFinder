@@ -29,15 +29,16 @@ namespace Ui
     class RaidInfo35;
 }
 
-class RaidInfo35 : public QWidget
+class RaidInfo35 final : public QWidget
 {
     Q_OBJECT
 public:
     explicit RaidInfo35(QWidget *parent = nullptr);
-    ~RaidInfo35() override;
+    ~RaidInfo35() override final;
     void setDen(const Den &den, Game game);
     bool isValid() const;
     QVector<u8> getIVs(int index) const;
+    void setInfo(int index, int nature, const QVector<u8> &ivs);
     QVector<u8> getConditionIVs() const;
     QVector<int> getIVCounts() const;
     Pokemon getPokemonDay4_1() const;
@@ -55,6 +56,7 @@ private:
 
     void setupModels();
     void checkDay4();
+    bool isValid(QVector<bool> &possible);
 
 private slots:
     void raidDay4_1IndexChanged(int index);

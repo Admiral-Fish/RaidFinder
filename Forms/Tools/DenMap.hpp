@@ -32,7 +32,7 @@ class DenMap : public QWidget
     Q_OBJECT
 public:
     explicit DenMap(QWidget *parent = nullptr);
-    ~DenMap();
+    ~DenMap() override;
 
 private:
     Ui::DenMap *ui;

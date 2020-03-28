@@ -45,7 +45,7 @@ void RaidInfo12::setDen(const Den &den, Game game)
     ui->comboBoxRaidDay2->clear();
 
     auto raids = den.getRaids(game);
-    for (u8 i = 0; i < raids.size(); i++)
+    for (int i = 0; i < raids.size(); i++)
     {
         auto raid = raids.at(i);
         if (raid.getIVCount() == 1)
@@ -75,6 +75,30 @@ QVector<u8> RaidInfo12::getIVs(int index) const
     return { static_cast<u8>(ui->spinBoxHPDay2->value()),  static_cast<u8>(ui->spinBoxAtkDay2->value()),
              static_cast<u8>(ui->spinBoxDefDay2->value()), static_cast<u8>(ui->spinBoxSpADay2->value()),
              static_cast<u8>(ui->spinBoxSpDDay2->value()), static_cast<u8>(ui->spinBoxSpeDay2->value()) };
+}
+
+void RaidInfo12::setInfo(int index, int nature, const QVector<u8> &ivs)
+{
+    if (index == 0)
+    {
+        ui->spinBoxHPDay1->setValue(ivs.at(0));
+        ui->spinBoxAtkDay1->setValue(ivs.at(1));
+        ui->spinBoxDefDay1->setValue(ivs.at(2));
+        ui->spinBoxSpADay1->setValue(ivs.at(3));
+        ui->spinBoxSpDDay1->setValue(ivs.at(4));
+        ui->spinBoxSpeDay1->setValue(ivs.at(5));
+        ui->comboBoxNatureDay1->setCurrentIndex(nature);
+    }
+    else
+    {
+        ui->spinBoxHPDay2->setValue(ivs.at(0));
+        ui->spinBoxAtkDay2->setValue(ivs.at(1));
+        ui->spinBoxDefDay2->setValue(ivs.at(2));
+        ui->spinBoxSpADay2->setValue(ivs.at(3));
+        ui->spinBoxSpDDay2->setValue(ivs.at(4));
+        ui->spinBoxSpeDay2->setValue(ivs.at(5));
+        ui->comboBoxNatureDay2->setCurrentIndex(nature);
+    }
 }
 
 QVector<int> RaidInfo12::getIVCounts() const
@@ -126,7 +150,8 @@ Pokemon RaidInfo12::getPokemonDay2() const
 
 bool RaidInfo12::isValid() const
 {
-    return ui->labelCheck->text() == tr("Valid");
+    auto ivs = getIVs(0);
+    return ivs.count(31) == 1;
 }
 
 void RaidInfo12::setupModels()
@@ -155,6 +180,7 @@ void RaidInfo12::raidDay1IndexChanged(int index)
         auto info = PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm());
 
         ui->spinBoxIVCountDay1->setValue(raid.getIVCount());
+        checkValid();
 
         ui->comboBoxAbilityDay1->clear();
         ui->comboBoxAbilityDay1->addItem(Translator::getAbility(info.getAbility1()), info.getAbility1());
@@ -193,14 +219,12 @@ void RaidInfo12::raidDay2IndexChanged(int index)
 
 void RaidInfo12::checkValid()
 {
-    auto ivs = getIVs(0);
-
-    if (ivs.count(31) == 1)
+    if (isValid())
     {
         ui->labelCheck->setText(tr("Valid"));
     }
     else
     {
-        ui->labelCheck->setText(tr("Invalid"));
+        ui->labelCheck->setText(tr("Incorrect IV count"));
     }
 }

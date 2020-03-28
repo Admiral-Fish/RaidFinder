@@ -3,18 +3,18 @@ equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at le
 
 QT += concurrent network widgets
 CONFIG += c++1z lrelease embed_translations
+QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
+QMAKE_RESOURCE_FLAGS = -threshold 0 -compress 9
 
 TARGET = RaidFinder
 TEMPLATE = app
-VERSION = 2.2.0
+VERSION = 2.3.1
 
 DEFINES += VERSION=\\\"$$VERSION\\\"
 DEFINES += QT_DEPRECATED_WARNINGS
 
 RC_ICONS += Resources/Images/raidfinder.ico
 ICON += Resources/Images/raidfinder.icns
-
-DEFINES += QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
     resources.qrc \
@@ -28,8 +28,9 @@ TRANSLATIONS += \
     i18n/RaidFinder_it.ts \
     i18n/RaidFinder_ja.ts \
     i18n/RaidFinder_ko.ts \
-    i18n/RaidFinder_zh.ts \
-    i18n/RaidFinder_tw.ts
+    i18n/RaidFinder_pt.ts \
+    i18n/RaidFinder_tw.ts \
+    i18n/RaidFinder_zh.ts
 
 FORMS += \
     Forms/Controls/IVFilter.ui \
@@ -58,11 +59,13 @@ HEADERS += \
     Core/Results/Raid.hpp \
     Core/Searcher/Matrix.hpp \
     Core/Searcher/SeedSearcher.hpp \
-    Core/Searcher/SeedSearcher12.hpp \
-    Core/Searcher/SeedSearcher35.hpp \
+    Core/Searcher/SeedSearcher1.hpp \
+    Core/Searcher/SeedSearcher2.hpp \
+    Core/Searcher/SeedSearcher3.hpp \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
+    Core/Util/Nature.hpp \
     Core/Util/Translator.hpp \
     Forms/Controls/CheckList.hpp \
     Forms/Controls/IVFilter.hpp \
@@ -97,9 +100,11 @@ SOURCES += \
     Core/Results/Raid.cpp \
     Core/Searcher/Matrix.cpp \
     Core/Searcher/SeedSearcher.cpp \
-    Core/Searcher/SeedSearcher12.cpp \
-    Core/Searcher/SeedSearcher35.cpp \
+    Core/Searcher/SeedSearcher1.cpp \
+    Core/Searcher/SeedSearcher2.cpp \
+    Core/Searcher/SeedSearcher3.cpp \
     Core/Util/IVChecker.cpp \
+    Core/Util/Nature.cpp \
     Core/Util/Translator.cpp \
     Forms/Controls/CheckList.cpp \
     Forms/Controls/IVFilter.cpp \

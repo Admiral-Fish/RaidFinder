@@ -24,18 +24,22 @@
 #include <Core/Results/PersonalInfo.hpp>
 #include <Models/TableModel.hpp>
 
-class FrameModel : public TableModel<Frame>
+class FrameModel final : public TableModel<Frame>
 {
     Q_OBJECT
 public:
     FrameModel(QObject *parent = nullptr);
+    void setShowStats(bool showStats);
+    void setLevel(int level);
     void setInfo(const PersonalInfo &info);
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override final;
+    QVariant data(const QModelIndex &index, int role) const override final;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override final;
 
 private:
     PersonalInfo info;
+    bool showStats;
+    int level;
     QStringList header = { tr("Frame"), tr("HP"),    tr("Atk"),    tr("Def"),     tr("SpA"),    tr("SpD"),
                            tr("Spe"),   tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Characteristic"),
                            tr("Seed"),  tr("EC"),    tr("PID") };

@@ -22,12 +22,13 @@
 
 #include <Core/Util/Global.hpp>
 #include <QString>
+#include <array>
 
 class Raid
 {
 public:
     Raid() = default;
-    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const bool star[5], u8 shinyType = 0);
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<bool, 5> &star, u8 shinyType = 0);
     u8 getAbility() const;
     u8 getAltForm() const;
     u8 getIVCount() const;
@@ -47,7 +48,7 @@ private:
     u8 genderRatio;
     bool gigantamax;
     u16 species;
-    bool star[5];
+    std::array<bool, 5> star;
     u8 shinyType;
 };
 
