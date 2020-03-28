@@ -309,37 +309,37 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
         <source>Cannot send IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>Die IVs konnten nicht gesendet werden.</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
         <source>The seed calculator must be open to send IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Seed Rechner muss offen sein, damit IVs gesendet werden können.</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
         <source>Multiple IVs Present</source>
-        <translation type="unfinished"></translation>
+        <translation>Uneindeutige IVs</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
         <source>There must be only one IV present per stat</source>
-        <translation type="unfinished"></translation>
+        <translation>Die IVs müssen eindeutig sein.</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
         <source>Invalid IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültige IVs</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
         <source>All stats must have valid IVs</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Werte müssen gültige IVs besitzen.</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
         <source>Choose star</source>
-        <translation type="unfinished"></translation>
+        <translation>Sterne auswählen</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
@@ -379,12 +379,12 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
         <source>Choose day</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag auswählen</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
         <source>Day</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
@@ -399,7 +399,7 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Send to Seed Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>An Seed Rechner senden</translation>
     </message>
 </context>
 <context>
@@ -725,12 +725,12 @@
     <message>
         <location filename="../Forms/MainWindow.cpp" line="455"/>
         <source>Update Check</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf Updates prüfen</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="456"/>
         <source>An update is available. Would you like to download the newest version?</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine neue Version des Raid Finders ist verfügbar. Soll der Download jetzt gestartet werden?</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.cpp" line="504"/>
@@ -806,7 +806,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Force shiny</source>
-        <translation>Shiny erzwingen</translation>
+        <translation>immer Shiny</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -821,22 +821,22 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Show stats</source>
-        <translation type="unfinished"></translation>
+        <translation>Werte anzeigen</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Level</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugiesisch</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Force non-shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>nie Shiny</translation>
     </message>
 </context>
 <context>
@@ -1007,7 +1007,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo12.cpp" line="228"/>
         <source>Incorrect IV count</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültige Anzahl IVs</translation>
     </message>
 </context>
 <context>
@@ -1065,7 +1065,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="325"/>
         <source>Incorrect IV count</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültige Anzahl IVs</translation>
     </message>
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="331"/>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../Forms/Util/RaidInfo35.cpp" line="343"/>
         <source>IVs not searchable</source>
-        <translation type="unfinished"></translation>
+        <translation>IVs nicht berechenbar</translation>
     </message>
 </context>
 <context>
@@ -1203,7 +1203,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Search Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchumfang</translation>
     </message>
 </context>
 </TS>
