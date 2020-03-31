@@ -836,7 +836,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Force non-shiny</source>
-        <translation type="unfinished"></translation>
+        <translation>锁死无异色</translation>
     </message>
 </context>
 <context>
