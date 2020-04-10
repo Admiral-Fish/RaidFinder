@@ -10,3 +10,4 @@
 200309_snorlax.bin,143
 200319_pincurchin.bin,871
 200326_duraludon.bin,884
+200410_ditto.bin,132
