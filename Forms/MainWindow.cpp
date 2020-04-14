@@ -503,6 +503,8 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxShinyType->setCurrentIndex(ui->comboBoxShinyType->findData(raid.getShiny()));
         ui->labelGigantamaxValue->setText(raid.getGigantamax() ? tr("Yes") : tr("No"));
 
+        int abilityIndex = ui->comboBoxAbility->currentIndex();
+
         ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
 
@@ -510,6 +512,15 @@ void MainWindow::speciesIndexChanged(int index)
         if (raid.getAbility() == 4)
         {
             ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
+        }
+
+        if (abilityIndex < ui->comboBoxAbility->count())
+        {
+            ui->comboBoxAbility->setCurrentIndex(abilityIndex);
+        }
+        else
+        {
+            ui->comboBoxAbility->setCurrentIndex(0);
         }
     }
 }
