@@ -12,3 +12,4 @@
 200326_duraludon.bin,884
 200410_ditto.bin,132
 200428_rotom.bin,479
+200512_pikachu.bin,25
