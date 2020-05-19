@@ -13,3 +13,4 @@
 200410_ditto.bin,132
 200428_rotom.bin,479
 200512_pikachu.bin,25
+200519_eevee.bin,133
