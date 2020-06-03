@@ -15,3 +15,4 @@
 200512_pikachu.bin,25
 200519_eevee.bin,133
 200526_meowth.bin,52
+200602_centiskorch.bin,851
