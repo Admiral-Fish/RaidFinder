@@ -113,7 +113,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         else // Force shiny
         {
             result.setShiny(2);
-            if (((pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid) != 0) // Check if PID is not normally square shiny
+            if (((pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid) >= 16) // Check if PID is not normally shiny
             {
                 u16 high = (pid & 0xffff) ^ tid ^ sid;
                 pid = (high << 16) | (pid & 0xffff);
@@ -121,6 +121,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
         result.setPID(pid);
 
+        // Early shiny filter reduces further computation
         if (!filter.compareShiny(result))
         {
             continue;
