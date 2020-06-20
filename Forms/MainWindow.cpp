@@ -234,7 +234,7 @@ QByteArray MainWindow::downloadFile(const QString &url)
 
     QEventLoop loop;
     connect(reply.data(), &QNetworkReply::finished, &loop, &QEventLoop::quit);
-    connect(reply.data(), QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), &loop, &QEventLoop::quit);
+    connect(reply.data(), QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), &loop, &QEventLoop::quit);
     loop.exec();
 
     return reply->readAll();
@@ -253,7 +253,8 @@ void MainWindow::slotLanguageChanged(QAction *action)
                                 QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
-                QProcess::startDetached(QApplication::applicationFilePath());
+                auto arguments = QApplication::arguments();
+                QProcess::startDetached(arguments.first(), arguments.mid(1));
                 QApplication::quit();
             }
         }
@@ -273,7 +274,8 @@ void MainWindow::slotStyleChanged(QAction *action)
                                 QMessageBox::Yes | QMessageBox::No);
             if (message.exec() == QMessageBox::Yes)
             {
-                QProcess::startDetached(QApplication::applicationFilePath());
+                auto arguments = QApplication::arguments();
+                QProcess::startDetached(arguments.first(), arguments.mid(1));
                 QApplication::quit();
             }
         }
@@ -432,7 +434,8 @@ void MainWindow::downloadEventData()
                             QMessageBox::Yes | QMessageBox::No);
         if (message.exec() == QMessageBox::Yes)
         {
-            QProcess::startDetached(QApplication::applicationFilePath());
+            auto arguments = QApplication::arguments();
+            QProcess::startDetached(arguments.first(), arguments.mid(1));
             QApplication::quit();
         }
     }
