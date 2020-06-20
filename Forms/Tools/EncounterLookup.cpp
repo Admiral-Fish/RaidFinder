@@ -41,7 +41,7 @@ EncounterLookup::~EncounterLookup()
 void EncounterLookup::setupModels()
 {
     model = new QStandardItemModel(ui->tableView);
-    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("IV Count"), tr("HA"), tr("Gigantamax") }));
+    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("IV Count"), tr("Ability"), tr("Gigantamax") }));
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -142,19 +142,36 @@ void EncounterLookup::addRow(int denId, bool isRare, Raid raid)
     QString location = QString("%1: %2").arg(denId + 1).arg(Translator::getLocation(DenLoader::getLocation(denId)));
     QString rarity = isRare ? tr("Rare") : tr("Normal");
     QString iv = QString::number(raid.getIVCount());
-    QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
+    QString ability;
+    switch (raid.getAbility())
+    {
+    case 0:
+    case 1:
+        ability = QString::number(raid.getAbility() + 1);
+        break;
+    case 2:
+        ability = "H";
+        break;
+    case 3:
+        ability = "1/2";
+        break;
+    case 4:
+    default:
+        ability = "1/2/H";
+        break;
+    }
     QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
 
     auto iLocation = new QStandardItem(location);
     auto iRarity = new QStandardItem(rarity);
     auto iIV = new QStandardItem(iv);
-    auto iHA = new QStandardItem(ha);
+    auto iAbility = new QStandardItem(ability);
     auto iGMax = new QStandardItem(gigantamax);
 
     iRarity->setTextAlignment(Qt::AlignCenter);
     iIV->setTextAlignment(Qt::AlignCenter);
-    iHA->setTextAlignment(Qt::AlignCenter);
+    iAbility->setTextAlignment(Qt::AlignCenter);
     iGMax->setTextAlignment(Qt::AlignCenter);
 
-    model->appendRow({ iLocation, iRarity, iIV, iHA, iGMax });
+    model->appendRow({ iLocation, iRarity, iIV, iAbility, iGMax });
 }
