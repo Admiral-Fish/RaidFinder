@@ -68,13 +68,13 @@
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>HA</source>
-        <translation type="unfinished"></translation>
+        <source>Gigantamax</source>
+        <translation>極巨化</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>Gigantamax</source>
-        <translation>極巨化</translation>
+        <source>Ability</source>
+        <translation>特性</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="143"/>
@@ -82,14 +82,12 @@
         <translation>普通(紅柱)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>No</source>
         <translation>否</translation>
     </message>

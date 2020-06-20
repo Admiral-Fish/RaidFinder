@@ -68,13 +68,13 @@
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>HA</source>
-        <translation>VF</translation>
+        <source>Gigantamax</source>
+        <translation>G-Max</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>Gigantamax</source>
-        <translation>G-Max</translation>
+        <source>Ability</source>
+        <translation>Fähigkeit</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="143"/>
@@ -82,14 +82,12 @@
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>

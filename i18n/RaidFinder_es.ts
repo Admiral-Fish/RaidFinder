@@ -68,12 +68,12 @@
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>HA</source>
+        <source>Gigantamax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>Gigantamax</source>
+        <source>Ability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -82,14 +82,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
