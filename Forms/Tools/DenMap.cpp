@@ -39,25 +39,39 @@ DenMap::~DenMap()
 
 void DenMap::setupModels()
 {
-    for (u8 i = 0; i < 100; i++)
+    for (u8 i = 0; i < 190; i++)
     {
         QString location = Translator::getLocation(DenLoader::getLocation(i));
         ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
     }
 
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::denIndexChanged);
+
     denIndexChanged(0);
 }
 
 void DenMap::denIndexChanged(int index)
 {
-    QVector<u16> coordinates = DenLoader::getCoordinates(static_cast<u8>(index));
+    if (index >= 0)
+    {
+        QVector<u16> coordinates = DenLoader::getCoordinates(index);
 
-    QPixmap image(":/images/map.png");
+        QPixmap image;
+        if (index < 100)
+        {
+            image.load(":/images/map.png");
+            this->resize(245, 578);
+        }
+        else
+        {
+            image.load(":/images/map_ioa.png");
+            this->resize(609, 637);
+        }
 
-    QPainter paint(&image);
-    paint.setPen(QPen(QBrush(Qt::red), 20));
-    paint.drawEllipse(QPoint(coordinates[0], coordinates[1]), 5, 5);
+        QPainter paint(&image);
+        paint.setPen(QPen(QBrush(Qt::red), 20));
+        paint.drawEllipse(QPoint(coordinates[0], coordinates[1]), 5, 5);
 
-    ui->labelMap->setPixmap(image);
+        ui->labelMap->setPixmap(image);
+    }
 }

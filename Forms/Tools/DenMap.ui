@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>245</width>
-    <height>576</height>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,17 +28,8 @@
        <height>532</height>
       </size>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>227</width>
-       <height>532</height>
-      </size>
-     </property>
      <property name="text">
       <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../../resources.qrc">:/images/map.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -50,8 +41,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../../resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
