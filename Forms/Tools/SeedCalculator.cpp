@@ -66,7 +66,7 @@ void SeedCalculator::setupModels()
     {
         ui->comboBoxDen->addItem(tr("Event"), 100);
     }
-    for (u8 i = 0; i < 100; i++)
+    for (u8 i = 0; i < 190; i++)
     {
         if (i == 16)
         {
