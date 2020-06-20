@@ -321,7 +321,10 @@ void DenLoader::init()
                 star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
             }
 
-            swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+            if (std::any_of(std::begin(star), std::end(star), [](bool flag) { return flag; }))
+            {
+                swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+            }
         }
 
         QVector<Raid> shieldRaids;
@@ -343,7 +346,10 @@ void DenLoader::init()
                 star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
             }
 
-            shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+            if (std::any_of(std::begin(star), std::end(star), [](bool flag) { return flag; }))
+            {
+                shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+            }
         }
         dens[0x17e59bbd874fd95c] = Den(swordRaids, shieldRaids);
     }
