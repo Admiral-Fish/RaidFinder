@@ -117,21 +117,7 @@ void MainWindow::setupModels()
     ui->comboBoxShinyType->setItemData(1, 1); // Forced non-shiny
     ui->comboBoxShinyType->setItemData(2, 2); // Forced shiny
 
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 255);
-    }
-    for (u8 i = 0; i < 190; i++)
-    {
-        if (i == 16)
-        {
-            continue;
-        }
-
-        QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
-    }
-
+    locationIndexChanged(0);
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -209,6 +195,7 @@ void MainWindow::setupModels()
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::locationIndexChanged);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
@@ -463,6 +450,34 @@ void MainWindow::checkUpdates()
     }
 
     setting.setValue("settings/lastOpened", today);
+}
+
+void MainWindow::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        ui->comboBoxDen->clear();
+
+        if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+        {
+            ui->comboBoxDen->addItem(tr("Event"), 255);
+        }
+
+        u8 start = index == 0 ? 0 : 100;
+        u8 end = index == 0 ? 100 : 190;
+        u8 offset = index == 0 ? 0 : 100;
+
+        for (u8 denID = start; denID < end; denID++)
+        {
+            if (denID == 16)
+            {
+                continue;
+            }
+
+            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location), denID);
+        }
+    }
 }
 
 void MainWindow::denIndexChanged(int index)

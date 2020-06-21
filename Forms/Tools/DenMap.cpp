@@ -39,25 +39,43 @@ DenMap::~DenMap()
 
 void DenMap::setupModels()
 {
-    for (u8 i = 0; i < 190; i++)
-    {
-        QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
-    }
+    locationIndexChanged(0);
 
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::locationIndexChanged);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::denIndexChanged);
+}
 
-    denIndexChanged(0);
+void DenMap::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        ui->comboBoxDen->clear();
+
+        u8 start = index == 0 ? 0 : 100;
+        u8 end = index == 0 ? 100 : 190;
+        u8 offset = index == 0 ? 0 : 100;
+
+        for (u8 denID = start; denID < end; denID++)
+        {
+            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location));
+        }
+
+        denIndexChanged(0);
+    }
 }
 
 void DenMap::denIndexChanged(int index)
 {
     if (index >= 0)
     {
-        QVector<u16> coordinates = DenLoader::getCoordinates(index);
+        int location = ui->comboBoxLocation->currentIndex();
+        int offset = location == 0 ? 0 : 100;
+
+        QVector<u16> coordinates = DenLoader::getCoordinates(index + offset);
 
         QPixmap image;
-        if (index < 100)
+        if (location == 0)
         {
             image.load(":/images/map.png");
             this->resize(245, 578);

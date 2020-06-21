@@ -73,6 +73,7 @@ private slots:
     void openSeedCalculator();
     void downloadEventData();
     void checkUpdates();
+    void locationIndexChanged(int index);
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);

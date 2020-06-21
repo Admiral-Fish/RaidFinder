@@ -40,6 +40,7 @@ private:
     void setupModels();
 
 private slots:
+    void locationIndexChanged(int index);
     void denIndexChanged(int index);
 };
 

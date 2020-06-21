@@ -30,24 +30,7 @@
        <string>RNG Info</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="1" column="1">
-        <widget class="TextBox" name="textBoxSeed"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="TextBox" name="textBoxInitialFrame">
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="2">
-        <widget class="QPushButton" name="pushButtonGenerate">
-         <property name="text">
-          <string>Generate</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
+       <item row="4" column="0">
         <widget class="QLabel" name="label">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -60,27 +43,7 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="TextBox" name="textBoxMaxResults">
-         <property name="text">
-          <string notr="true">100</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelSeed">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Seed</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
+       <item row="5" column="0">
         <widget class="QLabel" name="labelMaxResults">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -93,7 +56,17 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBoxDen"/>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButtonGenerate">
+         <property name="text">
+          <string>Generate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
         <widget class="QLabel" name="labelDen">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -106,8 +79,56 @@
          </property>
         </widget>
        </item>
+       <item row="2" column="1">
+        <widget class="TextBox" name="textBoxSeed"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="TextBox" name="textBoxInitialFrame">
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="TextBox" name="textBoxMaxResults">
+         <property name="text">
+          <string notr="true">100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelSeed">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Seed</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelLocation">
+         <property name="text">
+          <string>Location</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="1">
-        <widget class="QComboBox" name="comboBoxDen"/>
+        <widget class="QComboBox" name="comboBoxLocation">
+         <item>
+          <property name="text">
+           <string>Wild Area</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Isle of Armor</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -728,7 +749,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSettings">
@@ -930,6 +951,7 @@
  <tabstops>
   <tabstop>comboBoxProfiles</tabstop>
   <tabstop>pushButtonProfileManager</tabstop>
+  <tabstop>comboBoxLocation</tabstop>
   <tabstop>comboBoxDen</tabstop>
   <tabstop>textBoxSeed</tabstop>
   <tabstop>textBoxInitialFrame</tabstop>

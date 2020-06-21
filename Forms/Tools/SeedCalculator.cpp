@@ -62,26 +62,13 @@ void SeedCalculator::setIVs(int star, int index, int nature, const QVector<u8> &
 
 void SeedCalculator::setupModels()
 {
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 100);
-    }
-    for (u8 i = 0; i < 190; i++)
-    {
-        if (i == 16)
-        {
-            continue;
-        }
-
-        QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
-    }
-
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
 
+    locationIndexChanged(0);
     denIndexChanged(0);
 
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::locationIndexChanged);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::rarityIndexChanged);
     connect(ui->comboBoxGame, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &SeedCalculator::gameIndexChanged);
@@ -265,6 +252,34 @@ void SeedCalculator::search12()
 
     watcher->setFuture(future);
     timer->start(1000);
+}
+
+void SeedCalculator::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        ui->comboBoxDen->clear();
+
+        if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+        {
+            ui->comboBoxDen->addItem(tr("Event"), 255);
+        }
+
+        u8 start = index == 0 ? 0 : 100;
+        u8 end = index == 0 ? 100 : 190;
+        u8 offset = index == 0 ? 0 : 100;
+
+        for (u8 denID = start; denID < end; denID++)
+        {
+            if (denID == 16)
+            {
+                continue;
+            }
+
+            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location), denID);
+        }
+    }
 }
 
 void SeedCalculator::denIndexChanged(int index)
