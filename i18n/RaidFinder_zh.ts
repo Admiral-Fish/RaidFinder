@@ -16,17 +16,17 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation> 巢穴地图</translation>
+        <translation>巢穴地图</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>旷野地区</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>铠之孤岛/translation>
     </message>
 </context>
 <context>
@@ -109,17 +109,17 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>地点</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>旷野地区</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>铠之孤岛</translation>
     </message>
 </context>
 <context>
@@ -864,17 +864,17 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>地点</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>旷野地区</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>铠之孤岛</translation>
     </message>
 </context>
 <context>
@@ -1246,17 +1246,17 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>旷野地区</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>铠之孤岛</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>地点</translation>
     </message>
 </context>
 </TS>
