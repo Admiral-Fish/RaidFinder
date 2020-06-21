@@ -484,10 +484,11 @@ void MainWindow::denIndexChanged(int index)
 {
     if (index >= 0)
     {
+        u8 denID = ui->comboBoxDen->currentData().toInt();
         int rarity = ui->comboBoxRarity->currentIndex();
-        ui->comboBoxSpecies->clear();
-        den = DenLoader::getDen(static_cast<u8>(ui->comboBoxDen->currentData().toInt()), static_cast<u8>(rarity));
+        den = DenLoader::getDen(denID, rarity);
 
+        ui->comboBoxSpecies->clear();
         auto raids = den.getRaids(currentProfile.getVersion());
         for (const auto &raid : raids)
         {
