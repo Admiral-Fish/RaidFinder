@@ -26,7 +26,7 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Isle of Armor</source>
-        <translation>铠之孤岛/translation>
+        <translation>铠之孤岛</translation>
     </message>
 </context>
 <context>
