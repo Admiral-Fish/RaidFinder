@@ -756,7 +756,7 @@
         <translation>Eine neue Version des Raid Finders ist verfügbar. Soll der Download jetzt gestartet werden?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
@@ -787,7 +787,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>

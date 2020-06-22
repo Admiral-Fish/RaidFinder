@@ -756,7 +756,7 @@
         <translation>An update is available. Would you like to download the newest version?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -787,7 +787,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>No</source>
         <translation>No</translation>
     </message>

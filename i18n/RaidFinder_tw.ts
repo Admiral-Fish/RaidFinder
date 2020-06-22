@@ -761,7 +761,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -792,7 +792,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="519"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>No</source>
         <translation>否</translation>
     </message>
