@@ -17,3 +17,4 @@
 200526_meowth.bin,52
 200602_centiskorch.bin,851
 200617_zerora.bin,807
+200630_steelix.bin,208
