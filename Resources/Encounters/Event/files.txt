@@ -18,3 +18,4 @@
 200602_centiskorch.bin,851
 200617_zerora.bin,807
 200630_steelix.bin,208
+200717_wailord.bin,321
