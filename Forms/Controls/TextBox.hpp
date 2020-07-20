@@ -26,9 +26,9 @@
 enum InputType
 {
     Seed64Bit = 1 << 0,
-    Frame64Bit = 1 << 1,
+    Advance64Bit = 1 << 1,
     Seed32Bit = 1 << 2,
-    Frame32Bit = 1 << 3,
+    Advances32Bit = 1 << 3,
     Seed16Bit = 1 << 4,
     Delay = 1 << 5,
     ID = 1 << 6

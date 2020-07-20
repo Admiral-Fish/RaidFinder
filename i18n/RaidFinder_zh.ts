@@ -4,9 +4,8 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="121"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="124"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="141"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="122"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="139"/>
         <source>Any</source>
         <translation>任意</translation>
     </message>
@@ -120,99 +119,6 @@
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
         <translation>铠之孤岛</translation>
-    </message>
-</context>
-<context>
-    <name>FrameModel</name>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>No</source>
-        <translation>否</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Square</source>
-        <translation>方块</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Star</source>
-        <translation>星星</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Frame</source>
-        <translation>帧</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>HP</source>
-        <translation>HP</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Atk</source>
-        <translation>攻击</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Def</source>
-        <translation>防御</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpA</source>
-        <translation>特攻</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpD</source>
-        <translation>特防</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Spe</source>
-        <translation>速度</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Shiny</source>
-        <translation>异色</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Nature</source>
-        <translation>性格</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Ability</source>
-        <translation>特性</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Gender</source>
-        <translation>性别</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Characteristic</source>
-        <translation>个性</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>EC</source>
-        <translation>加密常数</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>PID</source>
-        <translation>PID</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>Seed</source>
-        <translation>Seed</translation>
     </message>
 </context>
 <context>
@@ -514,16 +420,6 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>RNG Info</source>
         <translation>乱数信息</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Max Results</source>
-        <translation>最大结果数</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Initial Frame</source>
-        <translation>初始帧</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
@@ -875,6 +771,16 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Isle of Armor</source>
         <translation>铠之孤岛</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Initial Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Max Advances</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1257,6 +1163,99 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
         <translation>地点</translation>
+    </message>
+</context>
+<context>
+    <name>StateModel</name>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Square</source>
+        <translation type="unfinished">方块</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Star</source>
+        <translation type="unfinished">星星</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>No</source>
+        <translation type="unfinished">否</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>HP</source>
+        <translation type="unfinished">HP</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Atk</source>
+        <translation type="unfinished">攻击</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Def</source>
+        <translation type="unfinished">防御</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpA</source>
+        <translation type="unfinished">特攻</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpD</source>
+        <translation type="unfinished">特防</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Spe</source>
+        <translation type="unfinished">速度</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Shiny</source>
+        <translation type="unfinished">异色</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Nature</source>
+        <translation type="unfinished">性格</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Ability</source>
+        <translation type="unfinished">特性</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Gender</source>
+        <translation type="unfinished">性别</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Characteristic</source>
+        <translation type="unfinished">个性</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>Seed</source>
+        <translation type="unfinished">Seed</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>EC</source>
+        <translation type="unfinished">加密常数</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>PID</source>
+        <translation type="unfinished">PID</translation>
     </message>
 </context>
 </TS>

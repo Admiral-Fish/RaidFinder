@@ -45,23 +45,23 @@ FORMS += \
     Forms/Util/RaidInfo35.ui
 
 HEADERS += \
-    Core/FrameFilter.hpp \
     Core/Generator/RaidGenerator.hpp \
     Core/Loader/DenLoader.hpp \
     Core/Loader/PersonalLoader.hpp \
     Core/Loader/ProfileLoader.hpp \
     Core/RNG/XoroShiro.hpp \
     Core/Results/Den.hpp \
-    Core/Results/Frame.hpp \
     Core/Results/PersonalInfo.hpp \
     Core/Results/Pokemon.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
+    Core/Results/State.hpp \
     Core/Searcher/Matrix.hpp \
     Core/Searcher/SeedSearcher.hpp \
     Core/Searcher/SeedSearcher1.hpp \
     Core/Searcher/SeedSearcher2.hpp \
     Core/Searcher/SeedSearcher3.hpp \
+    Core/StateFilter.hpp \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
     Core/Util/IVChecker.hpp \
@@ -81,28 +81,28 @@ HEADERS += \
     Forms/Tools/SeedCalculator.hpp \
     Forms/Util/RaidInfo12.hpp \
     Forms/Util/RaidInfo35.hpp \
-    Models/FrameModel.hpp \
     Models/ProfileModel.hpp \
+    Models/StateModel.hpp \
     Models/TableModel.hpp
 
 SOURCES += \
-    Core/FrameFilter.cpp \
     Core/Generator/RaidGenerator.cpp \
     Core/Loader/DenLoader.cpp \
     Core/Loader/PersonalLoader.cpp \
     Core/Loader/ProfileLoader.cpp \
     Core/RNG/XoroShiro.cpp \
     Core/Results/Den.cpp \
-    Core/Results/Frame.cpp \
     Core/Results/PersonalInfo.cpp \
     Core/Results/Pokemon.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
+    Core/Results/State.cpp \
     Core/Searcher/Matrix.cpp \
     Core/Searcher/SeedSearcher.cpp \
     Core/Searcher/SeedSearcher1.cpp \
     Core/Searcher/SeedSearcher2.cpp \
     Core/Searcher/SeedSearcher3.cpp \
+    Core/StateFilter.cpp \
     Core/Util/IVChecker.cpp \
     Core/Util/Nature.cpp \
     Core/Util/Translator.cpp \
@@ -120,6 +120,6 @@ SOURCES += \
     Forms/Tools/SeedCalculator.cpp \
     Forms/Util/RaidInfo12.cpp \
     Forms/Util/RaidInfo35.cpp \
-    Models/FrameModel.cpp \
     Models/ProfileModel.cpp \
+    Models/StateModel.cpp \
     main.cpp

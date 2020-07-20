@@ -23,25 +23,9 @@
 constexpr u8 toxtricityAmpedNatures[13] = { 3, 4, 2, 8, 9, 19, 22, 11, 13, 14, 0, 6, 24 };
 constexpr u8 toxtricityLowKeyNatures[12] = { 1, 5, 7, 10, 12, 15, 16, 17, 18, 20, 21, 23 };
 
-static inline u16 getSv(u32 val)
-{
-    return ((val >> 16) ^ (val & 0xFFFF)) >> 4;
-}
-
-static inline u8 getShinyType(u32 sidtid, u32 pid)
-{
-    u16 val = (sidtid ^ pid) >> 16;
-    if ((val ^ (sidtid & 0xffff)) == (pid & 0xffff))
-    {
-        return 2; // Square shiny
-    }
-
-    return 1; // Star shiny
-}
-
-RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, const Raid &raid) :
-    startFrame(startFrame),
-    maxResults(maxResults),
+RaidGenerator::RaidGenerator(u32 initialAdvances, u32 maxAdvances, u16 tid, u16 sid, const Raid &raid) :
+    initialAdvances(initialAdvances),
+    maxAdvances(maxAdvances),
     tid(tid),
     sid(sid),
     species(raid.getSpecies()),
@@ -54,20 +38,20 @@ RaidGenerator::RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, c
 {
 }
 
-QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) const
+QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) const
 {
-    QVector<Frame> frames;
+    QVector<State> states;
     u16 tsv = (tid ^ sid) >> 4;
 
-    for (u32 i = 1; i < startFrame; i++)
+    for (u32 i = 0; i < initialAdvances; i++)
     {
         seed += 0x82A2B175229D6A5B;
     }
 
-    for (u32 frame = 0; frame < maxResults; frame++, seed += 0x82A2B175229D6A5B)
+    for (u32 advance = 0; advance <= maxAdvances; advance++, seed += 0x82A2B175229D6A5B)
     {
         XoroShiro rng(seed);
-        Frame result(seed, startFrame + frame);
+        State result(seed, initialAdvances + advance);
 
         u32 ec = rng.nextInt(0xffffffff, 0xffffffff);
         result.setEC(ec);
@@ -79,16 +63,16 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         {
             // Game uses a fake TID/SID to determine shiny or not
             // PID is later modified using the actual TID/SID of trainer if necessary
-            u16 ftsv = getSv(sidtid);
-            u16 psv = getSv(pid);
+            u16 shinyValue = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
+            u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
 
-            if (ftsv == psv) // Force shiny
+            if (shinyValue < 16) // Force shiny
             {
-                u8 type = getShinyType(sidtid, pid);
-                result.setShiny(type);
+                u8 shinyType = shinyValue == 0 ? 2 : 1;
+                result.setShiny(shinyType);
                 if (psv != tsv)
                 {
-                    u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (2 - type);
+                    u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (2 - shinyType);
                     pid = (high << 16) | (pid & 0xFFFF);
                 }
             }
@@ -104,7 +88,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         else if (shinyType == 1) // Force non-shiny
         {
             result.setShiny(0);
-            u16 psv = getSv(pid);
+            u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
             if (psv == tsv)
             {
                 pid ^= 0x10000000;
@@ -112,8 +96,8 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         }
         else // Force shiny
         {
-            u16 val = (pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid;
-            if (val >= 16) // Check if PID is not normally shiny
+            u16 shinyValue = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
+            if (shinyValue >= 16) // Check if PID is not normally shiny
             {
                 u16 high = (pid & 0xffff) ^ tid ^ sid;
                 pid = (high << 16) | (pid & 0xffff);
@@ -121,7 +105,7 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
             }
             else
             {
-                result.setShiny(val == 0 ? 2 : 1);
+                result.setShiny(shinyValue == 0 ? 2 : 1);
             }
         }
         result.setPID(pid);
@@ -218,11 +202,11 @@ QVector<Frame> RaidGenerator::generate(const FrameFilter &filter, u64 seed) cons
         // Height (2 calls)
         // Weight (2 calls)
 
-        if (filter.compareFrame(result))
+        if (filter.compareState(result))
         {
-            frames.append(result);
+            states.append(result);
         }
     }
 
-    return frames;
+    return states;
 }

@@ -29,7 +29,7 @@
 #include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
 #include <Forms/Tools/SeedCalculator.hpp>
-#include <Models/FrameModel.hpp>
+#include <Models/StateModel.hpp>
 #include <QApplication>
 #include <QDesktopServices>
 #include <QEventLoop>
@@ -74,7 +74,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupModels()
 {
-    model = new FrameModel(ui->tableView);
+    model = new StateModel(ui->tableView);
     ui->tableView->setModel(model);
 
     menu = new QMenu(ui->tableView);
@@ -88,8 +88,8 @@ void MainWindow::setupModels()
     ui->comboBoxAbilityType->setItemData(4, 4);
 
     ui->textBoxSeed->setValues(InputType::Seed64Bit);
-    ui->textBoxInitialFrame->setValues(InputType::Frame32Bit);
-    ui->textBoxMaxResults->setValues(InputType::Frame32Bit);
+    ui->textBoxInitialAdvances->setValues(InputType::Advances32Bit);
+    ui->textBoxMaxAdvances->setValues(InputType::Advances32Bit);
 
     ui->comboBoxAbility->setItemData(0, 255); // Any ability
     ui->comboBoxAbility->setItemData(1, 0); // Ability 0
@@ -566,12 +566,12 @@ void MainWindow::generate()
     model->clearModel();
     model->setInfo(PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm()));
 
-    u32 initialFrame = ui->textBoxInitialFrame->getUInt();
-    u32 maxResults = ui->textBoxMaxResults->getUInt();
+    u32 initialAdvances = ui->textBoxInitialAdvances->getUInt();
+    u32 maxAdvances = ui->textBoxMaxAdvances->getUInt();
     u16 tid = currentProfile.getTID();
     u16 sid = currentProfile.getSID();
 
-    RaidGenerator generator(initialFrame, maxResults, tid, sid, raid);
+    RaidGenerator generator(initialAdvances, maxAdvances, tid, sid, raid);
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
@@ -580,10 +580,10 @@ void MainWindow::generate()
     QVector<u8> min = ui->ivFilter->getLower();
     QVector<u8> max = ui->ivFilter->getUpper();
     QVector<bool> natures = ui->comboBoxNature->getChecked();
-    FrameFilter filter(gender, ability, shiny, skip, min, max, natures);
+    StateFilter filter(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();
 
-    QVector<Frame> frames = generator.generate(filter, seed);
-    model->addItems(frames);
+    QVector<State> states = generator.generate(filter, seed);
+    model->addItems(states);
 }

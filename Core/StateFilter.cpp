@@ -17,39 +17,39 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "FrameFilter.hpp"
+#include "StateFilter.hpp"
 
-FrameFilter::FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
+StateFilter::StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
                            const QVector<bool> &natures) :
     min(min), max(max), gender(gender), ability(ability), natures(natures), shiny(shiny), skip(skip)
 {
 }
 
-bool FrameFilter::compareFrame(const Frame &frame) const
+bool StateFilter::compareState(const State &state) const
 {
     if (skip)
     {
         return true;
     }
 
-    if (gender != 255 && gender != frame.getGender())
+    if (gender != 255 && gender != state.getGender())
     {
         return false;
     }
 
-    if (ability != 255 && ability != frame.getAbility())
+    if (ability != 255 && ability != state.getAbility())
     {
         return false;
     }
 
-    if (!natures.at(frame.getNature()))
+    if (!natures.at(state.getNature()))
     {
         return false;
     }
 
     for (u8 i = 0; i < 6; i++)
     {
-        u8 iv = frame.getIV(i);
+        u8 iv = state.getIV(i);
         if (iv > max.at(i) || iv < min.at(i))
         {
             return false;
@@ -59,7 +59,7 @@ bool FrameFilter::compareFrame(const Frame &frame) const
     return true;
 }
 
-bool FrameFilter::compareShiny(const Frame &frame) const
+bool StateFilter::compareShiny(const State &state) const
 {
-    return skip || shiny == 255 || (shiny & frame.getShiny());
+    return skip || shiny == 255 || (shiny & state.getShiny());
 }

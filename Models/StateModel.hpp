@@ -17,18 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMEMODEL_HPP
-#define FRAMEMODEL_HPP
+#ifndef STATEMODEL_HPP
+#define STATEMODEL_HPP
 
-#include <Core/Results/Frame.hpp>
+#include <Core/Results/State.hpp>
 #include <Core/Results/PersonalInfo.hpp>
 #include <Models/TableModel.hpp>
 
-class FrameModel final : public TableModel<Frame>
+class StateModel final : public TableModel<State>
 {
     Q_OBJECT
 public:
-    FrameModel(QObject *parent = nullptr);
+    StateModel(QObject *parent = nullptr);
     void setShowStats(bool showStats);
     void setLevel(int level);
     void setInfo(const PersonalInfo &info);
@@ -40,9 +40,9 @@ private:
     PersonalInfo info;
     bool showStats;
     int level;
-    QStringList header = { tr("Frame"), tr("HP"),    tr("Atk"),    tr("Def"),     tr("SpA"),    tr("SpD"),
-                           tr("Spe"),   tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Characteristic"),
-                           tr("Seed"),  tr("EC"),    tr("PID") };
+    QStringList header = { tr("Advances"), tr("HP"),    tr("Atk"),    tr("Def"),     tr("SpA"),    tr("SpD"),
+                           tr("Spe"),      tr("Shiny"), tr("Nature"), tr("Ability"), tr("Gender"), tr("Characteristic"),
+                           tr("Seed"),     tr("EC"),    tr("PID") };
 };
 
-#endif // FRAMEMODEL_HPP
+#endif // STATEMODEL_HPP

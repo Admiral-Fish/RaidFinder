@@ -17,48 +17,48 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "FrameModel.hpp"
+#include "StateModel.hpp"
 #include <Core/Util/Nature.hpp>
 #include <Core/Util/Translator.hpp>
 #include <cmath>
 
-FrameModel::FrameModel(QObject *parent) : TableModel<Frame>(parent), showStats(false), level(1)
+StateModel::StateModel(QObject *parent) : TableModel<State>(parent), showStats(false), level(1)
 {
 }
 
-void FrameModel::setLevel(int level)
+void StateModel::setLevel(int level)
 {
     this->level = level;
     emit dataChanged(index(0, 1), index(rowCount(), 6), { Qt::DisplayRole });
 }
 
-void FrameModel::setShowStats(bool showStats)
+void StateModel::setShowStats(bool showStats)
 {
     this->showStats = showStats;
     emit dataChanged(index(0, 1), index(rowCount(), 6), { Qt::DisplayRole });
 }
 
-void FrameModel::setInfo(const PersonalInfo &info)
+void StateModel::setInfo(const PersonalInfo &info)
 {
     this->info = info;
 }
 
-int FrameModel::columnCount(const QModelIndex &parent) const
+int StateModel::columnCount(const QModelIndex &parent) const
 {
     (void)parent;
     return 15;
 }
 
-QVariant FrameModel::data(const QModelIndex &index, int role) const
+QVariant StateModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole)
     {
-        auto &frame = model.at(index.row());
+        auto &state = model.at(index.row());
         int column = index.column();
         switch (column)
         {
         case 0:
-            return frame.getFrame();
+            return state.getAdvances();
         case 1:
         case 2:
         case 3:
@@ -67,32 +67,32 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         case 6:
             if (!showStats)
             {
-                return frame.getIV(static_cast<u8>(column - 1));
+                return state.getIV(static_cast<u8>(column - 1));
             }
             else
             {
-                double stat = std::floor(((2 * info.getBaseStat(column - 1) + frame.getIV(column - 1)) * level) / 100.0);
+                double stat = std::floor(((2 * info.getBaseStat(column - 1) + state.getIV(column - 1)) * level) / 100.0);
                 if (column == 1)
                 {
                     stat += level + 10;
                 }
                 else
                 {
-                    stat = std::floor((stat + 5) * Nature::getNatureModifier(frame.getNature(), column - 1));
+                    stat = std::floor((stat + 5) * Nature::getNatureModifier(state.getNature(), column - 1));
                 }
 
                 return stat;
             }
         case 7:
         {
-            u8 shiny = frame.getShiny();
+            u8 shiny = state.getShiny();
             return shiny == 2 ? tr("Square") : shiny == 1 ? tr("Star") : tr("No");
         }
         case 8:
-            return Translator::getNature(frame.getNature());
+            return Translator::getNature(state.getNature());
         case 9:
         {
-            u8 ability = frame.getAbility();
+            u8 ability = state.getAbility();
             if (ability == 0)
             {
                 return "1: " + Translator::getAbility(info.getAbility1());
@@ -107,23 +107,23 @@ QVariant FrameModel::data(const QModelIndex &index, int role) const
         }
         case 10:
         {
-            u8 gender = frame.getGender();
+            u8 gender = state.getGender();
             return gender == 0 ? "♂" : gender == 1 ? "♀" : "-";
         }
         case 11:
-            return Translator::getCharacteristic(frame.getCharacteristic());
+            return Translator::getCharacteristic(state.getCharacteristic());
         case 12:
-            return QString::number(frame.getSeed(), 16).toUpper();
+            return QString::number(state.getSeed(), 16).toUpper();
         case 13:
-            return QString::number(frame.getEC(), 16).toUpper();
+            return QString::number(state.getEC(), 16).toUpper();
         case 14:
-            return QString::number(frame.getPID(), 16).toUpper();
+            return QString::number(state.getPID(), 16).toUpper();
         }
     }
     return QVariant();
 }
 
-QVariant FrameModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant StateModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
     {

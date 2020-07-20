@@ -20,20 +20,20 @@
 #ifndef RAIDGENERATOR_HPP
 #define RAIDGENERATOR_HPP
 
-#include <Core/FrameFilter.hpp>
-#include <Core/Results/Frame.hpp>
 #include <Core/Results/Raid.hpp>
+#include <Core/Results/State.hpp>
+#include <Core/StateFilter.hpp>
 #include <QVector>
 
 class RaidGenerator
 {
 public:
-    RaidGenerator(u32 startFrame, u32 maxResults, u16 tid, u16 sid, const Raid &raid);
-    QVector<Frame> generate(const FrameFilter &filter, u64 seed) const;
+    RaidGenerator(u32 initialAdvances, u32 maxAdvances, u16 tid, u16 sid, const Raid &raid);
+    QVector<State> generate(const StateFilter &filter, u64 seed) const;
 
 private:
-    u32 startFrame;
-    u32 maxResults;
+    u32 initialAdvances;
+    u32 maxAdvances;
     u16 tid;
     u16 sid;
     u16 species;

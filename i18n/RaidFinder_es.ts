@@ -4,9 +4,8 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="121"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="124"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="141"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="122"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="139"/>
         <source>Any</source>
         <translation type="unfinished"></translation>
     </message>
@@ -119,99 +118,6 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>FrameModel</name>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>No</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Square</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Star</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>HP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Atk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Def</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpA</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Spe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Shiny</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Nature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Ability</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Gender</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Characteristic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>EC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>PID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>Seed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -513,16 +419,6 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>RNG Info</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Max Results</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Initial Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -874,6 +770,16 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Isle of Armor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Initial Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Max Advances</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1256,6 +1162,99 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StateModel</name>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>HP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Atk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Def</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Spe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Shiny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Nature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Ability</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Gender</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Characteristic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>Seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>EC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>PID</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
