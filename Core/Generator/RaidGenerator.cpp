@@ -43,10 +43,7 @@ QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) cons
     QVector<State> states;
     u16 tsv = (tid ^ sid) >> 4;
 
-    for (u32 i = 0; i < initialAdvances; i++)
-    {
-        seed += 0x82A2B175229D6A5B;
-    }
+    seed += 0x82A2B175229D6A5B * initialAdvances;
 
     for (u32 advance = 0; advance <= maxAdvances; advance++, seed += 0x82A2B175229D6A5B)
     {

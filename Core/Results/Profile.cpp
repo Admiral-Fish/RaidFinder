@@ -43,11 +43,6 @@ u16 Profile::getSID() const
     return sid;
 }
 
-u16 Profile::getTSV() const
-{
-    return (tid ^ sid) >> 4;
-}
-
 Game Profile::getVersion() const
 {
     return version;
