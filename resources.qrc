@@ -5,6 +5,7 @@
     <qresource prefix="/images">
         <file alias="raidfinder.ico">Resources/Images/raidfinder.ico</file>
         <file alias="map.png">Resources/Images/map.png</file>
+        <file alias="map_ioa.png">Resources/Images/map_ioa.png</file>
     </qresource>
     <qresource prefix="/personal">
         <file alias="personal_swsh">Resources/Personal/personal_swsh</file>

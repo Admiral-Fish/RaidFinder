@@ -27,7 +27,6 @@ class XoroShiro
 public:
     XoroShiro();
     explicit XoroShiro(u64 seed);
-    void setSeed(u64 seed);
     u32 nextInt(u32 max, u32 mask, int &count);
     u32 nextInt(u32 max, u32 mask);
     u32 nextInt(u32 mask);

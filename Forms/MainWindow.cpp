@@ -29,7 +29,7 @@
 #include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
 #include <Forms/Tools/SeedCalculator.hpp>
-#include <Models/FrameModel.hpp>
+#include <Models/StateModel.hpp>
 #include <QApplication>
 #include <QDesktopServices>
 #include <QEventLoop>
@@ -74,7 +74,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupModels()
 {
-    model = new FrameModel(ui->tableView);
+    model = new StateModel(ui->tableView);
     ui->tableView->setModel(model);
 
     menu = new QMenu(ui->tableView);
@@ -88,8 +88,8 @@ void MainWindow::setupModels()
     ui->comboBoxAbilityType->setItemData(4, 4);
 
     ui->textBoxSeed->setValues(InputType::Seed64Bit);
-    ui->textBoxInitialFrame->setValues(InputType::Frame32Bit);
-    ui->textBoxMaxResults->setValues(InputType::Frame32Bit);
+    ui->textBoxInitialAdvances->setValues(InputType::Advances32Bit);
+    ui->textBoxMaxAdvances->setValues(InputType::Advances32Bit);
 
     ui->comboBoxAbility->setItemData(0, 255); // Any ability
     ui->comboBoxAbility->setItemData(1, 0); // Ability 0
@@ -117,21 +117,7 @@ void MainWindow::setupModels()
     ui->comboBoxShinyType->setItemData(1, 1); // Forced non-shiny
     ui->comboBoxShinyType->setItemData(2, 2); // Forced shiny
 
-    if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
-    {
-        ui->comboBoxDen->addItem(tr("Event"), 100);
-    }
-    for (u8 i = 0; i < 100; i++)
-    {
-        if (i == 16)
-        {
-            continue;
-        }
-
-        QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location), i);
-    }
-
+    locationIndexChanged(0);
     denIndexChanged(0);
     speciesIndexChanged(0);
 
@@ -209,6 +195,7 @@ void MainWindow::setupModels()
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::locationIndexChanged);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::denIndexChanged);
     connect(ui->comboBoxRarity, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::rarityIndexChange);
     connect(ui->comboBoxSpecies, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::speciesIndexChanged);
@@ -465,14 +452,43 @@ void MainWindow::checkUpdates()
     setting.setValue("settings/lastOpened", today);
 }
 
+void MainWindow::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        ui->comboBoxDen->clear();
+
+        if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
+        {
+            ui->comboBoxDen->addItem(tr("Event"), 255);
+        }
+
+        u8 start = index == 0 ? 0 : 100;
+        u8 end = index == 0 ? 100 : 190;
+        u8 offset = index == 0 ? 0 : 100;
+
+        for (u8 denID = start; denID < end; denID++)
+        {
+            if (denID == 16)
+            {
+                continue;
+            }
+
+            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location), denID);
+        }
+    }
+}
+
 void MainWindow::denIndexChanged(int index)
 {
     if (index >= 0)
     {
+        u8 denID = ui->comboBoxDen->currentData().toInt();
         int rarity = ui->comboBoxRarity->currentIndex();
-        ui->comboBoxSpecies->clear();
-        den = DenLoader::getDen(static_cast<u8>(ui->comboBoxDen->currentData().toInt()), static_cast<u8>(rarity));
+        den = DenLoader::getDen(denID, rarity);
 
+        ui->comboBoxSpecies->clear();
         auto raids = den.getRaids(currentProfile.getVersion());
         for (const auto &raid : raids)
         {
@@ -503,13 +519,24 @@ void MainWindow::speciesIndexChanged(int index)
         ui->comboBoxShinyType->setCurrentIndex(ui->comboBoxShinyType->findData(raid.getShiny()));
         ui->labelGigantamaxValue->setText(raid.getGigantamax() ? tr("Yes") : tr("No"));
 
+        int abilityIndex = ui->comboBoxAbility->currentIndex();
+
         ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
         ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
 
         ui->comboBoxAbility->removeItem(3);
-        if (raid.getAbility() == 4)
+        if (raid.getAbility() == 2 || raid.getAbility() == 4)
         {
             ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
+        }
+
+        if (abilityIndex < ui->comboBoxAbility->count())
+        {
+            ui->comboBoxAbility->setCurrentIndex(abilityIndex);
+        }
+        else
+        {
+            ui->comboBoxAbility->setCurrentIndex(0);
         }
     }
 }
@@ -539,12 +566,12 @@ void MainWindow::generate()
     model->clearModel();
     model->setInfo(PersonalLoader::getInfo(raid.getSpecies(), raid.getAltForm()));
 
-    u32 initialFrame = ui->textBoxInitialFrame->getUInt();
-    u32 maxResults = ui->textBoxMaxResults->getUInt();
+    u32 initialAdvances = ui->textBoxInitialAdvances->getUInt();
+    u32 maxAdvances = ui->textBoxMaxAdvances->getUInt();
     u16 tid = currentProfile.getTID();
     u16 sid = currentProfile.getSID();
 
-    RaidGenerator generator(initialFrame, maxResults, tid, sid, raid);
+    RaidGenerator generator(initialAdvances, maxAdvances, tid, sid, raid);
 
     u8 gender = static_cast<u8>(ui->comboBoxGender->currentData().toInt());
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
@@ -553,10 +580,10 @@ void MainWindow::generate()
     QVector<u8> min = ui->ivFilter->getLower();
     QVector<u8> max = ui->ivFilter->getUpper();
     QVector<bool> natures = ui->comboBoxNature->getChecked();
-    FrameFilter filter(gender, ability, shiny, skip, min, max, natures);
+    StateFilter filter(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();
 
-    QVector<Frame> frames = generator.generate(filter, seed);
-    model->addItems(frames);
+    QVector<State> states = generator.generate(filter, seed);
+    model->addItems(states);
 }

@@ -4,9 +4,8 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="121"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="124"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="141"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="122"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="139"/>
         <source>Any</source>
         <translation>任意</translation>
     </message>
@@ -16,7 +15,17 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation> 巢穴地图</translation>
+        <translation>巢穴地图</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/DenMap.ui"/>
+        <source>Wild Area</source>
+        <translation>旷野地区</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/DenMap.ui"/>
+        <source>Isle of Armor</source>
+        <translation>铠之孤岛</translation>
     </message>
 </context>
 <context>
@@ -68,128 +77,48 @@
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
-        <source>HA</source>
-        <translation>梦特</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
         <source>Gigantamax</source>
         <translation>极巨化</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="143"/>
-        <source>Normal</source>
-        <translation>普通(红)</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
-        <source>Yes</source>
-        <translation>是</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="145"/>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="146"/>
-        <source>No</source>
-        <translation>否</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="143"/>
-        <source>Rare</source>
-        <translation>稀有(紫)</translation>
-    </message>
-</context>
-<context>
-    <name>FrameModel</name>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>No</source>
-        <translation>否</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Square</source>
-        <translation>方块</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.cpp" line="89"/>
-        <source>Star</source>
-        <translation>星星</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Frame</source>
-        <translation>帧</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>HP</source>
-        <translation>HP</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Atk</source>
-        <translation>攻击</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>Def</source>
-        <translation>防御</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpA</source>
-        <translation>特攻</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="43"/>
-        <source>SpD</source>
-        <translation>特防</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Spe</source>
-        <translation>速度</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Shiny</source>
-        <translation>异色</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Nature</source>
-        <translation>性格</translation>
-    </message>
-    <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="44"/>
         <source>Ability</source>
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Gender</source>
-        <translation>性别</translation>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <source>Normal</source>
+        <translation>普通(红)</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="44"/>
-        <source>Characteristic</source>
-        <translation>个性</translation>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <source>Yes</source>
+        <translation>是</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>EC</source>
-        <translation>加密常数</translation>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <source>No</source>
+        <translation>否</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>PID</source>
-        <translation>PID</translation>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <source>Rare</source>
+        <translation>稀有(紫)</translation>
     </message>
     <message>
-        <location filename="../Models/FrameModel.hpp" line="45"/>
-        <source>Seed</source>
-        <translation>Seed</translation>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Location</source>
+        <translation>地点</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Wild Area</source>
+        <translation>旷野地区</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Isle of Armor</source>
+        <translation>铠之孤岛</translation>
     </message>
 </context>
 <context>
@@ -494,16 +423,6 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <source>Max Results</source>
-        <translation>最大结果数</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Initial Frame</source>
-        <translation>初始帧</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
         <source>Generate</source>
         <translation>生成</translation>
     </message>
@@ -663,77 +582,77 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="122"/>
-        <location filename="../Forms/MainWindow.cpp" line="408"/>
+        <location filename="../Forms/MainWindow.cpp" line="395"/>
+        <location filename="../Forms/MainWindow.cpp" line="463"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="199"/>
+        <location filename="../Forms/MainWindow.cpp" line="185"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="200"/>
+        <location filename="../Forms/MainWindow.cpp" line="186"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="252"/>
+        <location filename="../Forms/MainWindow.cpp" line="239"/>
         <source>Language update</source>
         <translation>更新语言</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="252"/>
-        <location filename="../Forms/MainWindow.cpp" line="272"/>
+        <location filename="../Forms/MainWindow.cpp" line="239"/>
+        <location filename="../Forms/MainWindow.cpp" line="259"/>
         <source>Restart for changes to take effect. Restart now?</source>
         <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="272"/>
+        <location filename="../Forms/MainWindow.cpp" line="259"/>
         <source>Style change</source>
         <translation>改变风格</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="383"/>
-        <location filename="../Forms/MainWindow.cpp" line="419"/>
+        <location filename="../Forms/MainWindow.cpp" line="370"/>
+        <location filename="../Forms/MainWindow.cpp" line="406"/>
         <source>Download failed</source>
         <translation>下载失败</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="384"/>
-        <location filename="../Forms/MainWindow.cpp" line="420"/>
+        <location filename="../Forms/MainWindow.cpp" line="371"/>
+        <location filename="../Forms/MainWindow.cpp" line="407"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="408"/>
+        <location filename="../Forms/MainWindow.cpp" line="395"/>
         <source>Download Event Data</source>
         <translation>更新活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="431"/>
+        <location filename="../Forms/MainWindow.cpp" line="418"/>
         <source>Download finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="431"/>
+        <location filename="../Forms/MainWindow.cpp" line="418"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="455"/>
+        <location filename="../Forms/MainWindow.cpp" line="442"/>
         <source>Update Check</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="456"/>
+        <location filename="../Forms/MainWindow.cpp" line="443"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation>有可用更新。您想下载最新版本吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="504"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -764,7 +683,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="504"/>
+        <location filename="../Forms/MainWindow.cpp" line="520"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -836,6 +755,31 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Force non-shiny</source>
+        <translation>锁死无异色</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Location</source>
+        <translation>地点</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Wild Area</source>
+        <translation>旷野地区</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Isle of Armor</source>
+        <translation>铠之孤岛</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Initial Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Max Advances</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1176,27 +1120,27 @@
         <translation>1-2★</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="67"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="265"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="120"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="203"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="107"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="190"/>
         <source>Invalid settings</source>
         <translation>无效设定</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="120"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="203"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="107"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="190"/>
         <source>Search settings are invalid</source>
         <translation>无效检索设置</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="154"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="174"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="225"/>
-        <location filename="../Forms/Tools/SeedCalculator.cpp" line="245"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="141"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="161"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="212"/>
+        <location filename="../Forms/Tools/SeedCalculator.cpp" line="232"/>
         <source>Elapsed time: %1:%2:%3 - Estimated time: %4:%5:%6</source>
         <translation>运行时间: %1:%2:%3 - 预估时间: %4:%5:%6</translation>
     </message>
@@ -1204,6 +1148,114 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Search Range</source>
         <translation>搜索范围</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Wild Area</source>
+        <translation>旷野地区</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Isle of Armor</source>
+        <translation>铠之孤岛</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Location</source>
+        <translation>地点</translation>
+    </message>
+</context>
+<context>
+    <name>StateModel</name>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Square</source>
+        <translation type="unfinished">方块</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>Star</source>
+        <translation type="unfinished">星星</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.cpp" line="89"/>
+        <source>No</source>
+        <translation type="unfinished">否</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>HP</source>
+        <translation type="unfinished">HP</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Atk</source>
+        <translation type="unfinished">攻击</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>Def</source>
+        <translation type="unfinished">防御</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpA</source>
+        <translation type="unfinished">特攻</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="43"/>
+        <source>SpD</source>
+        <translation type="unfinished">特防</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Spe</source>
+        <translation type="unfinished">速度</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Shiny</source>
+        <translation type="unfinished">异色</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Nature</source>
+        <translation type="unfinished">性格</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Ability</source>
+        <translation type="unfinished">特性</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Gender</source>
+        <translation type="unfinished">性别</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="44"/>
+        <source>Characteristic</source>
+        <translation type="unfinished">个性</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>Seed</source>
+        <translation type="unfinished">Seed</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>EC</source>
+        <translation type="unfinished">加密常数</translation>
+    </message>
+    <message>
+        <location filename="../Models/StateModel.hpp" line="45"/>
+        <source>PID</source>
+        <translation type="unfinished">PID</translation>
     </message>
 </context>
 </TS>

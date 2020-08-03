@@ -10,3 +10,13 @@
 200309_snorlax.bin,143
 200319_pincurchin.bin,871
 200326_duraludon.bin,884
+200410_ditto.bin,132
+200428_rotom.bin,479
+200512_pikachu.bin,25
+200519_eevee.bin,133
+200526_meowth.bin,52
+200602_centiskorch.bin,851
+200617_zerora.bin,807
+200630_steelix.bin,208
+200717_wailord.bin,321
+200801_feebas.bin,349

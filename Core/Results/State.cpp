@@ -17,95 +17,95 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Frame.hpp"
+#include "State.hpp"
 
 constexpr u8 statOrder[6] = { 0, 1, 2, 5, 3, 4 };
 
-Frame::Frame(u64 seed, u32 frame) : seed(seed), frame(frame), ivs { 255, 255, 255, 255, 255, 255 }
+State::State(u64 seed, u32 advances) : seed(seed), advances(advances), ivs { 255, 255, 255, 255, 255, 255 }
 {
 }
 
-u64 Frame::getSeed() const
+u64 State::getSeed() const
 {
     return seed;
 }
 
-u32 Frame::getFrame() const
+u32 State::getAdvances() const
 {
-    return frame;
+    return advances;
 }
 
-u32 Frame::getEC() const
+u32 State::getEC() const
 {
     return ec;
 }
 
-void Frame::setEC(u32 ec)
+void State::setEC(u32 ec)
 {
     this->ec = ec;
 }
 
-u32 Frame::getPID() const
+u32 State::getPID() const
 {
     return pid;
 }
 
-void Frame::setPID(u32 pid)
+void State::setPID(u32 pid)
 {
     this->pid = pid;
 }
 
-u8 Frame::getNature() const
+u8 State::getNature() const
 {
     return nature;
 }
 
-void Frame::setNature(u8 nature)
+void State::setNature(u8 nature)
 {
     this->nature = nature;
 }
 
-u8 Frame::getAbility() const
+u8 State::getAbility() const
 {
     return ability;
 }
 
-void Frame::setAbility(u8 ability)
+void State::setAbility(u8 ability)
 {
     this->ability = ability;
 }
 
-u8 Frame::getGender() const
+u8 State::getGender() const
 {
     return gender;
 }
 
-void Frame::setGender(u8 gender)
+void State::setGender(u8 gender)
 {
     this->gender = gender;
 }
 
-u8 Frame::getShiny() const
+u8 State::getShiny() const
 {
     return shiny;
 }
 
-void Frame::setShiny(u8 shiny)
+void State::setShiny(u8 shiny)
 {
     this->shiny = shiny;
 }
 
-u8 Frame::getIV(int index) const
+u8 State::getIV(int index) const
 {
     return ivs[index];
 }
 
-void Frame::setIV(int index, u8 iv)
+void State::setIV(int index, u8 iv)
 {
     ivs[index] = iv;
 }
 
-u8 Frame::getCharacteristic() const
+u8 State::getCharacteristic() const
 {
     u8 charStat = ec % 6;
     for (u8 i = 0; i < 6; i++)

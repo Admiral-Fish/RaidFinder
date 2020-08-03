@@ -17,28 +17,28 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAMEFILTER_HPP
-#define FRAMEFILTER_HPP
+#ifndef STATEFILTER_HPP
+#define STATEFILTER_HPP
 
-#include <Core/Results/Frame.hpp>
+#include <Core/Results/State.hpp>
 #include <QVector>
 
-class FrameFilter
+class StateFilter
 {
 public:
-    FrameFilter() = default;
-    FrameFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
-    bool compareFrame(const Frame &frame) const;
-    bool compareShiny(const Frame &frame) const;
+    StateFilter() = default;
+    StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
+    bool compareState(const State &state) const;
+    bool compareShiny(const State &state) const;
 
 private:
     QVector<u8> min;
     QVector<u8> max;
-    u8 gender {};
-    u8 ability {};
+    u8 gender;
+    u8 ability;
     QVector<bool> natures;
-    u8 shiny {};
-    bool skip {};
+    u8 shiny;
+    bool skip;
 };
 
-#endif // FRAMEFILTER_HPP
+#endif // STATEFILTER_HPP

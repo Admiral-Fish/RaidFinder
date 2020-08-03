@@ -41,20 +41,31 @@ EncounterLookup::~EncounterLookup()
 void EncounterLookup::setupModels()
 {
     model = new QStandardItemModel(ui->tableView);
-    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("IV Count"), tr("HA"), tr("Gigantamax") }));
+    model->setHorizontalHeaderLabels(QStringList({ tr("Locations"), tr("Rarity"), tr("IV Count"), tr("Ability"), tr("Gigantamax") }));
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     ui->comboBoxGame->setItemData(0, Game::Sword);
     ui->comboBoxGame->setItemData(1, Game::Shield);
+
+    locationIndexChanged(0);
     gameIndexChanged(0);
 
     ui->comboBoxPokemon->setEditable(true);
     ui->comboBoxPokemon->setInsertPolicy(QComboBox::NoInsert);
     ui->comboBoxPokemon->completer()->setCompletionMode(QCompleter::PopupCompletion);
 
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &EncounterLookup::locationIndexChanged);
     connect(ui->comboBoxGame, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &EncounterLookup::gameIndexChanged);
     connect(ui->pushButtonFind, &QPushButton::clicked, this, &EncounterLookup::find);
+}
+
+void EncounterLookup::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        gameIndexChanged(ui->comboBoxGame->currentIndex());
+    }
 }
 
 void EncounterLookup::gameIndexChanged(int index)
@@ -65,16 +76,20 @@ void EncounterLookup::gameIndexChanged(int index)
         ui->comboBoxPokemon->clear();
 
         auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
+        int location = ui->comboBoxLocation->currentIndex();
 
-        for (u8 i = 0; i < 100; i++)
+        u8 start = location == 0 ? 0 : 100;
+        u8 end = location == 0 ? 100 : 190;
+
+        for (u8 denID = start; denID < end; denID++)
         {
-            if (i == 16)
+            if (denID == 16)
             {
                 continue;
             }
 
-            auto normalDen = DenLoader::getDen(i, 0);
-            auto rareDen = DenLoader::getDen(i, 1);
+            auto normalDen = DenLoader::getDen(denID, 0);
+            auto rareDen = DenLoader::getDen(denID, 1);
 
             auto normalRaids = normalDen.getRaids(game);
             for (auto raid : normalRaids)
@@ -111,24 +126,29 @@ void EncounterLookup::find()
 
     u16 species = static_cast<u16>(ui->comboBoxPokemon->currentData().toInt());
     auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
+    int location = ui->comboBoxLocation->currentIndex();
 
-    for (u8 i = 0; i < 100; i++)
+    u8 start = location == 0 ? 0 : 100;
+    u8 end = location == 0 ? 100 : 190;
+    u8 offset = location == 0 ? 0 : 100;
+
+    for (u8 denID = start; denID < end; denID++)
     {
-        auto normalDen = DenLoader::getDen(i, 0);
+        auto normalDen = DenLoader::getDen(denID, 0);
         auto normalRaids = normalDen.getRaids(game);
         for (auto raid : normalRaids)
         {
             if (raid.getSpecies() == species) {
-                addRow(i, false, raid);
+                addRow(denID, offset, false, raid);
             }
         }
 
-        auto rareDen = DenLoader::getDen(i, 1);
+        auto rareDen = DenLoader::getDen(denID, 1);
         auto rareRaids = rareDen.getRaids(game);
         for (auto raid : rareRaids)
         {
             if (raid.getSpecies() == species) {
-                addRow(i, true, raid);
+                addRow(denID, offset, true, raid);
             }
         }
     }
@@ -137,24 +157,41 @@ void EncounterLookup::find()
     ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 
-void EncounterLookup::addRow(int denId, bool isRare, Raid raid)
+void EncounterLookup::addRow(int denId, int offset, bool isRare, Raid raid)
 {
-    QString location = QString("%1: %2").arg(denId + 1).arg(Translator::getLocation(DenLoader::getLocation(denId)));
+    QString location = QString("%1: %2").arg(denId + 1 - offset).arg(Translator::getLocation(DenLoader::getLocation(denId)));
     QString rarity = isRare ? tr("Rare") : tr("Normal");
     QString iv = QString::number(raid.getIVCount());
-    QString ha = raid.getAbility() == 4 ? tr("Yes") : tr("No");
+    QString ability;
+    switch (raid.getAbility())
+    {
+    case 0:
+    case 1:
+        ability = QString::number(raid.getAbility() + 1);
+        break;
+    case 2:
+        ability = "H";
+        break;
+    case 3:
+        ability = "1/2";
+        break;
+    case 4:
+    default:
+        ability = "1/2/H";
+        break;
+    }
     QString gigantamax = raid.getGigantamax() ? tr("Yes") : tr("No");
 
     auto iLocation = new QStandardItem(location);
     auto iRarity = new QStandardItem(rarity);
     auto iIV = new QStandardItem(iv);
-    auto iHA = new QStandardItem(ha);
+    auto iAbility = new QStandardItem(ability);
     auto iGMax = new QStandardItem(gigantamax);
 
     iRarity->setTextAlignment(Qt::AlignCenter);
     iIV->setTextAlignment(Qt::AlignCenter);
-    iHA->setTextAlignment(Qt::AlignCenter);
+    iAbility->setTextAlignment(Qt::AlignCenter);
     iGMax->setTextAlignment(Qt::AlignCenter);
 
-    model->appendRow({ iLocation, iRarity, iIV, iHA, iGMax });
+    model->appendRow({ iLocation, iRarity, iIV, iAbility, iGMax });
 }

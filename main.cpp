@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
     }
 
     Translator::init(locale);
+
     QTranslator translator;
     if (translator.load(QString(":/i18n/RaidFinder_%1.qm").arg(locale)))
     {

@@ -26,7 +26,7 @@
 #include <QMainWindow>
 #include <QMenu>
 
-class FrameModel;
+class StateModel;
 class IVCalculator;
 class SeedCalculator;
 
@@ -52,7 +52,7 @@ private:
     QVector<Profile> profiles;
     Profile currentProfile;
     Den den;
-    FrameModel *model;
+    StateModel *model;
     QMenu *menu;
     IVCalculator *ivCalculator = nullptr;
     SeedCalculator *seedCalculator = nullptr;
@@ -73,6 +73,7 @@ private slots:
     void openSeedCalculator();
     void downloadEventData();
     void checkUpdates();
+    void locationIndexChanged(int index);
     void denIndexChanged(int index);
     void rarityIndexChange(int index);
     void speciesIndexChanged(int index);

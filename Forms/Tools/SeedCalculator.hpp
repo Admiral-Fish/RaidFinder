@@ -48,6 +48,7 @@ private:
     void search12();
 
 private slots:
+    void locationIndexChanged(int index);
     void denIndexChanged(int index);
     void rarityIndexChanged(int index);
     void gameIndexChanged(int index);

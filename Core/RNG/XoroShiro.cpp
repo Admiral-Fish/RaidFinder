@@ -32,12 +32,6 @@ XoroShiro::XoroShiro(u64 seed) : state { seed, 0x82A2B175229D6A5B }
 {
 }
 
-void XoroShiro::setSeed(u64 seed)
-{
-    state[0] = seed;
-    state[1] = 0x82A2B175229D6A5B;
-}
-
 u32 XoroShiro::nextInt(u32 max, u32 mask, int &count)
 {
     u32 result;

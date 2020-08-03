@@ -17,18 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef FRAME_HPP
-#define FRAME_HPP
+#ifndef STATE_HPP
+#define STATE_HPP
 
 #include <Core/Util/Global.hpp>
 
-class Frame
+class State
 {
 public:
-    Frame() = default;
-    explicit Frame(u64 seed, u32 frame);
+    State() = default;
+    explicit State(u64 seed, u32 advances);
     u64 getSeed() const;
-    u32 getFrame() const;
+    u32 getAdvances() const;
     u32 getEC() const;
     void setEC(u32 ec);
     u32 getPID() const;
@@ -47,7 +47,7 @@ public:
 
 private:
     u64 seed;
-    u32 frame;
+    u32 advances;
     u32 ec;
     u32 pid;
     u8 nature;
@@ -57,4 +57,4 @@ private:
     u8 ivs[6];
 };
 
-#endif // FRAME_HPP
+#endif // STATE_HPP

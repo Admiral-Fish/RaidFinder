@@ -39,25 +39,57 @@ DenMap::~DenMap()
 
 void DenMap::setupModels()
 {
-    for (u8 i = 0; i < 100; i++)
-    {
-        QString location = Translator::getLocation(DenLoader::getLocation(i));
-        ui->comboBoxDen->addItem(QString("%1: %2").arg(i + 1).arg(location));
-    }
+    locationIndexChanged(0);
 
+    connect(ui->comboBoxLocation, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::locationIndexChanged);
     connect(ui->comboBoxDen, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &DenMap::denIndexChanged);
-    denIndexChanged(0);
+}
+
+void DenMap::locationIndexChanged(int index)
+{
+    if (index >= 0)
+    {
+        ui->comboBoxDen->clear();
+
+        u8 start = index == 0 ? 0 : 100;
+        u8 end = index == 0 ? 100 : 190;
+        u8 offset = index == 0 ? 0 : 100;
+
+        for (u8 denID = start; denID < end; denID++)
+        {
+            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location));
+        }
+
+        denIndexChanged(0);
+    }
 }
 
 void DenMap::denIndexChanged(int index)
 {
-    QVector<u16> coordinates = DenLoader::getCoordinates(static_cast<u8>(index));
+    if (index >= 0)
+    {
+        int location = ui->comboBoxLocation->currentIndex();
+        int offset = location == 0 ? 0 : 100;
 
-    QPixmap image(":/images/map.png");
+        QVector<u16> coordinates = DenLoader::getCoordinates(index + offset);
 
-    QPainter paint(&image);
-    paint.setPen(QPen(QBrush(Qt::red), 20));
-    paint.drawEllipse(QPoint(coordinates[0], coordinates[1]), 5, 5);
+        QPixmap image;
+        if (location == 0)
+        {
+            image.load(":/images/map.png");
+            this->resize(245, 578);
+        }
+        else
+        {
+            image.load(":/images/map_ioa.png");
+            this->resize(609, 637);
+        }
 
-    ui->labelMap->setPixmap(image);
+        QPainter paint(&image);
+        paint.setPen(QPen(QBrush(Qt::red), 20));
+        paint.drawEllipse(QPoint(coordinates[0], coordinates[1]), 5, 5);
+
+        ui->labelMap->setPixmap(image);
+    }
 }

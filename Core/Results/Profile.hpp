@@ -32,7 +32,6 @@ public:
     QString getName() const;
     u16 getTID() const;
     u16 getSID() const;
-    u16 getTSV() const;
     Game getVersion() const;
     QString getVersionString() const;
 

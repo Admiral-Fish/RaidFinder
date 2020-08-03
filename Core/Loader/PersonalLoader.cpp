@@ -36,7 +36,7 @@ namespace PersonalLoader
             QByteArray data = file.readAll();
             file.close();
 
-            for (auto i = 0; i < data.size(); i += 168)
+            for (auto i = 0; i < data.size(); i += 176)
             {
                 u8 hp = static_cast<u8>(data[i]);
                 u8 atk = static_cast<u8>(data[i + 1]);
