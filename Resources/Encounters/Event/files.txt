@@ -20,3 +20,4 @@
 200630_steelix.bin,208
 200717_wailord.bin,321
 200801_feebas.bin,349
+200806_pikachu.bin,25
