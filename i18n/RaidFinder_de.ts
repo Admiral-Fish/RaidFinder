@@ -15,17 +15,17 @@
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Den Map</source>
-        <translation>Naturzone</translation>
+        <translation>Karte aller Nester</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Naturzone</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/DenMap.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>Rüstungsinsel</translation>
     </message>
 </context>
 <context>
@@ -108,17 +108,17 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ort</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Naturzone</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>Rüstungsinsel</translation>
     </message>
 </context>
 <context>
@@ -760,27 +760,27 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ort</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Naturzone</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>Rüstungsinsel</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Initial Advances</source>
-        <translation type="unfinished"></translation>
+        <translation>Start Frame</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Advances</source>
-        <translation type="unfinished"></translation>
+        <translation>Max Frames</translation>
     </message>
 </context>
 <context>
@@ -1152,17 +1152,17 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Wild Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Naturzone</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Isle of Armor</source>
-        <translation type="unfinished"></translation>
+        <translation>Rüstungsinsel</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ort</translation>
     </message>
 </context>
 <context>
@@ -1170,92 +1170,92 @@
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>Square</source>
-        <translation type="unfinished">Vierecke</translation>
+        <translation>Vierecke</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>Star</source>
-        <translation type="unfinished">Sterne</translation>
+        <translation>Sterne</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>No</source>
-        <translation type="unfinished">Nein</translation>
+        <translation>Nein</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>Advances</source>
-        <translation type="unfinished"></translation>
+        <translation>Frame</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>HP</source>
-        <translation type="unfinished">KP</translation>
+        <translation>KP</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>Atk</source>
-        <translation type="unfinished"></translation>
+        <translation>Angr</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>Def</source>
-        <translation type="unfinished"></translation>
+        <translation>Vert</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>SpA</source>
-        <translation type="unfinished"></translation>
+        <translation>SpA</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>SpD</source>
-        <translation type="unfinished"></translation>
+        <translation>SpV</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Spe</source>
-        <translation type="unfinished"></translation>
+        <translation>Init</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Shiny</source>
-        <translation type="unfinished">Shiny</translation>
+        <translation>Shiny</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Nature</source>
-        <translation type="unfinished">Wesen</translation>
+        <translation>Wesen</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Ability</source>
-        <translation type="unfinished">Fähigkeit</translation>
+        <translation>Fähigkeit</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Gender</source>
-        <translation type="unfinished">Geschlecht</translation>
+        <translation>Geschlecht</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Characteristic</source>
-        <translation type="unfinished"></translation>
+        <translation>Spruch</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>Seed</source>
-        <translation type="unfinished">Seed</translation>
+        <translation>Seed</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>EC</source>
-        <translation type="unfinished">EC</translation>
+        <translation >EC</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>PID</source>
-        <translation type="unfinished">PID</translation>
+        <translation>PID</translation>
     </message>
 </context>
 </TS>
