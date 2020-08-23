@@ -60,12 +60,12 @@ QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) cons
         {
             // Game uses a fake TID/SID to determine shiny or not
             // PID is later modified using the actual TID/SID of trainer if necessary
-            u16 shinyValue = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
+            u16 shinyXor = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
             u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
 
-            if (shinyValue < 16) // Force shiny
+            if (shinyXor < 16) // Force shiny
             {
-                u8 shinyType = shinyValue == 0 ? 2 : 1;
+                u8 shinyType = shinyXor == 0 ? 2 : 1;
                 result.setShiny(shinyType);
                 if (psv != tsv)
                 {
@@ -93,16 +93,26 @@ QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) cons
         }
         else // Force shiny
         {
-            u16 shinyValue = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
-            if (shinyValue >= 16) // Check if PID is not normally shiny
+            u16 shinyXor = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
+            if (shinyXor >= 16) // Check if PID is not normally shiny
             {
+                // Force shiny (makes it square)
                 u16 high = (pid & 0xffff) ^ tid ^ sid;
                 pid = (high << 16) | (pid & 0xffff);
                 result.setShiny(2);
             }
             else
             {
-                result.setShiny(shinyValue == 0 ? 2 : 1);
+                u8 shinyType = shinyXor == 0 ? 2 : 1;
+                u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
+                result.setShiny(shinyType);
+
+                // Modify PID to be shiny under actual TID/SID if necessary
+                if (psv != tsv)
+                {
+                    u16 high = (pid & 0xffff) ^ tid ^ sid ^ (2 - shinyType);
+                    pid = (high << 16) | (pid & 0xffff);
+                }
             }
         }
         result.setPID(pid);
@@ -114,7 +124,7 @@ QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) cons
         }
 
         // Set IVs that will be 31s
-        for (int i = 0; i < ivCount;)
+        for (u8 i = 0; i < ivCount;)
         {
             u8 index = static_cast<u8>(rng.nextInt(6, 7));
             if (result.getIV(index) == 255)
@@ -125,7 +135,7 @@ QVector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) cons
         }
 
         // Fill rest of IVs with rand calls
-        for (int i = 0; i < 6; i++)
+        for (u8 i = 0; i < 6; i++)
         {
             if (result.getIV(i) == 255)
             {
