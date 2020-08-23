@@ -896,12 +896,12 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../Core/Results/Profile.cpp" line="61"/>
+        <location filename="../Core/Results/Profile.cpp" line="56"/>
         <source>Sword</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Core/Results/Profile.cpp" line="63"/>
+        <location filename="../Core/Results/Profile.cpp" line="58"/>
         <source>Shield</source>
         <translation type="unfinished"></translation>
     </message>
