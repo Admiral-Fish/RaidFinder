@@ -23,3 +23,4 @@
 200806_pikachu.bin,25
 200901_appletun.bin,842
 200918_clefable.bin,36
+201001_gengar.bin,94
