@@ -26,84 +26,178 @@
       <string>Settings</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="0" colspan="5">
-       <widget class="QTextEdit" name="textEdit">
-        <property name="toolTip">
-         <string>Enter each entry on a new line with a space between each number</string>
-        </property>
-        <property name="placeholderText">
-         <string>Level HP Atk Def SpA SpD Spe</string>
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelSpecies">
+        <property name="text">
+         <string>Pokémon</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="5">
-       <layout class="QGridLayout" name="gridLayout_8" columnstretch="2,0,2,1,2">
-        <item row="2" column="1">
-         <widget class="QComboBox" name="comboBoxAltForm"/>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="labelAltForm">
-          <property name="text">
-           <string>Altform</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="labelNature">
-          <property name="text">
-           <string>Nature</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="labelSpecies">
-          <property name="text">
-           <string>Pokémon</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="4">
-         <widget class="QPushButton" name="pushButtonFindIVs">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>23</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Find IVs</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QComboBox" name="comboBoxNature"/>
-        </item>
-        <item row="2" column="0">
-         <widget class="QComboBox" name="comboBoxPokemon"/>
-        </item>
-        <item row="2" column="3">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+      <item row="0" column="1">
+       <widget class="QLabel" name="labelNature">
+        <property name="text">
+         <string>Nature</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="labelAltForm">
+        <property name="text">
+         <string>Altform</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="comboBoxPokemon"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboBoxNature"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QComboBox" name="comboBoxAltForm"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButtonAddRow">
+        <property name="text">
+         <string>Add Row</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButtonDeleteRow">
+        <property name="text">
+         <string>Delete Row</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="pushButtonFindIVs">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Find IVs</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>277</width>
+           <height>283</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayoutEntry">
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelLevel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Level</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="labelHP">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>HP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="labelAtk">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Atk</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="labelDef">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Def</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="labelSpA">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>SpA</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QLabel" name="labelSpD">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>SpD</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QLabel" name="labelSpe">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Spe</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -303,9 +397,6 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>textEdit</tabstop>
- </tabstops>
  <resources/>
  <connections/>
 </ui>

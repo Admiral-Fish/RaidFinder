@@ -42,12 +42,15 @@ public:
 
 private:
     Ui::IVCalculator *ui;
+    int rows = 0;
 
     void setupModels();
     void displayIVs(QLabel *label, const QVector<u8> &ivs);
     bool connected;
 
 private slots:
+    void addRow();
+    void deleteRow();
     void findIVs();
     void pokemonIndexChanged(int index);
     void altformIndexChanged(int index);
