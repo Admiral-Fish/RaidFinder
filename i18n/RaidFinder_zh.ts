@@ -225,110 +225,110 @@
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="87"/>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="261"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="92"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="288"/>
         <source>Invalid</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="177"/>
-        <source>Invalid input</source>
-        <translation>输入有误</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="267"/>
         <source>Cannot send IVs</source>
         <translation>无法传递个体值</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="267"/>
         <source>The seed calculator must be open to send IVs</source>
         <translation>Seed查询器必须打开才能传递个体值</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="283"/>
         <source>Multiple IVs Present</source>
         <translation>个体值存在多个</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="283"/>
         <source>There must be only one IV present per stat</source>
         <translation>每个属性必须只有一个个体值</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="290"/>
         <source>Invalid IVs</source>
         <translation>个体值无效</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="290"/>
         <source>All stats must have valid IVs</source>
         <translation>所有属性必须都有有效个体值</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="300"/>
         <source>Choose star</source>
         <translation>选择星星</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="300"/>
         <source>Star</source>
         <translation>星星</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="312"/>
         <source>Day 1</source>
         <translation>第1帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="312"/>
         <source>Day 2</source>
         <translation>第2帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 4 (1st)</source>
         <translation>第4帧(第1只)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 4 (2nd)</source>
         <translation>第4帧(第2只)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 5</source>
         <translation>第5帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 6</source>
         <translation>第6帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="318"/>
         <source>Choose day</source>
         <translation>选择帧</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="318"/>
         <source>Day</source>
         <translation>帧</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <source>Enter each entry on a new line with a space between each number</source>
-        <translation>请每行输入数字 并以空格隔开</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <source>Level HP Atk Def SpA SpD Spe</source>
-        <translation>等级 HP 攻击 防御 特攻 特防 速度</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Send to Seed Calculator</source>
         <translation>传递到Seed查询器</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Add Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Delete Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Level</source>
+        <translation type="unfinished">等级</translation>
     </message>
 </context>
 <context>

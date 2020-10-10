@@ -225,110 +225,110 @@
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="87"/>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="261"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="92"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="288"/>
         <source>Invalid</source>
         <translation>Invalid</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="177"/>
-        <source>Invalid input</source>
-        <translation>Invalid input</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="267"/>
         <source>Cannot send IVs</source>
         <translation>Cannot send IVs</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="240"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="267"/>
         <source>The seed calculator must be open to send IVs</source>
         <translation>The seed calculator must be open to send IVs</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="283"/>
         <source>Multiple IVs Present</source>
         <translation>Multiple IVs Present</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="256"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="283"/>
         <source>There must be only one IV present per stat</source>
         <translation>There must be only one IV present per stat</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="290"/>
         <source>Invalid IVs</source>
         <translation>Invalid IVs</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="263"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="290"/>
         <source>All stats must have valid IVs</source>
         <translation>All stats must have valid IVs</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="300"/>
         <source>Choose star</source>
         <translation>Choose star</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="273"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="300"/>
         <source>Star</source>
         <translation>Star</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="312"/>
         <source>Day 1</source>
         <translation>Day 1</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="285"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="312"/>
         <source>Day 2</source>
         <translation>Day 2</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 4 (1st)</source>
         <translation>Day 4 (1st)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 4 (2nd)</source>
         <translation>Day 4 (2nd)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 5</source>
         <translation>Day 5</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="289"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="316"/>
         <source>Day 6</source>
         <translation>Day 6</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="318"/>
         <source>Choose day</source>
         <translation>Choose day</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="291"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="318"/>
         <source>Day</source>
         <translation>Day</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <source>Enter each entry on a new line with a space between each number</source>
-        <translation>Enter each entry on a new line with a space between each number</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <source>Level HP Atk Def SpA SpD Spe</source>
-        <translation>Level HP Atk Def SpA SpD Spe</translation>
-    </message>
-    <message>
-        <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Send to Seed Calculator</source>
         <translation>Send to Seed Calculator</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Add Row</source>
+        <translation>Add Row</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Delete Row</source>
+        <translation>Delete Row</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/IVCalculator.ui"/>
+        <source>Level</source>
+        <translation>Level</translation>
     </message>
 </context>
 <context>
