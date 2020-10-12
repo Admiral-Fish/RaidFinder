@@ -22,19 +22,64 @@
 
 #include <Core/Util/Global.hpp>
 
+inline u64 rotl(u64 x, u8 k)
+{
+    return (x << k) | (x >> (64 - k));
+}
+
 class XoroShiro
 {
 public:
-    XoroShiro();
-    explicit XoroShiro(u64 seed);
-    u32 nextInt(u32 max, u32 mask, int &count);
-    u32 nextInt(u32 max, u32 mask);
-    u32 nextInt(u32 mask);
+    XoroShiro() : state0(0), state1(0x82A2B175229D6A5B)
+    {
+    }
+
+    explicit XoroShiro(u64 seed) : state0(seed), state1(0x82A2B175229D6A5B)
+    {
+    }
+
+    u32 nextInt(u32 max, u32 mask, int &count)
+    {
+        u32 result;
+        do
+        {
+            result = next() & mask;
+            count++;
+        } while (result >= max);
+        return result;
+    }
+
+    u32 nextInt(u32 max, u32 mask)
+    {
+        u32 result;
+        do
+        {
+            result = next() & mask;
+        } while (result >= max);
+        return result;
+    }
+
+    u32 nextInt(u32 mask)
+    {
+        return next() & mask;
+    }
 
 private:
-    u64 state[2];
+    u64 state0;
+    u64 state1;
 
-    u64 next();
+    u64 next()
+    {
+        const u64 s0 = state0;
+        u64 s1 = state1;
+        const u64 result = s0 + s1;
+
+        s1 ^= s0;
+        state0 = rotl(s0, 24) ^ s1 ^ (s1 << 16);
+        state1 = rotl(s1, 37);
+
+        return result;
+    }
 };
 
 #endif // XOROSHIRO_HPP

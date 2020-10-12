@@ -90,7 +90,6 @@ SOURCES += \
     Core/Loader/DenLoader.cpp \
     Core/Loader/PersonalLoader.cpp \
     Core/Loader/ProfileLoader.cpp \
-    Core/RNG/XoroShiro.cpp \
     Core/Results/Den.cpp \
     Core/Results/PersonalInfo.cpp \
     Core/Results/Pokemon.cpp \
