@@ -25,9 +25,9 @@
 namespace DenLoader
 {
     void init();
-    Den getDen(u8 index, u8 rarity);
-    u8 getLocation(u8 index);
-    QVector<u16> getCoordinates(u8 index);
+    Den getDen(u16 index, u8 rarity);
+    u8 getLocation(u16 index);
+    QVector<u16> getCoordinates(u16 index);
 }
 
 #endif // DENLOADER_HPP
