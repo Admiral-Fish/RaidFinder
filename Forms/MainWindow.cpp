@@ -460,12 +460,28 @@ void MainWindow::locationIndexChanged(int index)
 
         if (QFile::exists(QApplication::applicationDirPath() + "/nests_event.json"))
         {
-            ui->comboBoxDen->addItem(tr("Event"), 255);
+            ui->comboBoxDen->addItem(tr("Event"), 65535);
         }
 
-        u8 start = index == 0 ? 0 : 100;
-        u8 end = index == 0 ? 100 : 190;
-        u8 offset = index == 0 ? 0 : 100;
+        u16 start, end, offset;
+        if (index == 0)
+        {
+            start = 0;
+            end = 100;
+            offset = 0;
+        }
+        else if (index == 1)
+        {
+            start = 100;
+            end = 190;
+            offset = 100;
+        }
+        else
+        {
+            start = 190;
+            end = 276;
+            offset = 190;
+        }
 
         for (u8 denID = start; denID < end; denID++)
         {
@@ -484,7 +500,7 @@ void MainWindow::denIndexChanged(int index)
 {
     if (index >= 0)
     {
-        u8 denID = ui->comboBoxDen->currentData().toInt();
+        u16 denID = ui->comboBoxDen->currentData().toInt();
         int rarity = ui->comboBoxRarity->currentIndex();
         den = DenLoader::getDen(denID, rarity);
 

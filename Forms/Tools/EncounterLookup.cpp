@@ -78,10 +78,24 @@ void EncounterLookup::gameIndexChanged(int index)
         auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
         int location = ui->comboBoxLocation->currentIndex();
 
-        u8 start = location == 0 ? 0 : 100;
-        u8 end = location == 0 ? 100 : 190;
+        u16 start, end;
+        if (location == 0)
+        {
+            start = 0;
+            end = 0;
+        }
+        else if (location == 1)
+        {
+            start = 100;
+            end = 190;
+        }
+        else
+        {
+            start = 190;
+            end = 276;
+        }
 
-        for (u8 denID = start; denID < end; denID++)
+        for (u16 denID = start; denID < end; denID++)
         {
             if (denID == 16)
             {
@@ -128,11 +142,27 @@ void EncounterLookup::find()
     auto game = static_cast<Game>(ui->comboBoxGame->currentData().toInt());
     int location = ui->comboBoxLocation->currentIndex();
 
-    u8 start = location == 0 ? 0 : 100;
-    u8 end = location == 0 ? 100 : 190;
-    u8 offset = location == 0 ? 0 : 100;
+    u16 start, end, offset;
+    if (location == 0)
+    {
+        start = 0;
+        end = 100;
+        offset = 0;
+    }
+    else if (location == 1)
+    {
+        start = 100;
+        end = 190;
+        offset = 100;
+    }
+    else
+    {
+        start = 190;
+        end = 276;
+        offset = 190;
+    }
 
-    for (u8 denID = start; denID < end; denID++)
+    for (u16 denID = start; denID < end; denID++)
     {
         auto normalDen = DenLoader::getDen(denID, 0);
         auto normalRaids = normalDen.getRaids(game);

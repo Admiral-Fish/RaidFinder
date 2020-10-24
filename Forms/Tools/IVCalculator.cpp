@@ -51,7 +51,7 @@ void IVCalculator::setConnected(bool connected)
 
 void IVCalculator::setupModels()
 {
-    for (u16 i = 1; i <= 890; i++)
+    for (u16 i = 1; i <= 898; i++)
     {
         if (PersonalLoader::getInfo(i).getIncluded())
         {
