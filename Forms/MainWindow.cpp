@@ -483,7 +483,7 @@ void MainWindow::locationIndexChanged(int index)
             offset = 190;
         }
 
-        for (u8 denID = start; denID < end; denID++)
+        for (u16 denID = start; denID < end; denID++)
         {
             if (denID == 16)
             {
