@@ -82,7 +82,7 @@ void EncounterLookup::gameIndexChanged(int index)
         if (location == 0)
         {
             start = 0;
-            end = 0;
+            end = 100;
         }
         else if (location == 1)
         {
