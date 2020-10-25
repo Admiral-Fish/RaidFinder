@@ -86,22 +86,22 @@
         <translation>Ability</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Rare</source>
         <translation>Rare</translation>
     </message>
@@ -119,6 +119,11 @@
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
         <translation>Isle of Armor</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -652,7 +657,7 @@
         <translation>An update is available. Would you like to download the newest version?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
@@ -683,7 +688,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>No</source>
         <translation>No</translation>
     </message>
@@ -781,6 +786,11 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Advances</source>
         <translation>Max Advances</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1163,6 +1173,11 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
         <translation>Location</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -86,22 +86,22 @@
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Normal</source>
         <translation>普通(紅柱)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Rare</source>
         <translation>稀有(紫柱)</translation>
     </message>
@@ -118,6 +118,11 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Crown Tundra</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -657,7 +662,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -688,7 +693,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -780,6 +785,11 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Advances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Crown Tundra</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1162,6 +1172,11 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Crown Tundra</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

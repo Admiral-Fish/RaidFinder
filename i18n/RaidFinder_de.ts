@@ -86,22 +86,22 @@
         <translation>Fähigkeit</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="183"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="163"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
         <source>Rare</source>
         <translation>Selten</translation>
     </message>
@@ -119,6 +119,11 @@
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Isle of Armor</source>
         <translation>Rüstungsinsel</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/EncounterLookup.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -652,7 +657,7 @@
         <translation>Eine neue Version des Raid Finders ist verfügbar. Soll der Download jetzt gestartet werden?</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
@@ -683,7 +688,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="520"/>
+        <location filename="../Forms/MainWindow.cpp" line="536"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
@@ -781,6 +786,11 @@
         <location filename="../Forms/MainWindow.ui"/>
         <source>Max Advances</source>
         <translation>Max Frames</translation>
+    </message>
+    <message>
+        <location filename="../Forms/MainWindow.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1163,6 +1173,11 @@
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Location</source>
         <translation>Ort</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/SeedCalculator.ui"/>
+        <source>Crown Tundra</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
