@@ -24,3 +24,4 @@
 200901_appletun.bin,842
 200918_clefable.bin,36
 201001_gengar.bin,94
+201030_yamask.bin,562
