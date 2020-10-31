@@ -123,7 +123,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Crown Tundra</source>
-        <translation type="unfinished"></translation>
+        <translation>Kronen-Schneelande</translation>
     </message>
 </context>
 <context>
@@ -323,17 +323,17 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Add Row</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeile hinzufügen</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Delete Row</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeile löschen</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Level</source>
-        <translation type="unfinished">Level</translation>
+        <translation>Level</translation>
     </message>
 </context>
 <context>
@@ -790,7 +790,7 @@
     <message>
         <location filename="../Forms/MainWindow.ui"/>
         <source>Crown Tundra</source>
-        <translation type="unfinished"></translation>
+        <translation>Kronen-Schneelande</translation>
     </message>
 </context>
 <context>
@@ -1177,7 +1177,7 @@
     <message>
         <location filename="../Forms/Tools/SeedCalculator.ui"/>
         <source>Crown Tundra</source>
-        <translation type="unfinished"></translation>
+        <translation>Kronen-Schneelande</translation>
     </message>
 </context>
 <context>
