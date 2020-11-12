@@ -27,7 +27,6 @@ namespace Translator
 {
     void init(const QString &locale);
     QString getAbility(u16 ability);
-    QStringList getCharacteristics();
     QString getCharacteristic(u8 characteristic);
     QString getLocation(u8 location);
     QStringList getNatures();

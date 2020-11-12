@@ -68,11 +68,6 @@ u16 Raid::getSpecies() const
     return species;
 }
 
-bool Raid::getStar(u8 index) const
-{
-    return star[index];
-}
-
 u8 Raid::getShiny() const
 {
     return shinyType;

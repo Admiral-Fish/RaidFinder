@@ -1,7 +1,7 @@
 lessThan(QT_MAJOR_VERSION, 5): error("You need at least Qt 5.9 to build RaidFinder")
 equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 9): error("You need at least Qt 5.9 to build RaidFinder")
 
-QT += concurrent network widgets
+QT += network widgets
 CONFIG += c++1z lrelease embed_translations
 QMAKE_LRELEASE_FLAGS = -nounfinished -removeidentical
 QMAKE_RESOURCE_FLAGS = -threshold 0 -compress 9
@@ -39,10 +39,7 @@ FORMS += \
     Forms/Profile/ProfileManager.ui \
     Forms/Tools/DenMap.ui \
     Forms/Tools/EncounterLookup.ui \
-    Forms/Tools/IVCalculator.ui \
-    Forms/Tools/SeedCalculator.ui \
-    Forms/Util/RaidInfo12.ui \
-    Forms/Util/RaidInfo35.ui
+    Forms/Tools/IVCalculator.ui
 
 HEADERS += \
     Core/Generator/RaidGenerator.hpp \
@@ -52,15 +49,9 @@ HEADERS += \
     Core/RNG/XoroShiro.hpp \
     Core/Results/Den.hpp \
     Core/Results/PersonalInfo.hpp \
-    Core/Results/Pokemon.hpp \
     Core/Results/Profile.hpp \
     Core/Results/Raid.hpp \
     Core/Results/State.hpp \
-    Core/Searcher/Matrix.hpp \
-    Core/Searcher/SeedSearcher.hpp \
-    Core/Searcher/SeedSearcher1.hpp \
-    Core/Searcher/SeedSearcher2.hpp \
-    Core/Searcher/SeedSearcher3.hpp \
     Core/StateFilter.hpp \
     Core/Util/Game.hpp \
     Core/Util/Global.hpp \
@@ -78,9 +69,6 @@ HEADERS += \
     Forms/Tools/DenMap.hpp \
     Forms/Tools/EncounterLookup.hpp \
     Forms/Tools/IVCalculator.hpp \
-    Forms/Tools/SeedCalculator.hpp \
-    Forms/Util/RaidInfo12.hpp \
-    Forms/Util/RaidInfo35.hpp \
     Models/ProfileModel.hpp \
     Models/StateModel.hpp \
     Models/TableModel.hpp
@@ -92,15 +80,9 @@ SOURCES += \
     Core/Loader/ProfileLoader.cpp \
     Core/Results/Den.cpp \
     Core/Results/PersonalInfo.cpp \
-    Core/Results/Pokemon.cpp \
     Core/Results/Profile.cpp \
     Core/Results/Raid.cpp \
     Core/Results/State.cpp \
-    Core/Searcher/Matrix.cpp \
-    Core/Searcher/SeedSearcher.cpp \
-    Core/Searcher/SeedSearcher1.cpp \
-    Core/Searcher/SeedSearcher2.cpp \
-    Core/Searcher/SeedSearcher3.cpp \
     Core/StateFilter.cpp \
     Core/Util/IVChecker.cpp \
     Core/Util/Nature.cpp \
@@ -116,9 +98,6 @@ SOURCES += \
     Forms/Tools/DenMap.cpp \
     Forms/Tools/EncounterLookup.cpp \
     Forms/Tools/IVCalculator.cpp \
-    Forms/Tools/SeedCalculator.cpp \
-    Forms/Util/RaidInfo12.cpp \
-    Forms/Util/RaidInfo35.cpp \
     Models/ProfileModel.cpp \
     Models/StateModel.cpp \
     main.cpp

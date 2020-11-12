@@ -28,10 +28,11 @@
 #include <QSettings>
 #include <QSpinBox>
 
-IVCalculator::IVCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::IVCalculator), connected(false)
+IVCalculator::IVCalculator(QWidget *parent) : QWidget(parent), ui(new Ui::IVCalculator)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_QuitOnClose, false);
+    setAttribute(Qt::WA_DeleteOnClose);
 
     setupModels();
 }
@@ -42,11 +43,6 @@ IVCalculator::~IVCalculator()
     setting.setValue("ivCalculator/geometry", this->saveGeometry());
 
     delete ui;
-}
-
-void IVCalculator::setConnected(bool connected)
-{
-    this->connected = connected;
 }
 
 void IVCalculator::setupModels()
@@ -74,7 +70,6 @@ void IVCalculator::setupModels()
     connect(ui->pushButtonFindIVs, &QPushButton::clicked, this, &IVCalculator::findIVs);
     connect(ui->comboBoxPokemon, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &IVCalculator::pokemonIndexChanged);
     connect(ui->comboBoxAltForm, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &IVCalculator::altformIndexChanged);
-    connect(ui->pushButtonSend, &QPushButton::clicked, this, &IVCalculator::checkIVs);
 
     QSettings setting;
     if (setting.contains("ivCalculator/geometry"))
@@ -134,25 +129,25 @@ void IVCalculator::displayIVs(QLabel *label, const QVector<u8> &ivs)
 
 void IVCalculator::addRow()
 {
-    QSpinBox *level = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *level = new QSpinBox(ui->scrollAreaWidgetContents);
     level->setRange(1, 100);
 
-    QSpinBox *hp = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *hp = new QSpinBox(ui->scrollAreaWidgetContents);
     hp->setRange(1, 651);
 
-    QSpinBox *atk = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *atk = new QSpinBox(ui->scrollAreaWidgetContents);
     atk->setRange(1, 437);
 
-    QSpinBox *def = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *def = new QSpinBox(ui->scrollAreaWidgetContents);
     def->setRange(1, 545);
 
-    QSpinBox *spa = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *spa = new QSpinBox(ui->scrollAreaWidgetContents);
     spa->setRange(1, 420);
 
-    QSpinBox *spd = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *spd = new QSpinBox(ui->scrollAreaWidgetContents);
     spd->setRange(1, 545);
 
-    QSpinBox *spe = new QSpinBox(ui->scrollAreaWidgetContents);
+    auto *spe = new QSpinBox(ui->scrollAreaWidgetContents);
     spe->setRange(1, 435);
 
     rows++;
@@ -192,7 +187,7 @@ void IVCalculator::findIVs()
     for (int row = 1; row < rows; row++)
     {
         QLayoutItem *item = ui->gridLayoutEntry->itemAtPosition(row, 0);
-        QSpinBox *widget = reinterpret_cast<QSpinBox *>(item->widget());
+        auto *widget = reinterpret_cast<QSpinBox *>(item->widget());
 
         levels.append(widget->value());
 
@@ -258,72 +253,4 @@ void IVCalculator::altformIndexChanged(int index)
         ui->labelBaseSpDValue->setText(QString::number(stats[4]));
         ui->labelBaseSpeValue->setText(QString::number(stats[5]));
     }
-}
-
-void IVCalculator::checkIVs()
-{
-    if (!connected)
-    {
-        QMessageBox error(QMessageBox::Critical, tr("Cannot send IVs"), tr("The seed calculator must be open to send IVs"),
-                          QMessageBox::Ok);
-        error.exec();
-        return;
-    }
-
-    auto labels
-        = { ui->labelHPIVValue, ui->labelAtkIVValue, ui->labelDefIVValue, ui->labelSpAIVValue, ui->labelSpDIVValue, ui->labelSpeIVValue };
-
-    QVector<u8> ivs;
-    for (const auto &label : labels)
-    {
-        QString text = label->text();
-
-        if (text.contains(",") || text.contains("-"))
-        {
-            QMessageBox error(QMessageBox::Critical, tr("Multiple IVs Present"), tr("There must be only one IV present per stat"),
-                              QMessageBox::Ok);
-            error.exec();
-            return;
-        }
-        if (text == tr("Invalid"))
-        {
-            QMessageBox error(QMessageBox::Critical, tr("Invalid IVs"), tr("All stats must have valid IVs"), QMessageBox::Ok);
-            error.exec();
-            return;
-        }
-
-        ivs.append(static_cast<u8>(text.toUInt()));
-    }
-
-    bool flag;
-    QStringList starType = { "1-2★", "3-5★" };
-    QString starItem = QInputDialog::getItem(this, tr("Choose star"), tr("Star"), starType, 0, false, &flag,
-                                             Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
-    if (!flag)
-    {
-        return;
-    }
-
-    int starIndex = starType.indexOf(starItem);
-
-    QStringList dayType;
-    if (starIndex == 0)
-    {
-        dayType = QStringList({ tr("Day 1"), tr("Day 2") });
-    }
-    else
-    {
-        dayType = QStringList({ tr("Day 4 (1st)"), tr("Day 4 (2nd)"), tr("Day 5"), tr("Day 6") });
-    }
-    QString dayItem = QInputDialog::getItem(this, tr("Choose day"), tr("Day"), dayType, 0, false, &flag,
-                                            Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
-
-    if (!flag)
-    {
-        return;
-    }
-
-    int dayIndex = dayType.indexOf(dayItem);
-
-    emit sendIVs(starIndex, dayIndex, ui->comboBoxNature->currentIndex(), ivs);
 }

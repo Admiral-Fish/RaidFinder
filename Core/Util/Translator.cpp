@@ -65,11 +65,6 @@ namespace Translator
         return abilities.at(ability);
     }
 
-    QStringList getCharacteristics()
-    {
-        return characteristics;
-    }
-
     QString getCharacteristic(u8 characteristic)
     {
         return characteristics.at(characteristic);

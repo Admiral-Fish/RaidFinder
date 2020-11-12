@@ -27,8 +27,6 @@
 #include <QMenu>
 
 class StateModel;
-class IVCalculator;
-class SeedCalculator;
 
 namespace Ui
 {
@@ -46,7 +44,6 @@ private:
     Ui::MainWindow *ui;
     QActionGroup *languageGroup;
     QActionGroup *styleGroup;
-    QActionGroup *threadGroup;
     QString currentLanguage;
     QString currentStyle;
     QVector<Profile> profiles;
@@ -54,8 +51,6 @@ private:
     Den den;
     StateModel *model;
     QMenu *menu;
-    IVCalculator *ivCalculator = nullptr;
-    SeedCalculator *seedCalculator = nullptr;
 
     void setupModels();
     QByteArray downloadFile(const QString &url);
@@ -63,14 +58,12 @@ private:
 private slots:
     void slotLanguageChanged(QAction *action);
     void slotStyleChanged(QAction *action);
-    void slotThreadChanged(QAction *action);
     void updateProfiles();
     void profilesIndexChanged(int index);
     void openProfileManager();
     void openDenMap();
     void openEncounterLookup();
     void openIVCalculator();
-    void openSeedCalculator();
     void downloadEventData();
     void checkUpdates();
     void locationIndexChanged(int index);

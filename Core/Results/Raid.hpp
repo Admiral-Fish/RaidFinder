@@ -36,7 +36,6 @@ public:
     u8 getGenderRatio() const;
     bool getGigantamax() const;
     u16 getSpecies() const;
-    bool getStar(u8 index) const;
     u8 getShiny() const;
     QString getStarDisplay() const;
 

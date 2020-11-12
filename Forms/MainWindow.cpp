@@ -28,7 +28,6 @@
 #include <Forms/Tools/DenMap.hpp>
 #include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
-#include <Forms/Tools/SeedCalculator.hpp>
 #include <Models/StateModel.hpp>
 #include <QApplication>
 #include <QDesktopServices>
@@ -42,7 +41,6 @@
 #include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
-#include <QThread>
 #include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -68,8 +66,6 @@ MainWindow::~MainWindow()
     setting.setValue("settings/seed", ui->textBoxSeed->text());
 
     delete ui;
-    delete ivCalculator;
-    delete seedCalculator;
 }
 
 void MainWindow::setupModels()
@@ -163,25 +159,6 @@ void MainWindow::setupModels()
         styleGroup->addAction(action);
     }
 
-    threadGroup = new QActionGroup(ui->menuThread);
-    threadGroup->setExclusive(true);
-    connect(threadGroup, &QActionGroup::triggered, this, &MainWindow::slotThreadChanged);
-    int maxThread = QThread::idealThreadCount();
-    int thread = setting.value("settings/thread", maxThread).toInt();
-    for (int i = 1; i <= maxThread; i++)
-    {
-        auto *action = ui->menuThread->addAction(QString::number(i));
-        action->setData(i);
-        action->setCheckable(true);
-
-        if (i == thread)
-        {
-            action->setChecked(true);
-        }
-
-        threadGroup->addAction(action);
-    }
-
     QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
     QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
     connect(outputTXT, &QAction::triggered, this, [=] { ui->tableView->outputModel(false); });
@@ -191,7 +168,6 @@ void MainWindow::setupModels()
     connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
-    connect(ui->actionSeedCalculator, &QAction::triggered, this, &MainWindow::openSeedCalculator);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -267,17 +243,6 @@ void MainWindow::slotStyleChanged(QAction *action)
     }
 }
 
-void MainWindow::slotThreadChanged(QAction *action)
-{
-    if (action)
-    {
-        int thread = action->data().toInt();
-
-        QSettings setting;
-        setting.setValue("settings/thread", thread);
-    }
-}
-
 void MainWindow::updateProfiles()
 {
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
@@ -335,30 +300,8 @@ void MainWindow::openEncounterLookup()
 
 void MainWindow::openIVCalculator()
 {
-    if (!ivCalculator)
-    {
-        ivCalculator = new IVCalculator();
-        if (seedCalculator)
-        {
-            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
-            ivCalculator->setConnected(true);
-        }
-    }
-    ivCalculator->show();
-}
-
-void MainWindow::openSeedCalculator()
-{
-    if (!seedCalculator)
-    {
-        seedCalculator = new SeedCalculator(currentProfile.getVersion());
-        if (ivCalculator)
-        {
-            connect(ivCalculator, &IVCalculator::sendIVs, seedCalculator, &SeedCalculator::setIVs);
-            ivCalculator->setConnected(true);
-        }
-    }
-    seedCalculator->show();
+    auto *calculator = new IVCalculator();
+    calculator->show();
 }
 
 void MainWindow::downloadEventData()
