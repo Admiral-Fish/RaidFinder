@@ -184,7 +184,7 @@ void IVCalculator::findIVs()
     QVector<QVector<u16>> stats;
     QVector<u8> levels;
 
-    for (int row = 1; row < rows; row++)
+    for (int row = 1; row <= rows; row++)
     {
         QLayoutItem *item = ui->gridLayoutEntry->itemAtPosition(row, 0);
         auto *widget = reinterpret_cast<QSpinBox *>(item->widget());
