@@ -28,3 +28,4 @@
 201102_garbodor.bin,569
 201120_skwovet.bin,819
 201201_ponyta.bin,77
+201225_vulpix.bin,37
