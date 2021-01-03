@@ -29,3 +29,4 @@
 201120_skwovet.bin,819
 201201_ponyta.bin,77
 201225_vulpix.bin,37
+210101_duraludon.bin,884
