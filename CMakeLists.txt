@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16.0)
 
-project(RaidFinder VERSION 2.6.0 LANGUAGES CXX)
-add_compile_definitions(VERSION="2.6.0")
+project(RaidFinder VERSION 2.7.0 LANGUAGES CXX)
+add_compile_definitions(VERSION="2.7.0")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
