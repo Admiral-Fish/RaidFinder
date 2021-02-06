@@ -37,7 +37,7 @@ ProfileEditor::ProfileEditor(const Profile &profile, QWidget *parent) : QDialog(
 
     setupModels();
 
-    ui->lineEditProfileName->setText(profile.getName());
+    ui->lineEditProfileName->setText(QString::fromStdString(profile.getName()));
     ui->comboBoxProfileVersion->setCurrentIndex(ui->comboBoxProfileVersion->findData(profile.getVersion()));
     ui->textBoxProfileTID->setText(QString::number(profile.getTID()));
     ui->textBoxProfileSID->setText(QString::number(profile.getSID()));
@@ -91,7 +91,7 @@ void ProfileEditor::okay()
         return;
     }
 
-    fresh = Profile(input, ui->textBoxProfileTID->getUShort(), ui->textBoxProfileSID->getUShort(),
+    fresh = Profile(input.toStdString(), ui->textBoxProfileTID->getUShort(), ui->textBoxProfileSID->getUShort(),
                     static_cast<Game>(ui->comboBoxProfileVersion->currentData().toInt()));
 
     done(QDialog::Accepted);

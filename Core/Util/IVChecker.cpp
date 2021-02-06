@@ -19,14 +19,16 @@
 
 #include "IVChecker.hpp"
 #include <Core/Util/Nature.hpp>
-#include <QSet>
+#include <algorithm>
 #include <cmath>
+#include <iterator>
+#include <set>
 
 namespace
 {
-    QVector<QSet<u8>> calculateIVs(const QVector<u8> &baseStats, const QVector<u16> &stats, u8 level, u8 nature)
+    std::vector<std::vector<u8>> calculateIVs(const std::vector<u8> &baseStats, const std::vector<u16> &stats, u8 level, u8 nature)
     {
-        QVector<QSet<u8>> ivs(6);
+        std::vector<std::vector<u8>> ivs(6);
 
         for (u8 i = 0; i < 6; i++)
         {
@@ -44,7 +46,7 @@ namespace
 
                 if (static_cast<u16>(stat) == stats.at(i))
                 {
-                    ivs[i].insert(iv);
+                    ivs[i].emplace_back(iv);
                 }
             }
         }
@@ -53,29 +55,28 @@ namespace
     }
 }
 
-QVector<QVector<u8>> IVChecker::calculateIVRange(const QVector<u8> &baseStats, const QVector<QVector<u16>> &stats, const QVector<u8> &level,
-                                                 u8 nature)
+std::vector<std::vector<u8>> IVChecker::calculateIVRange(const std::vector<u8> &baseStats, const std::vector<std::vector<u16>> &stats,
+                                                         const std::vector<u8> &level, u8 nature)
 {
-    QVector<QSet<u8>> first = calculateIVs(baseStats, stats.at(0), level.at(0), nature);
-
-    for (int i = 1; i < stats.size(); i++)
+    std::vector<std::vector<u8>> ivs(6);
+    for (size_t i = 0; i < stats.size(); i++)
     {
-        auto next = calculateIVs(baseStats, stats.at(i), level.at(i), nature);
+        auto current = calculateIVs(baseStats, stats[i], level[i], nature);
 
-        for (u8 j = 0; j < 6; j++)
+        if (i == 0)
         {
-            first[j].intersect(next.at(j));
+            ivs = current;
+        }
+        else
+        {
+            std::vector<std::vector<u8>> temp(6);
+            for (size_t j = 0; j < 6; j++)
+            {
+                std::set_intersection(ivs[j].begin(), ivs[j].end(), current[j].begin(), current[j].end(), std::back_inserter(temp[j]));
+            }
+            ivs = temp;
         }
     }
 
-    QVector<QVector<u8>> ivs(6);
-    for (u8 i = 0; i < 6; i++)
-    {
-        for (const u8 num : first.at(i))
-        {
-            ivs[i].append(num);
-        }
-        std::sort(ivs[i].begin(), ivs[i].end());
-    }
     return ivs;
 }

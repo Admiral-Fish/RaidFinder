@@ -17,13 +17,33 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <Core/Loader/ProfileLoader.hpp>
 #include <Core/Util/Translator.hpp>
 #include <Forms/MainWindow.hpp>
 #include <QApplication>
 #include <QFile>
+#include <QJsonDocument>
 #include <QSettings>
 #include <QTextStream>
 #include <QTranslator>
+
+void validateSettings(QSettings &setting)
+{
+    if (!setting.contains("settings/profiles"))
+    {
+        setting.setValue("settings/profiles", QString("%1/profiles.json").arg(QApplication::applicationDirPath()));
+    }
+
+    if (!setting.contains("settings/style"))
+    {
+        setting.setValue("settings/style", "dark");
+    }
+
+    if (!setting.contains("settings/locale"))
+    {
+        setting.setValue("settings/locale", "en");
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +52,27 @@ int main(int argc, char *argv[])
     app.setOrganizationName("Admiral-Fish");
 
     QSettings setting;
+    validateSettings(setting);
+
+    QString profilePath = setting.value("settings/profiles").toString();
+    ProfileLoader::init(profilePath.toStdString());
+
+    // Transfer profiles to new setup
+    // TODO: remove in a future version
+    if (!setting.contains("settings/migrated"))
+    {
+        QByteArray data = setting.value("profiles").toByteArray();
+        QJsonDocument profiles(QJsonDocument::fromJson(data));
+        if (!profiles.isNull())
+        {
+            QFile f(profilePath);
+            if (f.open(QIODevice::WriteOnly))
+            {
+                f.write(QJsonDocument(profiles).toJson());
+            }
+        }
+        setting.setValue("settings/migrated", true);
+    }
 
     // Buttons currently aren't easy to press with style sheet
     // Disable it for now on MacOS
@@ -50,13 +91,7 @@ int main(int argc, char *argv[])
 #endif
 
     QString locale = setting.value("settings/locale", "en").toString();
-    if (!QStringList({ "de", "en", "es", "fr", "it", "ja", "ko", "pt", "tw", "zh" }).contains(locale))
-    {
-        locale = "en";
-        setting.setValue("settings/locale", "en");
-    }
-
-    Translator::init(locale);
+    Translator::init(locale.toStdString());
 
     QTranslator translator;
     if (translator.load(QString(":/i18n/RaidFinder_%1.qm").arg(locale)))

@@ -18,13 +18,10 @@
  */
 
 #include "DenLoader.hpp"
-#include <QApplication>
-#include <QFile>
-#include <QHash>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <array>
+#include <Core/Resources.hpp>
+#include <fstream>
+#include <map>
+#include <nlohmann/json.hpp>
 
 // Normal hash, rare hash, location, x, y
 constexpr u64 denInfo[276][5] = {
@@ -308,133 +305,115 @@ constexpr u64 denInfo[276][5] = {
 
 namespace
 {
-    QHash<u64, Den> dens;
+    std::map<u64, Den> dens;
 }
 
-void DenLoader::init()
+void DenLoader::init(const std::string &path)
 {
     // Normal and rare dens
-    QFile f(":/encounters/nests.bin");
-    if (f.open(QIODevice::ReadOnly))
+    for (size_t i = 0; i < nests.size();)
     {
-        QJsonObject doc(QJsonDocument::fromJson(qUncompress(f.readAll())).object());
-        f.close();
-
-        QJsonArray tables = doc["Tables"].toArray();
-        for (auto i : tables)
+        std::vector<Raid> shieldRaids;
+        for (u8 j = 0; j < 12; j++)
         {
-            QJsonObject table = i.toObject();
-            QJsonArray swordEntries = table["SwordEntries"].toArray();
-            QJsonArray shieldEntries = table["ShieldEntries"].toArray();
-
-            QVector<Raid> swordRaids;
-            for (auto j : swordEntries)
-            {
-                QJsonObject entry = j.toObject();
-
-                u8 ability = static_cast<u8>(entry["Ability"].toInt());
-                u8 altform = static_cast<u8>(entry["AltForm"].toInt());
-                u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
-                u8 gender = static_cast<u8>(entry["Gender"].toInt());
-                bool gigantamax = entry["IsGigantamax"].toBool();
-                u16 species = static_cast<u16>(entry["Species"].toInt());
-
-                std::array<bool, 5> star;
-                for (u8 k = 0; k < 5; k++)
-                {
-                    star[k] = entry["Stars"].toArray()[k].toBool();
-                }
-
-                swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star));
-            }
-
-            QVector<Raid> shieldRaids;
-            for (auto j : shieldEntries)
-            {
-                QJsonObject entry = j.toObject();
-
-                u8 ability = static_cast<u8>(entry["Ability"].toInt());
-                u8 altform = static_cast<u8>(entry["AltForm"].toInt());
-                u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
-                u8 gender = static_cast<u8>(entry["Gender"].toInt());
-                bool gigantamax = entry["IsGigantamax"].toBool();
-                u16 species = static_cast<u16>(entry["Species"].toInt());
-
-                std::array<bool, 5> star;
-                for (u8 k = 0; k < 5; k++)
-                {
-                    star[k] = entry["Stars"].toArray()[k].toBool();
-                }
-
-                shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star));
-            }
-
-            u64 hash = table["TableID"].toString().toULongLong(nullptr, 16);
-            dens[hash] = Den(swordRaids, shieldRaids);
+            u8 ability = nests[i + j * 12];
+            u8 altform = nests[i + j * 12 + 1];
+            u8 ivCount = nests[i + j * 12 + 2];
+            u8 gender = nests[i + j * 12 + 3];
+            bool gigantamax = static_cast<bool>(nests[i + j * 12 + 4]);
+            u16 species = (nests[i + j * 12 + 5] << 8) | nests[i + j * 12 + 6];
+            std::array<bool, 5> stars = { static_cast<bool>(nests[i + j * 12 + 7]), static_cast<bool>(nests[i + j * 12 + 8]),
+                                          static_cast<bool>(nests[i + j * 12 + 9]), static_cast<bool>(nests[i + j * 12 + 10]),
+                                          static_cast<bool>(nests[i + j * 12 + 11]) };
+            shieldRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars);
         }
+        i += 144;
+
+        std::vector<Raid> swordRaids;
+        for (u8 j = 0; j < 12; j++)
+        {
+            u8 ability = nests[i + j * 12];
+            u8 altform = nests[i + j * 12 + 1];
+            u8 ivCount = nests[i + j * 12 + 2];
+            u8 gender = nests[i + j * 12 + 3];
+            bool gigantamax = static_cast<bool>(nests[i + j * 12 + 4]);
+            u16 species = (nests[i + j * 12 + 5] << 8) | nests[i + j * 12 + 6];
+            std::array<bool, 5> stars = { static_cast<bool>(nests[i + j * 12 + 7]), static_cast<bool>(nests[i + j * 12 + 8]),
+                                          static_cast<bool>(nests[i + j * 12 + 9]), static_cast<bool>(nests[i + j * 12 + 10]),
+                                          static_cast<bool>(nests[i + j * 12 + 11]) };
+            swordRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars);
+        }
+        i += 144;
+
+        u64 hash = 0;
+        for (u8 j = 0; j < 8; j++)
+        {
+            hash |= static_cast<u64>(nests[i + j]) << (7 - j) * 8;
+        }
+        i += 8;
+
+        dens[hash] = Den(swordRaids, shieldRaids);
     }
 
     // Event Dens
-    f.setFileName(QApplication::applicationDirPath() + "/nests_event.json");
-    if (f.open(QIODevice::ReadOnly))
+    std::ifstream read(path + "/nests_event.json");
+    if (read.is_open())
     {
-        QJsonObject doc(QJsonDocument::fromJson(f.readAll()).object());
-        f.close();
-
-        QJsonArray tables = doc["Tables"].toArray();
-        QJsonArray swordEntries = tables.at(0).toObject()["Entries"].toArray();
-        QJsonArray shieldEntries = tables.at(1).toObject()["Entries"].toArray();
-
-        QVector<Raid> swordRaids;
-        for (auto i : swordEntries)
+        nlohmann::json j = nlohmann::json::parse(read, nullptr, false);
+        if (!j.is_discarded())
         {
-            QJsonObject entry = i.toObject();
+            nlohmann::json table = j["Tables"];
+            nlohmann::json swordEntries = table[0]["Entries"];
+            nlohmann::json shieldEntries = table[1]["Entries"];
 
-            u8 ability = static_cast<u8>(entry["Ability"].toInt());
-            u8 altform = static_cast<u8>(entry["AltForm"].toInt());
-            u8 shinyType = static_cast<u8>(entry["ShinyForced"].toInt());
-            u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
-            u8 gender = static_cast<u8>(entry["Gender"].toInt());
-            bool gigantamax = entry["IsGigantamax"].toBool();
-            u16 species = static_cast<u16>(entry["Species"].toInt());
-
-            std::array<bool, 5> star;
-            for (u8 k = 0; k < 5; k++)
+            std::vector<Raid> swordRaids;
+            for (auto raid : swordEntries)
             {
-                star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
+                u8 ability = raid["Ability"].get<u8>();
+                u8 altform = raid["AltForm"].get<u8>();
+                u8 shinyType = raid["ShinyForced"].get<u8>();
+                u8 ivCount = raid["FlawlessIVs"].get<u8>();
+                u8 gender = raid["Gender"].get<u8>();
+                bool gigantamax = raid["IsGigantamax"].get<bool>();
+                u16 species = raid["Species"].get<u16>();
+
+                std::array<bool, 5> stars;
+                for (u8 i = 0; i < 5; i++)
+                {
+                    stars[i] = raid["Probabilities"][i].get<u8>() > 0;
+                }
+
+                if (std::any_of(std::begin(stars), std::end(stars), [](bool flag) { return flag; }))
+                {
+                    swordRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars, shinyType);
+                }
             }
 
-            if (std::any_of(std::begin(star), std::end(star), [](bool flag) { return flag; }))
+            std::vector<Raid> shieldRaids;
+            for (auto raid : shieldEntries)
             {
-                swordRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
+                u8 ability = raid["Ability"].get<u8>();
+                u8 altform = raid["AltForm"].get<u8>();
+                u8 shinyType = raid["ShinyForced"].get<u8>();
+                u8 ivCount = raid["FlawlessIVs"].get<u8>();
+                u8 gender = raid["Gender"].get<u8>();
+                bool gigantamax = raid["IsGigantamax"].get<bool>();
+                u16 species = raid["Species"].get<u16>();
+
+                std::array<bool, 5> stars;
+                for (u8 i = 0; i < 5; i++)
+                {
+                    stars[i] = raid["Probabilities"][i].get<u8>() > 0;
+                }
+
+                if (std::any_of(std::begin(stars), std::end(stars), [](bool flag) { return flag; }))
+                {
+                    shieldRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars, shinyType);
+                }
             }
+
+            dens[0x17e59bbd874fd95c] = Den(swordRaids, shieldRaids);
         }
-
-        QVector<Raid> shieldRaids;
-        for (auto i : shieldEntries)
-        {
-            QJsonObject entry = i.toObject();
-
-            u8 ability = static_cast<u8>(entry["Ability"].toInt());
-            u8 altform = static_cast<u8>(entry["AltForm"].toInt());
-            u8 shinyType = static_cast<u8>(entry["ShinyForced"].toInt());
-            u8 ivCount = static_cast<u8>(entry["FlawlessIVs"].toInt());
-            u8 gender = static_cast<u8>(entry["Gender"].toInt());
-            bool gigantamax = entry["IsGigantamax"].toBool();
-            u16 species = static_cast<u16>(entry["Species"].toInt());
-
-            std::array<bool, 5> star;
-            for (u8 k = 0; k < 5; k++)
-            {
-                star[k] = entry["Probabilities"].toArray()[k].toInt() != 0;
-            }
-
-            if (std::any_of(std::begin(star), std::end(star), [](bool flag) { return flag; }))
-            {
-                shieldRaids.append(Raid(ability, altform, ivCount, gender, gigantamax, species, star, shinyType));
-            }
-        }
-        dens[0x17e59bbd874fd95c] = Den(swordRaids, shieldRaids);
     }
 }
 
@@ -458,7 +437,7 @@ u8 DenLoader::getLocation(u16 index)
     return static_cast<u8>(denInfo[index][2]);
 }
 
-QVector<u16> DenLoader::getCoordinates(u16 index)
+std::array<u16, 2> DenLoader::getCoordinates(u16 index)
 {
     return { static_cast<u16>(denInfo[index][3]), static_cast<u16>(denInfo[index][4]) };
 }

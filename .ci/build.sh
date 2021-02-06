@@ -3,13 +3,10 @@
 case $OS in
   linux)
   {
-    source /opt/qt5*/bin/qt5*-env.sh
-    qmake RaidFinder.pro
-    make -j $(nproc)
+    cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=RELEASE ../ -DCMAKE_PREFIX_PATH=/home/appveyor/Qt/5.14.2/gcc_64
   } ;;  
   macOS)
   {
-    qmake RaidFinder.pro
-    make -j $(sysctl -n hw.physicalcpu)
+	PATH="$(brew --prefix qt5)/bin:$PATH" cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=RELEASE ../
   } ;;
 esac

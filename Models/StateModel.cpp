@@ -89,21 +89,21 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
             return shiny == 2 ? tr("Square") : shiny == 1 ? tr("Star") : tr("No");
         }
         case 8:
-            return Translator::getNature(state.getNature());
+            return QString::fromStdString(Translator::getNature(state.getNature()));
         case 9:
         {
             u8 ability = state.getAbility();
             if (ability == 0)
             {
-                return "1: " + Translator::getAbility(info.getAbility1());
+                return "1: " + QString::fromStdString(Translator::getAbility(info.getAbility1()));
             }
 
             if (ability == 1)
             {
-                return "2: " + Translator::getAbility(info.getAbility2());
+                return "2: " + QString::fromStdString(Translator::getAbility(info.getAbility2()));
             }
 
-            return "H: " + Translator::getAbility(info.getAbilityH());
+            return "H: " + QString::fromStdString(Translator::getAbility(info.getAbilityH()));
         }
         case 10:
         {
@@ -111,7 +111,7 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
             return gender == 0 ? "♂" : gender == 1 ? "♀" : "-";
         }
         case 11:
-            return Translator::getCharacteristic(state.getCharacteristic());
+            return QString::fromStdString(Translator::getCharacteristic(state.getCharacteristic()));
         case 12:
             return QString::number(state.getSeed(), 16).toUpper();
         case 13:

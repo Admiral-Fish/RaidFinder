@@ -73,7 +73,7 @@ u8 Raid::getShiny() const
     return shinyType;
 }
 
-QString Raid::getStarDisplay() const
+std::string Raid::getStarDisplay() const
 {
     u8 low = 4;
     u8 high = 0;
@@ -94,8 +94,8 @@ QString Raid::getStarDisplay() const
 
     if (low == high)
     {
-        return QString("%1★").arg(low + 1);
+        return std::to_string(low + 1) + "★";
     }
 
-    return QString("%1-%2★").arg(low + 1).arg(high + 1);
+    return std::to_string(low + 1) + "-" + std::to_string(high + 1) + "★";
 }

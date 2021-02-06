@@ -18,49 +18,41 @@
  */
 
 #include "PersonalLoader.hpp"
-#include <QFile>
-#include <QVector>
+#include <Core/Resources.hpp>
+#include <vector>
 
 namespace
 {
-    QVector<PersonalInfo> info;
+    std::vector<PersonalInfo> info;
 }
 
 namespace PersonalLoader
 {
     void init()
     {
-        QFile file(":/personal/personal_swsh");
-        if (file.open(QIODevice::ReadOnly))
+        for (size_t i = 0; i < personal_swsh.size(); i += 176)
         {
-            QByteArray data = file.readAll();
-            file.close();
+            u8 hp = personal_swsh[i];
+            u8 atk = personal_swsh[i + 1];
+            u8 def = personal_swsh[i + 2];
+            u8 spe = personal_swsh[i + 3];
+            u8 spa = personal_swsh[i + 4];
+            u8 spd = personal_swsh[i + 5];
+            u8 genderRatio = personal_swsh[i + 18];
+            u16 ability1 = (personal_swsh[i + 25] << 8) | personal_swsh[i + 24];
+            u16 ability2 = (personal_swsh[i + 27] << 8) | personal_swsh[i + 26];
+            u16 abilityH = (personal_swsh[i + 29] << 8) | personal_swsh[i + 28];
+            u16 formStatIndex = (personal_swsh[i + 31] << 8) | personal_swsh[i + 30];
+            u8 formCount = personal_swsh[i + 32];
+            bool included = (personal_swsh[i + 33] >> 6) & 1;
 
-            for (auto i = 0; i < data.size(); i += 176)
-            {
-                u8 hp = static_cast<u8>(data[i]);
-                u8 atk = static_cast<u8>(data[i + 1]);
-                u8 def = static_cast<u8>(data[i + 2]);
-                u8 spe = static_cast<u8>(data[i + 3]);
-                u8 spa = static_cast<u8>(data[i + 4]);
-                u8 spd = static_cast<u8>(data[i + 5]);
-                u8 genderRatio = static_cast<u8>(data[i + 18]);
-                u16 ability1 = (static_cast<u8>(data[i + 25]) << 8) | static_cast<u8>(data[i + 24]);
-                u16 ability2 = (static_cast<u8>(data[i + 27]) << 8) | static_cast<u8>(data[i + 26]);
-                u16 abilityH = (static_cast<u8>(data[i + 29]) << 8) | static_cast<u8>(data[i + 28]);
-                u16 formStatIndex = (static_cast<u8>(data[i + 31]) << 8) | static_cast<u8>(data[i + 30]);
-                u8 formCount = static_cast<u8>(data[i + 32]);
-                bool included = (static_cast<u8>(data[i + 33]) >> 6) & 1;
-
-                info.append(PersonalInfo(hp, atk, def, spa, spd, spe, genderRatio, ability1, ability2, abilityH, formCount, formStatIndex,
-                                         included));
-            }
+            info.emplace_back(hp, atk, def, spa, spd, spe, genderRatio, ability1, ability2, abilityH, formCount, formStatIndex, included);
         }
     }
 
     PersonalInfo getInfo(u16 species, u8 form)
     {
-        PersonalInfo base = info.at(species);
+        PersonalInfo base = info[species];
 
         u16 formIndex = base.getFormStatIndex();
 
@@ -69,6 +61,6 @@ namespace PersonalLoader
             return base;
         }
 
-        return info.at(formIndex + form - 1);
+        return info[formIndex + form - 1];
     }
 }

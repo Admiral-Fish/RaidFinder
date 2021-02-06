@@ -44,9 +44,7 @@ private:
     Ui::MainWindow *ui;
     QActionGroup *languageGroup;
     QActionGroup *styleGroup;
-    QString currentLanguage;
-    QString currentStyle;
-    QVector<Profile> profiles;
+    std::vector<Profile> profiles;
     Profile currentProfile;
     Den den;
     StateModel *model;
@@ -56,14 +54,13 @@ private:
     QByteArray downloadFile(const QString &url);
 
 private slots:
-    void slotLanguageChanged(QAction *action);
-    void slotStyleChanged(QAction *action);
     void updateProfiles();
     void profilesIndexChanged(int index);
     void openProfileManager();
     void openDenMap();
     void openEncounterLookup();
     void openIVCalculator();
+    void openSettings();
     void downloadEventData();
     void checkUpdates();
     void locationIndexChanged(int index);

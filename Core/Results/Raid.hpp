@@ -21,8 +21,8 @@
 #define RAID_HPP
 
 #include <Core/Util/Global.hpp>
-#include <QString>
 #include <array>
+#include <string>
 
 class Raid
 {
@@ -37,7 +37,7 @@ public:
     bool getGigantamax() const;
     u16 getSpecies() const;
     u8 getShiny() const;
-    QString getStarDisplay() const;
+    std::string getStarDisplay() const;
 
 private:
     u8 ability;

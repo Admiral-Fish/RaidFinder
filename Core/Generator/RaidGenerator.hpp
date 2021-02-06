@@ -23,13 +23,13 @@
 #include <Core/Results/Raid.hpp>
 #include <Core/Results/State.hpp>
 #include <Core/StateFilter.hpp>
-#include <QVector>
+#include <vector>
 
 class RaidGenerator
 {
 public:
     RaidGenerator(u32 initialAdvances, u32 maxAdvances, u16 tid, u16 sid, const Raid &raid);
-    QVector<State> generate(const StateFilter &filter, u64 seed) const;
+    std::vector<State> generate(const StateFilter &filter, u64 seed) const;
 
 private:
     u32 initialAdvances;

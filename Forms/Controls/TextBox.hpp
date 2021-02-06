@@ -22,6 +22,7 @@
 
 #include <Core/Util/Global.hpp>
 #include <QLineEdit>
+#include <QRegularExpression>
 
 enum InputType
 {
@@ -50,7 +51,7 @@ private:
     bool setup;
     u64 maxValue, minValue;
     int base, length;
-    QRegExp filter;
+    QRegularExpression filter;
 
 private slots:
     void onTextEdited(QString string);

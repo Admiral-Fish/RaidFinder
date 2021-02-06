@@ -21,17 +21,18 @@
 #define TRANSLATOR_HPP
 
 #include <Core/Util/Global.hpp>
-#include <QStringList>
+#include <string>
+#include <vector>
 
 namespace Translator
 {
-    void init(const QString &locale);
-    QString getAbility(u16 ability);
-    QString getCharacteristic(u8 characteristic);
-    QString getLocation(u8 location);
-    QStringList getNatures();
-    QString getNature(u8 nature);
-    QString getSpecie(u16 specie);
+    void init(const std::string &locale);
+    std::string getAbility(u16 ability);
+    std::string getCharacteristic(u8 characteristic);
+    std::string getLocation(u8 location);
+    std::vector<std::string> getNatures();
+    std::string getNature(u8 nature);
+    std::string getSpecie(u16 specie);
 }
 
 #endif // TRANSLATOR_HPP

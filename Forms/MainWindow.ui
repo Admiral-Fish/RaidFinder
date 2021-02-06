@@ -757,35 +757,6 @@
      <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuSettings">
-    <property name="title">
-     <string>Settings</string>
-    </property>
-    <widget class="QMenu" name="menuStyle">
-     <property name="title">
-      <string>Style</string>
-     </property>
-     <addaction name="actionDark"/>
-     <addaction name="actionLight"/>
-    </widget>
-    <widget class="QMenu" name="menuLanguage">
-     <property name="title">
-      <string>Language</string>
-     </property>
-     <addaction name="actionGerman"/>
-     <addaction name="actionEnglish"/>
-     <addaction name="actionSpanish"/>
-     <addaction name="actionFrench"/>
-     <addaction name="actionItalian"/>
-     <addaction name="actionJapanese"/>
-     <addaction name="actionKorean"/>
-     <addaction name="actionPortuguese"/>
-     <addaction name="actionChineseTraditional"/>
-     <addaction name="actionChinese"/>
-    </widget>
-    <addaction name="menuLanguage"/>
-    <addaction name="menuStyle"/>
-   </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Tools</string>
@@ -794,8 +765,8 @@
     <addaction name="actionDownloadEventData"/>
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
+    <addaction name="actionSettings"/>
    </widget>
-   <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
   </widget>
   <action name="actionDark">
@@ -917,6 +888,11 @@
    </property>
    <property name="text">
     <string>Portuguese</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

@@ -30,13 +30,13 @@ public:
     {
     }
 
-    void addItems(const QVector<T> &items)
+    void addItems(const std::vector<T> &items)
     {
-        if (!items.isEmpty())
+        if (!items.empty())
         {
             int i = rowCount();
             emit beginInsertRows(QModelIndex(), i, i + items.size() - 1);
-            model.append(items);
+            model.insert(model.end(), items.begin(), items.end());
             emit endInsertRows();
         }
     }
@@ -59,13 +59,13 @@ public:
     {
         emit beginRemoveRows(QModelIndex(), row, row);
         model.erase(model.begin() + row);
-        model.squeeze();
+        model.shrink_to_fit();
         emit endRemoveRows();
     }
 
     T getItem(int row) const
     {
-        return model.at(row);
+        return model[row];
     }
 
     QVector<T> getModel() const
@@ -75,11 +75,11 @@ public:
 
     void clearModel()
     {
-        if (!model.isEmpty())
+        if (!model.empty())
         {
             emit beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
             model.clear();
-            model.squeeze();
+            model.shrink_to_fit();
             emit endRemoveRows();
         }
     }
@@ -91,7 +91,7 @@ public:
     }
 
 protected:
-    QVector<T> model;
+    std::vector<T> model;
 };
 
 #endif // TABLEMODEL_HPP

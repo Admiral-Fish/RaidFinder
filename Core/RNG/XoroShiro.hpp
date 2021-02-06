@@ -33,19 +33,34 @@ public:
     {
     }
 
-    u32 nextInt(u32 max, u32 mask)
+    template <u32 max>
+    u32 nextInt()
     {
-        u32 result;
-        do
+        auto bitMask = [](u32 x) constexpr
         {
-            result = next() & mask;
-        } while (result >= max);
-        return result;
-    }
+            x--;
+            x |= x >> 1;
+            x |= x >> 2;
+            x |= x >> 4;
+            x |= x >> 8;
+            x |= x >> 16;
+            return x;
+        };
 
-    u32 nextInt(u32 mask)
-    {
-        return next() & mask;
+        constexpr u32 mask = bitMask(max);
+        if constexpr ((max - 1) == mask)
+        {
+            return next() & mask;
+        }
+        else
+        {
+            u32 result;
+            do
+            {
+                result = next() & mask;
+            } while (result >= max);
+            return result;
+        }
     }
 
 private:

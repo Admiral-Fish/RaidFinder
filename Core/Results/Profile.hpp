@@ -22,21 +22,21 @@
 
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Global.hpp>
-#include <QString>
+#include <string>
 
 class Profile
 {
 public:
     Profile();
-    Profile(const QString &name, u16 tid, u16 sid, Game version);
-    QString getName() const;
+    Profile(const std::string &name, u16 tid, u16 sid, Game version);
+    std::string getName() const;
     u16 getTID() const;
     u16 getSID() const;
     Game getVersion() const;
-    QString getVersionString() const;
+    std::string getVersionString() const;
 
 private:
-    QString name;
+    std::string name;
     u16 tid;
     u16 sid;
     Game version;

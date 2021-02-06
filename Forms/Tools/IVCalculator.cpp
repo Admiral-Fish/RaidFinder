@@ -51,13 +51,16 @@ void IVCalculator::setupModels()
     {
         if (PersonalLoader::getInfo(i).getIncluded())
         {
-            ui->comboBoxPokemon->addItem(Translator::getSpecie(i), i);
+            ui->comboBoxPokemon->addItem(QString::fromStdString(Translator::getSpecie(i)), i);
         }
     }
     pokemonIndexChanged(0);
     altformIndexChanged(0);
 
-    ui->comboBoxNature->addItems(Translator::getNatures());
+    for (std::string nature : Translator::getNatures())
+    {
+        ui->comboBoxNature->addItem(QString::fromStdString(nature));
+    }
 
     ui->comboBoxPokemon->setEditable(true);
     ui->comboBoxPokemon->setInsertPolicy(QComboBox::NoInsert);
@@ -78,18 +81,18 @@ void IVCalculator::setupModels()
     }
 }
 
-void IVCalculator::displayIVs(QLabel *label, const QVector<u8> &ivs)
+void IVCalculator::displayIVs(QLabel *label, const std::vector<u8> &ivs)
 {
     QString result;
 
-    if (ivs.isEmpty())
+    if (ivs.empty())
     {
         result = tr("Invalid");
     }
     else
     {
         bool flag = false;
-        for (int i = 0; i < ivs.size(); i++)
+        for (size_t i = 0; i < ivs.size(); i++)
         {
             if (i == 0)
             {
@@ -181,24 +184,24 @@ void IVCalculator::deleteRow()
 
 void IVCalculator::findIVs()
 {
-    QVector<QVector<u16>> stats;
-    QVector<u8> levels;
+    std::vector<std::vector<u16>> stats;
+    std::vector<u8> levels;
 
     for (int row = 1; row <= rows; row++)
     {
         QLayoutItem *item = ui->gridLayoutEntry->itemAtPosition(row, 0);
         auto *widget = reinterpret_cast<QSpinBox *>(item->widget());
 
-        levels.append(widget->value());
+        levels.emplace_back(widget->value());
 
-        QVector<u16> stat;
+        std::vector<u16> stat;
         for (int column = 1; column < 7; column++)
         {
             item = ui->gridLayoutEntry->itemAtPosition(row, column);
             widget = reinterpret_cast<QSpinBox *>(item->widget());
-            stat.append(widget->value());
+            stat.emplace_back(widget->value());
         }
-        stats.append(stat);
+        stats.emplace_back(stat);
     }
 
     u8 nature = static_cast<u8>(ui->comboBoxNature->currentIndex());
@@ -209,12 +212,12 @@ void IVCalculator::findIVs()
 
     auto possible = IVChecker::calculateIVRange(info.getBaseStats(), stats, levels, nature);
 
-    displayIVs(ui->labelHPIVValue, possible.at(0));
-    displayIVs(ui->labelAtkIVValue, possible.at(1));
-    displayIVs(ui->labelDefIVValue, possible.at(2));
-    displayIVs(ui->labelSpAIVValue, possible.at(3));
-    displayIVs(ui->labelSpDIVValue, possible.at(4));
-    displayIVs(ui->labelSpeIVValue, possible.at(5));
+    displayIVs(ui->labelHPIVValue, possible[0]);
+    displayIVs(ui->labelAtkIVValue, possible[1]);
+    displayIVs(ui->labelDefIVValue, possible[2]);
+    displayIVs(ui->labelSpAIVValue, possible[3]);
+    displayIVs(ui->labelSpDIVValue, possible[4]);
+    displayIVs(ui->labelSpeIVValue, possible[5]);
 }
 
 void IVCalculator::pokemonIndexChanged(int index)
@@ -245,7 +248,7 @@ void IVCalculator::altformIndexChanged(int index)
 
         PersonalInfo info = PersonalLoader::getInfo(specie, static_cast<u8>(index));
 
-        QVector<u8> stats = info.getBaseStats();
+        std::vector<u8> stats = info.getBaseStats();
         ui->labelBaseHPValue->setText(QString::number(stats[0]));
         ui->labelBaseAtkValue->setText(QString::number(stats[1]));
         ui->labelBaseDefValue->setText(QString::number(stats[2]));

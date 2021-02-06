@@ -21,22 +21,24 @@
 #define STATEFILTER_HPP
 
 #include <Core/Results/State.hpp>
-#include <QVector>
+#include <array>
+#include <vector>
 
 class StateFilter
 {
 public:
     StateFilter() = default;
-    StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max, const QVector<bool> &natures);
+    StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const std::array<u8, 6> &min, const std::array<u8, 6> &max,
+                const std::vector<bool> &natures);
     bool compareState(const State &state) const;
     bool compareShiny(const State &state) const;
 
 private:
-    QVector<u8> min;
-    QVector<u8> max;
+    std::array<u8, 6> min;
+    std::array<u8, 6> max;
     u8 gender;
     u8 ability;
-    QVector<bool> natures;
+    std::vector<bool> natures;
     u8 shiny;
     bool skip;
 };

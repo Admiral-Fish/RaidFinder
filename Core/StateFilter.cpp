@@ -19,8 +19,8 @@
 
 #include "StateFilter.hpp"
 
-StateFilter::StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const QVector<u8> &min, const QVector<u8> &max,
-                           const QVector<bool> &natures) :
+StateFilter::StateFilter(u8 gender, u8 ability, u8 shiny, bool skip, const std::array<u8, 6> &min, const std::array<u8, 6> &max,
+                         const std::vector<bool> &natures) :
     min(min), max(max), gender(gender), ability(ability), natures(natures), shiny(shiny), skip(skip)
 {
 }
@@ -42,7 +42,7 @@ bool StateFilter::compareState(const State &state) const
         return false;
     }
 
-    if (!natures.at(state.getNature()))
+    if (!natures[state.getNature()])
     {
         return false;
     }
@@ -50,7 +50,7 @@ bool StateFilter::compareState(const State &state) const
     for (u8 i = 0; i < 6; i++)
     {
         u8 iv = state.getIV(i);
-        if (iv > max.at(i) || iv < min.at(i))
+        if (iv > max[i] || iv < min[i])
         {
             return false;
         }

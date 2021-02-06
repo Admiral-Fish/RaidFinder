@@ -17,16 +17,33 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef IVCHECKER_HPP
-#define IVCHECKER_HPP
+#ifndef SETTINGS_HPP
+#define SETTINGS_HPP
 
-#include <Core/Util/Global.hpp>
-#include <vector>
+#include <QWidget>
 
-namespace IVChecker
+namespace Ui
 {
-    std::vector<std::vector<u8>> calculateIVRange(const std::vector<u8> &baseStats, const std::vector<std::vector<u16>> &stats,
-                                                  const std::vector<u8> &level, u8 nature);
+    class Settings;
 }
 
-#endif // IVCHECKER_HPP
+class Settings : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit Settings(QWidget *parent = nullptr);
+    ~Settings();
+
+    void setupModels();
+
+private:
+    Ui::Settings *ui;
+
+private slots:
+    void onLanguageChanged(int index);
+    void onStyleChanged(int index);
+    void changeProfiles();
+};
+
+#endif // SETTINGS_HPP

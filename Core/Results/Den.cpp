@@ -19,16 +19,16 @@
 
 #include "Den.hpp"
 
-Den::Den(const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids) : swordRaids(swordRaids), shieldRaids(shieldRaids)
+Den::Den(const std::vector<Raid> &swordRaids, const std::vector<Raid> &shieldRaids) : swordRaids(swordRaids), shieldRaids(shieldRaids)
 {
 }
 
 Raid Den::getRaid(u8 index, Game version) const
 {
-    return (version == Game::Sword) ? swordRaids.at(index) : shieldRaids.at(index);
+    return (version == Game::Sword) ? swordRaids[index] : shieldRaids[index];
 }
 
-QVector<Raid> Den::getRaids(Game version) const
+std::vector<Raid> Den::getRaids(Game version) const
 {
     return (version == Game::Sword) ? swordRaids : shieldRaids;
 }

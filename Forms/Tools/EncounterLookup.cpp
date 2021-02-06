@@ -129,7 +129,7 @@ void EncounterLookup::gameIndexChanged(int index)
         std::sort(speciesLookup.begin(), speciesLookup.end());
         for (auto specie : speciesLookup)
         {
-            ui->comboBoxPokemon->addItem(Translator::getSpecie(specie), specie);
+            ui->comboBoxPokemon->addItem(QString::fromStdString(Translator::getSpecie(specie)), specie);
         }
     }
 }
@@ -189,7 +189,8 @@ void EncounterLookup::find()
 
 void EncounterLookup::addRow(int denId, int offset, bool isRare, Raid raid)
 {
-    QString location = QString("%1: %2").arg(denId + 1 - offset).arg(Translator::getLocation(DenLoader::getLocation(denId)));
+    QString location
+        = QString("%1: %2").arg(denId + 1 - offset).arg(QString::fromStdString(Translator::getLocation(DenLoader::getLocation(denId))));
     QString rarity = isRare ? tr("Rare") : tr("Normal");
     QString iv = QString::number(raid.getIVCount());
     QString ability;

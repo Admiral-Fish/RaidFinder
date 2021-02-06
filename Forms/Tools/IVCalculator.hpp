@@ -40,7 +40,7 @@ private:
     int rows = 0;
 
     void setupModels();
-    void displayIVs(QLabel *label, const QVector<u8> &ivs);
+    void displayIVs(QLabel *label, const std::vector<u8> &ivs);
 
 private slots:
     void addRow();

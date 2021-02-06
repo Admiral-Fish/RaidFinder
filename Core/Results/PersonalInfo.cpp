@@ -37,7 +37,7 @@ PersonalInfo::PersonalInfo(u8 hp, u8 atk, u8 def, u8 spa, u8 spd, u8 spe, u8 gen
 {
 }
 
-QVector<u8> PersonalInfo::getBaseStats() const
+std::vector<u8> PersonalInfo::getBaseStats() const
 {
     return { hp, atk, def, spa, spd, spe };
 }

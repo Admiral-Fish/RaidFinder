@@ -23,19 +23,19 @@
 #include <Core/Results/Raid.hpp>
 #include <Core/Util/Game.hpp>
 #include <Core/Util/Global.hpp>
-#include <QVector>
+#include <vector>
 
 class Den
 {
 public:
     Den() = default;
-    Den(const QVector<Raid> &swordRaids, const QVector<Raid> &shieldRaids);
+    Den(const std::vector<Raid> &swordRaids, const std::vector<Raid> &shieldRaids);
     Raid getRaid(u8 index, Game version) const;
-    QVector<Raid> getRaids(Game version) const;
+    std::vector<Raid> getRaids(Game version) const;
 
 private:
-    QVector<Raid> swordRaids;
-    QVector<Raid> shieldRaids;
+    std::vector<Raid> swordRaids;
+    std::vector<Raid> shieldRaids;
 };
 
 #endif // DEN_HPP

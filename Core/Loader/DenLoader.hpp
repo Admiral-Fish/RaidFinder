@@ -24,10 +24,10 @@
 
 namespace DenLoader
 {
-    void init();
+    void init(const std::string &path);
     Den getDen(u16 index, u8 rarity);
     u8 getLocation(u16 index);
-    QVector<u16> getCoordinates(u16 index);
+    std::array<u16, 2> getCoordinates(u16 index);
 }
 
 #endif // DENLOADER_HPP

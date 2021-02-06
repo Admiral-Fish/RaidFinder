@@ -57,7 +57,7 @@ void DenMap::locationIndexChanged(int index)
 
         for (u8 denID = start; denID < end; denID++)
         {
-            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            QString location = QString::fromStdString(Translator::getLocation(DenLoader::getLocation(denID)));
             ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location));
         }
 
@@ -72,7 +72,7 @@ void DenMap::denIndexChanged(int index)
         int location = ui->comboBoxLocation->currentIndex();
         int offset = location == 0 ? 0 : 100;
 
-        QVector<u16> coordinates = DenLoader::getCoordinates(index + offset);
+        std::array<u16, 2> coordinates = DenLoader::getCoordinates(index + offset);
 
         QPixmap image;
         if (location == 0)

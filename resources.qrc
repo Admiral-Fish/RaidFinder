@@ -1,65 +1,7 @@
 <RCC>
-    <qresource prefix="/encounters">
-        <file alias="nests.bin">Resources/Encounters/nests.bin</file>
-    </qresource>
     <qresource prefix="/images">
         <file alias="raidfinder.ico">Resources/Images/raidfinder.ico</file>
         <file alias="map.png">Resources/Images/map.png</file>
         <file alias="map_ioa.png">Resources/Images/map_ioa.png</file>
-    </qresource>
-    <qresource prefix="/personal">
-        <file alias="personal_swsh">Resources/Personal/personal_swsh</file>
-    </qresource>
-    <qresource prefix="/text">
-        <file alias="abilities_de.txt">Resources/Text/de/abilities_de.txt</file>
-        <file alias="abilities_en.txt">Resources/Text/en/abilities_en.txt</file>
-        <file alias="abilities_es.txt">Resources/Text/es/abilities_es.txt</file>
-        <file alias="abilities_fr.txt">Resources/Text/fr/abilities_fr.txt</file>
-        <file alias="abilities_it.txt">Resources/Text/it/abilities_it.txt</file>
-        <file alias="abilities_ja.txt">Resources/Text/ja/abilities_ja.txt</file>
-        <file alias="abilities_ko.txt">Resources/Text/ko/abilities_ko.txt</file>
-        <file alias="abilities_pt.txt">Resources/Text/pt/abilities_pt.txt</file>
-        <file alias="abilities_tw.txt">Resources/Text/tw/abilities_tw.txt</file>
-        <file alias="abilities_zh.txt">Resources/Text/zh/abilities_zh.txt</file>
-        <file alias="characteristics_de.txt">Resources/Text/de/characteristics_de.txt</file>
-        <file alias="characteristics_en.txt">Resources/Text/en/characteristics_en.txt</file>
-        <file alias="characteristics_es.txt">Resources/Text/es/characteristics_es.txt</file>
-        <file alias="characteristics_fr.txt">Resources/Text/fr/characteristics_fr.txt</file>
-        <file alias="characteristics_it.txt">Resources/Text/it/characteristics_it.txt</file>
-        <file alias="characteristics_ja.txt">Resources/Text/ja/characteristics_ja.txt</file>
-        <file alias="characteristics_ko.txt">Resources/Text/ko/characteristics_ko.txt</file>
-        <file alias="characteristics_pt.txt">Resources/Text/pt/characteristics_pt.txt</file>
-        <file alias="characteristics_tw.txt">Resources/Text/tw/characteristics_tw.txt</file>
-        <file alias="characteristics_zh.txt">Resources/Text/zh/characteristics_zh.txt</file>
-        <file alias="locations_de.txt">Resources/Text/de/locations_de.txt</file>
-        <file alias="locations_en.txt">Resources/Text/en/locations_en.txt</file>
-        <file alias="locations_es.txt">Resources/Text/es/locations_es.txt</file>
-        <file alias="locations_fr.txt">Resources/Text/fr/locations_fr.txt</file>
-        <file alias="locations_it.txt">Resources/Text/it/locations_it.txt</file>
-        <file alias="locations_ja.txt">Resources/Text/ja/locations_ja.txt</file>
-        <file alias="locations_ko.txt">Resources/Text/ko/locations_ko.txt</file>
-        <file alias="locations_pt.txt">Resources/Text/pt/locations_pt.txt</file>
-        <file alias="locations_tw.txt">Resources/Text/tw/locations_tw.txt</file>
-        <file alias="locations_zh.txt">Resources/Text/zh/locations_zh.txt</file>
-        <file alias="natures_de.txt">Resources/Text/de/natures_de.txt</file>
-        <file alias="natures_en.txt">Resources/Text/en/natures_en.txt</file>
-        <file alias="natures_es.txt">Resources/Text/es/natures_es.txt</file>
-        <file alias="natures_fr.txt">Resources/Text/fr/natures_fr.txt</file>
-        <file alias="natures_it.txt">Resources/Text/it/natures_it.txt</file>
-        <file alias="natures_ja.txt">Resources/Text/ja/natures_ja.txt</file>
-        <file alias="natures_ko.txt">Resources/Text/ko/natures_ko.txt</file>
-        <file alias="natures_pt.txt">Resources/Text/pt/natures_pt.txt</file>
-        <file alias="natures_tw.txt">Resources/Text/tw/natures_tw.txt</file>
-        <file alias="natures_zh.txt">Resources/Text/zh/natures_zh.txt</file>
-        <file alias="species_de.txt">Resources/Text/de/species_de.txt</file>
-        <file alias="species_en.txt">Resources/Text/en/species_en.txt</file>
-        <file alias="species_es.txt">Resources/Text/es/species_es.txt</file>
-        <file alias="species_fr.txt">Resources/Text/fr/species_fr.txt</file>
-        <file alias="species_it.txt">Resources/Text/it/species_it.txt</file>
-        <file alias="species_ja.txt">Resources/Text/ja/species_ja.txt</file>
-        <file alias="species_ko.txt">Resources/Text/ko/species_ko.txt</file>
-        <file alias="species_pt.txt">Resources/Text/pt/species_pt.txt</file>
-        <file alias="species_tw.txt">Resources/Text/tw/species_tw.txt</file>
-        <file alias="species_zh.txt">Resources/Text/zh/species_zh.txt</file>
     </qresource>
 </RCC>

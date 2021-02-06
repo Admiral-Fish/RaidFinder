@@ -21,11 +21,12 @@
 #define PROFILELOADER_HPP
 
 #include <Core/Results/Profile.hpp>
-#include <QVector>
+#include <vector>
 
 namespace ProfileLoader
 {
-    QVector<Profile> getProfiles();
+    void init(const std::string &location);
+    std::vector<Profile> getProfiles();
     void addProfile(const Profile &profile);
     void removeProfile(const Profile &remove);
     void updateProfile(const Profile &update, const Profile &original);

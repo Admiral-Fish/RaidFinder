@@ -18,17 +18,16 @@
  */
 
 #include "Profile.hpp"
-#include <QTranslator>
 
 Profile::Profile() : name("None"), tid(12345), sid(54321), version(Game::Sword)
 {
 }
 
-Profile::Profile(const QString &name, u16 tid, u16 sid, Game version) : name(name), tid(tid), sid(sid), version(version)
+Profile::Profile(const std::string &name, u16 tid, u16 sid, Game version) : name(name), tid(tid), sid(sid), version(version)
 {
 }
 
-QString Profile::getName() const
+std::string Profile::getName() const
 {
     return name;
 }
@@ -48,14 +47,14 @@ Game Profile::getVersion() const
     return version;
 }
 
-QString Profile::getVersionString() const
+std::string Profile::getVersionString() const
 {
     switch (version)
     {
     case Game::Sword:
-        return QObject::tr("Sword");
+        return "Sword";
     case Game::Shield:
-        return QObject::tr("Shield");
+        return "Shield";
     }
     return "-";
 }

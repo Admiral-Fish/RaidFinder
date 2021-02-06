@@ -28,6 +28,7 @@
 #include <Forms/Tools/DenMap.hpp>
 #include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
+#include <Forms/Tools/Settings.hpp>
 #include <Models/StateModel.hpp>
 #include <QApplication>
 #include <QDesktopServices>
@@ -49,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     setWindowTitle(QString("RaidFinder %1").arg(VERSION));
 
     PersonalLoader::init();
-    DenLoader::init();
+    DenLoader::init(QApplication::applicationDirPath().toStdString());
 
     updateProfiles();
     setupModels();
@@ -61,8 +62,6 @@ MainWindow::~MainWindow()
     QSettings setting;
     setting.setValue("mainWindow/profile", ui->comboBoxProfiles->currentIndex());
     setting.setValue("mainWindow/geometry", this->saveGeometry());
-    setting.setValue("settings/locale", currentLanguage);
-    setting.setValue("settings/style", currentStyle);
     setting.setValue("settings/seed", ui->textBoxSeed->text());
 
     delete ui;
@@ -117,48 +116,6 @@ void MainWindow::setupModels()
     denIndexChanged(0);
     speciesIndexChanged(0);
 
-    QSettings setting;
-
-    languageGroup = new QActionGroup(ui->menuLanguage);
-    languageGroup->setExclusive(true);
-    connect(languageGroup, &QActionGroup::triggered, this, &MainWindow::slotLanguageChanged);
-    currentLanguage = setting.value("settings/locale", "en").toString();
-    QStringList locales = { "de", "en", "es", "fr", "it", "ja", "ko", "pt", "tw", "zh" };
-    for (int i = 0; i < locales.size(); i++)
-    {
-        const QString &lang = locales.at(i);
-
-        auto *action = ui->menuLanguage->actions()[i];
-        action->setData(lang);
-
-        if (currentLanguage == lang)
-        {
-            action->setChecked(true);
-        }
-
-        languageGroup->addAction(action);
-    }
-
-    styleGroup = new QActionGroup(ui->menuStyle);
-    styleGroup->setExclusive(true);
-    connect(styleGroup, &QActionGroup::triggered, this, &MainWindow::slotStyleChanged);
-    currentStyle = setting.value("settings/style", "dark").toString();
-    QStringList styles = { "dark", "light" };
-    for (int i = 0; i < styles.size(); i++)
-    {
-        const QString &style = styles.at(i);
-
-        auto *action = ui->menuStyle->actions()[i];
-        action->setData(style);
-
-        if (currentStyle == style)
-        {
-            action->setChecked(true);
-        }
-
-        styleGroup->addAction(action);
-    }
-
     QAction *outputTXT = menu->addAction(tr("Output Results to TXT"));
     QAction *outputCSV = menu->addAction(tr("Output Results to CSV"));
     connect(outputTXT, &QAction::triggered, this, [=] { ui->tableView->outputModel(false); });
@@ -168,6 +125,7 @@ void MainWindow::setupModels()
     connect(ui->actionDenMap, &QAction::triggered, this, &MainWindow::openDenMap);
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
+    connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::openSettings);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -179,6 +137,7 @@ void MainWindow::setupModels()
     connect(ui->spinBoxLevel, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::levelValueChanged);
     connect(ui->tableView, &QTableView::customContextMenuRequested, this, &MainWindow::tableViewContextMenu);
 
+    QSettings setting;
     if (setting.contains("settings/seed"))
     {
         ui->textBoxSeed->setText(setting.value("settings/seed").toString());
@@ -197,50 +156,9 @@ QByteArray MainWindow::downloadFile(const QString &url)
 
     QEventLoop loop;
     connect(reply.data(), &QNetworkReply::finished, &loop, &QEventLoop::quit);
-    connect(reply.data(), QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), &loop, &QEventLoop::quit);
     loop.exec();
 
     return reply->readAll();
-}
-
-void MainWindow::slotLanguageChanged(QAction *action)
-{
-    if (action)
-    {
-        QString language = action->data().toString();
-        if (currentLanguage != language)
-        {
-            currentLanguage = language;
-
-            QMessageBox message(QMessageBox::Question, tr("Language update"), tr("Restart for changes to take effect. Restart now?"),
-                                QMessageBox::Yes | QMessageBox::No);
-            if (message.exec() == QMessageBox::Yes)
-            {
-                QProcess::startDetached(QApplication::applicationFilePath());
-                QApplication::quit();
-            }
-        }
-    }
-}
-
-void MainWindow::slotStyleChanged(QAction *action)
-{
-    if (action)
-    {
-        QString style = action->data().toString();
-        if (currentStyle != style)
-        {
-            currentStyle = style;
-
-            QMessageBox message(QMessageBox::Question, tr("Style change"), tr("Restart for changes to take effect. Restart now?"),
-                                QMessageBox::Yes | QMessageBox::No);
-            if (message.exec() == QMessageBox::Yes)
-            {
-                QProcess::startDetached(QApplication::applicationFilePath());
-                QApplication::quit();
-            }
-        }
-    }
 }
 
 void MainWindow::updateProfiles()
@@ -254,7 +172,7 @@ void MainWindow::updateProfiles()
 
     for (const auto &profile : profiles)
     {
-        ui->comboBoxProfiles->addItem(profile.getName());
+        ui->comboBoxProfiles->addItem(QString::fromStdString(profile.getName()));
     }
 
     QSettings setting;
@@ -273,7 +191,7 @@ void MainWindow::profilesIndexChanged(int index)
 
         ui->labelProfileTIDValue->setText(QString::number(currentProfile.getTID()));
         ui->labelProfileSIDValue->setText(QString::number(currentProfile.getSID()));
-        ui->labelProfileGameValue->setText(currentProfile.getVersionString());
+        ui->labelProfileGameValue->setText(QString::fromStdString(currentProfile.getVersionString()));
 
         denIndexChanged(ui->comboBoxDen->currentIndex());
     }
@@ -304,6 +222,12 @@ void MainWindow::openIVCalculator()
     calculator->show();
 }
 
+void MainWindow::openSettings()
+{
+    auto *settings = new Settings();
+    settings->show();
+}
+
 void MainWindow::downloadEventData()
 {
     auto fileResponse
@@ -331,7 +255,7 @@ void MainWindow::downloadEventData()
         file.insert(2, '-');
         file.insert(5, '-');
 
-        entries.append(QString("%1: %2").arg(file, Translator::getSpecie(specie)));
+        entries.prepend(QString("%1: %2").arg(file, QString::fromStdString(Translator::getSpecie(specie))));
     }
 
     bool flag;
@@ -433,7 +357,7 @@ void MainWindow::locationIndexChanged(int index)
                 continue;
             }
 
-            QString location = Translator::getLocation(DenLoader::getLocation(denID));
+            QString location = QString::fromStdString(Translator::getLocation(DenLoader::getLocation(denID)));
             ui->comboBoxDen->addItem(QString("%1: %2").arg(denID + 1 - offset).arg(location), denID);
         }
     }
@@ -451,7 +375,8 @@ void MainWindow::denIndexChanged(int index)
         auto raids = den.getRaids(currentProfile.getVersion());
         for (const auto &raid : raids)
         {
-            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(Translator::getSpecie(raid.getSpecies()), raid.getStarDisplay()));
+            ui->comboBoxSpecies->addItem(QString("%1: %2").arg(QString::fromStdString(Translator::getSpecie(raid.getSpecies())),
+                                                               QString::fromStdString(raid.getStarDisplay())));
         }
     }
 }
@@ -480,13 +405,13 @@ void MainWindow::speciesIndexChanged(int index)
 
         int abilityIndex = ui->comboBoxAbility->currentIndex();
 
-        ui->comboBoxAbility->setItemText(1, "1: " + Translator::getAbility(info.getAbility1()));
-        ui->comboBoxAbility->setItemText(2, "2: " + Translator::getAbility(info.getAbility2()));
+        ui->comboBoxAbility->setItemText(1, "1: " + QString::fromStdString(Translator::getAbility(info.getAbility1())));
+        ui->comboBoxAbility->setItemText(2, "2: " + QString::fromStdString(Translator::getAbility(info.getAbility2())));
 
         ui->comboBoxAbility->removeItem(3);
         if (raid.getAbility() == 2 || raid.getAbility() == 4)
         {
-            ui->comboBoxAbility->addItem("H: " + Translator::getAbility(info.getAbilityH()), 2);
+            ui->comboBoxAbility->addItem("H: " + QString::fromStdString(Translator::getAbility(info.getAbilityH())), 2);
         }
 
         if (abilityIndex < ui->comboBoxAbility->count())
@@ -536,13 +461,13 @@ void MainWindow::generate()
     u8 ability = static_cast<u8>(ui->comboBoxAbility->currentData().toInt());
     u8 shiny = static_cast<u8>(ui->comboBoxShiny->currentData().toInt());
     bool skip = ui->checkBoxDisableFilters->isChecked();
-    QVector<u8> min = ui->ivFilter->getLower();
-    QVector<u8> max = ui->ivFilter->getUpper();
-    QVector<bool> natures = ui->comboBoxNature->getChecked();
+    std::array<u8, 6> min = ui->ivFilter->getLower();
+    std::array<u8, 6> max = ui->ivFilter->getUpper();
+    std::vector<bool> natures = ui->comboBoxNature->getChecked();
     StateFilter filter(gender, ability, shiny, skip, min, max, natures);
 
     u64 seed = ui->textBoxSeed->getULong();
 
-    QVector<State> states = generator.generate(filter, seed);
+    std::vector<State> states = generator.generate(filter, seed);
     model->addItems(states);
 }

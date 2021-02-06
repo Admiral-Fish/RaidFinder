@@ -3,18 +3,12 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
     QTPATH: C:\Qt\5.15\msvc2019_64
     OpenSSL: C:\OpenSSL-v111-Win64\bin
-    OS: win64
+    OS: win
     VCVARSALLPATH: C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
     VCVARSALL: x64
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-    QTPATH: C:\Qt\5.15\msvc2019
-    OpenSSL: C:\OpenSSL-v111-Win32\bin
-    OS: win32
-    VCVARSALLPATH: C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
-    VCVARSALL: x86
-  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
     OS: linux
-  - APPVEYOR_BUILD_WORKER_IMAGE: macos
+  - APPVEYOR_BUILD_WORKER_IMAGE: macos-mojave
     OS: macOS
 
 install:
@@ -26,14 +20,16 @@ before_build:
     - cmd: call %VCVARSALLPATH% %VCVARSALL%
     
 build_script:
-    - cmd: qmake RaidFinder.pro
-    - cmd: jom -j %NUMBER_OF_PROCESSORS%
-    - sh: bash .ci/build.sh
+    - mkdir build
+    - cd build
+    - cmd: cmake -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=RELEASE ../
+    - sh: bash ../.ci/build.sh
+    - cmake --build .
     
 after_build:
     - cmd: md RaidFinder-windows
-    - cmd: move release\RaidFinder.exe RaidFinder-windows\RaidFinder.exe 
-    - cmd: windeployqt --release --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
+    - cmd: move release\RaidFinder.exe RaidFinder-windows\RaidFinder.exe
+    - cmd: windeployqt --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
     - cmd: del RaidFinder-windows\vc_redist*.exe
     - cmd: xcopy /I %QTPATH%\plugins\platforms\qwindows.dll RaidFinder-windows\platforms\
     - cmd: xcopy /I %QTPATH%\plugins\styles\qwindowsvistastyle.dll RaidFinder-windows\styles\
@@ -41,16 +37,17 @@ after_build:
     - cmd: xcopy /I %OpenSSL%\libssl*.dll RaidFinder-windows\
     - cmd: 7z a RaidFinder-%OS%.zip RaidFinder-windows\
     - cmd: sha256sum RaidFinder-%OS%.zip > RaidFinder-%OS%.zip.sha256
-    - sh: bash .ci/after_build.sh
+    - sh: bash ../.ci/after_build.sh
     
 artifacts:
-- path: RaidFinder-%OS%.zip
-- path: RaidFinder-%OS%.zip.sha256
+- path: build/RaidFinder-%OS%.zip
+- path: build/RaidFinder-%OS%.zip.sha256
 
 deploy:
     provider: GitHub
+    description: ''
     auth_token:
         secure: u3c5wUq11csZ77TpgKMImu9U+ibNiviMcEpTuQXmqp1YGSHA/+u5FhqZ3KRZBAQX
-    artifact: RaidFinder-%OS%.zip,RaidFinder-%OS%.zip.sha256
+    artifact: build/RaidFinder-%OS%.zip,build/RaidFinder-%OS%.zip.sha256
     on:
         APPVEYOR_REPO_TAG: true
