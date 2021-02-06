@@ -22,6 +22,7 @@
 
 #include <Core/Util/Global.hpp>
 #include <QWidget>
+#include <array>
 
 namespace Ui
 {
