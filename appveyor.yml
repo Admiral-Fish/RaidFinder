@@ -28,7 +28,7 @@ build_script:
     
 after_build:
     - cmd: md RaidFinder-windows
-    - cmd: move release\RaidFinder.exe RaidFinder-windows\RaidFinder.exe
+    - cmd: move RaidFinder.exe RaidFinder-windows\RaidFinder.exe
     - cmd: windeployqt --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
     - cmd: del RaidFinder-windows\vc_redist*.exe
     - cmd: xcopy /I %QTPATH%\plugins\platforms\qwindows.dll RaidFinder-windows\platforms\
