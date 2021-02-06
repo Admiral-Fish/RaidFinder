@@ -4,8 +4,8 @@
 <context>
     <name>CheckList</name>
     <message>
-        <location filename="../Forms/Controls/CheckList.cpp" line="122"/>
-        <location filename="../Forms/Controls/CheckList.cpp" line="139"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="124"/>
+        <location filename="../Forms/Controls/CheckList.cpp" line="141"/>
         <source>Any</source>
         <translation>任意</translation>
     </message>
@@ -86,22 +86,22 @@
         <translation>特性</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="194"/>
         <source>Normal</source>
         <translation>普通(红)</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="214"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="213"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="214"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../Forms/Tools/EncounterLookup.cpp" line="193"/>
+        <location filename="../Forms/Tools/EncounterLookup.cpp" line="194"/>
         <source>Rare</source>
         <translation>稀有(紫)</translation>
     </message>
@@ -230,7 +230,7 @@
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
-        <location filename="../Forms/Tools/IVCalculator.cpp" line="87"/>
+        <location filename="../Forms/Tools/IVCalculator.cpp" line="90"/>
         <source>Invalid</source>
         <translation>空</translation>
     </message>
@@ -442,16 +442,6 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <source>Style</source>
-        <translation>风格</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
-        <source>Language</source>
-        <translation>语言</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.ui"/>
         <source>Dark</source>
         <translation>黑暗</translation>
     </message>
@@ -501,77 +491,61 @@
         <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="338"/>
-        <location filename="../Forms/MainWindow.cpp" line="406"/>
+        <location filename="../Forms/MainWindow.cpp" line="262"/>
+        <location filename="../Forms/MainWindow.cpp" line="330"/>
         <source>Event</source>
         <translation>活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="162"/>
+        <location filename="../Forms/MainWindow.cpp" line="119"/>
         <source>Output Results to TXT</source>
         <translation>保存结果到TXT</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="163"/>
+        <location filename="../Forms/MainWindow.cpp" line="120"/>
         <source>Output Results to CSV</source>
         <translation>保存结果到CSV</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="215"/>
-        <source>Language update</source>
-        <translation>更新语言</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.cpp" line="215"/>
-        <location filename="../Forms/MainWindow.cpp" line="235"/>
-        <source>Restart for changes to take effect. Restart now?</source>
-        <translation>重启以使设置生效，现在重启吗？</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.cpp" line="235"/>
-        <source>Style change</source>
-        <translation>改变风格</translation>
-    </message>
-    <message>
-        <location filename="../Forms/MainWindow.cpp" line="313"/>
-        <location filename="../Forms/MainWindow.cpp" line="349"/>
+        <location filename="../Forms/MainWindow.cpp" line="237"/>
+        <location filename="../Forms/MainWindow.cpp" line="273"/>
         <source>Download failed</source>
         <translation>下载失败</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="314"/>
-        <location filename="../Forms/MainWindow.cpp" line="350"/>
+        <location filename="../Forms/MainWindow.cpp" line="238"/>
+        <location filename="../Forms/MainWindow.cpp" line="274"/>
         <source>Make sure you are connected to the internet and have OpenSSL setup</source>
         <translation>确保您已连接到互联网并已设置OpenSSL</translation>
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="338"/>
+        <location filename="../Forms/MainWindow.cpp" line="262"/>
         <source>Download Event Data</source>
         <translation>更新活动</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="361"/>
+        <location filename="../Forms/MainWindow.cpp" line="285"/>
         <source>Download finished</source>
         <translation>下载完成</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="361"/>
+        <location filename="../Forms/MainWindow.cpp" line="285"/>
         <source>Restart to see event data. Restart now?</source>
         <translation>是否立即重启以查看活动数据？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="385"/>
+        <location filename="../Forms/MainWindow.cpp" line="309"/>
         <source>Update Check</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="386"/>
+        <location filename="../Forms/MainWindow.cpp" line="310"/>
         <source>An update is available. Would you like to download the newest version?</source>
         <translation>有可用更新。您想下载最新版本吗？</translation>
     </message>
     <message>
-        <location filename="../Forms/MainWindow.cpp" line="479"/>
+        <location filename="../Forms/MainWindow.cpp" line="404"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -602,7 +576,7 @@
     </message>
     <message>
         <location filename="../Forms/MainWindow.ui"/>
-        <location filename="../Forms/MainWindow.cpp" line="479"/>
+        <location filename="../Forms/MainWindow.cpp" line="404"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -813,16 +787,117 @@
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>Settings</name>
     <message>
-        <location filename="../Core/Results/Profile.cpp" line="56"/>
-        <source>Sword</source>
-        <translation>剑</translation>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Settings</source>
+        <translation type="unfinished">设置</translation>
     </message>
     <message>
-        <location filename="../Core/Results/Profile.cpp" line="58"/>
-        <source>Shield</source>
-        <translation>盾</translation>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Dark</source>
+        <translation type="unfinished">黑暗</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Light</source>
+        <translation type="unfinished">明亮</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Style</source>
+        <translation type="unfinished">风格</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Chinese</source>
+        <translation type="unfinished">简体中文</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Chinese Traditional</source>
+        <translation type="unfinished">繁体中文</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>English</source>
+        <translation type="unfinished">英语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>French</source>
+        <translation type="unfinished">法语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>German</source>
+        <translation type="unfinished">德语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Italian</source>
+        <translation type="unfinished">意大利语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Japanese</source>
+        <translation type="unfinished">日语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Korean</source>
+        <translation type="unfinished">韩语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Portuguese</source>
+        <translation type="unfinished">葡萄牙语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Spanish</source>
+        <translation type="unfinished">西班牙语</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Profiles Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.ui"/>
+        <source>Language</source>
+        <translation type="unfinished">语言</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.cpp" line="105"/>
+        <source>Language update</source>
+        <translation type="unfinished">更新语言</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.cpp" line="105"/>
+        <location filename="../Forms/Tools/Settings.cpp" line="126"/>
+        <source>Restart for changes to take effect. Restart now?</source>
+        <translation type="unfinished">重启以使设置生效，现在重启吗？</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.cpp" line="126"/>
+        <source>Style change</source>
+        <translation type="unfinished">改变风格</translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.cpp" line="146"/>
+        <source>Profile File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Forms/Tools/Settings.cpp" line="146"/>
+        <source>There was a problem creating the file</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
