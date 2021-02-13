@@ -240,7 +240,7 @@ void MainWindow::downloadEventData()
         return;
     }
 
-    QStringList infos = QString::fromStdString(fileResponse.toStdString()).split('\n');
+    QStringList infos = QString(fileResponse).split('\n');
     QStringList files;
     QStringList entries;
     for (const QString &info : infos)
@@ -249,7 +249,7 @@ void MainWindow::downloadEventData()
         QString file = data.at(0);
         u16 specie = data.at(1).toUShort();
 
-        files.append(file);
+        files.prepend(file);
 
         file = file.left(file.indexOf('_'));
         file.insert(2, '-');
