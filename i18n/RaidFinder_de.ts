@@ -796,7 +796,7 @@
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Übernehmen</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
@@ -866,7 +866,7 @@
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Profiles Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Profile</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
@@ -892,12 +892,12 @@
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="146"/>
         <source>Profile File</source>
-        <translation type="unfinished"></translation>
+        <translation>Profildatei</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="146"/>
         <source>There was a problem creating the file</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Datei konnte nicht erstellt werden.</translation>
     </message>
 </context>
 <context>
