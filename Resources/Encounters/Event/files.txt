@@ -34,3 +34,4 @@
 210122_tauros.bin,128
 210201_lucario.bin,448
 210204_cramorant.bin,845
+210212_milcery.bin,868

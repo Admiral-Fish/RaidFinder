@@ -57,7 +57,7 @@ void IVCalculator::setupModels()
     pokemonIndexChanged(0);
     altformIndexChanged(0);
 
-    for (std::string nature : Translator::getNatures())
+    for (const std::string &nature : Translator::getNatures())
     {
         ui->comboBoxNature->addItem(QString::fromStdString(nature));
     }
