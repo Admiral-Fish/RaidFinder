@@ -35,3 +35,5 @@
 210201_lucario.bin,448
 210204_cramorant.bin,845
 210212_milcery.bin,868
+210226_pikachu.bin,25
+210301_koffing.bin,109
