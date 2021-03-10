@@ -60,14 +60,15 @@ std::vector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) 
         {
             // Game uses a fake TID/SID to determine shiny or not
             // PID is later modified using the actual TID/SID of trainer if necessary
-            u16 shinyXor = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
+            u16 fakeXor = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
             u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
+            u16 realXor = (pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid;
 
-            if (shinyXor < 16) // Force shiny
+            if (fakeXor < 16) // Force shiny
             {
-                u8 shinyType = shinyXor == 0 ? 2 : 1;
+                u8 shinyType = fakeXor == 0 ? 2 : 1;
                 result.setShiny(shinyType);
-                if (psv != tsv)
+                if (fakeXor != realXor)
                 {
                     u16 high = (pid & 0xFFFF) ^ tid ^ sid ^ (2 - shinyType);
                     pid = (high << 16) | (pid & 0xFFFF);
@@ -93,26 +94,13 @@ std::vector<State> RaidGenerator::generate(const StateFilter &filter, u64 seed) 
         }
         else // Force shiny
         {
-            u16 shinyXor = (sidtid >> 16) ^ (sidtid & 0xffff) ^ (pid >> 16) ^ (pid & 0xffff);
-            if (shinyXor >= 16) // Check if PID is not normally shiny
+            result.setShiny(2);
+            u16 realXor = (pid >> 16) ^ (pid & 0xffff) ^ tid ^ sid;
+            if (realXor) // Check if PID is not normally square shiny
             {
                 // Force shiny (makes it square)
                 u16 high = (pid & 0xffff) ^ tid ^ sid;
                 pid = (high << 16) | (pid & 0xffff);
-                result.setShiny(2);
-            }
-            else
-            {
-                u8 shinyType = shinyXor == 0 ? 2 : 1;
-                u16 psv = ((pid >> 16) ^ (pid & 0xffff)) >> 4;
-                result.setShiny(shinyType);
-
-                // Modify PID to be shiny under actual TID/SID if necessary
-                if (psv != tsv)
-                {
-                    u16 high = (pid & 0xffff) ^ tid ^ sid ^ (2 - shinyType);
-                    pid = (high << 16) | (pid & 0xffff);
-                }
             }
         }
         result.setPID(pid);
