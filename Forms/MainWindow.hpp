@@ -61,6 +61,7 @@ private slots:
     void openEncounterLookup();
     void openIVCalculator();
     void openSettings();
+    void openBots();
     void downloadEventData();
     void checkUpdates();
     void locationIndexChanged(int index);

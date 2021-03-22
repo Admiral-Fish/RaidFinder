@@ -44,6 +44,7 @@ set(PROJECT_UI
     Forms/Tools/EncounterLookup.ui
     Forms/Tools/IVCalculator.ui
     Forms/Tools/Settings.ui
+    Forms/Tools/Bots.ui
 )
 
 set(PROJECT_SOURCES
@@ -60,6 +61,7 @@ set(PROJECT_SOURCES
     Core/Util/IVChecker.cpp
     Core/Util/Nature.cpp
     Core/Util/Translator.cpp
+    Core/Bots/BotCore.cpp
     Forms/Controls/CheckList.cpp
     Forms/Controls/IVFilter.cpp
     Forms/Controls/Label.cpp
@@ -72,6 +74,7 @@ set(PROJECT_SOURCES
     Forms/Tools/EncounterLookup.cpp
     Forms/Tools/IVCalculator.cpp
     Forms/Tools/Settings.cpp
+    Forms/Tools/Bots.cpp
     Models/ProfileModel.cpp
     Models/StateModel.cpp
     main.cpp

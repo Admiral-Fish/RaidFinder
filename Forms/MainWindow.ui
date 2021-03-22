@@ -754,7 +754,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTools">
@@ -766,6 +766,7 @@
     <addaction name="actionEncounterLookup"/>
     <addaction name="actionIVCalculator"/>
     <addaction name="actionSettings"/>
+    <addaction name="actionBots"/>
    </widget>
    <addaction name="menuTools"/>
   </widget>
@@ -893,6 +894,11 @@
   <action name="actionSettings">
    <property name="text">
     <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionBots">
+   <property name="text">
+    <string>Bots</string>
    </property>
   </action>
  </widget>

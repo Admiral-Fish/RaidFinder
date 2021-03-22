@@ -1,0 +1,104 @@
+#include "BotCore.hpp"
+
+BotCore::BotCore(QThread *controllingThread, QString ipRaw, QString portRaw)
+{
+    socket = new QTcpSocket();
+    ip = ipRaw;
+    port = portRaw;
+    thread = controllingThread;
+}
+
+BotCore::~BotCore()
+{
+    mutex.lock();
+    abort = true;
+    condition.wakeOne();
+    mutex.unlock();
+
+    thread->wait();
+}
+
+void BotCore::sendCommand(QString content)
+{
+    QString toSend = content + "\r\n";
+    if(socket->state() == QAbstractSocket::ConnectedState)
+    {
+        socket->write(toSend.toUtf8());
+    }
+}
+
+void BotCore::configure()
+{
+    sendCommand("configure echoCommands 0");
+}
+
+void BotCore::detach()
+{
+    sendCommand("detachController");
+}
+
+void BotCore::close(bool exitapp)
+{
+    pause(500);
+    detach();
+    socket->close();
+    if(exitapp)
+        this->~BotCore();
+}
+
+void BotCore::click(QString button)
+{
+    sendCommand("click " + button);
+}
+
+void BotCore::press(QString button)
+{
+    sendCommand("press " + button);
+}
+
+void BotCore::release(QString button)
+{
+    sendCommand("release " + button);
+}
+
+void BotCore::moveStick(QString button, int x, int y)
+{
+    sendCommand("setStick " + button + " " + QString("0x%1").arg(x, 0, 16) + " " + QString("0x%1").arg(y, 0, 16));
+}
+
+void BotCore::moveLeftStick(int x, int y)
+{
+    if(x != NULL)
+        ls_lastx = x;
+    if(y != NULL)
+        ls_lasty = y;
+    moveStick("LEFT", ls_lastx, ls_lasty);
+}
+
+void BotCore::moveRightStick(int x, int y)
+{
+    if(x != NULL)
+        rs_lastx = x;
+    if(y != NULL)
+        rs_lasty = y;
+    moveStick("RIGHT", rs_lastx, rs_lasty);
+}
+
+QByteArray BotCore::read(QString address, QString size, QString fileName)
+{
+    sendCommand("peek " + address + " " + size);
+    socket->waitForReadyRead(size.toInt()/0x8000);
+    QString read = QString(socket->read(2 * size.toLong() + 1));
+    read.truncate(read.length() - 1);
+    return read.toUtf8();
+}
+
+void BotCore::write(QString address, QString data)
+{
+    sendCommand("poke " + address + " " + data);
+}
+
+void BotCore::pause(int duration)
+{
+    thread->msleep(duration);
+}

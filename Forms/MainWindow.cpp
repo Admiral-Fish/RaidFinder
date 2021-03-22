@@ -29,6 +29,7 @@
 #include <Forms/Tools/EncounterLookup.hpp>
 #include <Forms/Tools/IVCalculator.hpp>
 #include <Forms/Tools/Settings.hpp>
+#include <Forms/Tools/Bots.hpp>
 #include <Models/StateModel.hpp>
 #include <QApplication>
 #include <QDesktopServices>
@@ -126,6 +127,7 @@ void MainWindow::setupModels()
     connect(ui->actionEncounterLookup, &QAction::triggered, this, &MainWindow::openEncounterLookup);
     connect(ui->actionIVCalculator, &QAction::triggered, this, &MainWindow::openIVCalculator);
     connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::openSettings);
+    connect(ui->actionBots, &QAction::triggered, this, &MainWindow::openBots);
     connect(ui->actionDownloadEventData, &QAction::triggered, this, &MainWindow::downloadEventData);
     connect(ui->comboBoxProfiles, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::profilesIndexChanged);
     connect(ui->pushButtonGenerate, &QPushButton::clicked, this, &MainWindow::generate);
@@ -226,6 +228,13 @@ void MainWindow::openSettings()
 {
     auto *settings = new Settings();
     settings->show();
+}
+
+void MainWindow::openBots()
+{
+    auto *bots = new Bots(this, ui);
+    connect(bots, &Bots::generate, this, &MainWindow::generate);
+    bots->show();
 }
 
 void MainWindow::downloadEventData()
