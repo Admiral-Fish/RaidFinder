@@ -3,29 +3,12 @@
 
 #include <QThread>
 #include <QTcpSocket>
-#include <QMutex>
-#include <QWaitCondition>
 
 class BotCore
 {
 
 public:
     BotCore(QThread *controllingThread, QString ipRaw = NULL, QString portRaw = NULL);
-    ~BotCore();
-
-private:
-    QTcpSocket *socket;
-
-    QMutex mutex;
-    QWaitCondition condition;
-    bool abort = false;
-    int ls_lastx;
-    int ls_lasty;
-    int rs_lastx;
-    int rs_lasty;
-    QString ip;
-    QString port;
-    QThread *thread;
 
     void sendCommand(QString content);
     void configure();
@@ -41,6 +24,18 @@ private:
     void write(QString address, QString data);
     void getSystemLanguage();
     void pause(int duration);
+
+private:
+    QTcpSocket *socket;
+
+    int ls_lastx;
+    int ls_lasty;
+    int rs_lastx;
+    int rs_lasty;
+    QString ip;
+    QString port;
+    QThread *thread;
+
 };
 
 #endif // BOTCORE_HPP

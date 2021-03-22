@@ -62,6 +62,7 @@ set(PROJECT_SOURCES
     Core/Util/Nature.cpp
     Core/Util/Translator.cpp
     Core/Bots/BotCore.cpp
+    Core/Bots/SWSHBot.cpp
     Forms/Controls/CheckList.cpp
     Forms/Controls/IVFilter.cpp
     Forms/Controls/Label.cpp

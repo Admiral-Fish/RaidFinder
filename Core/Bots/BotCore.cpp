@@ -6,16 +6,14 @@ BotCore::BotCore(QThread *controllingThread, QString ipRaw, QString portRaw)
     ip = ipRaw;
     port = portRaw;
     thread = controllingThread;
-}
 
-BotCore::~BotCore()
-{
-    mutex.lock();
-    abort = true;
-    condition.wakeOne();
-    mutex.unlock();
-
-    thread->wait();
+    socket->connectToHost(ipRaw, portRaw.toUShort());
+    if(socket->waitForConnected(3000))
+    {
+        configure();
+        moveLeftStick(0, 0);
+        moveRightStick(0, 0);
+    }
 }
 
 void BotCore::sendCommand(QString content)
@@ -88,7 +86,7 @@ QByteArray BotCore::read(QString address, QString size, QString fileName)
 {
     sendCommand("peek " + address + " " + size);
     socket->waitForReadyRead(size.toInt()/0x8000);
-    QString read = QString(socket->read(2 * size.toLong() + 1));
+    QString read = QString(socket->readAll());
     read.truncate(read.length() - 1);
     return read.toUtf8();
 }
