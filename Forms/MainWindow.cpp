@@ -232,8 +232,11 @@ void MainWindow::openSettings()
 
 void MainWindow::openBots()
 {
-    auto *bots = new Bots(this, ui);
-    connect(bots, &Bots::generate, this, &MainWindow::generate);
+    auto *bots = new Bots(this);
+    connect(bots, &Bots::generate, this, &MainWindow::generate2);
+    connect(this, &MainWindow::generated, bots, &Bots::generated);
+    connect(this, &MainWindow::denInfo, bots, &Bots::setDenInfo);
+    connect(bots, &Bots::getDenInfo, this, &MainWindow::sendDenInfo);
     bots->show();
 }
 
@@ -453,6 +456,16 @@ void MainWindow::tableViewContextMenu(QPoint pos)
     }
 }
 
+void MainWindow::sendDenInfo(){
+    emit denInfo(ui->comboBoxDen->currentIndex(), ui->comboBoxLocation->currentIndex(), ui->comboBoxRarity->currentIndex());
+}
+
+void MainWindow::generate2(QString seed)
+{
+    ui->textBoxSeed->setText(seed);
+    generate();
+}
+
 void MainWindow::generate()
 {
     Raid raid = den.getRaid(static_cast<u8>(ui->comboBoxSpecies->currentIndex()), currentProfile.getVersion());
@@ -479,4 +492,5 @@ void MainWindow::generate()
 
     std::vector<State> states = generator.generate(filter, seed);
     model->addItems(states);
+    emit generated(!states.empty());
 }

@@ -53,6 +53,10 @@ private:
     void setupModels();
     QByteArray downloadFile(const QString &url);
 
+signals:
+    void generated(bool results);
+    void denInfo(int denID, int location, int denType);
+
 private slots:
     void updateProfiles();
     void profilesIndexChanged(int index);
@@ -71,6 +75,8 @@ private slots:
     void showStatsToggled(bool flag);
     void levelValueChanged(int value);
     void tableViewContextMenu(QPoint pos);
+    void sendDenInfo();
+    void generate2(QString seed);
     void generate();
 };
 #endif // MAINWINDOW_HPP

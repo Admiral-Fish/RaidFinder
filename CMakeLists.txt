@@ -63,6 +63,8 @@ set(PROJECT_SOURCES
     Core/Util/Translator.cpp
     Core/Bots/BotCore.cpp
     Core/Bots/SWSHBot.cpp
+    Core/Bots/Workers/RaidFinder.cpp
+    Core/Bots/RaidBot.cpp
     Forms/Controls/CheckList.cpp
     Forms/Controls/IVFilter.cpp
     Forms/Controls/Label.cpp

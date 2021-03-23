@@ -4,11 +4,31 @@
 #include <QThread>
 #include <QTcpSocket>
 
-class BotCore
+class BotCore : QObject
 {
-
+    Q_OBJECT
+    Q_ENUMS(SystemLanguage)
 public:
-    BotCore(QThread *controllingThread, QString ipRaw = NULL, QString portRaw = NULL);
+    BotCore(QThread *controllingThread, QString *ipRaw = nullptr, QString *portRaw = nullptr);
+
+    enum SystemLanguage {
+        JA = 0,
+        ENUS = 1,
+        FR = 2,
+        DE = 3,
+        IT = 4,
+        ES = 5,
+        ZHCN = 6,
+        KO = 7,
+        NL = 8,
+        PT = 9,
+        ZHTW = 11,
+        ENGB = 12,
+        FRCA = 13,
+        ES419 = 14,
+        ZHHANS = 15,
+        ZHHANT = 16
+    };
 
     void sendCommand(QString content);
     void configure();
@@ -22,7 +42,7 @@ public:
     void moveRightStick(int x = NULL, int y = NULL);
     QByteArray read(QString address, QString size, QString fileName = NULL);
     void write(QString address, QString data);
-    void getSystemLanguage();
+    int getSystemLanguage();
     void pause(int duration);
 
 private:

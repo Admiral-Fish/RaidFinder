@@ -1,12 +1,21 @@
 #include "SWSHBot.hpp"
 #include <QMessageBox>
 
-SWSHBot::SWSHBot(QThread *controllingThread, QString ipRaw, QString portRaw) : BotCore(controllingThread, ipRaw, portRaw)
+SWSHBot::SWSHBot(QThread *controllingThread, QString *ipRaw, QString *portRaw) : BotCore(controllingThread, ipRaw, portRaw)
 {
-
+    QByteArray trainerSave = readTrainerBlock();
+    eventoffset = 0;
+    resets = 0;
+    if(trainerSave.at(0xA4) == 44 || trainerSave.at(0xA4) == 45)
+    {
+        isPlayingSword = (trainerSave.at(0xA4) == 44);
+        getEventOffset(getSystemLanguage());
+        TID = trainerSave.mid(0xA0, 2).toUShort();
+        SID = trainerSave.mid(0xA2, 2).toUShort();
+    }
 }
 
-uint SWSHBot::getEventOffset(SystemLanguage language)
+uint SWSHBot::getEventOffset(int language)
 {
     if(language == SystemLanguage::ZHCN || language == SystemLanguage::ZHHANS)
     {
@@ -166,7 +175,7 @@ void SWSHBot::skipIntroAnimation()
         pause(300);
         QByteArray currScreen = readScreenOff();
         currScreen.truncate(8);
-        if(currScreen.toULong(nullptr, 16))
+        if(QString(currScreen.toHex()).toULongLong(nullptr, 16) >= 0xFFFF)
         {
             skip = true;
         }
@@ -182,7 +191,7 @@ void SWSHBot::skipIntroAnimation()
     while(!skipped)
     {
         QByteArray currScreen = readScreenOff();
-        if(currScreen[0])
+        if(currScreen.at(0))
         {
             skipped = true;
         }
@@ -213,7 +222,7 @@ void SWSHBot::closeGame()
     close();
 }
 
-void SWSHBot::foundActions()
+bool SWSHBot::foundActions()
 {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(nullptr, "Continue", "Found after " + QString::number(resets) + " resets.\n" + "Continue searching?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
@@ -223,9 +232,10 @@ void SWSHBot::foundActions()
     {
         increaseResets();
     }
+    return reply == QMessageBox::Yes;
 }
 
-void SWSHBot::notFoundActions(int i, QString bot)
+void SWSHBot::notFoundActions()
 {
     increaseResets();
 }

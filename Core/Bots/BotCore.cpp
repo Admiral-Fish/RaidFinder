@@ -1,18 +1,20 @@
 #include "BotCore.hpp"
+#include <QMetaEnum>
+#include <QMetaObject>
 
-BotCore::BotCore(QThread *controllingThread, QString ipRaw, QString portRaw)
+BotCore::BotCore(QThread *controllingThread, QString *ipRaw, QString *portRaw)
 {
     socket = new QTcpSocket();
-    ip = ipRaw;
-    port = portRaw;
+    ip = *ipRaw;
+    port = *portRaw;
     thread = controllingThread;
 
-    socket->connectToHost(ipRaw, portRaw.toUShort());
+    socket->connectToHost(ip, portRaw->toUShort());
     if(socket->waitForConnected(3000))
     {
         configure();
-        moveLeftStick(0, 0);
-        moveRightStick(0, 0);
+        //moveLeftStick(0, 0);
+        //moveRightStick(0, 0);
     }
 }
 
@@ -22,6 +24,7 @@ void BotCore::sendCommand(QString content)
     if(socket->state() == QAbstractSocket::ConnectedState)
     {
         socket->write(toSend.toUtf8());
+        socket->flush();
     }
 }
 
@@ -85,10 +88,24 @@ void BotCore::moveRightStick(int x, int y)
 QByteArray BotCore::read(QString address, QString size, QString fileName)
 {
     sendCommand("peek " + address + " " + size);
-    socket->waitForReadyRead(size.toInt()/0x8000);
-    QString read = QString(socket->readAll());
+    QByteArray temp;
+    while(QByteArray::fromHex(QString(temp).toLatin1()).count() < size.toInt(nullptr, 16))
+    {
+        if(!socket->waitForReadyRead())
+        {
+            break;
+        }
+        while(socket->bytesAvailable() > 0)
+        {
+            temp.append(socket->readAll());
+            socket->flush();
+        }
+    }
+
+    QString read = QString(temp);
+    qDebug() << read;
     read.truncate(read.length() - 1);
-    return read.toUtf8();
+    return QByteArray::fromHex(read.toLatin1());
 }
 
 void BotCore::write(QString address, QString data)
@@ -99,4 +116,26 @@ void BotCore::write(QString address, QString data)
 void BotCore::pause(int duration)
 {
     thread->msleep(duration);
+}
+
+int BotCore::getSystemLanguage()
+{
+    sendCommand("getSystemLanguage");
+    QByteArray temp;
+    while(QByteArray::fromHex(QString(temp).toLatin1()).count() < 1)
+    {
+        if(!socket->waitForReadyRead())
+        {
+            break;
+        }
+        while(socket->bytesAvailable() > 0)
+        {
+            temp.append(socket->readAll());
+            socket->flush();
+        }
+    }
+    QString read = QString(temp);
+    read.truncate(read.length() - 1);
+    return QByteArray::fromHex(read.toLatin1()).toInt();
+
 }
