@@ -139,6 +139,6 @@ int BotCore::getSystemLanguage()
     }
     QString read = QString(temp);
     read.truncate(read.length() - 1);
-    return QByteArray::fromHex(read.toLatin1()).toInt();
+    return read.toInt(nullptr, 16);
 
 }
