@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QTcpSocket>
 #include "../../Core/Bots/Workers/RaidFinder.hpp"
+#include "../../Core/Bots/Workers/StarFinder.hpp"
 
 namespace Ui {
 class Bots;
@@ -21,24 +22,37 @@ private:
     Ui::Bots *ui;
 
     QTcpSocket *socket;
-    RaidFinder thread;
+    RaidFinder raidFinder;
+    StarFinder starFinder;
 
     int denID;
-    int location;
     int denType;
+    int species;
+    int starsMin;
+    int starsMax;
+    bool gmax;
+    int shinyLock;
+
+    bool threadRunning = false;
 
     void setupModels();
 
 public slots:
-    void setDenInfo(int denID, int location, int denType);
+    void setDenInfo(int denID, int denType, int species, int starsMin, int starsMax, bool gmax, int shinyLock);
 
 private slots:
     void startScript();
+    void addProfile();
+    void botFinished();
+    void log(QString log);
 
 signals:
     void generate(QString seed);
     void generated(bool results);
     void getDenInfo();
+    void updateProfiles();
+    void lockBoxes(bool location, bool den, bool rarity, bool species, bool seed);
+    void unlockBoxes();
 };
 
 #endif // BOTS_H

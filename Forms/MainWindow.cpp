@@ -237,6 +237,9 @@ void MainWindow::openBots()
     connect(this, &MainWindow::generated, bots, &Bots::generated);
     connect(this, &MainWindow::denInfo, bots, &Bots::setDenInfo);
     connect(bots, &Bots::getDenInfo, this, &MainWindow::sendDenInfo);
+    connect(bots, &Bots::updateProfiles, this, &MainWindow::updateProfiles);
+    connect(bots, &Bots::lockBoxes, this, &MainWindow::lockBoxes);
+    connect(bots, &Bots::unlockBoxes, this, &MainWindow::unlockBoxes);
     bots->show();
 }
 
@@ -388,7 +391,7 @@ void MainWindow::denIndexChanged(int index)
         for (const auto &raid : raids)
         {
             ui->comboBoxSpecies->addItem(QString("%1: %2").arg(QString::fromStdString(Translator::getSpecie(raid.getSpecies())),
-                                                               QString::fromStdString(raid.getStarDisplay())));
+                                                               QString::fromStdString(raid.getStarDisplay())), QString::number(raid.getSpecies()) + "," + QString::number(raid.getMinStars()) + "," + QString::number(raid.getMaxStars()));
         }
     }
 }
@@ -457,7 +460,30 @@ void MainWindow::tableViewContextMenu(QPoint pos)
 }
 
 void MainWindow::sendDenInfo(){
-    emit denInfo(ui->comboBoxDen->currentIndex(), ui->comboBoxLocation->currentIndex(), ui->comboBoxRarity->currentIndex());
+    emit denInfo(ui->comboBoxDen->currentData().toInt(), ui->comboBoxRarity->currentIndex(), ui->comboBoxSpecies->currentData().toString().split(",").at(0).toInt(), ui->comboBoxSpecies->currentData().toString().split(",").at(1).toInt(), ui->comboBoxSpecies->currentData().toString().split(",").at(2).toInt(), ui->labelGigantamaxValue->text() == "Yes" ? true : false, ui->comboBoxShinyType->currentData().toInt());
+}
+
+void MainWindow::lockBoxes(bool location, bool den, bool rarity, bool species, bool seed)
+{
+    if(location)
+        ui->comboBoxLocation->setEnabled(false);
+    if(den)
+        ui->comboBoxDen->setEnabled(false);
+    if(rarity)
+        ui->comboBoxRarity->setEnabled(false);
+    if(species)
+        ui->comboBoxSpecies->setEnabled(false);
+    if(seed)
+        ui->textBoxSeed->setEnabled(false);
+}
+
+void MainWindow::unlockBoxes()
+{
+    ui->comboBoxLocation->setEnabled(true);
+    ui->comboBoxDen->setEnabled(true);
+    ui->comboBoxRarity->setEnabled(true);
+    ui->comboBoxSpecies->setEnabled(true);
+    ui->textBoxSeed->setEnabled(true);
 }
 
 void MainWindow::generate2(QString seed)

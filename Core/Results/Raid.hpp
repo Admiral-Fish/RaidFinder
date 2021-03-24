@@ -28,7 +28,7 @@ class Raid
 {
 public:
     Raid() = default;
-    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<bool, 5> &star, u8 shinyType = 0);
+    Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<u8, 5> &star, u8 shinyType = 0);
     u8 getAbility() const;
     u8 getAltForm() const;
     u8 getIVCount() const;
@@ -38,6 +38,9 @@ public:
     u16 getSpecies() const;
     u8 getShiny() const;
     std::string getStarDisplay() const;
+    std::array<u8, 5> getStars() const;
+    u8 getMinStars() const;
+    u8 getMaxStars() const;
 
 private:
     u8 ability;
@@ -47,7 +50,7 @@ private:
     u8 genderRatio;
     bool gigantamax;
     u16 species;
-    std::array<bool, 5> star;
+    std::array<u8, 5> star;
     u8 shinyType;
 };
 

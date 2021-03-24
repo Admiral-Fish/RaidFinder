@@ -21,8 +21,10 @@ def embed_encounters():
             data += f"{1 if raid['IsGigantamax'] else 0},"
             data += f"{raid['Species'] >> 8},"
             data += f"{raid['Species'] & 0xff},"
-            for star in raid["Stars"]:
-                data += f"{1 if star else 0},"
+            i = 0
+            while i < 5:
+                data += f"{raid['Stars'][i]},"
+                i += 1
             size += 12
 
         for raid in table["SwordEntries"]:
@@ -33,8 +35,10 @@ def embed_encounters():
             data += f"{1 if raid['IsGigantamax'] else 0},"
             data += f"{raid['Species'] >> 8},"
             data += f"{raid['Species'] & 0xff},"
-            for star in raid["Stars"]:
-                data += f"{1 if star else 0},"
+            i = 0
+            while i < 5:
+                data += f"{raid['Stars'][i]},"
+                i += 1
             size += 12
 
         table_id = int(table["TableID"], 16)
@@ -45,7 +49,7 @@ def embed_encounters():
 
     string = f"constexpr std::array<u8, {size}> {name} = "
     string += " { "
-    string += data.removesuffix(",")
+    string += data[:-1]
     string += " };"
 
     return string

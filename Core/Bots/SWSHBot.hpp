@@ -36,6 +36,9 @@ public:
     void closeGame();
     bool foundActions();
     void notFoundActions();
+    ushort TID;
+    ushort SID;
+    bool isPlayingSword;
 
 private:
     const uint PK8STOREDSIZE = 0x148;
@@ -43,9 +46,7 @@ private:
     const int DENCOUNT = 276;
 
     int eventoffset = 0;
-    bool isPlayingSword;
-    ushort TID;
-    ushort SID;
+
 
 };
 

@@ -55,7 +55,7 @@ private:
 
 signals:
     void generated(bool results);
-    void denInfo(int denID, int location, int denType);
+    void denInfo(int denID, int denType, int species, int starsMin, int starsMax, bool gmax, int shinyLock);
 
 private slots:
     void updateProfiles();
@@ -78,5 +78,7 @@ private slots:
     void sendDenInfo();
     void generate2(QString seed);
     void generate();
+    void lockBoxes(bool location, bool den, bool rarity, bool species, bool seed);
+    void unlockBoxes();
 };
 #endif // MAINWINDOW_HPP

@@ -10,8 +10,12 @@ SWSHBot::SWSHBot(QThread *controllingThread, QString *ipRaw, QString *portRaw) :
     {
         isPlayingSword = (trainerSave.at(0xA4) == 44);
         getEventOffset(getSystemLanguage());
-        TID = trainerSave.mid(0xA0, 2).toUShort();
-        SID = trainerSave.mid(0xA2, 2).toUShort();
+        QByteArray tidArr = trainerSave.mid(0xA0, 2);
+        std::reverse(tidArr.begin(), tidArr.end());
+        QByteArray sidArr = trainerSave.mid(0xA2, 2);
+        std::reverse(sidArr.begin(), sidArr.end());
+        TID = tidArr.toHex().toInt(nullptr, 16);
+        SID = sidArr.toHex().toInt(nullptr, 16);
     }
 }
 
@@ -211,28 +215,29 @@ void SWSHBot::saveGame()
 
 void SWSHBot::closeGame()
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(nullptr, "Close", "Close the game?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
-    if(reply == QMessageBox::Yes)
-    {
-        reply = QMessageBox::question(nullptr, "Home", "Need HOME button pressing?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
-        bool needHome = (reply == QMessageBox::Yes);
-        quitGame(needHome);
-    }
+    //QMessageBox::StandardButton reply;
+    //reply = QMessageBox::question(nullptr, "Close", "Close the game?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
+    //if(reply == QMessageBox::Yes)
+    //{
+    //    reply = QMessageBox::question(nullptr, "Home", "Need HOME button pressing?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
+    //    bool needHome = (reply == QMessageBox::Yes);
+    //    quitGame(needHome);
+    //}
     close();
 }
 
 bool SWSHBot::foundActions()
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(nullptr, "Continue", "Found after " + QString::number(resets) + " resets.\n" + "Continue searching?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
-    if(reply == QMessageBox::No)
+    //QMessageBox::StandardButton reply;
+    //reply = QMessageBox::question(nullptr, "Continue", "Found after " + QString::number(resets) + " resets.\n" + "Continue searching?", QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
+    //if(reply == QMessageBox::No)
         closeGame();
-    else
-    {
-        increaseResets();
-    }
-    return reply == QMessageBox::Yes;
+        return false;
+    //else
+    //{
+        //increaseResets();
+    //}
+    //return reply == QMessageBox::Yes;
 }
 
 void SWSHBot::notFoundActions()

@@ -33,7 +33,8 @@ public:
     void sendCommand(QString content);
     void configure();
     void detach();
-    void close(bool exitapp = true);
+    void close();
+    void closeNoThread();
     void click(QString button);
     void press(QString button);
     void release(QString button);

@@ -20,7 +20,7 @@
 #include "Raid.hpp"
 #include <Core/Loader/PersonalLoader.hpp>
 
-Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<bool, 5> &star, u8 shinyType) :
+Raid::Raid(u8 ability, u8 altform, u8 ivCount, u8 gender, bool gigantamax, u16 species, const std::array<u8, 5> &star, u8 shinyType) :
     ability(ability),
     altform(altform),
     ivCount(ivCount),
@@ -71,6 +71,43 @@ u16 Raid::getSpecies() const
 u8 Raid::getShiny() const
 {
     return shinyType;
+}
+
+std::array<u8, 5> Raid::getStars() const
+{
+    return star;
+}
+
+u8 Raid::getMinStars() const
+{
+    u8 low = 4;
+    for (u8 i = 0; i < 5; i++)
+    {
+        if (star[i])
+        {
+            if (i < low)
+            {
+                low = i;
+            }
+        }
+    }
+    return low + 1;
+}
+
+u8 Raid::getMaxStars() const
+{
+    u8 high = 0;
+    for (u8 i = 0; i < 5; i++)
+    {
+        if (star[i])
+        {
+            if (i > high)
+            {
+                high = i;
+            }
+        }
+    }
+    return high + 1;
 }
 
 std::string Raid::getStarDisplay() const

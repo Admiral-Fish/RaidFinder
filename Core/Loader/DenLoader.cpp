@@ -322,9 +322,9 @@ void DenLoader::init(const std::string &path)
             u8 gender = nests[i + j * 12 + 3];
             bool gigantamax = static_cast<bool>(nests[i + j * 12 + 4]);
             u16 species = (nests[i + j * 12 + 5] << 8) | nests[i + j * 12 + 6];
-            std::array<bool, 5> stars = { static_cast<bool>(nests[i + j * 12 + 7]), static_cast<bool>(nests[i + j * 12 + 8]),
-                                          static_cast<bool>(nests[i + j * 12 + 9]), static_cast<bool>(nests[i + j * 12 + 10]),
-                                          static_cast<bool>(nests[i + j * 12 + 11]) };
+            std::array<u8, 5> stars = { nests[i + j * 12 + 7], nests[i + j * 12 + 8],
+                                          nests[i + j * 12 + 9], nests[i + j * 12 + 10],
+                                          nests[i + j * 12 + 11] };
             shieldRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars);
         }
         i += 144;
@@ -338,9 +338,9 @@ void DenLoader::init(const std::string &path)
             u8 gender = nests[i + j * 12 + 3];
             bool gigantamax = static_cast<bool>(nests[i + j * 12 + 4]);
             u16 species = (nests[i + j * 12 + 5] << 8) | nests[i + j * 12 + 6];
-            std::array<bool, 5> stars = { static_cast<bool>(nests[i + j * 12 + 7]), static_cast<bool>(nests[i + j * 12 + 8]),
-                                          static_cast<bool>(nests[i + j * 12 + 9]), static_cast<bool>(nests[i + j * 12 + 10]),
-                                          static_cast<bool>(nests[i + j * 12 + 11]) };
+            std::array<u8, 5> stars = { nests[i + j * 12 + 7], nests[i + j * 12 + 8],
+                                          nests[i + j * 12 + 9], nests[i + j * 12 + 10],
+                                          nests[i + j * 12 + 11]};
             swordRaids.emplace_back(ability, altform, ivCount, gender, gigantamax, species, stars);
         }
         i += 144;
@@ -377,10 +377,10 @@ void DenLoader::init(const std::string &path)
                 bool gigantamax = raid["IsGigantamax"].get<bool>();
                 u16 species = raid["Species"].get<u16>();
 
-                std::array<bool, 5> stars;
+                std::array<u8, 5> stars;
                 for (u8 i = 0; i < 5; i++)
                 {
-                    stars[i] = raid["Probabilities"][i].get<u8>() > 0;
+                    stars[i] = raid["Probabilities"][i].get<u8>();
                 }
 
                 if (std::any_of(std::begin(stars), std::end(stars), [](bool flag) { return flag; }))
@@ -400,10 +400,10 @@ void DenLoader::init(const std::string &path)
                 bool gigantamax = raid["IsGigantamax"].get<bool>();
                 u16 species = raid["Species"].get<u16>();
 
-                std::array<bool, 5> stars;
+                std::array<u8, 5> stars;
                 for (u8 i = 0; i < 5; i++)
                 {
-                    stars[i] = raid["Probabilities"][i].get<u8>() > 0;
+                    stars[i] = raid["Probabilities"][i].get<u8>();
                 }
 
                 if (std::any_of(std::begin(stars), std::end(stars), [](bool flag) { return flag; }))

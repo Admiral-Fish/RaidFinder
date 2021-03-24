@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>91</height>
+    <width>322</width>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,14 +16,14 @@
   <widget class="QPushButton" name="btnStartStop">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>20</y>
-     <width>75</width>
+     <x>20</x>
+     <y>50</y>
+     <width>281</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Connect</string>
+    <string>Start</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txtIP">
@@ -41,7 +41,7 @@
     <rect>
      <x>210</x>
      <y>20</y>
-     <width>81</width>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -49,9 +49,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>16</x>
+     <x>20</x>
      <y>20</y>
-     <width>21</width>
+     <width>16</width>
      <height>21</height>
     </rect>
    </property>
@@ -79,8 +79,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
-     <width>351</width>
+     <y>110</y>
+     <width>281</width>
      <height>22</height>
     </rect>
    </property>
@@ -97,6 +97,35 @@
      <string>Stars Finder</string>
     </property>
    </item>
+  </widget>
+  <widget class="QPushButton" name="btnUpdateProfile">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>281</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add/Update Profile</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>281</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

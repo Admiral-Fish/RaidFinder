@@ -38,13 +38,17 @@ void BotCore::detach()
     sendCommand("detachController");
 }
 
-void BotCore::close(bool exitapp)
+void BotCore::close()
 {
     pause(500);
     detach();
     socket->close();
-    if(exitapp)
-        this->~BotCore();
+}
+
+void BotCore::closeNoThread()
+{
+    detach();
+    socket->close();
 }
 
 void BotCore::click(QString button)
@@ -103,7 +107,6 @@ QByteArray BotCore::read(QString address, QString size, QString fileName)
     }
 
     QString read = QString(temp);
-    qDebug() << read;
     read.truncate(read.length() - 1);
     return QByteArray::fromHex(read.toLatin1());
 }
