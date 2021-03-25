@@ -44,10 +44,10 @@ artifacts:
 - path: build/RaidFinder-%OS%.zip.sha256
 
 deploy:
-    provider: GitHub
-    description: ''
-    auth_token:
-        secure: u3c5wUq11csZ77TpgKMImu9U+ibNiviMcEpTuQXmqp1YGSHA/+u5FhqZ3KRZBAQX
-    artifact: build/RaidFinder-%OS%.zip,build/RaidFinder-%OS%.zip.sha256
-    on:
-        APPVEYOR_REPO_TAG: true
+- provider: GitHub
+  auth_token:
+    secure: r+h7DrXWjtErFzZjiXDgz0bESLs1A7haGYKQdYOJa2DANcmPONX1qx7B9zz1Dl/v
+  artifact: build/RaidFinder-%OS%.zip,build/RaidFinder-%OS%.zip.sha256
+  prerelease: false
+  on:
+    APPVEYOR_REPO_TAG: true
