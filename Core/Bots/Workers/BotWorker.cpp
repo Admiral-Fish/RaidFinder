@@ -133,12 +133,31 @@ void BotWorker::raidFinder()
         else
             emit log("Normal Raid");
 
-        if(((den.at(0x12) == 2 || den.at(0x12) == 4) && (denType == 1)) || (((den.at(0x13) & 2) == 2) && (denType == 2)) || ((den.at(0x12) == 1 || den.at(0x12) == 3) && (denType == 0)))
+        if(denType == 1)
         {
+            if(!(den.at(0x12) == 2 || den.at(0x12) == 4))
+            {
+                genned = true;
+                results = false;
+            }
+        }
+        else if(denType == 2)
+        {
+            if(!((den.at(0x13) & 2) == 2))
+            {
+                genned = true;
+                results = false;
+            }
+        } else if(denType == 0)
+        {
+            if((den.at(0x12) == 2 || den.at(0x12) == 4) || ((den.at(0x13) & 2) == 2))
+            {
+                genned = true;
+                results = false;
+            }
+        }
+        else {
             emit generate(seed);
-        } else {
-            genned = true;
-            results = false;
         }
         while(!genned)
             raidBot.pause(200);
