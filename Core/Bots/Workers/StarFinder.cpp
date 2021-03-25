@@ -68,12 +68,12 @@ void StarFinder::startScript(QString ipRaw, QString portRaw, int denID, int rari
 
 void StarFinder::run()
 {
-    RaidBot *raidBot = new RaidBot(this, &ipRaw, &portRaw);
+    RaidBot raidBot = RaidBot(this, &ipRaw, &portRaw);
     forever {
         if(abort)
             break;
-        raidBot->click("R");
-        raidBot->pause(1700);
+        raidBot.click("R");
+        raidBot.pause(1700);
         if(abort)
             break;
         QByteArray denData;
@@ -92,13 +92,13 @@ void StarFinder::run()
         if(abort)
             break;
 
-        denData = raidBot->readDen(denID);
+        denData = raidBot.readDen(denID);
 
         int rank = denData.at(0x10);
         int randroll = denData.at(0x11);
 
         Den den = DenLoader::getDen((denData.at(0x13) & 2) == 2 ? 65535 : denID, rarity);
-        std::vector<Raid> raids = den.getRaids(raidBot->isPlayingSword ? Game::Sword : Game::Shield);
+        std::vector<Raid> raids = den.getRaids(raidBot.isPlayingSword ? Game::Sword : Game::Shield);
         Raid raid;
         int probability = 1;
         for(auto & r : raids)
@@ -135,23 +135,23 @@ void StarFinder::run()
         if((rank + 1) >= starsMin && (rank + 1) <= starsMax && raid.getSpecies() == species && gmax == raid.getGigantamax() && shinyLockCheck)
         {
             emit log("Found.");
-            if(!raidBot->foundActions())
+            if(!raidBot.foundActions())
                 break;
         }
 
-        raidBot->notFoundActions();
+        raidBot.notFoundActions();
         emit log("Resetting...");
         if(abort)
             break;
-        raidBot->quitGame();
+        raidBot.quitGame();
         if(abort)
             break;
-        raidBot->enterGame();
+        raidBot.enterGame();
         if(abort)
             break;
-        raidBot->skipIntroAnimation();
+        raidBot.skipIntroAnimation();
 
     }
 
-    raidBot->close();
+    raidBot.close();
 }

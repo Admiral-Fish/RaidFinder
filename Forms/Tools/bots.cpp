@@ -1,6 +1,7 @@
 #include "Bots.hpp"
 #include "ui_Bots.h"
 #include "QTcpSocket"
+#include "QSettings"
 #include "../../Core/Bots/Workers/RaidFinder.hpp"
 #include "../../Core/Loader/ProfileLoader.hpp"
 #include "../../Core/Results/Profile.hpp"
@@ -20,6 +21,9 @@ Bots::Bots(QWidget *parent) :
 
 Bots::~Bots()
 {
+    QSettings setting;
+    setting.setValue("settings/ip", ui->txtIP->text());
+    setting.setValue("settings/port", ui->txtPort->text());
     delete ui;
 }
 
@@ -35,6 +39,16 @@ void Bots::setupModels()
 
     connect(&starFinder, &StarFinder::finished, this, &Bots::botFinished);
     connect(&starFinder, &StarFinder::log, this, &Bots::log);
+
+    QSettings setting;
+    if (setting.contains("settings/ip"))
+    {
+        ui->txtIP->setText(setting.value("settings/ip").toString());
+    }
+    if (setting.contains("settings/port"))
+    {
+        ui->txtPort->setText(setting.value("settings/port").toString());
+    }
 }
 
 void Bots::setDenInfo(int denID, int denType, int species, int starsMin, int starsMax, bool gmax, int shinyLock)
@@ -114,6 +128,8 @@ void Bots::addProfile()
     ProfileLoader::addProfile(p2);
     emit updateProfiles();
     r.closeNoThread();
+    delete ip;
+    delete port;
 }
 
 

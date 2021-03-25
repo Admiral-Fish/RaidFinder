@@ -10,6 +10,7 @@ class BotCore : QObject
     Q_ENUMS(SystemLanguage)
 public:
     BotCore(QThread *controllingThread, QString *ipRaw = nullptr, QString *portRaw = nullptr);
+    ~BotCore();
 
     enum SystemLanguage {
         JA = 0,

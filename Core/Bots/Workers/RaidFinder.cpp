@@ -67,28 +67,28 @@ void RaidFinder::generated(bool results)
 
 void RaidFinder::run()
 {
-    RaidBot *raidBot = new RaidBot(this, &ipRaw, &portRaw);
-    raidBot->setTargetDen(denID == 65535 ? 1 : denID + 1);
+    RaidBot raidBot = RaidBot(this, &ipRaw, &portRaw);
+    raidBot.setTargetDen(denID == 65535 ? 1 : denID + 1);
 
     forever { 
         genned = false;
         results = false;
-        QByteArray den = raidBot->getDenData();
+        QByteArray den = raidBot.getDenData();
         if(abort)
             break;
         if((den.at(0x13) & 1) == 0)
         {
             emit log("Den has watts - Getting them...");
-            raidBot->getWatts();
+            raidBot.getWatts();
         } else
             emit log("No watts in Den");
         if(abort)
             break;
-        raidBot->pause(500);
-        raidBot->throwPiece();
+        raidBot.pause(500);
+        raidBot.throwPiece();
         if(abort)
             break;
-        den = raidBot->getDenData();
+        den = raidBot.getDenData();
         QByteArray seedBE = den.mid(0x8, 8);
         std::reverse(seedBE.begin(), seedBE.end());
         QString seed = seedBE.toHex();
@@ -110,28 +110,28 @@ void RaidFinder::run()
             results = false;
         }
         while(!genned)
-            raidBot->pause(200);
+            raidBot.pause(200);
         if(abort)
             break;
         if(results == false)
         {
-            raidBot->notFoundActions();
+            raidBot.notFoundActions();
             emit log("Resetting...");
-            raidBot->quitGame(false);
+            raidBot.quitGame(false);
             if(abort)
                 break;
-            raidBot->enterGame();
+            raidBot.enterGame();
             if(abort)
                 break;
-            raidBot->skipIntroAnimation();
+            raidBot.skipIntroAnimation();
         } else {
             emit log("Results Found. Check main window.");
-            if(!raidBot->foundActions()) {
+            if(!raidBot.foundActions()) {
                 break;
             }
         }
 
     }
 
-    raidBot->close();
+    raidBot.close();
 }

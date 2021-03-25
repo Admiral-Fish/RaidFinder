@@ -7,7 +7,6 @@ class RaidBot : public SWSHBot
 {
 public:
     RaidBot(QThread *controllingThread, QString *ipRaw = nullptr, QString *portRaw = nullptr);
-
     void setTargetDen(int denId);
     QByteArray getDenData();
     void getWatts(bool wattFarmer = false, int speed = 0);

@@ -18,6 +18,11 @@ BotCore::BotCore(QThread *controllingThread, QString *ipRaw, QString *portRaw)
     }
 }
 
+BotCore::~BotCore()
+{
+    closeNoThread();
+}
+
 void BotCore::sendCommand(QString content)
 {
     QString toSend = content + "\r\n";
@@ -40,15 +45,22 @@ void BotCore::detach()
 
 void BotCore::close()
 {
-    pause(500);
-    detach();
-    socket->close();
+    if(socket->state() == QTcpSocket::ConnectedState)
+    {
+        pause(500);
+        detach();
+        socket->close();
+    }
 }
 
 void BotCore::closeNoThread()
 {
-    detach();
-    socket->close();
+    if(socket->state() == QTcpSocket::ConnectedState)
+    {
+        detach();
+        socket->close();
+    }
+
 }
 
 void BotCore::click(QString button)
