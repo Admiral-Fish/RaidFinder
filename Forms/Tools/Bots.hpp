@@ -3,8 +3,7 @@
 
 #include <QDialog>
 #include <QTcpSocket>
-#include "../../Core/Bots/Workers/RaidFinder.hpp"
-#include "../../Core/Bots/Workers/StarFinder.hpp"
+#include "../../Core/Bots/Workers/BotWorker.hpp"
 
 namespace Ui {
 class Bots;
@@ -22,8 +21,8 @@ private:
     Ui::Bots *ui;
 
     QTcpSocket *socket;
-    RaidFinder raidFinder;
-    StarFinder starFinder;
+    BotWorker worker;
+
 
     int denID;
     int denType;

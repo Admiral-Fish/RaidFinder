@@ -191,6 +191,7 @@ void SWSHBot::skipIntroAnimation()
         click("A");
         pause(500);
     }
+    pause(800);
     bool skipped = false;
     while(!skipped)
     {

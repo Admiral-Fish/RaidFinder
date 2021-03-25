@@ -63,8 +63,7 @@ set(PROJECT_SOURCES
     Core/Util/Translator.cpp
     Core/Bots/BotCore.cpp
     Core/Bots/SWSHBot.cpp
-    Core/Bots/Workers/RaidFinder.cpp
-    Core/Bots/Workers/StarFinder.cpp
+    Core/Bots/Workers/BotWorker.cpp
     Core/Bots/RaidBot.cpp
     Forms/Controls/CheckList.cpp
     Forms/Controls/IVFilter.cpp

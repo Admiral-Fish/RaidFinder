@@ -2,7 +2,6 @@
 #include "ui_Bots.h"
 #include "QTcpSocket"
 #include "QSettings"
-#include "../../Core/Bots/Workers/RaidFinder.hpp"
 #include "../../Core/Loader/ProfileLoader.hpp"
 #include "../../Core/Results/Profile.hpp"
 #include "../../Core/Bots/RaidBot.hpp"
@@ -32,13 +31,10 @@ void Bots::setupModels()
     connect(ui->btnStartStop, &QPushButton::clicked, this, &Bots::startScript);
     connect(ui->btnUpdateProfile, &QPushButton::clicked, this, &Bots::addProfile);
 
-    connect(&raidFinder, &RaidFinder::generate, this, &Bots::generate);
-    connect(this, &Bots::generated, &raidFinder, &RaidFinder::generated);
-    connect(&raidFinder, &RaidFinder::finished, this, &Bots::botFinished);
-    connect(&raidFinder, &RaidFinder::log, this, &Bots::log);
-
-    connect(&starFinder, &StarFinder::finished, this, &Bots::botFinished);
-    connect(&starFinder, &StarFinder::log, this, &Bots::log);
+    connect(&worker, &BotWorker::generate, this, &Bots::generate);
+    connect(this, &Bots::generated, &worker, &BotWorker::generated);
+    connect(&worker, &BotWorker::finished, this, &Bots::botFinished);
+    connect(&worker, &BotWorker::log, this, &Bots::log);
 
     QSettings setting;
     if (setting.contains("settings/ip"))
@@ -71,10 +67,8 @@ void Bots::startScript()
     if(threadRunning)
     {
         log("Stopping bot...");
-        if(raidFinder.isRunning())
-            raidFinder.stopScript();
-        if(starFinder.isRunning())
-            starFinder.stopScript();
+        if(worker.isRunning())
+            worker.stopScript();
     } else
     {
         ui->plainTextEdit->clear();
@@ -85,14 +79,14 @@ void Bots::startScript()
                 emit lockBoxes(true, true, true, false, true);
                 threadRunning = true;
                 ui->btnStartStop->setText("Stop");
-                raidFinder.startScript(ui->txtIP->text(), ui->txtPort->text(), denID, denType);
+                worker.startScript(ui->txtIP->text(), ui->txtPort->text(), 0, denID, denType);
                 break;
             case 1:
                 emit getDenInfo();
                 emit lockBoxes(true, true, true, true, false);
                 threadRunning = true;
                 ui->btnStartStop->setText("Stop");
-                starFinder.startScript(ui->txtIP->text(), ui->txtPort->text(), denID, denType, starsMin, starsMax, species, gmax, shinyLock);
+                worker.startScript(ui->txtIP->text(), ui->txtPort->text(), 1, denID, denType, starsMin, starsMax, species, gmax, shinyLock);
                 break;
             default:
                 break;
