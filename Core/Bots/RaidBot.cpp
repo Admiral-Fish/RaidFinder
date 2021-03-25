@@ -43,7 +43,9 @@ void RaidBot::setWatts(int count)
 
 void RaidBot::readWatts()
 {
-    watts = read("0x45068FE8", "0x3").mid(0xD0, 0x3).toInt(nullptr, 16);
+    QByteArray wattsBE = read("0x45068FE8", "0x3");
+    std::reverse(wattsBE.begin(), wattsBE.end());
+    watts = wattsBE.toHex().toInt(nullptr, 16);
 }
 
 void RaidBot::throwPiece()

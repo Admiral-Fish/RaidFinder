@@ -88,6 +88,13 @@ void Bots::startScript()
                 ui->btnStartStop->setText("Stop");
                 worker.startScript(ui->txtIP->text(), ui->txtPort->text(), 1, denID, denType, starsMin, starsMax, species, gmax, shinyLock);
                 break;
+            case 2:
+                emit getDenInfo();
+                emit lockBoxes(true, true, false, false, false);
+                threadRunning = true;
+                ui->btnStartStop->setText("Stop");
+                worker.startScript(ui->txtIP->text(), ui->txtPort->text(), 2, denID, denType);
+                break;
             default:
                 break;
         }

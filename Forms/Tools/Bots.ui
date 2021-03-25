@@ -97,6 +97,11 @@
      <string>Stars Finder</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Watt Farmer</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="btnUpdateProfile">
    <property name="geometry">

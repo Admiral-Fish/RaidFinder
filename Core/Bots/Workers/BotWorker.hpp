@@ -46,9 +46,11 @@ private:
     int shinyLock;
     void startRaidFinder();
     void startStarFinder(int rarity, int starsMin, int starsMax, int species, bool gmax, int shinyLock);
+    void startWattFarmer();
 
     void raidFinder();
     void starFinder();
+    void wattFarmer();
 
 signals:
     void generate(QString seed);

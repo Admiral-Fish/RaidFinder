@@ -61,6 +61,8 @@ void BotWorker::startScript(QString ipRaw, QString portRaw, int script, int denI
         break;
     case 1:
         startStarFinder(rarity, starsMin, starsMax, species, gmax, shinyLock);
+    case 2:
+        startWattFarmer();
     default:
         break;
     }
@@ -88,6 +90,11 @@ void BotWorker::startStarFinder(int rarity, int starsMin, int starsMax, int spec
     this->gmax = gmax;
     this->shinyLock = shinyLock;
     this->denType = rarity;
+}
+
+void BotWorker::startWattFarmer()
+{
+
 }
 
 void BotWorker::generated(bool results)
@@ -257,6 +264,37 @@ void BotWorker::starFinder()
     raidBot.close();
 }
 
+void BotWorker::wattFarmer()
+{
+    RaidBot raidBot = RaidBot(this, &ipRaw, &portRaw);
+    raidBot.readWatts();
+    emit log("Current Watts: " + QString::number(raidBot.watts));
+    emit log("Farming Watts...");
+    forever {
+        if(abort)
+            break;
+        raidBot.click("R");
+        raidBot.pause(700);
+        if(abort)
+            break;
+        QByteArray den = raidBot.readDen(denID);
+        if(den.at(0x12) != 0 && (den.at(0x12) == 3 || den.at(0x12) == 4))
+        {
+            if((den.at(0x13) & 1) == 0)
+            {
+                int oldWatts = raidBot.watts;
+                raidBot.getWatts(true, 500);
+                emit log("Watts: " + QString::number(raidBot.watts) + " (+" + QString::number(raidBot.watts - oldWatts) + ")");
+            }
+            else
+            {
+                emit log("No watts in den");
+            }
+        }
+    }
+    raidBot.close();
+}
+
 void BotWorker::run()
 {
      switch(script)
@@ -267,6 +305,8 @@ void BotWorker::run()
      case 1:
          starFinder();
          break;
+     case 2:
+         wattFarmer();
      default:
          break;
      }

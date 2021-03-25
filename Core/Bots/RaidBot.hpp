@@ -13,9 +13,10 @@ public:
     void setWatts(int count);
     void readWatts();
     void throwPiece();
+
+    int watts;
 private:
     int denID;
-    int watts;
 
 };
 
