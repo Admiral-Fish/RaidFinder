@@ -5,6 +5,12 @@
 #include "../../Core/Loader/ProfileLoader.hpp"
 #include "../../Core/Results/Profile.hpp"
 #include "../../Core/Bots/RaidBot.hpp"
+#include "../../Core/Results/NestHoleDistributionEncounter8Archive.h"
+#include <flatbuffers/flatbuffers.h>
+#include <flatbuffers/idl.h>
+#include <flatbuffers/util.h>
+#include <iostream>
+#include <fstream>
 
 Bots::Bots(QWidget *parent) :
     QDialog(parent),
@@ -95,6 +101,9 @@ void Bots::startScript()
                 ui->btnStartStop->setText("Stop");
                 worker.startScript(ui->txtIP->text(), ui->txtPort->text(), 2, denID, denType);
                 break;
+            case 3:
+                dumpLatestWildAreaEvent();
+                break;
             default:
                 break;
         }
@@ -129,6 +138,67 @@ void Bots::addProfile()
     ProfileLoader::addProfile(p2);
     emit updateProfiles();
     r.closeNoThread();
+    delete ip;
+    delete port;
+}
+
+void Bots::dumpLatestWildAreaEvent()
+{
+    QString *ip = new QString(ui->txtIP->text());
+    QString *port = new QString(ui->txtPort->text());
+    SWSHBot r = SWSHBot(nullptr, ip, port);
+
+    r.readEventBlock_RaidEncounter(QApplication::applicationDirPath() + "/");
+
+    std::ifstream infile;
+    infile.open(QApplication::applicationDirPath().toStdString() + "/normal_encount", std::ios::binary | std::ios::in);
+    infile.seekg(0,std::ios::end);
+    int length = infile.tellg();
+    infile.seekg(0,std::ios::beg);
+    std::vector<char> buffer(length);
+    infile.read(buffer.data(), length);
+    infile.close();
+
+    buffer.erase(buffer.begin(), buffer.begin() + 32);
+    structure::NestHoleDistributionEncounter8ArchiveT nestObj;
+    structure::GetNestHoleDistributionEncounter8Archive(buffer.data())->UnPackTo(&nestObj);
+
+    QFile fbs(":/fbs/NestHoleDistributionEncounter8Archive.fbs");
+    QByteArray schemaBuffer;
+    if(fbs.open(QIODevice::ReadOnly))
+    {
+        schemaBuffer = fbs.readAll();
+        fbs.close();
+    }
+
+    std::string jsongen;
+    flatbuffers::Parser parser;
+    qDebug() << schemaBuffer.toStdString().c_str();
+    parser.Parse(schemaBuffer.toStdString().c_str());
+    parser.builder_.Finish(structure::NestHoleDistributionEncounter8Archive::Pack(parser.builder_, &nestObj));
+    parser.opts.strict_json = true;
+    parser.opts.output_default_scalars_in_json = true;
+    if(GenerateText(parser, parser.builder_.GetBufferPointer(), &jsongen))
+    {
+        qDebug() << jsongen.c_str();
+
+        size_t pos = 0;
+        while ((pos = jsongen.find("ShinyFlag", pos)) != std::string::npos) {
+            jsongen.replace(pos, 9, "ShinyForced");
+            pos += 11;
+        }
+
+        QFile f(QApplication::applicationDirPath() + "/nests_event.json");
+        if (f.open(QIODevice::WriteOnly))
+        {
+            f.write(jsongen.c_str());
+            f.close();
+            log("Start RaidFinder to see latest event data.");
+        }
+    }
+
+    r.closeNoThread();
+
     delete ip;
     delete port;
 }

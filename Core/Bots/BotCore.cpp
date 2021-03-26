@@ -1,6 +1,8 @@
 #include "BotCore.hpp"
 #include <QMetaEnum>
 #include <QMetaObject>
+#include <QFile>
+#include <QApplication>
 
 BotCore::BotCore(QThread *controllingThread, QString *ipRaw, QString *portRaw)
 {
@@ -120,7 +122,17 @@ QByteArray BotCore::read(QString address, QString size, QString fileName)
 
     QString read = QString(temp);
     read.truncate(read.length() - 1);
-    return QByteArray::fromHex(read.toLatin1());
+    QByteArray bytes = QByteArray::fromHex(read.toLatin1());
+    if(fileName != "")
+    {
+        QFile f(fileName);
+        if (f.open(QIODevice::WriteOnly))
+        {
+            f.write(bytes);
+            f.close();
+        }
+    }
+    return bytes;
 }
 
 void BotCore::write(QString address, QString data)

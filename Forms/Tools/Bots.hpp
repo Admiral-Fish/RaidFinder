@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include "../../Core/Bots/Workers/BotWorker.hpp"
 
+
 namespace Ui {
 class Bots;
 }
@@ -35,6 +36,7 @@ private:
     bool threadRunning = false;
 
     void setupModels();
+    void dumpLatestWildAreaEvent();
 
 public slots:
     void setDenInfo(int denID, int denType, int species, int starsMin, int starsMax, bool gmax, int shinyLock);

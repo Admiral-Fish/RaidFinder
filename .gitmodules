@@ -1,3 +1,6 @@
 [submodule "QDarkStyleSheet"]
 	path = QDarkStyleSheet
 	url = https://github.com/ColinDuquesnoy/QDarkStyleSheet
+[submodule "flatbuffers"]
+	path = flatbuffers
+	url = https://github.com/google/flatbuffers

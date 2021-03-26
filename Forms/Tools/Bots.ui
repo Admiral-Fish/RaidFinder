@@ -102,6 +102,11 @@
      <string>Watt Farmer</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Dump Latest Wild Area Event</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="btnUpdateProfile">
    <property name="geometry">

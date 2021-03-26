@@ -42,7 +42,7 @@ public:
     void moveStick(QString button, int x, int y);
     void moveLeftStick(int x = NULL, int y = NULL);
     void moveRightStick(int x = NULL, int y = NULL);
-    QByteArray read(QString address, QString size, QString fileName = NULL);
+    QByteArray read(QString address, QString size, QString fileName = "");
     void write(QString address, QString data);
     int getSystemLanguage();
     void pause(int duration);

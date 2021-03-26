@@ -4,4 +4,7 @@
         <file alias="map.png">Resources/Images/map.png</file>
         <file alias="map_ioa.png">Resources/Images/map_ioa.png</file>
     </qresource>
+    <qresource prefix="/fbs">
+        <file alias="NestHoleDistributionEncounter8Archive.fbs">Resources/Encounters/NestHoleDistributionEncounter8Archive.fbs</file>
+    </qresource>
 </RCC>

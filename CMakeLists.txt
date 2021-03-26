@@ -83,8 +83,15 @@ set(PROJECT_SOURCES
     main.cpp
 )
 
+set(FLATBUFFERS_SRC_DIR
+    flatbuffers/)
+
 qt5_add_translation(PROJECT_QM ${PROJECT_TS} OPTIONS -nounfinished -removeidentical)
 embed_translations(PROJECT_I18N ${PROJECT_QM})
+
+add_subdirectory(${FLATBUFFERS_SRC_DIR}
+                 ${CMAKE_CURRENT_BINARY_DIR}/flatbuffers-build
+                 EXCLUDE_FROM_ALL)
 
 if (WIN32)
     add_executable(RaidFinder
@@ -117,4 +124,4 @@ else ()
     )
 endif ()
 
-target_link_libraries(RaidFinder PRIVATE Qt5::Core Qt5::Network Qt5::Widgets)
+target_link_libraries(RaidFinder PRIVATE Qt5::Core Qt5::Network Qt5::Widgets flatbuffers)

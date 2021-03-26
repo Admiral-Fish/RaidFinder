@@ -1,0 +1,55 @@
+namespace structure;
+
+table NestHoleDistributionEncounter8Archive {
+  Tables:[NestHoleDistributionEncounter8Table];
+}
+
+table NestHoleDistributionEncounter8Table {
+  TableID:ulong;
+  GameVersion:uint;
+  Field_02:byte;
+  Field_03:byte;
+  Entries:[NestHoleDistributionEncounter8];
+}
+
+table NestHoleDistributionEncounter8 {
+    EntryIndex:uint;
+    Species:uint;
+    AltForm:uint;
+    Level:uint;
+    DynamaxLevel:ushort;
+    Field_05:uint;
+    Field_06:uint;
+    Field_07:uint;
+    Field_08:uint;
+    Field_09:uint;
+    Field_0A:uint;
+    Ability:byte;
+    IsGigantamax:bool;
+    DropTableID:ulong;
+    BonusTableID:ulong;
+    Probabilities:[uint];
+    Gender:byte;
+    FlawlessIVs:byte;
+    ShinyFlag:byte;
+    Field_13:byte;
+    Field_14:byte;
+    Nature:byte;
+    Field_16:uint;
+    Move0:uint;
+    Move1:uint;
+    Move2:uint;
+    Move3:uint;
+    DynamaxBoost:float;
+    Field_1C:uint;
+    Field_1D:uint;
+    Shield:uint;
+    AdditionalMove1Rate:uint;
+    AdditionalMove1:uint;
+    AdditionalMove1PP:uint;
+    AdditionalMove2Rate:uint;
+    AdditionalMove2:uint;
+    AdditionalMove2PP:uint;
+}
+
+root_type NestHoleDistributionEncounter8Archive;
