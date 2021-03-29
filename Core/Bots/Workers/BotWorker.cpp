@@ -106,6 +106,11 @@ void BotWorker::generated(bool results)
 void BotWorker::raidFinder()
 {
     RaidBot raidBot = RaidBot(this, &ipRaw, &portRaw);
+    if(!raidBot.isConnected())
+    {
+        emit log("Failed to connect.");
+        return;
+    }
     raidBot.setTargetDen(denID == 65535 ? 1 : denID + 1);
 
     forever {
@@ -177,6 +182,11 @@ void BotWorker::raidFinder()
 void BotWorker::starFinder()
 {
     RaidBot raidBot = RaidBot(this, &ipRaw, &portRaw);
+    if(!raidBot.isConnected())
+    {
+        emit log("Failed to connect.");
+        return;
+    }
     forever {
         if(abort)
             break;

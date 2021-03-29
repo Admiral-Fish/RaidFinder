@@ -46,6 +46,7 @@ public:
     void write(QString address, QString data);
     int getSystemLanguage();
     void pause(int duration);
+    bool isConnected();
 
 private:
     QTcpSocket *socket;

@@ -105,18 +105,21 @@ void BotCore::moveRightStick(int x, int y)
 
 QByteArray BotCore::read(QString address, QString size, QString fileName)
 {
-    sendCommand("peek " + address + " " + size);
     QByteArray temp;
-    while(QByteArray::fromHex(QString(temp).toLatin1()).count() < size.toInt(nullptr, 16))
+    if(socket->state() == QTcpSocket::ConnectedState)
     {
-        if(!socket->waitForReadyRead())
+        sendCommand("peek " + address + " " + size);
+        while(QByteArray::fromHex(QString(temp).toLatin1()).count() < size.toInt(nullptr, 16))
         {
-            break;
-        }
-        while(socket->bytesAvailable() > 0)
-        {
-            temp.append(socket->readAll());
-            socket->flush();
+            if(!socket->waitForReadyRead())
+            {
+                break;
+            }
+            while(socket->bytesAvailable() > 0)
+            {
+                temp.append(socket->readAll());
+                socket->flush();
+            }
         }
     }
 
@@ -132,6 +135,7 @@ QByteArray BotCore::read(QString address, QString size, QString fileName)
             f.close();
         }
     }
+
     return bytes;
 }
 
@@ -149,20 +153,28 @@ int BotCore::getSystemLanguage()
 {
     sendCommand("getSystemLanguage");
     QByteArray temp;
-    while(QByteArray::fromHex(QString(temp).toLatin1()).count() < 1)
+    if(socket->state() == QTcpSocket::ConnectedState)
     {
-        if(!socket->waitForReadyRead())
+        while(QByteArray::fromHex(QString(temp).toLatin1()).count() < 1)
         {
-            break;
-        }
-        while(socket->bytesAvailable() > 0)
-        {
-            temp.append(socket->readAll());
-            socket->flush();
+            if(!socket->waitForReadyRead())
+            {
+                break;
+            }
+            while(socket->bytesAvailable() > 0)
+            {
+                temp.append(socket->readAll());
+                socket->flush();
+            }
         }
     }
     QString read = QString(temp);
     read.truncate(read.length() - 1);
     return read.toInt(nullptr, 16);
 
+}
+
+bool BotCore::isConnected()
+{
+    return socket->state() == QTcpSocket::ConnectedState;
 }
