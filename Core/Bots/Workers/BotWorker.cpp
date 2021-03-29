@@ -188,15 +188,26 @@ void BotWorker::starFinder()
 
         QString info = "";
 
+        int denIndex = 0;
         if(denID == 65535)
+        {
             info += "denID: 1";
+        }
         else if(denID - 32 > 189)
-            info += "[CT] denID: " + QString::number(denID - 31);
+        {
+            info += "[CT] denID: " + QString::number(denID - 32 - 189);
+            denIndex = denID - 32;
+        }
         else if(denID - 11 > 99)
-            info += "[IoA] denID: " + QString::number(denID - 10);
+        {
+            info += "[IoA] denID: " + QString::number(denID - 11 - 99);
+            denIndex = denID - 11;
+        }
         else
+        {
             info += "denID: " + QString::number(denID + 1);
-
+            denIndex = denID;
+        }
         if(abort)
             break;
 
@@ -205,7 +216,7 @@ void BotWorker::starFinder()
         int rank = denData.at(0x10);
         int randroll = denData.at(0x11);
 
-        Den den = DenLoader::getDen((denData.at(0x13) & 2) == 2 ? 65535 : denID, denType);
+        Den den = DenLoader::getDen((denData.at(0x13) & 2) == 2 ? 65535 : denIndex, denType);
         std::vector<Raid> raids = den.getRaids(raidBot.isPlayingSword ? Game::Sword : Game::Shield);
         Raid raid;
         int probability = 1;
