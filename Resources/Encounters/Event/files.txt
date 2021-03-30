@@ -37,3 +37,4 @@
 210212_milcery.bin,868
 210226_pikachu.bin,25
 210301_weezing.bin,110
+210326_lilligant.bin,549
