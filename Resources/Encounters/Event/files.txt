@@ -38,4 +38,5 @@
 210226_pikachu.bin,25
 210301_weezing.bin,110
 210326_lilligant.bin,549
+210401_magikarp.bin,129
 210402_cinderace.bin,815
