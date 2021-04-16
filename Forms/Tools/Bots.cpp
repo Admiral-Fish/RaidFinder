@@ -104,6 +104,9 @@ void Bots::startScript()
             case 3:
                 dumpLatestWildAreaEvent();
                 break;
+            case 4:
+                checkDen();
+                break;
             default:
                 break;
         }
@@ -146,6 +149,40 @@ void Bots::addProfile()
         log("Failed to connect.");
     }
 
+    delete ip;
+    delete port;
+}
+
+void Bots::checkDen()
+{
+    QString *ip = new QString(ui->txtIP->text());
+    QString *port = new QString(ui->txtPort->text());
+    SWSHBot r = SWSHBot(nullptr, ip, port);
+    if(r.isConnected())
+    {
+        emit getDenInfo();
+        if(denID == 65535)
+        {
+            denID = 0;
+        } else {
+            if(denID > 189)
+                denID = denID + 32;
+            else if(denID > 99)
+                denID = denID + 11;
+        }
+
+        QByteArray denData = r.readDen(denID);
+        QByteArray seedBE = denData.mid(0x8, 8);
+        std::reverse(seedBE.begin(), seedBE.end());
+        QString seed = seedBE.toHex();
+        emit generate(seed);
+        r.closeNoThread();
+
+    }
+    else
+    {
+        log("Failed to connect.");
+    }
     delete ip;
     delete port;
 }

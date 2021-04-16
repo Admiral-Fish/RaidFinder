@@ -37,6 +37,7 @@ private:
 
     void setupModels();
     void dumpLatestWildAreaEvent();
+    void checkDen();
 
 public slots:
     void setDenInfo(int denID, int denType, int species, int starsMin, int starsMax, bool gmax, int shinyLock);

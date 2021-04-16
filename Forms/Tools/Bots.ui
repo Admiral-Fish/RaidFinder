@@ -107,6 +107,11 @@
      <string>Dump Latest Wild Area Event</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Check Den</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="btnUpdateProfile">
    <property name="geometry">
