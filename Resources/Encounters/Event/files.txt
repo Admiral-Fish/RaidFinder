@@ -41,3 +41,4 @@
 210401_magikarp.bin,129
 210402_cinderace.bin,815
 210404_ditto.bin,132
+210423_eiscue.bin,875
