@@ -44,3 +44,4 @@
 210423_eiscue.bin,875
 210430_meowth.bin,52
 210521_wooloo.bin,831
+210604_venusaur.bin,3
