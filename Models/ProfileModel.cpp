@@ -33,7 +33,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole)
     {
-        auto &profile = model.at(index.row());
+        const auto &profile = model.at(index.row());
         switch (index.column())
         {
         case 0:
