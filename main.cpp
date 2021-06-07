@@ -74,13 +74,10 @@ int main(int argc, char *argv[])
         setting.setValue("settings/migrated", true);
     }
 
-    // Buttons currently aren't easy to press with style sheet
-    // Disable it for now on MacOS
-#ifndef Q_OS_MAC
     QString style = setting.value("settings/style", "dark").toString();
     if (style == "dark")
     {
-        QFile file(":/qdarkstyle/style.qss");
+        QFile file(":/qdarkstyle/dark/style.qss");
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             QTextStream ts(&file);
@@ -88,7 +85,6 @@ int main(int argc, char *argv[])
             file.close();
         }
     }
-#endif
 
     QString locale = setting.value("settings/locale", "en").toString();
     Translator::init(locale.toStdString());
