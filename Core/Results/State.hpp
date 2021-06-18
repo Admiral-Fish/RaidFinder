@@ -24,26 +24,109 @@
 
 class State
 {
+
 public:
     State() = default;
-    explicit State(u64 seed, u32 advances);
-    u64 getSeed() const;
-    u32 getAdvances() const;
-    u32 getEC() const;
-    void setEC(u32 ec);
-    u32 getPID() const;
-    void setPID(u32 pid);
-    u8 getNature() const;
-    void setNature(u8 nature);
-    u8 getAbility() const;
-    void setAbility(u8 ability);
-    u8 getGender() const;
-    void setGender(u8 gender);
-    u8 getShiny() const;
-    void setShiny(u8 shiny);
-    u8 getIV(int index) const;
-    void setIV(int index, u8 iv);
-    u8 getCharacteristic() const;
+
+    explicit State(u64 seed, u32 advances) : seed(seed), advances(advances), ivs { 255, 255, 255, 255, 255, 255 }
+    {
+    }
+
+    u64 getSeed() const
+    {
+        return seed;
+    }
+
+    u32 getAdvances() const
+    {
+        return advances;
+    }
+
+    u32 getEC() const
+    {
+        return ec;
+    }
+
+    void setEC(u32 ec)
+    {
+        this->ec = ec;
+    }
+
+    u32 getPID() const
+    {
+        return pid;
+    }
+
+    void setPID(u32 pid)
+    {
+        this->pid = pid;
+    }
+
+    u8 getNature() const
+    {
+        return nature;
+    }
+
+    void setNature(u8 nature)
+    {
+        this->nature = nature;
+    }
+
+    u8 getAbility() const
+    {
+        return ability;
+    }
+
+    void setAbility(u8 ability)
+    {
+        this->ability = ability;
+    }
+
+    u8 getGender() const
+    {
+        return gender;
+    }
+
+    void setGender(u8 gender)
+    {
+        this->gender = gender;
+    }
+
+    u8 getShiny() const
+    {
+        return shiny;
+    }
+
+    void setShiny(u8 shiny)
+    {
+        this->shiny = shiny;
+    }
+    
+    u8 getIV(int index) const
+    {
+        return ivs[index];
+    }
+
+    void setIV(int index, u8 iv)
+    {
+        ivs[index] = iv;
+    }
+
+    u8 getCharacteristic() const
+    {
+        constexpr u8 order[6] = { 0, 1, 2, 5, 3, 4 };
+
+        u8 charStat = ec % 6;
+        for (u8 i = 0; i < 6; i++)
+        {
+            u8 stat = (charStat + i) % 6;
+            if (ivs[order[stat]] == 31)
+            {
+                return stat;
+            }
+        }
+        return charStat;
+    }
 
 private:
     u64 seed;

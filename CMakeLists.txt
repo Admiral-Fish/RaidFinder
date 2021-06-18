@@ -57,7 +57,6 @@ set(PROJECT_SOURCES
     Core/Results/PersonalInfo.cpp
     Core/Results/Profile.cpp
     Core/Results/Raid.cpp
-    Core/Results/State.cpp
     Core/StateFilter.cpp
     Core/Util/IVChecker.cpp
     Core/Util/Nature.cpp
