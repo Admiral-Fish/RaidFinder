@@ -123,7 +123,7 @@
     <message>
         <location filename="../Forms/Tools/EncounterLookup.ui"/>
         <source>Crown Tundra</source>
-        <translation type="unfinished"></translation>
+        <translation>冠之雪原</translation>
     </message>
 </context>
 <context>
@@ -237,17 +237,17 @@
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Add Row</source>
-        <translation type="unfinished"></translation>
+        <translation>添加行</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Delete Row</source>
-        <translation type="unfinished"></translation>
+        <translation>删除行</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/IVCalculator.ui"/>
         <source>Level</source>
-        <translation type="unfinished">等级</translation>
+        <translation>等级</translation>
     </message>
 </context>
 <context>
@@ -791,77 +791,77 @@
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Settings</source>
-        <translation type="unfinished">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>修改</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Dark</source>
-        <translation type="unfinished">黑暗</translation>
+        <translation>黑暗</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Light</source>
-        <translation type="unfinished">明亮</translation>
+        <translation>明亮</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Style</source>
-        <translation type="unfinished">风格</translation>
+        <translation>风格</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Chinese</source>
-        <translation type="unfinished">简体中文</translation>
+        <translation>简体中文</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Chinese Traditional</source>
-        <translation type="unfinished">繁体中文</translation>
+        <translation>繁体中文</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>English</source>
-        <translation type="unfinished">英语</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>French</source>
-        <translation type="unfinished">法语</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>German</source>
-        <translation type="unfinished">德语</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Italian</source>
-        <translation type="unfinished">意大利语</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Japanese</source>
-        <translation type="unfinished">日语</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Korean</source>
-        <translation type="unfinished">韩语</translation>
+        <translation>韩语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Portuguese</source>
-        <translation type="unfinished">葡萄牙语</translation>
+        <translation>葡萄牙语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Spanish</source>
-        <translation type="unfinished">西班牙语</translation>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
@@ -871,23 +871,23 @@
     <message>
         <location filename="../Forms/Tools/Settings.ui"/>
         <source>Language</source>
-        <translation type="unfinished">语言</translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="105"/>
         <source>Language update</source>
-        <translation type="unfinished">更新语言</translation>
+        <translation>更新语言</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="105"/>
         <location filename="../Forms/Tools/Settings.cpp" line="126"/>
         <source>Restart for changes to take effect. Restart now?</source>
-        <translation type="unfinished">重启以使设置生效，现在重启吗？</translation>
+        <translation>重启以使设置生效，现在重启吗？</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="126"/>
         <source>Style change</source>
-        <translation type="unfinished">改变风格</translation>
+        <translation>改变风格</translation>
     </message>
     <message>
         <location filename="../Forms/Tools/Settings.cpp" line="146"/>
@@ -905,17 +905,17 @@
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>Square</source>
-        <translation type="unfinished">方块</translation>
+        <translation>方块</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>Star</source>
-        <translation type="unfinished">星星</translation>
+        <translation>星星</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.cpp" line="89"/>
         <source>No</source>
-        <translation type="unfinished">否</translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
@@ -925,72 +925,72 @@
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>HP</source>
-        <translation type="unfinished">HP</translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>Atk</source>
-        <translation type="unfinished">攻击</translation>
+        <translation>攻击</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>Def</source>
-        <translation type="unfinished">防御</translation>
+        <translation>防御</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>SpA</source>
-        <translation type="unfinished">特攻</translation>
+        <translation>特攻</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="43"/>
         <source>SpD</source>
-        <translation type="unfinished">特防</translation>
+        <translation>特防</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Spe</source>
-        <translation type="unfinished">速度</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Shiny</source>
-        <translation type="unfinished">异色</translation>
+        <translation>异色</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Nature</source>
-        <translation type="unfinished">性格</translation>
+        <translation>性格</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Ability</source>
-        <translation type="unfinished">特性</translation>
+        <translation>特性</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Gender</source>
-        <translation type="unfinished">性别</translation>
+        <translation>性别</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="44"/>
         <source>Characteristic</source>
-        <translation type="unfinished">个性</translation>
+        <translation>个性</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>Seed</source>
-        <translation type="unfinished">Seed</translation>
+        <translation>Seed</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>EC</source>
-        <translation type="unfinished">加密常数</translation>
+        <translation>加密常数</translation>
     </message>
     <message>
         <location filename="../Models/StateModel.hpp" line="45"/>
         <source>PID</source>
-        <translation type="unfinished">PID</translation>
+        <translation>PID</translation>
     </message>
 </context>
 </TS>
