@@ -21,7 +21,7 @@
 #include <Core/Resources.hpp>
 #include <fstream>
 #include <map>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 // Normal hash, rare hash, location, x, y
 constexpr u64 denInfo[276][5] = {

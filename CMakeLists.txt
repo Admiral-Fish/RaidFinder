@@ -5,6 +5,8 @@ add_compile_definitions(VERSION="2.7.1")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
+include_directories(Externals/nlohmann)
+
 include(EmbedTranslations)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -31,7 +33,7 @@ set(PROJECT_TS
 )
 	
 set(PROJECT_QRC
-    QDarkStyleSheet/qdarkstyle/style.qrc
+    Externals/QDarkStyleSheet/qdarkstyle/dark/style.qrc
     resources.qrc
 )
 
@@ -56,7 +58,6 @@ set(PROJECT_SOURCES
     Core/Results/PersonalInfo.cpp
     Core/Results/Profile.cpp
     Core/Results/Raid.cpp
-    Core/Results/State.cpp
     Core/StateFilter.cpp
     Core/Util/IVChecker.cpp
     Core/Util/Nature.cpp

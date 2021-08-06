@@ -19,7 +19,7 @@
 
 #include "ProfileLoader.hpp"
 #include <fstream>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 #include <sstream>
 
 namespace

@@ -1,5 +1,5 @@
 [submodule "QDarkStyleSheet"]
-	path = QDarkStyleSheet
+	path = Externals/QDarkStyleSheet
 	url = https://github.com/ColinDuquesnoy/QDarkStyleSheet
 [submodule "flatbuffers"]
 	path = flatbuffers
