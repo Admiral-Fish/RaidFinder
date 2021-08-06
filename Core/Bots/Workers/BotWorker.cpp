@@ -221,7 +221,7 @@ void BotWorker::starFinder()
         if(abort)
             break;
 
-        denData = raidBot.readDen(denID);
+        denData = raidBot.readDen(denID == 65535 ? 0 : denID);
 
         int rank = denData.at(0x10);
         int randroll = denData.at(0x11);
