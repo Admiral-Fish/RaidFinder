@@ -47,3 +47,4 @@
 210604_venusaur.bin,3
 210625_grapploct.bin,853
 210709_wobbuffet.bin,202
+210806_rotom.bin,479
