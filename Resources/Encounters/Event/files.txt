@@ -48,3 +48,4 @@
 210625_grapploct.bin,853
 210709_wobbuffet.bin,202
 210806_rotom.bin,479
+210821_drifblim.bin,426
