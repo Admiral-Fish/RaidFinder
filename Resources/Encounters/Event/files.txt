@@ -47,6 +47,7 @@
 210604_venusaur.bin,3
 210625_grapploct.bin,853
 210709_wobbuffet.bin,202
+210723_aerodactyl.bin,142
 210806_rotom.bin,479
 210821_drifblim.bin,426
 210903_wimpod.bin,767
