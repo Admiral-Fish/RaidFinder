@@ -51,3 +51,4 @@
 210806_rotom.bin,479
 210821_drifblim.bin,426
 210903_wimpod.bin,767
+210917_solrock.bin,338
