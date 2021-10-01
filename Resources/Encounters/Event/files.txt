@@ -52,3 +52,4 @@
 210821_drifblim.bin,426
 210903_wimpod.bin,767
 210917_solrock.bin,338
+210930_popplio.bin,728
