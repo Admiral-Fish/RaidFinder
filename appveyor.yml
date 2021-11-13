@@ -1,11 +1,9 @@
 environment:
   matrix:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-    QTPATH: C:\Qt\5.15\msvc2019_64
+    QTPATH: C:\Qt\6.2\msvc2019_64
     OpenSSL: C:\OpenSSL-v111-Win64\bin
     OS: win
-    VCVARSALLPATH: C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat
-    VCVARSALL: x64
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
     OS: linux
   - APPVEYOR_BUILD_WORKER_IMAGE: macos-mojave
@@ -17,19 +15,20 @@ install:
     
 before_build:
     - cmd: set PATH=%QTPATH%\bin;C:\Qt\Tools\QtCreator\bin;%PATH%
-    - cmd: call %VCVARSALLPATH% %VCVARSALL%
+    - cmd: call C:\"Program Files (x86)\Microsoft Visual Studio"\2019\Community\VC\Auxiliary\Build\vcvarsall.bat x64
     
 build_script:
     - mkdir build
     - cd build
     - cmd: cmake -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=RELEASE ../
     - sh: bash ../.ci/build.sh
-    - cmake --build .
+    - cmake --build . -j 4
     
 after_build:
+    - cd ..
     - cmd: md RaidFinder-windows
-    - cmd: move RaidFinder.exe RaidFinder-windows\RaidFinder.exe
-    - cmd: windeployqt --no-translations --no-angle --no-plugins --no-opengl-sw RaidFinder-windows\RaidFinder.exe
+    - cmd: move build\RaidFinder.exe RaidFinder-windows\RaidFinder.exe
+    - cmd: windeployqt --no-translations --no-plugins --no-opengl-sw --no-system-d3d-compiler RaidFinder-windows\RaidFinder.exe
     - cmd: del RaidFinder-windows\vc_redist*.exe
     - cmd: xcopy /I %QTPATH%\plugins\platforms\qwindows.dll RaidFinder-windows\platforms\
     - cmd: xcopy /I %QTPATH%\plugins\styles\qwindowsvistastyle.dll RaidFinder-windows\styles\
@@ -37,7 +36,7 @@ after_build:
     - cmd: xcopy /I %OpenSSL%\libssl*.dll RaidFinder-windows\
     - cmd: 7z a RaidFinder-%OS%.zip RaidFinder-windows\
     - cmd: sha256sum RaidFinder-%OS%.zip > RaidFinder-%OS%.zip.sha256
-    - sh: bash ../.ci/after_build.sh
+    - sh: bash .ci/after_build.sh
     
 artifacts:
 - path: build/RaidFinder-%OS%.zip
