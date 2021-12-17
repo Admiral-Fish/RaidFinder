@@ -55,3 +55,4 @@
 211001_popplio.bin,728
 211029_thievul.bin,828
 211119_sylveon.bin,700
+211217_delibird.bin,225
