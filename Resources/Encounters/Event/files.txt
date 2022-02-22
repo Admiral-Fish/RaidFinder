@@ -57,3 +57,4 @@
 211119_sylveon.bin,700
 211217_delibird.bin,225
 220101_darmanitan.bin,555
+220222_blastoise.bin,9
