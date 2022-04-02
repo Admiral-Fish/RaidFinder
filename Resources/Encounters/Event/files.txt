@@ -59,3 +59,4 @@
 220101_darmanitan.bin,555
 220222_blastoise.bin,9
 220318_tyrantrum.bin,697
+220401_sudowoodo.bin,185
