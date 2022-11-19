@@ -61,3 +61,6 @@
 220318_tyrantrum.bin,697
 220401_sudowoodo.bin,185
 220812_grimmsnarl.bin,861
+220909_snom.bin,872
+221021_spectrier.bin,897
+221101_lapras.bin,131
